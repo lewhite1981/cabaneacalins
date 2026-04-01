@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Charte Graphique — Cabane à Câlin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+Garamond:wght@400;600&family=Nunito:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --terracotta:  #C1694F;
+      --creme:       #FAF3E0;
+      --sauge:       #7B9E87;
+      --brun:        #6B4F3A;
+      --peche:       #F2C9A0;
+      --blanc:       #FFFDF7;
+      --radius:      14px;
+    }
+
+    body {
+      background: var(--blanc);
+      font-family: 'Lato', sans-serif;
+      color: var(--brun);
+      padding: 0 0 80px;
+    }
+
+    /* ── HEADER ─────────────────────────────────────────── */
+    header {
+      background: var(--creme);
+      border-bottom: 3px solid var(--peche);
+      padding: 52px 60px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '🐾';
+      font-size: 120px;
+      position: absolute;
+      right: 60px;
+      top: 10px;
+      opacity: 0.12;
+    }
+    header .brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--terracotta);
+      letter-spacing: -0.5px;
+    }
+    header .tagline {
+      font-family: 'Nunito', sans-serif;
+      font-size: 15px;
+      color: var(--brun);
+      opacity: 0.7;
+      margin-top: 6px;
+      letter-spacing: 0.5px;
+    }
+    header .badge {
+      display: inline-block;
+      margin-top: 18px;
+      background: var(--terracotta);
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 50px;
+    }
+
+    /* ── LAYOUT ─────────────────────────────────────────── */
+    main { max-width: 1100px; margin: 0 auto; padding: 60px 40px 0; }
+
+    section { margin-bottom: 72px; }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--brun);
+      margin-bottom: 28px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--peche);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title span { font-size: 20px; }
+
+    /* ── COULEURS ───────────────────────────────────────── */
+    .colors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 20px;
+    }
+    .color-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(107,79,58,.10);
+      transition: transform .2s;
+    }
+    .color-card:hover { transform: translateY(-4px); }
+    .color-swatch {
+      height: 110px;
+      width: 100%;
+    }
+    .color-info {
+      background: #fff;
+      padding: 14px 16px;
+    }
+    .color-name {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--brun);
+    }
+    .color-hex {
+      font-family: 'Lato', monospace;
+      font-size: 12px;
+      color: #999;
+      margin-top: 3px;
+    }
+    .color-role {
+      font-family: 'Lato', sans-serif;
+      font-size: 11px;
+      color: #bbb;
+      margin-top: 4px;
+    }
+
+    /* ── TYPOGRAPHIE ────────────────────────────────────── */
+    .typo-block {
+      background: var(--creme);
+      border-radius: var(--radius);
+      padding: 36px 40px;
+      margin-bottom: 20px;
+    }
+    .typo-label {
+      font-family: 'Nunito', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--terracotta);
+      margin-bottom: 16px;
+    }
+    .typo-h1 { font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 700; color: var(--brun); line-height: 1.15; }
+    .typo-h2 { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 600; color: var(--brun); margin-top: 14px; }
+    .typo-h3 { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-style: italic; color: var(--terracotta); margin-top: 10px; }
+    .typo-sub { font-family: 'Nunito', sans-serif; font-size: 18px; font-weight: 600; color: var(--sauge); margin-top: 10px; }
+    .typo-body { font-family: 'Lato', sans-serif; font-size: 16px; color: var(--brun); line-height: 1.75; margin-top: 12px; max-width: 620px; }
+    .typo-small { font-family: 'Lato', sans-serif; font-size: 13px; color: #999; line-height: 1.6; margin-top: 8px; }
+
+    /* ── BOUTONS ────────────────────────────────────────── */
+    .buttons-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: center;
+      margin-top: 8px;
+    }
+    .btn {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 28px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      letter-spacing: 0.3px;
+      transition: all .2s;
+    }
+    .btn-primary {
+      background: var(--terracotta);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(193,105,79,.28);
+    }
+    .btn-primary:hover { background: #ad5a3e; transform: translateY(-2px); }
+
+    .btn-secondary {
+      background: var(--sauge);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(123,158,135,.25);
+    }
+    .btn-secondary:hover { background: #6a8d74; transform: translateY(-2px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--terracotta);
+      border: 2px solid var(--terracotta);
+    }
+    .btn-outline:hover { background: var(--terracotta); color: #fff; }
+
+    .btn-ghost {
+      background: var(--peche);
+      color: var(--brun);
+    }
+    .btn-ghost:hover { background: #e8b88a; }
+
+    .btn-sm {
+      font-size: 12px;
+      padding: 9px 18px;
+    }
+
+    /* ── CARDS & UI ─────────────────────────────────────── */
+    .ui-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: 0 2px 16px rgba(107,79,58,.09);
+      border: 1px solid rgba(242,201,160,.4);
+      transition: box-shadow .2s, transform .2s;
+    }
+    .card:hover { box-shadow: 0 8px 28px rgba(107,79,58,.15); transform: translateY(-3px); }
+
+    .card-icon { font-size: 32px; margin-bottom: 14px; }
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--brun);
+      margin-bottom: 8px;
+    }
+    .card-text {
+      font-family: 'Lato', sans-serif;
+      font-size: 14px;
+      color: #888;
+      line-height: 1.65;
+    }
+    .card-tag {
+      display: inline-block;
+      margin-top: 16px;
+      background: var(--creme);
+      color: var(--terracotta);
+      font-family: 'Nunito', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 50px;
+    }
+
+    /* ── BADGE / TAGS ───────────────────────────────────── */
+    .tags-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+    .tag {
+      font-family: 'Nunito', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 50px;
+    }
+    .tag-terra  { background: var(--terracotta); color: #fff; }
+    .tag-sauge  { background: var(--sauge); color: #fff; }
+    .tag-peche  { background: var(--peche); color: var(--brun); }
+    .tag-brun   { background: var(--brun); color: #fff; }
+    .tag-outline { background: transparent; border: 1.5px solid var(--terracotta); color: var(--terracotta); }
+
+    /* ── INPUTS ─────────────────────────────────────────── */
+    .input-demo {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      max-width: 480px;
+    }
+    .field label {
+      display: block;
+      font-family: 'Nunito', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--brun);
+      margin-bottom: 7px;
+    }
+    .field input, .field textarea, .field select {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1.5px solid #e0d5c5;
+      border-radius: 10px;
+      font-family: 'Lato', sans-serif;
+      font-size: 14px;
+      color: var(--brun);
+      background: #fff;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .field input:focus, .field textarea:focus, .field select:focus {
+      border-color: var(--terracotta);
+      box-shadow: 0 0 0 3px rgba(193,105,79,.12);
+    }
+    .field textarea { resize: vertical; min-height: 90px; }
+
+    /* ── ALERT / NOTICE ─────────────────────────────────── */
+    .alerts { display: flex; flex-direction: column; gap: 14px; }
+    .alert {
+      padding: 15px 20px;
+      border-radius: 10px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .alert-success { background: rgba(123,158,135,.15); color: #4a7a5f; border-left: 4px solid var(--sauge); }
+    .alert-info    { background: rgba(242,201,160,.3); color: var(--brun); border-left: 4px solid var(--peche); }
+    .alert-warm    { background: rgba(193,105,79,.12); color: #943f2a; border-left: 4px solid var(--terracotta); }
+
+    /* ── FOOTER ─────────────────────────────────────────── */
+    footer {
+      margin-top: 80px;
+      background: var(--brun);
+      color: rgba(255,255,255,.6);
+      text-align: center;
+      padding: 28px 20px;
+      font-family: 'Lato', sans-serif;
+      font-size: 13px;
+    }
+    footer strong { color: var(--peche); }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="brand">Cabane à Câlin 🐾</div>
+  <div class="tagline">Garde d'animaux de compagnie — Charte graphique officielle</div>
+  <div class="badge">Design System v1.0</div>
+</header>
+
+<main>
+
+  <!-- 1. COULEURS -->
+  <section>
+    <h2 class="section-title"><span>🎨</span> Palette de couleurs</h2>
+    <div class="colors-grid">
+      <div class="color-card">
+        <div class="color-swatch" style="background:#C1694F;"></div>
+        <div class="color-info">
+          <div class="color-name">Terracotta chaud</div>
+          <div class="color-hex">#C1694F</div>
+          <div class="color-role">Couleur principale / CTA</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background:#FAF3E0;"></div>
+        <div class="color-info">
+          <div class="color-name">Crème ivoire</div>
+          <div class="color-hex">#FAF3E0</div>
+          <div class="color-role">Fond principal</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background:#7B9E87;"></div>
+        <div class="color-info">
+          <div class="color-name">Vert sauge</div>
+          <div class="color-hex">#7B9E87</div>
+          <div class="color-role">Secondaire / nature</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background:#6B4F3A;"></div>
+        <div class="color-info">
+          <div class="color-name">Brun boisé</div>
+          <div class="color-hex">#6B4F3A</div>
+          <div class="color-role">Textes / ancrage</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background:#F2C9A0;"></div>
+        <div class="color-info">
+          <div class="color-name">Pêche nude</div>
+          <div class="color-hex">#F2C9A0</div>
+          <div class="color-role">Accent / touches douces</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background:#FFFDF7; border: 1px solid #eee;"></div>
+        <div class="color-info">
+          <div class="color-name">Blanc cassé</div>
+          <div class="color-hex">#FFFDF7</div>
+          <div class="color-role">Arrière-plans propres</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. TYPOGRAPHIE -->
+  <section>
+    <h2 class="section-title"><span>🔤</span> Typographies</h2>
+    <div class="typo-block">
+      <div class="typo-label">Playfair Display — Titres principaux (H1)</div>
+      <div class="typo-h1">Vos animaux, choyés comme à la maison.</div>
+      <div class="typo-label" style="margin-top:28px;">Playfair Display — Sous-titres (H2)</div>
+      <div class="typo-h2">Une garde pensée avec amour</div>
+      <div class="typo-label" style="margin-top:24px;">Cormorant Garamond — Accroches italiques (H3)</div>
+      <div class="typo-h3">Parce qu'ils méritent le meilleur…</div>
+      <div class="typo-label" style="margin-top:24px;">Nunito — Sous-titres & UI</div>
+      <div class="typo-sub">Service de garde familial & sécurisé</div>
+      <div class="typo-label" style="margin-top:24px;">Lato — Corps de texte</div>
+      <div class="typo-body">Pendant vos absences, voyages ou longues journées de travail, vos animaux de compagnie sont accueillis dans un environnement chaleureux, familial et sécurisant. Ils sont traités avec toute l'attention et l'amour qu'ils méritent.</div>
+      <div class="typo-label" style="margin-top:20px;">Lato Light — Textes secondaires</div>
+      <div class="typo-small">Disponible 7j/7 · Chiens & chats bienvenus · Tarifs transparents · Réservation en ligne</div>
+    </div>
+  </section>
+
+  <!-- 3. BOUTONS -->
+  <section>
+    <h2 class="section-title"><span>🖱️</span> Boutons</h2>
+    <div class="buttons-row">
+      <button class="btn btn-primary">Réserver maintenant</button>
+      <button class="btn btn-secondary">En savoir plus</button>
+      <button class="btn btn-outline">Nous contacter</button>
+      <button class="btn btn-ghost">Voir les tarifs</button>
+    </div>
+    <div class="buttons-row" style="margin-top:16px;">
+      <button class="btn btn-primary btn-sm">Réserver</button>
+      <button class="btn btn-secondary btn-sm">Services</button>
+      <button class="btn btn-outline btn-sm">Contact</button>
+    </div>
+  </section>
+
+  <!-- 4. BADGES & TAGS -->
+  <section>
+    <h2 class="section-title"><span>🏷️</span> Badges & Tags</h2>
+    <div class="tags-row">
+      <span class="tag tag-terra">Disponible</span>
+      <span class="tag tag-sauge">Certifié</span>
+      <span class="tag tag-peche">Nouveauté</span>
+      <span class="tag tag-brun">Premium</span>
+      <span class="tag tag-outline">Chiens &amp; Chats</span>
+      <span class="tag tag-terra">7j/7</span>
+      <span class="tag tag-sauge">Famille d'accueil</span>
+    </div>
+  </section>
+
+  <!-- 5. CARDS -->
+  <section>
+    <h2 class="section-title"><span>🃏</span> Cartes de service</h2>
+    <div class="ui-grid">
+      <div class="card">
+        <div class="card-icon">🏠</div>
+        <div class="card-title">Hébergement à domicile</div>
+        <div class="card-text">Votre animal reste dans un foyer chaleureux pendant toute la durée de votre absence. Câlins et jeux garantis.</div>
+        <span class="card-tag">Populaire</span>
+      </div>
+      <div class="card">
+        <div class="card-icon">🐕</div>
+        <div class="card-title">Promenade quotidienne</div>
+        <div class="card-text">Des sorties adaptées à la race et à l'énergie de votre chien, dans un environnement sécurisé et bienveillant.</div>
+        <span class="card-tag">Disponible</span>
+      </div>
+      <div class="card">
+        <div class="card-icon">🐈</div>
+        <div class="card-title">Visite à votre domicile</div>
+        <div class="card-text">Pour les chats ou animaux qui préfèrent rester chez eux, nous venons prendre soin d'eux à votre adresse.</div>
+        <span class="card-tag">Chats</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. FORMULAIRE -->
+  <section>
+    <h2 class="section-title"><span>📝</span> Éléments de formulaire</h2>
+    <div class="input-demo">
+      <div class="field">
+        <label>Nom du propriétaire</label>
+        <input type="text" placeholder="Ex : Marie Dupont" />
+      </div>
+      <div class="field">
+        <label>Type d'animal</label>
+        <select>
+          <option>Chien</option>
+          <option>Chat</option>
+          <option>Autre</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Dates de garde souhaitées</label>
+        <input type="text" placeholder="Ex : 10 au 17 avril 2026" />
+      </div>
+      <div class="field">
+        <label>Message / besoins particuliers</label>
+        <textarea placeholder="Mon chien prend un médicament le matin, il aime…"></textarea>
+      </div>
+      <button class="btn btn-primary" style="align-self:flex-start;">Envoyer ma demande</button>
+    </div>
+  </section>
+
+  <!-- 7. ALERTES -->
+  <section>
+    <h2 class="section-title"><span>💬</span> Alertes & Notifications</h2>
+    <div class="alerts">
+      <div class="alert alert-success">✅ Votre réservation a bien été confirmée ! Nous avons hâte d'accueillir votre compagnon.</div>
+      <div class="alert alert-info">🐾 Nouveau : la garde de nuit est désormais disponible tous les week-ends !</div>
+      <div class="alert alert-warm">⚠️ Plus que 2 places disponibles pour les dates du 15 au 20 avril. Réservez vite !</div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Charte graphique · <strong>Cabane à Câlin</strong> · Design System v1.0 · 2026
+</footer>
+
+</body>
+</html>
