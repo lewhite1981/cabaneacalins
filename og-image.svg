@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2E2A25"/>
+      <stop offset="60%" style="stop-color:#3d3328"/>
+      <stop offset="100%" style="stop-color:#5a3d28"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#C97B5A;stop-opacity:0.18"/>
+      <stop offset="100%" style="stop-color:#C97B5A;stop-opacity:0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Radial glow -->
+  <ellipse cx="900" cy="315" rx="480" ry="380" fill="url(#accent)"/>
+
+  <!-- Decorative circles -->
+  <circle cx="980" cy="120" r="180" fill="none" stroke="#C97B5A" stroke-width="1" opacity="0.12"/>
+  <circle cx="980" cy="120" r="120" fill="none" stroke="#C97B5A" stroke-width="1" opacity="0.1"/>
+  <circle cx="980" cy="120" r="60"  fill="none" stroke="#C97B5A" stroke-width="1" opacity="0.15"/>
+
+  <!-- Left accent bar -->
+  <rect x="80" y="200" width="4" height="100" rx="2" fill="#C97B5A"/>
+
+  <!-- Tag label -->
+  <text x="100" y="240" font-family="Georgia, serif" font-size="18" fill="#C97B5A" letter-spacing="4" opacity="0.9">SERVICE DE GARDE D'ANIMAUX</text>
+
+  <!-- Main title -->
+  <text x="96" y="325" font-family="Georgia, 'Times New Roman', serif" font-size="88" font-weight="bold" fill="#F5EFE0" letter-spacing="-1">Cabane à Câlin</text>
+
+  <!-- Tagline -->
+  <text x="100" y="390" font-family="Georgia, serif" font-size="28" fill="#F5EFE0" opacity="0.6" font-weight="300">Vos animaux choyés comme à la maison — avec amour &amp; attention.</text>
+
+  <!-- Bottom sale badge -->
+  <rect x="100" y="460" width="260" height="44" rx="22" fill="#C97B5A"/>
+  <text x="230" y="487" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle" letter-spacing="0.5">🏷️  PROJET À VENDRE</text>
+
+  <!-- Paw prints decorative -->
+  <text x="1050" y="520" font-size="52" opacity="0.08" fill="#F5EFE0">🐾</text>
+  <text x="1090" y="440" font-size="32" opacity="0.06" fill="#F5EFE0">🐾</text>
+  <text x="1020" y="580" font-size="28" opacity="0.05" fill="#F5EFE0">🐾</text>
+
+  <!-- URL -->
+  <text x="100" y="590" font-family="Arial, sans-serif" font-size="16" fill="#F5EFE0" opacity="0.3" letter-spacing="1">cabaneacalin.fr</text>
+</svg>

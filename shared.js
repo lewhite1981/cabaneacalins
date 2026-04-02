@@ -1,0 +1,394 @@
+/* =============================================
+   CABANE À CÂLIN — Shared JS: animations & FX
+   ============================================= */
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  /* ── 1. SCROLL REVEAL ── */
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
+
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger-list')
+    .forEach(el => revealObs.observe(el));
+
+
+  /* ── 2. NAV SCROLL SHADOW ── */
+  const nav = document.querySelector('nav');
+  if (nav) {
+    const onScroll = () => {
+      if (window.scrollY > 10) {
+        nav.style.boxShadow = '0 4px 32px rgba(46,42,37,0.12)';
+        nav.style.background = 'rgba(245,239,224,0.98)';
+      } else {
+        nav.style.boxShadow = 'none';
+        nav.style.background = 'rgba(245,239,224,0.92)';
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+
+  /* ── 3. COUNTER ANIMATION ── */
+  function animateCounter(el) {
+    const raw    = el.dataset.target || '0';
+    const target = parseFloat(raw.replace(/[^0-9.]/g, ''));
+    const suffix = el.dataset.suffix || '';
+    const prefix = el.dataset.prefix || '';
+    const isFloat = raw.includes('.');
+    const duration = 2200;
+    const startTime = performance.now();
+
+    const ease = t => 1 - Math.pow(1 - t, 4);
+
+    const tick = (now) => {
+      const t = Math.min((now - startTime) / duration, 1);
+      const val = target * ease(t);
+      el.textContent = prefix + (isFloat ? val.toFixed(1) : Math.round(val)) + suffix;
+      if (t < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+
+  const counterObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting && !e.target.dataset.counted) {
+        e.target.dataset.counted = 'yes';
+        animateCounter(e.target);
+        counterObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.6 });
+
+  document.querySelectorAll('.counter').forEach(el => counterObs.observe(el));
+
+
+  /* ── 4. 3D TILT CARDS ── */
+  document.querySelectorAll('.tilt-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const r  = card.getBoundingClientRect();
+      const x  = (e.clientX - r.left) / r.width  - 0.5;
+      const y  = (e.clientY - r.top)  / r.height - 0.5;
+      card.style.transform = `perspective(700px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg) translateY(-6px) scale(1.02)`;
+      card.style.boxShadow = `${-x * 16}px ${y * -8}px 40px rgba(201,123,90,0.18)`;
+      card.style.transition = 'none';
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+      card.style.boxShadow = '';
+      card.style.transition = 'transform 0.6s cubic-bezier(0.16,1,0.3,1), box-shadow 0.6s ease';
+    });
+  });
+
+
+  /* ── 5. MAGNETIC BUTTONS ── */
+  document.querySelectorAll('.magnetic').forEach(btn => {
+    const strength = parseFloat(btn.dataset.strength || '0.3');
+    btn.addEventListener('mousemove', (e) => {
+      const r = btn.getBoundingClientRect();
+      const x = (e.clientX - r.left - r.width  / 2) * strength;
+      const y = (e.clientY - r.top  - r.height / 2) * strength;
+      btn.style.transform = `translate(${x}px, ${y}px)`;
+      btn.style.transition = 'transform 0.15s ease';
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = '';
+      btn.style.transition = 'transform 0.5s cubic-bezier(0.16,1,0.3,1)';
+    });
+  });
+
+
+  /* ── 6. RIPPLE EFFECT ── */
+  const rippleStyle = document.createElement('style');
+  rippleStyle.textContent = `@keyframes rippleAnim { 0%{transform:scale(0);opacity:1} 100%{transform:scale(3);opacity:0} }`;
+  document.head.appendChild(rippleStyle);
+
+  document.querySelectorAll('.ripple').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const r    = btn.getBoundingClientRect();
+      const size = Math.max(r.width, r.height);
+      const dot  = document.createElement('span');
+      dot.style.cssText = `
+        position:absolute; width:${size}px; height:${size}px;
+        border-radius:50%; background:rgba(255,255,255,0.28);
+        top:${e.clientY - r.top  - size / 2}px;
+        left:${e.clientX - r.left - size / 2}px;
+        transform:scale(0); animation:rippleAnim 0.65s ease-out forwards;
+        pointer-events:none; z-index:10;
+      `;
+      btn.appendChild(dot);
+      setTimeout(() => dot.remove(), 700);
+    });
+  });
+
+
+  /* ── 7. CURSOR GLOW ── */
+  const glow = document.createElement('div');
+  glow.id = 'cursor-glow';
+  document.body.appendChild(glow);
+  document.addEventListener('mousemove', (e) => {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top  = e.clientY + 'px';
+  });
+
+
+  /* ── 8. READ PROGRESS BAR ── */
+  const bar = document.createElement('div');
+  bar.id = 'read-progress';
+  document.body.appendChild(bar);
+  window.addEventListener('scroll', () => {
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = total > 0 ? (window.scrollY / total * 100) + '%' : '0%';
+  }, { passive: true });
+
+
+  /* ── 9. HERO CHAR ANIMATION ── */
+  document.querySelectorAll('.char-animate').forEach(el => {
+    const text = el.innerHTML;
+    // Only split text nodes, preserve tags
+    const words = text.split(/(\s+)/);
+    el.innerHTML = words.map(w =>
+      w.trim() ? `<span style="animation-delay:${Math.random() * 0.4}s">${w}</span>` : w
+    ).join('');
+  });
+
+
+  /* ── 10. FOOTER YEAR ── */
+  const yr = document.getElementById('footer-year');
+  if (yr) yr.textContent = new Date().getFullYear();
+
+
+  /* ── 11. PARALLAX LIGHT (hero) ── */
+  const parallaxEls = document.querySelectorAll('.parallax-slow');
+  if (parallaxEls.length) {
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      parallaxEls.forEach(el => {
+        const speed = parseFloat(el.dataset.speed || '0.15');
+        el.style.transform = `translateY(${y * speed}px)`;
+      });
+    }, { passive: true });
+  }
+
+
+  /* ── 12. SMOOTH SECTION COLOR TRANSITIONS ── */
+  // Observe sections and subtly shift body background
+  const sectionObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const bg = e.target.dataset.scrollBg;
+        if (bg) document.body.style.transition = 'background 0.8s ease';
+      }
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('section[data-scroll-bg]').forEach(s => sectionObs.observe(s));
+
+
+  /* ── 13. MARQUEE PAUSE ON HOVER ── */
+  document.querySelectorAll('.marquee-inner').forEach(el => {
+    el.addEventListener('mouseenter', () => el.style.animationPlayState = 'paused');
+    el.addEventListener('mouseleave', () => el.style.animationPlayState = 'running');
+  });
+
+
+  /* ── 14. HAMBURGER MOBILE MENU ── */
+  const toggle  = document.getElementById('navToggle');
+  const links   = document.getElementById('navLinks');
+  const overlay = document.getElementById('navOverlay');
+  const banner  = document.getElementById('saleBanner');
+
+  function closeMenu() {
+    if (!toggle) return;
+    toggle.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    links && links.classList.remove('open');
+    overlay && overlay.classList.remove('open');
+    document.body.classList.remove('menu-open');
+    // Recalculate nav top based on banner visibility
+    adjustNavTop();
+  }
+
+  function adjustNavTop() {
+    if (!nav) return;
+    const bannerH = banner && banner.style.display !== 'none' ? (banner.offsetHeight || 44) : 0;
+    if (window.innerWidth <= 767) {
+      nav.style.top = '0px';
+    } else {
+      nav.style.top = bannerH + 'px';
+    }
+    const progressBar = document.getElementById('read-progress');
+    if (progressBar) {
+      progressBar.style.top = window.innerWidth <= 767 ? '60px' : (bannerH + 72) + 'px';
+    }
+  }
+
+  if (toggle && links) {
+    toggle.addEventListener('click', () => {
+      const isOpen = links.classList.contains('open');
+      if (isOpen) {
+        closeMenu();
+      } else {
+        toggle.classList.add('open');
+        toggle.setAttribute('aria-expanded', 'true');
+        links.classList.add('open');
+        overlay && overlay.classList.add('open');
+        document.body.classList.add('menu-open');
+      }
+    });
+
+    overlay && overlay.addEventListener('click', closeMenu);
+
+    // Close on link click
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+    // Close on Escape
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+  }
+
+  // Initial nav top adjustment
+  adjustNavTop();
+  window.addEventListener('resize', adjustNavTop);
+
+
+  /* ── 15. SALE BANNER CLOSE — adjust nav ── */
+  const bannerCloseBtn = document.querySelector('.sale-banner-close');
+  if (bannerCloseBtn) {
+    bannerCloseBtn.addEventListener('click', () => {
+      setTimeout(adjustNavTop, 50);
+    });
+  }
+
+
+  /* ── 16. RGPD COOKIE BANNER ── */
+  if (!localStorage.getItem('cac_cookie_consent')) {
+    const cookieBanner = document.createElement('div');
+    cookieBanner.id = 'cookie-banner';
+    cookieBanner.innerHTML = `
+      <div class="cookie-inner">
+        <div class="cookie-text">
+          <strong>🍪 Cookies & confidentialité</strong>
+          <p>Ce site utilise des cookies fonctionnels pour améliorer votre expérience. Aucune donnée n'est vendue à des tiers. <a href="terms-and-conditions.html">En savoir plus</a></p>
+        </div>
+        <div class="cookie-actions">
+          <button id="cookie-accept" class="cookie-btn cookie-btn-accept">Accepter</button>
+          <button id="cookie-decline" class="cookie-btn cookie-btn-decline">Refuser</button>
+        </div>
+      </div>
+    `;
+    const style = document.createElement('style');
+    style.textContent = `
+      #cookie-banner {
+        position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000;
+        background: rgba(46,42,37,0.97); backdrop-filter: blur(16px);
+        border-top: 1px solid rgba(201,123,90,0.25);
+        padding: 16px 24px; color: #f5efe0;
+        animation: slideUpCookie 0.4s cubic-bezier(0.16,1,0.3,1) both;
+      }
+      @keyframes slideUpCookie { from { transform: translateY(100%); opacity: 0; } to { transform: none; opacity: 1; } }
+      .cookie-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+      .cookie-text { flex: 1; min-width: 240px; }
+      .cookie-text strong { font-size: 14px; color: #f5efe0; }
+      .cookie-text p { font-size: 12px; color: rgba(245,239,224,0.65); margin-top: 4px; line-height: 1.5; }
+      .cookie-text a { color: #C97B5A; text-decoration: underline; }
+      .cookie-actions { display: flex; gap: 10px; flex-shrink: 0; }
+      .cookie-btn { border: none; border-radius: 50px; padding: 10px 22px; font-family: 'Lato',sans-serif; font-size: 13px; font-weight: 700; cursor: pointer; min-height: 44px; transition: all .2s; }
+      .cookie-btn-accept { background: #C97B5A; color: #fff; }
+      .cookie-btn-accept:hover { background: #b8694a; }
+      .cookie-btn-decline { background: rgba(255,255,255,0.1); color: rgba(245,239,224,0.8); border: 1px solid rgba(255,255,255,0.15); }
+      .cookie-btn-decline:hover { background: rgba(255,255,255,0.18); }
+      @media (max-width: 767px) {
+        .cookie-inner { flex-direction: column; gap: 12px; }
+        .cookie-actions { width: 100%; }
+        .cookie-btn { flex: 1; }
+      }
+    `;
+    document.head.appendChild(style);
+    document.body.appendChild(cookieBanner);
+    const dismiss = (val) => {
+      localStorage.setItem('cac_cookie_consent', val);
+      cookieBanner.style.animation = 'slideUpCookie 0.3s reverse forwards';
+      setTimeout(() => cookieBanner.remove(), 350);
+    };
+    document.getElementById('cookie-accept').onclick  = () => dismiss('accepted');
+    document.getElementById('cookie-decline').onclick = () => dismiss('declined');
+  }
+
+
+  /* ── 17. WHATSAPP FLOATING CTA ── */
+  const waBtn = document.createElement('a');
+  waBtn.href   = 'https://wa.me/33600000000?text=Bonjour%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20Cabane%20%C3%A0%20C%C3%A2lin%20!';
+  waBtn.target = '_blank';
+  waBtn.rel    = 'noopener noreferrer';
+  waBtn.id     = 'whatsapp-btn';
+  waBtn.setAttribute('aria-label', 'Nous contacter sur WhatsApp');
+  waBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>`;
+  const waStyle = document.createElement('style');
+  waStyle.textContent = `
+    #whatsapp-btn {
+      position: fixed; left: 24px; bottom: 36px; z-index: 150;
+      width: 52px; height: 52px; border-radius: 50%;
+      background: #25D366;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.4);
+      transition: transform .25s, box-shadow .25s;
+    }
+    #whatsapp-btn:hover { transform: translateY(-4px) scale(1.08); box-shadow: 0 12px 36px rgba(37,211,102,0.5); }
+    @media (max-width: 767px) {
+      #whatsapp-btn { left: 16px; bottom: 70px; width: 48px; height: 48px; }
+    }
+  `;
+  document.head.appendChild(waStyle);
+  document.body.appendChild(waBtn);
+
+
+  /* ── 18. BACK TO TOP ── */
+  const topBtn = document.createElement('button');
+  topBtn.id = 'back-to-top';
+  topBtn.setAttribute('aria-label', 'Retour en haut');
+  topBtn.innerHTML = '↑';
+  const topStyle = document.createElement('style');
+  topStyle.textContent = `
+    #back-to-top {
+      position: fixed; right: 24px; bottom: 100px; z-index: 140;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: rgba(46,42,37,0.75); backdrop-filter: blur(8px);
+      border: 1.5px solid rgba(201,123,90,0.3);
+      color: #f5efe0; font-size: 18px; font-weight: 700;
+      cursor: pointer; opacity: 0; transform: translateY(12px);
+      transition: opacity .3s ease, transform .3s ease, background .2s;
+      pointer-events: none;
+    }
+    #back-to-top.visible { opacity: 1; transform: none; pointer-events: auto; }
+    #back-to-top:hover { background: #2E2A25; border-color: #C97B5A; }
+    @media (max-width: 767px) { #back-to-top { right: 16px; bottom: 80px; } }
+  `;
+  document.head.appendChild(topStyle);
+  document.body.appendChild(topBtn);
+  window.addEventListener('scroll', () => {
+    topBtn.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+  topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+
+  /* ── 16. MOBILE: make float-buy a bottom bar ── */
+  function checkMobileFloatBuy() {
+    const floatBuy = document.querySelector('.float-buy');
+    if (!floatBuy) return;
+    if (window.innerWidth <= 767) {
+      floatBuy.style.borderRadius = '0';
+    } else {
+      floatBuy.style.borderRadius = '50px';
+      floatBuy.style.bottom = '36px';
+      floatBuy.style.right  = '24px';
+      floatBuy.style.left   = 'auto';
+    }
+  }
+  checkMobileFloatBuy();
+  window.addEventListener('resize', checkMobileFloatBuy);
+
+});

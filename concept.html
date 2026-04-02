@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Le Concept — Cabane à Câlin</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- OpenGraph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://cabaneacalin.fr/concept.html" />
+  <meta property="og:title"       content="Le Concept — Cabane à Câlin" />
+  <meta property="og:description" content="Découvrez notre approche unique : accueil en maison familiale, communication transparente, suivi personnalisé. Une garde qui ressemble à une vraie maison." />
+  <meta property="og:image"       content="https://cabaneacalin.fr/og-image.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale"      content="fr_FR" />
+  <meta property="og:site_name"   content="Cabane à Câlin" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Le Concept — Cabane à Câlin" />
+  <meta name="twitter:description" content="Accueil familial authentique, communication transparente, journée type structurée. Notre approche bienveillante de la garde d'animaux." />
+  <meta name="twitter:image"       content="https://cabaneacalin.fr/og-image.svg" />
+
+  <!-- SEO -->
+  <meta name="description" content="Le concept Cabane à Câlin : garde d'animaux en maison familiale, photos quotidiennes, suivi personnalisé. Différent d'une pension traditionnelle." />
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <link rel="stylesheet" href="mobile.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --terra:#C97B5A; --terra-d:#b8694a; --sauge:#7A9E7E; --sauge-d:#6a8e6e;
+      --creme:#F5EFE0; --caramel:#8B5E3C; --brun:#2E2A25;
+      --white:#FFFFFF; --text:#5c524a; --light:#a09790;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--creme); color: var(--brun); font-family: 'Lato', sans-serif; font-size: 16px; line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+
+    /* BARRE D'ANNONCE */
+    .sale-banner { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: var(--brun); height: 44px; display: flex; align-items: center; justify-content: center; gap: 16px; }
+    .sale-banner-text { font-size: 13px; color: rgba(245,239,224,0.75); font-weight: 400; }
+    .sale-banner-text strong { color: var(--creme); font-weight: 700; }
+    .sale-banner-cta { background: var(--terra); color: var(--white); border-radius: 50px; padding: 5px 18px; font-size: 12px; font-weight: 700; transition: background .2s, transform .15s; white-space: nowrap; }
+    .sale-banner-cta:hover { background: var(--terra-d); transform: scale(1.04); }
+    .sale-banner-close { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); background: none; border: none; color: rgba(245,239,224,0.4); font-size: 18px; cursor: pointer; padding: 4px; transition: color .2s; }
+    .sale-banner-close:hover { color: var(--creme); }
+
+    /* BOUTON FLOTTANT */
+    .float-buy { position: fixed; right: 24px; bottom: 36px; z-index: 150; background: var(--brun); color: var(--white); border-radius: 50px; padding: 14px 22px; display: flex; align-items: center; gap: 10px; box-shadow: 0 8px 32px rgba(46,42,37,0.30); font-weight: 700; font-size: 14px; transition: transform .25s, box-shadow .25s, background .2s; text-decoration: none; }
+    .float-buy:hover { transform: translateY(-4px) scale(1.03); box-shadow: 0 14px 44px rgba(46,42,37,0.38); background: #1e1a16; }
+    .float-buy-icon { width: 32px; height: 32px; border-radius: 50%; background: var(--terra); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+    .float-buy-label { display: flex; flex-direction: column; line-height: 1.2; }
+    .float-buy-label span:first-child { font-size: 11px; color: rgba(255,255,255,0.55); font-weight: 400; }
+    .float-buy-label span:last-child { font-size: 14px; color: var(--white); font-weight: 700; }
+    .float-buy-arrow { font-size: 16px; color: var(--terra); margin-left: 2px; }
+
+    /* NAV */
+    nav { position: fixed; top: 44px; left: 0; right: 0; z-index: 100; background: rgba(245,239,224,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,123,90,0.12); padding: 0 48px; height: 72px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { font-family: 'Pacifico', cursive; font-size: 22px; color: var(--terra); }
+    .nav-links { display: flex; gap: 36px; align-items: center; }
+    .nav-links a { font-size: 14px; font-weight: 700; color: var(--brun); letter-spacing: 0.3px; opacity: 0.75; transition: opacity .2s, color .2s; }
+    .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--terra); }
+    .nav-cta { background: var(--terra); color: var(--white) !important; opacity: 1 !important; border-radius: 50px; padding: 10px 24px !important; font-size: 13px !important; transition: background .2s !important; }
+    .nav-cta:hover { background: var(--terra-d) !important; }
+    .nav-buy { background: var(--brun) !important; color: var(--creme) !important; opacity: 1 !important; border-radius: 50px; padding: 10px 20px !important; font-size: 12px !important; border: 1.5px solid rgba(201,123,90,0.35) !important; transition: background .2s, border-color .2s !important; }
+    .nav-buy:hover { background: #1e1a16 !important; border-color: var(--terra) !important; }
+
+    @keyframes fadeInUp   { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:none; } }
+    @keyframes fadeInDown { from { opacity:0; transform:translateY(-16px); } to { opacity:1; transform:none; } }
+
+    /* PAGE HERO */
+    .page-hero {
+      background: linear-gradient(-45deg, #2E2A25, #3d3328, #4a3520, #2E2A25);
+      background-size: 400% 400%;
+      animation: gradientDrift 16s ease infinite;
+      padding: 180px 48px 80px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .page-hero-blob {
+      position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(ellipse, rgba(201,123,90,0.1) 0%, transparent 70%);
+      animation: blobMorph 14s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .page-hero-tag { font-family: 'Pacifico', cursive; font-size: 13px; color: var(--terra); margin-bottom: 16px; }
+    .page-hero h1 { font-family: 'Playfair Display', serif; font-size: 56px; color: var(--white); font-weight: 700; line-height: 1.15; margin-bottom: 20px; }
+    .page-hero h1 em { color: var(--terra); font-style: italic; }
+    .page-hero p { font-size: 18px; color: rgba(245,239,224,0.7); font-weight: 300; line-height: 1.7; max-width: 580px; margin: 0 auto; }
+
+    /* LAYOUT */
+    .container { max-width: 1100px; margin: 0 auto; }
+    section { padding: 96px 48px; }
+    .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--terra); margin-bottom: 12px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 42px; color: var(--brun); line-height: 1.2; margin-bottom: 16px; }
+    .section-sub { font-size: 17px; color: var(--text); font-weight: 300; line-height: 1.7; }
+
+    /* STORY SPLIT */
+    .story { background: var(--white); }
+    .story-split { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-bottom: 72px; }
+    .story-split:last-child { margin-bottom: 0; }
+    .story-visual {
+      border-radius: 28px; overflow: hidden;
+      aspect-ratio: 4/3;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 96px;
+    }
+    .story-content {}
+    .story-content .label { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--sauge); margin-bottom: 12px; }
+    .story-content h3 { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--brun); line-height: 1.25; margin-bottom: 16px; }
+    .story-content p { font-size: 16px; color: var(--text); line-height: 1.75; margin-bottom: 14px; }
+    .story-content .quote { font-family: 'Playfair Display', serif; font-size: 18px; font-style: italic; color: var(--terra); border-left: 3px solid var(--terra); padding-left: 20px; margin: 20px 0; }
+    .check-list { list-style: none; margin-top: 20px; }
+    .check-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; color: var(--text); margin-bottom: 10px; }
+    .check-list li::before { content: '✓'; background: var(--sauge); color: var(--white); border-radius: 50%; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+
+    /* VALEURS */
+    .values { background: var(--creme); }
+    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 56px; }
+    .value-card {
+      background: var(--white); border-radius: 24px; padding: 36px;
+      box-shadow: 0 4px 20px rgba(46,42,37,0.06);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .value-card:hover { transform: translateY(-8px); box-shadow: 0 16px 48px rgba(201,123,90,0.15); }
+    .value-icon { transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1); }
+    .value-card:hover .value-icon { transform: scale(1.2) rotate(-5deg); }
+    .value-icon { font-size: 44px; margin-bottom: 20px; }
+    .value-title { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--brun); font-weight: 700; margin-bottom: 12px; }
+    .value-text { font-size: 14px; color: var(--text); line-height: 1.7; }
+
+    /* NOTRE DIFFÉRENCE */
+    .difference { background: var(--brun); }
+    .difference .section-eyebrow { color: var(--terra); }
+    .difference .section-title { color: var(--white); }
+    .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 56px; }
+    .diff-card { border-radius: 20px; padding: 32px; }
+    .diff-card-vs { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); }
+    .diff-card-us { background: var(--terra); }
+    .diff-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
+    .diff-label-vs { color: rgba(245,239,224,0.35); }
+    .diff-label-us { color: rgba(255,255,255,0.75); }
+    .diff-list { list-style: none; }
+    .diff-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; margin-bottom: 12px; }
+    .diff-list-vs li { color: rgba(245,239,224,0.5); }
+    .diff-list-vs li::before { content: '✗'; color: rgba(245,239,224,0.25); font-weight: 700; flex-shrink: 0; }
+    .diff-list-us li { color: rgba(255,255,255,0.9); }
+    .diff-list-us li::before { content: '✓'; color: rgba(255,255,255,0.7); font-weight: 700; flex-shrink: 0; }
+
+    /* JOURNÉE TYPE */
+    .daylife { background: var(--creme); }
+    .timeline { margin-top: 56px; position: relative; }
+    .timeline::before { content: ''; position: absolute; left: 28px; top: 0; bottom: 0; width: 2px; background: repeating-linear-gradient(180deg, var(--terra) 0, var(--terra) 8px, transparent 8px, transparent 18px); }
+    .timeline-item { display: flex; gap: 32px; margin-bottom: 36px; align-items: flex-start; }
+    .timeline-dot {
+      width: 56px; height: 56px; border-radius: 50%; background: var(--white);
+      border: 3px solid var(--terra); display: flex; align-items: center;
+      justify-content: center; font-size: 22px; flex-shrink: 0;
+      transition: background 0.3s, transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .timeline-item:hover .timeline-dot { background: var(--terra); transform: scale(1.15) rotate(10deg); }
+    .timeline-content { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .timeline-item:hover .timeline-content { transform: translateX(4px); box-shadow: 0 8px 28px rgba(46,42,37,0.1); }
+    .timeline-content { background: var(--white); border-radius: 16px; padding: 20px 24px; flex: 1; box-shadow: 0 2px 12px rgba(46,42,37,0.06); }
+    .timeline-time { font-size: 11px; font-weight: 700; color: var(--terra); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+    .timeline-title { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--brun); font-weight: 700; margin-bottom: 6px; }
+    .timeline-text { font-size: 13px; color: var(--text); line-height: 1.6; }
+
+    /* CTA */
+    .cta-section { background: linear-gradient(135deg, var(--terra) 0%, #a0614a 100%); text-align: center; padding: 96px 48px; }
+    .cta-section h2 { font-family: 'Playfair Display', serif; font-size: 42px; color: var(--white); font-weight: 700; margin-bottom: 16px; }
+    .cta-section p { font-size: 17px; color: rgba(255,255,255,0.8); font-weight: 300; margin-bottom: 36px; }
+    .btn-cta-white { background: var(--white); color: var(--terra); border-radius: 50px; padding: 16px 44px; font-weight: 700; font-size: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15); transition: all .25s; display: inline-block; }
+    .btn-cta-white:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(0,0,0,0.22); }
+
+    /* FOOTER */
+    footer { background: var(--brun); padding: 64px 48px 40px; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand { font-family: 'Pacifico', cursive; font-size: 24px; color: var(--terra); margin-bottom: 12px; }
+    .footer-tagline { font-size: 13px; color: rgba(245,239,224,0.5); line-height: 1.7; max-width: 240px; }
+    .footer-col-title { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(245,239,224,0.4); margin-bottom: 16px; }
+    .footer-col a { display: block; font-size: 14px; color: rgba(245,239,224,0.65); margin-bottom: 10px; transition: color .2s; }
+    .footer-col a:hover { color: var(--terra); }
+    .footer-bottom { max-width: 1100px; margin: 0 auto; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.07); display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { font-size: 12px; color: rgba(245,239,224,0.3); }
+    .footer-heart { font-size: 12px; color: var(--terra); }
+  </style>
+</head>
+<body>
+
+  <!-- BARRE D'ANNONCE -->
+  <div class="sale-banner" id="saleBanner">
+    <span class="sale-banner-text">🏷️ <strong>Ce projet est à vendre</strong><span class="banner-hide-mobile"> — Site non en production · Opportunité d'acquisition disponible</span></span>
+    <a href="contact.html?sujet=achat" class="sale-banner-cta">Acheter →</a>
+    <button class="sale-banner-close" onclick="document.getElementById('saleBanner').style.display='none';" aria-label="Fermer">×</button>
+  </div>
+
+  <nav>
+    <a href="index.html" class="nav-brand">Cabane à Câlin</a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Accueil</a>
+      <a href="concept.html" class="active">Le concept</a>
+      <a href="forces.html">Forces du projet</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="nav-cta">Réserver</a>
+      <a href="contact.html?sujet=achat" class="nav-buy">🏷️ Acheter ce projet</a>
+    </div>
+    <button class="nav-hamburger" id="navToggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <div class="page-hero">
+    <div class="page-hero-blob"></div>
+    <div class="page-hero-tag" style="animation:fadeInDown 0.7s ease both; position:relative;">Notre histoire & notre vision</div>
+    <h1 style="animation:fadeInUp 0.8s 0.15s ease both; position:relative;">Une garde qui ressemble<br/>à une <em>vraie maison.</em></h1>
+    <p style="animation:fadeInUp 0.8s 0.3s ease both; position:relative;">Cabane à Câlin est né d'une conviction simple : les animaux méritent mieux qu'une cage pendant vos absences. Ils méritent amour, chaleur et continuité.</p>
+  </div>
+
+  <!-- MARQUEE -->
+  <div class="marquee-section">
+    <div class="marquee-inner">
+      <div class="marquee-group" aria-hidden="true">
+        <span class="marquee-item">🏡 Maison familiale<span class="marquee-dot"></span></span>
+        <span class="marquee-item">💛 Bienveillance inconditionnelle<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🔐 Confiance & transparence<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🐾 Continuité du foyer<span class="marquee-dot"></span></span>
+        <span class="marquee-item">📸 Photos quotidiennes<span class="marquee-dot"></span></span>
+        <span class="marquee-item">✓ Jamais seul la nuit<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🌿 Environnement naturel<span class="marquee-dot"></span></span>
+      </div>
+      <div class="marquee-group" aria-hidden="true">
+        <span class="marquee-item">🏡 Maison familiale<span class="marquee-dot"></span></span>
+        <span class="marquee-item">💛 Bienveillance inconditionnelle<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🔐 Confiance & transparence<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🐾 Continuité du foyer<span class="marquee-dot"></span></span>
+        <span class="marquee-item">📸 Photos quotidiennes<span class="marquee-dot"></span></span>
+        <span class="marquee-item">✓ Jamais seul la nuit<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🌿 Environnement naturel<span class="marquee-dot"></span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORY -->
+  <section class="story">
+    <div class="container">
+
+      <div class="story-split">
+        <div class="story-visual reveal-left" style="background: linear-gradient(135deg, #f0e8dc, #ddd0bc);">🏡</div>
+        <div class="story-content reveal-right">
+          <div class="label">Notre origine</div>
+          <h3>Né d'un besoin réel, porté par l'amour des animaux</h3>
+          <p>Tout a commencé par une frustration personnelle : trouver une garde digne de ce nom pour nos propres animaux était une véritable épreuve. Les pensions traditionnelles manquaient de chaleur. Les particuliers manquaient de fiabilité.</p>
+          <p>Nous avons alors décidé de créer le service que nous aurions voulu trouver : un accueil en maison familiale, professionnel dans son organisation, mais humain dans son âme.</p>
+          <div class="quote">« Votre animal ne doit pas survivre à votre absence — il doit en profiter. »</div>
+        </div>
+      </div>
+
+      <div class="story-split">
+        <div class="story-content reveal-left">
+          <div class="label">Notre approche</div>
+          <h3>Un cadre familial,<br/>une rigueur professionnelle</h3>
+          <p>Ce qui nous distingue, c'est la combinaison rare entre chaleur humaine authentique et organisation irréprochable. Chaque animal est accueilli comme un membre de la famille — avec ses habitudes, ses préférences, ses petites manies.</p>
+          <ul class="check-list">
+            <li>Fiche de suivi personnalisée pour chaque animal</li>
+            <li>Respect strict des régimes alimentaires et horaires</li>
+            <li>Mises à jour photo quotidiennes envoyées aux propriétaires</li>
+            <li>Disponibilité et réactivité garanties 24h/24</li>
+            <li>Espace sécurisé, propre et adapté aux espèces</li>
+          </ul>
+        </div>
+        <div class="story-visual reveal-right" style="background: linear-gradient(135deg, #e8f0e8, #d0e4d0);">🐾</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- VALEURS -->
+  <section class="values">
+    <div class="container">
+      <div class="section-eyebrow">Ce en quoi nous croyons</div>
+      <h2 class="section-title">Nos 3 valeurs fondatrices</h2>
+      <div class="values-grid">
+        <div class="value-card reveal d1">
+          <div class="value-icon">💛</div>
+          <div class="value-title">Bienveillance inconditionnelle</div>
+          <div class="value-text">Chaque animal est unique et mérite une attention personnalisée. Nous prenons le temps de connaître sa personnalité, ses peurs, ses plaisirs — et nous adaptons son séjour en conséquence.</div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon" style="">🔐</div>
+          <div class="value-title reveal d2">Confiance & transparence</div>
+          <div class="value-text">Vous nous confiez ce que vous avez de plus précieux. En retour, nous vous offrons une communication totale : photos, comptes-rendus, disponibilité. Aucune surprise, aucun doute.</div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🏠</div>
+          <div class="value-title reveal d3">Continuité du foyer</div>
+          <div class="value-text">Notre objectif est que votre animal ressente le moins possible votre absence. En l'accueillant dans un vrai foyer, nous lui offrons un cadre stable, rassurant et bienveillant.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFFÉRENCE -->
+  <section class="difference">
+    <div class="container">
+      <div class="section-eyebrow">Pourquoi nous choisir</div>
+      <h2 class="section-title">Cabane à Câlin vs.<br/>les alternatives</h2>
+      <div class="diff-grid">
+        <div class="diff-card diff-card-vs">
+          <div class="diff-label diff-label-vs">Pension traditionnelle / chenil</div>
+          <ul class="diff-list diff-list-vs">
+            <li>Animal en cage ou box collectif</li>
+            <li>Personnel qui change constamment</li>
+            <li>Peu ou pas de nouvelles pendant le séjour</li>
+            <li>Environnement stressant et bruyant</li>
+            <li>Aucune adaptation aux habitudes individuelles</li>
+            <li>Tarifs élevés pour un service impersonnel</li>
+          </ul>
+        </div>
+        <div class="diff-card diff-card-us">
+          <div class="diff-label diff-label-us">Cabane à Câlin</div>
+          <ul class="diff-list diff-list-us">
+            <li>Accueil en maison familiale chaleureuse</li>
+            <li>Interlocuteur unique, relation de confiance</li>
+            <li>Photos et mises à jour chaque jour</li>
+            <li>Environnement calme, doux et rassurant</li>
+            <li>Séjour 100% personnalisé pour chaque animal</li>
+            <li>Rapport qualité/prix exceptionnel</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNÉE TYPE -->
+  <section class="daylife">
+    <div class="container">
+      <div class="section-eyebrow">Le quotidien chez nous</div>
+      <h2 class="section-title">Une journée type<br/>à la Cabane à Câlin</h2>
+      <p class="section-sub">Voici ce que vit votre animal pendant son séjour — une routine douce et structurée.</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot">🌅</div>
+          <div class="timeline-content">
+            <div class="timeline-time">7h00 — Réveil</div>
+            <div class="timeline-title">Bonjour tout doux</div>
+            <div class="timeline-text">Câlins du matin, nourrissage selon les instructions du propriétaire, première promenade pour les chiens.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">☀️</div>
+          <div class="timeline-content">
+            <div class="timeline-time">10h00 — Activité</div>
+            <div class="timeline-title">Jeu & exploration</div>
+            <div class="timeline-text">Temps de jeu adapté à chaque animal, stimulation sensorielle, câlins à volonté. Première photo envoyée aux propriétaires.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">🍽️</div>
+          <div class="timeline-content">
+            <div class="timeline-time">12h30 — Repas</div>
+            <div class="timeline-title">Déjeuner personnalisé</div>
+            <div class="timeline-text">Repas du midi servi selon les habitudes et la ration indiquée. Moment de repos ensuite pour digérer tranquillement.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">🌿</div>
+          <div class="timeline-content">
+            <div class="timeline-time">16h00 — Promenade</div>
+            <div class="timeline-title">Grand air & liberté</div>
+            <div class="timeline-text">Sortie promenade pour les chiens, jeu en espace sécurisé. Envoi de la deuxième mise à jour photo aux propriétaires.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">🌙</div>
+          <div class="timeline-content">
+            <div class="timeline-time">20h00 — Soirée</div>
+            <div class="timeline-title">Soirée cosy & dodo</div>
+            <div class="timeline-text">Repas du soir, temps calme en famille. Votre animal dort en intérieur, dans un espace confortable et sécurisé — jamais seul.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOUTON FLOTTANT ACHAT -->
+  <a href="contact.html?sujet=achat" class="float-buy">
+    <div class="float-buy-icon">🏷️</div>
+    <div class="float-buy-label">
+      <span>Projet à vendre</span>
+      <span>Acheter ce projet</span>
+    </div>
+    <span class="float-buy-arrow">→</span>
+  </a>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Convaincu(e) ?<br/>Rencontrons-nous !</h2>
+    <p>La première rencontre est gratuite et sans engagement.<br/>Venez nous présenter votre animal — on a hâte de le rencontrer.</p>
+    <a href="contact.html" class="btn-cta-white">Prendre rendez-vous</a>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Cabane à Câlin</div>
+        <div class="footer-tagline">Service de garde d'animaux familial, chaleureux et sécurisant. Parce que vos compagnons méritent ce qu'il y a de mieux.</div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Navigation</div>
+        <a href="index.html">Accueil</a>
+        <a href="concept.html">Le concept</a>
+        <a href="forces.html">Forces du projet</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Services</div>
+        <a href="#">Hébergement complet</a>
+        <a href="#">Day Sitting</a>
+        <a href="#">Home Sitting</a>
+        <a href="#">Tarifs</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Contact & Réseaux</div>
+        <a href="mailto:contact@cabaneacalin.fr">contact@cabaneacalin.fr</a>
+        <a href="#">+33 6 XX XX XX XX</a>
+        <a href="contact.html">Prendre RDV</a>
+        <div class="footer-social">
+          <a href="#" class="footer-social-link" aria-label="Instagram" title="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" class="footer-social-link" aria-label="Facebook" title="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" class="footer-social-link" aria-label="TikTok" title="TikTok">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.3 6.3 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.14a8.27 8.27 0 0 0 4.84 1.55V7.25a4.85 4.85 0 0 1-1.07-.56z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© <span id="footer-year"></span> Cabane à Câlin. Tous droits réservés.</span>
+      <span class="footer-heart">Fait avec ♥ pour vos animaux</span>
+    </div>
+  </footer>
+  <style>
+  .footer-social { display: flex; gap: 10px; margin-top: 14px; }
+  .footer-social-link { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.07); color: rgba(245,239,224,0.55); transition: background 0.2s, color 0.2s, transform 0.2s; }
+  .footer-social-link:hover { background: var(--terra); color: white; transform: translateY(-2px); }
+  </style>
+
+  <script src="shared.js"></script>
+</body>
+</html>

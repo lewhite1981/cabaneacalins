@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Cabane à Câlin — Garde d'animaux familiale & bienveillante</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- Schema.org JSON-LD — Local Business + Service -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://cabaneacalin.fr/#business",
+        "name": "Cabane à Câlin",
+        "description": "Service de garde d'animaux de compagnie dans un environnement familial, chaleureux et sécurisant. Chiens, chats accueillis comme à la maison.",
+        "url": "https://cabaneacalin.fr",
+        "logo": "https://cabaneacalin.fr/og-image.svg",
+        "image": "https://cabaneacalin.fr/og-image.svg",
+        "telephone": "+33-6-XX-XX-XX-XX",
+        "email": "contact@cabaneacalin.fr",
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "Île-de-France",
+          "addressCountry": "FR"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+            "opens": "07:00",
+            "closes": "21:00"
+          }
+        ],
+        "priceRange": "€€",
+        "currenciesAccepted": "EUR",
+        "paymentAccepted": "Cash, Credit Card, Bank Transfer",
+        "areaServed": { "@type": "State", "name": "Île-de-France" },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "47",
+          "bestRating": "5"
+        }
+      },
+      {
+        "@type": "Service",
+        "name": "Hébergement complet pour animaux",
+        "description": "Votre animal dort, mange et joue chez nous. Nuits en intérieur, promenades quotidiennes, câlins garantis.",
+        "provider": { "@id": "https://cabaneacalin.fr/#business" },
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "EUR",
+          "price": "35",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "priceCurrency": "EUR",
+            "price": "35",
+            "unitText": "nuit"
+          }
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Comment fonctionne la garde d'animaux Cabane à Câlin ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Votre animal est accueilli dans notre maison familiale, avec des promenades quotidiennes, des repas selon vos instructions et des mises à jour photo chaque jour."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quels animaux acceptez-vous ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nous accueillons principalement les chiens et les chats. Les autres animaux sont étudiés au cas par cas."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quel est le tarif de la garde d'animaux ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "L'hébergement complet démarre à 35€/nuit, le Day Sitting à 22€/jour et le Home Sitting à 18€ par visite."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- OpenGraph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://cabaneacalin.fr/" />
+  <meta property="og:title"       content="Cabane à Câlin — Garde d'animaux familiale & bienveillante" />
+  <meta property="og:description" content="Pendant vos absences, vos animaux sont accueillis comme à la maison — avec amour et attention. Service familial, chaleureux et sécurisant. Projet à vendre." />
+  <meta property="og:image"       content="https://cabaneacalin.fr/og-image.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale"      content="fr_FR" />
+  <meta property="og:site_name"   content="Cabane à Câlin" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Cabane à Câlin — Garde d'animaux familiale & bienveillante" />
+  <meta name="twitter:description" content="Vos animaux choyés comme à la maison pendant vos absences. Service premium, familial et sécurisant. Projet à vendre." />
+  <meta name="twitter:image"       content="https://cabaneacalin.fr/og-image.svg" />
+
+  <!-- SEO -->
+  <meta name="description" content="Cabane à Câlin : service de garde d'animaux familial, chaleureux et sécurisant. Chiens, chats accueillis à domicile avec amour. Projet clé en main à vendre." />
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <link rel="stylesheet" href="mobile.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --terra:  #C97B5A;
+      --terra-d:#b8694a;
+      --sauge:  #7A9E7E;
+      --sauge-d:#6a8e6e;
+      --creme:  #F5EFE0;
+      --caramel:#8B5E3C;
+      --brun:   #2E2A25;
+      --white:  #FFFFFF;
+      --text:   #5c524a;
+      --light:  #a09790;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--creme); color: var(--brun); font-family: 'Lato', sans-serif; font-size: 16px; line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── BARRE D'ANNONCE ── */
+    .sale-banner {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: var(--brun);
+      height: 44px; display: flex; align-items: center; justify-content: center; gap: 16px;
+    }
+    .sale-banner-text {
+      font-size: 13px; color: rgba(245,239,224,0.75); font-weight: 400; letter-spacing: 0.2px;
+    }
+    .sale-banner-text strong { color: var(--creme); font-weight: 700; }
+    .sale-banner-cta {
+      background: var(--terra); color: var(--white);
+      border-radius: 50px; padding: 5px 18px;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.3px;
+      transition: background .2s, transform .15s;
+      white-space: nowrap;
+    }
+    .sale-banner-cta:hover { background: var(--terra-d); transform: scale(1.04); }
+    .sale-banner-close {
+      position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
+      background: none; border: none; color: rgba(245,239,224,0.4); font-size: 18px;
+      cursor: pointer; line-height: 1; padding: 4px; transition: color .2s;
+    }
+    .sale-banner-close:hover { color: var(--creme); }
+
+    /* ── BOUTON FLOTTANT ── */
+    .float-buy {
+      position: fixed; right: 24px; bottom: 36px; z-index: 150;
+      background: var(--brun); color: var(--white);
+      border-radius: 50px; padding: 14px 22px;
+      display: flex; align-items: center; gap: 10px;
+      box-shadow: 0 8px 32px rgba(46,42,37,0.30);
+      font-weight: 700; font-size: 14px; letter-spacing: 0.2px;
+      transition: transform .25s, box-shadow .25s, background .2s;
+      text-decoration: none;
+    }
+    .float-buy:hover { transform: translateY(-4px) scale(1.03); box-shadow: 0 14px 44px rgba(46,42,37,0.38); background: #1e1a16; }
+    .float-buy-icon {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--terra); display: flex; align-items: center; justify-content: center;
+      font-size: 16px; flex-shrink: 0;
+    }
+    .float-buy-label { display: flex; flex-direction: column; line-height: 1.2; }
+    .float-buy-label span:first-child { font-size: 11px; color: rgba(255,255,255,0.55); font-weight: 400; }
+    .float-buy-label span:last-child { font-size: 14px; color: var(--white); font-weight: 700; }
+    .float-buy-arrow { font-size: 16px; color: var(--terra); margin-left: 2px; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 44px; left: 0; right: 0; z-index: 100;
+      background: rgba(245,239,224,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,123,90,0.12);
+      padding: 0 48px; height: 72px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand { font-family: 'Pacifico', cursive; font-size: 22px; color: var(--terra); }
+    .nav-links { display: flex; gap: 36px; align-items: center; }
+    .nav-links a { font-size: 14px; font-weight: 700; color: var(--brun); letter-spacing: 0.3px; opacity: 0.75; transition: opacity .2s, color .2s; }
+    .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--terra); }
+    .nav-cta { background: var(--terra); color: var(--white) !important; opacity: 1 !important; border-radius: 50px; padding: 10px 24px !important; font-size: 13px !important; transition: background .2s, transform .2s !important; }
+    .nav-cta:hover { background: var(--terra-d) !important; transform: translateY(-1px); }
+    .nav-buy { background: var(--brun) !important; color: var(--creme) !important; opacity: 1 !important; border-radius: 50px; padding: 10px 20px !important; font-size: 12px !important; letter-spacing: 0.2px; border: 1.5px solid rgba(201,123,90,0.35) !important; transition: background .2s, border-color .2s !important; }
+    .nav-buy:hover { background: #1e1a16 !important; border-color: var(--terra) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(-45deg, #2E2A25, #3d3328, #5a3d28, #3a2e22, #2E2A25);
+      background-size: 400% 400%;
+      animation: gradientDrift 14s ease infinite;
+      display: flex; align-items: center;
+      padding: 176px 48px 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(201,123,90,0.18) 0%, transparent 65%);
+    }
+    .hero-blob {
+      position: absolute; right: -80px; top: 50%; transform: translateY(-50%);
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(201,123,90,0.12) 0%, rgba(201,123,90,0.04) 50%, transparent 70%);
+      border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
+      animation: blobMorph 12s ease-in-out infinite;
+      pointer-events: none; z-index: 0;
+    }
+    .hero-content { max-width: 620px; position: relative; z-index: 1; }
+    .hero-tag {
+      font-family: 'Pacifico', cursive; font-size: 14px; color: var(--terra);
+      margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
+    }
+    .hero-tag::before { content: ''; width: 32px; height: 2px; background: var(--terra); border-radius: 2px; }
+    .hero h1 {
+      font-family: 'Playfair Display', serif; font-size: 62px; line-height: 1.1;
+      color: var(--white); font-weight: 700; margin-bottom: 24px;
+    }
+    .hero h1 em { color: var(--terra); font-style: italic; }
+    .hero p {
+      font-size: 18px; color: rgba(245,239,224,0.75); font-weight: 300;
+      line-height: 1.7; margin-bottom: 40px; max-width: 480px;
+    }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-hero-primary {
+      background: var(--terra); color: var(--white); border-radius: 50px;
+      padding: 16px 38px; font-weight: 700; font-size: 15px; letter-spacing: 0.3px;
+      box-shadow: 0 8px 30px rgba(201,123,90,0.4);
+      transition: all .25s;
+    }
+    .btn-hero-primary:hover { background: var(--terra-d); transform: translateY(-2px); box-shadow: 0 12px 36px rgba(201,123,90,0.5); }
+    .btn-hero-ghost {
+      background: transparent; color: rgba(245,239,224,0.85); border-radius: 50px;
+      padding: 16px 38px; font-weight: 700; font-size: 15px; letter-spacing: 0.3px;
+      border: 2px solid rgba(245,239,224,0.3);
+      transition: all .25s;
+    }
+    .btn-hero-ghost:hover { border-color: rgba(245,239,224,0.7); color: var(--white); }
+    .hero-visual {
+      position: absolute; right: 80px; top: 50%; transform: translateY(-50%);
+      display: flex; flex-direction: column; gap: 16px; z-index: 1;
+    }
+    .hero-card {
+      background: rgba(255,255,255,0.07); backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.1); border-radius: 20px;
+      padding: 20px 24px; width: 260px;
+      transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+    }
+    .hero-card:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(201,123,90,0.4);
+    }
+    .hero-card-icon { font-size: 28px; margin-bottom: 8px; }
+    .hero-card-title { font-family: 'Playfair Display', serif; font-size: 15px; color: var(--white); font-weight: 700; margin-bottom: 4px; }
+    .hero-card-text { font-size: 12px; color: rgba(245,239,224,0.6); }
+    .hero-badge {
+      position: absolute; bottom: 48px; left: 48px;
+      background: var(--sauge); border-radius: 50px; padding: 10px 22px;
+      color: var(--white); font-size: 13px; font-weight: 700;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .hero-badge::before { content: '✓'; background: rgba(255,255,255,0.2); border-radius: 50%; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; font-size: 12px; }
+
+    /* ── SECTIONS COMMUNES ── */
+    section { padding: 96px 48px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--terra); margin-bottom: 12px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 42px; color: var(--brun); line-height: 1.2; margin-bottom: 16px; }
+    .section-sub { font-size: 17px; color: var(--text); font-weight: 300; line-height: 1.7; max-width: 560px; }
+
+    /* ── STATS ── */
+    .stats-band {
+      background: var(--terra);
+      padding: 48px;
+    }
+    .stats-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+    .stat-item { text-align: center; padding: 0 24px; border-right: 1px solid rgba(255,255,255,0.2); }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 700; line-height: 1;
+      background: linear-gradient(90deg, #fff 30%, rgba(255,210,180,0.95) 50%, #fff 70%);
+      background-size: 400px 100%;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 3s ease-in-out infinite;
+    }
+    .stat-label { font-size: 13px; color: rgba(255,255,255,0.75); margin-top: 6px; font-weight: 300; }
+
+    /* ── SERVICES ── */
+    .services { background: var(--white); }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 64px; }
+    .service-card {
+      border-radius: 24px; overflow: hidden;
+      box-shadow: 0 4px 24px rgba(46,42,37,0.07);
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+      transform-style: preserve-3d; cursor: pointer;
+    }
+    .service-thumb {
+      height: 200px; display: flex; align-items: center; justify-content: center;
+      font-size: 72px; position: relative;
+    }
+    .service-body { padding: 28px; background: var(--white); }
+    .service-tag { font-family: 'Pacifico', cursive; font-size: 11px; color: var(--terra); margin-bottom: 8px; }
+    .service-title { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--brun); font-weight: 700; margin-bottom: 10px; }
+    .service-text { font-size: 14px; color: var(--text); line-height: 1.65; margin-bottom: 20px; }
+    .service-price { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--terra); font-weight: 700; }
+    .service-price span { font-family: 'Lato', sans-serif; font-size: 13px; color: var(--light); font-weight: 400; }
+
+    /* ── COMMENT ÇA MARCHE ── */
+    .how { background: var(--creme); }
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 64px; position: relative; }
+    .steps::before {
+      content: '';
+      position: absolute; top: 36px; left: 10%; right: 10%; height: 2px;
+      background: repeating-linear-gradient(90deg, var(--terra) 0, var(--terra) 8px, transparent 8px, transparent 18px);
+    }
+    .step { text-align: center; padding: 0 16px; position: relative; }
+    .step-num {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: var(--white); border: 3px solid var(--terra);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif; font-size: 26px; color: var(--terra); font-weight: 700;
+      margin: 0 auto 20px;
+      transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+      position: relative; z-index: 1;
+    }
+    .step:hover .step-num {
+      background: var(--terra); color: var(--white);
+      transform: scale(1.12) rotate(-5deg);
+      box-shadow: 0 8px 24px rgba(201,123,90,0.35);
+    }
+    .step { transition: transform 0.3s ease; }
+    .step:hover { transform: translateY(-4px); }
+    .step-title { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--brun); font-weight: 700; margin-bottom: 8px; }
+    .step-text { font-size: 13px; color: var(--text); line-height: 1.6; }
+
+    /* ── TÉMOIGNAGES ── */
+    .testimonials { background: var(--brun); }
+    .testimonials .section-eyebrow { color: var(--terra); }
+    .testimonials .section-title { color: var(--white); }
+    .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+    .testi-card {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px; padding: 32px;
+      transition: background 0.3s ease, border-color 0.3s ease, transform 0.35s ease;
+    }
+    .testi-card:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(201,123,90,0.3);
+      transform: translateY(-5px);
+    }
+    .testi-stars { color: var(--terra); font-size: 16px; letter-spacing: 2px; margin-bottom: 16px; }
+    .testi-text { font-size: 15px; color: rgba(245,239,224,0.8); line-height: 1.7; font-style: italic; margin-bottom: 24px; }
+    .testi-author { display: flex; align-items: center; gap: 12px; }
+    .testi-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--terra); display: flex; align-items: center; justify-content: center; font-size: 20px; }
+    .testi-name { font-weight: 700; font-size: 14px; color: var(--white); }
+    .testi-pet { font-size: 12px; color: rgba(245,239,224,0.5); }
+
+    /* ── GARANTIES ── */
+    .guarantees { background: var(--creme); }
+    .guarantees-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 56px; }
+    .guarantee-item {
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .guarantee-item:hover { transform: translateY(-6px); }
+    .guarantee-icon { transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1); }
+    .guarantee-item:hover .guarantee-icon { transform: scale(1.25) rotate(8deg); }
+    .guarantee-icon { font-size: 48px; margin-bottom: 16px; }
+    .guarantee-title { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--brun); font-weight: 700; margin-bottom: 8px; }
+    .guarantee-text { font-size: 13px; color: var(--text); line-height: 1.6; }
+
+    /* ── CTA FINAL ── */
+    .cta-section {
+      background: linear-gradient(135deg, var(--terra) 0%, #a0614a 100%);
+      text-align: center; padding: 96px 48px;
+    }
+    .cta-section h2 { font-family: 'Playfair Display', serif; font-size: 48px; color: var(--white); font-weight: 700; margin-bottom: 16px; line-height: 1.2; }
+    .cta-section p { font-size: 18px; color: rgba(255,255,255,0.8); font-weight: 300; margin-bottom: 40px; }
+    .btn-cta-white { background: var(--white); color: var(--terra); border-radius: 50px; padding: 18px 48px; font-weight: 700; font-size: 16px; letter-spacing: 0.3px; box-shadow: 0 8px 30px rgba(0,0,0,0.15); transition: all .25s; display: inline-block; }
+    .btn-cta-white:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(0,0,0,0.22); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--brun); padding: 64px 48px 40px;
+    }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand { font-family: 'Pacifico', cursive; font-size: 24px; color: var(--terra); margin-bottom: 12px; }
+    .footer-tagline { font-size: 13px; color: rgba(245,239,224,0.5); line-height: 1.7; max-width: 240px; }
+    .footer-col-title { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(245,239,224,0.4); margin-bottom: 16px; }
+    .footer-col a { display: block; font-size: 14px; color: rgba(245,239,224,0.65); margin-bottom: 10px; transition: color .2s; }
+    .footer-col a:hover { color: var(--terra); }
+    .footer-bottom { max-width: 1100px; margin: 0 auto; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.07); display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { font-size: 12px; color: rgba(245,239,224,0.3); }
+    .footer-heart { font-size: 12px; color: var(--terra); }
+  </style>
+</head>
+<body>
+
+  <!-- BARRE D'ANNONCE PROJET À VENDRE -->
+  <div class="sale-banner" id="saleBanner">
+    <span class="sale-banner-text">🏷️ <strong>Ce projet est à vendre</strong><span class="banner-hide-mobile"> — Site non en production · Opportunité d'acquisition disponible</span></span>
+    <a href="contact.html?sujet=achat" class="sale-banner-cta">Acheter →</a>
+    <button class="sale-banner-close" onclick="document.getElementById('saleBanner').style.display='none';" aria-label="Fermer">×</button>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-brand">Cabane à Câlin</a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html" class="active">Accueil</a>
+      <a href="concept.html">Le concept</a>
+      <a href="forces.html">Forces du projet</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="nav-cta">Réserver</a>
+      <a href="contact.html?sujet=achat" class="nav-buy">🏷️ Acheter ce projet</a>
+    </div>
+    <button class="nav-hamburger" id="navToggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-blob"></div>
+    <div class="hero-content" style="position:relative;z-index:1;">
+      <div class="hero-tag" style="animation: fadeInDown 0.7s ease both;">Service de garde premium</div>
+      <h1 style="animation: fadeInUp 0.8s 0.15s ease both;">Votre animal,<br/><em>choyé comme<br/>à la maison.</em></h1>
+      <p style="animation: fadeInUp 0.8s 0.3s ease both;">Pendant vos absences, voyages ou longues journées de travail, votre compagnon est accueilli dans un environnement familial, chaleureux et sécurisant — avec amour et attention.</p>
+      <div class="hero-btns" style="animation: fadeInUp 0.8s 0.45s ease both;">
+        <a href="contact.html" class="btn-hero-primary magnetic ripple">Réserver une garde</a>
+        <a href="concept.html" class="btn-hero-ghost magnetic">Découvrir le concept</a>
+      </div>
+    </div>
+    <div class="hero-visual" style="z-index:1;">
+      <div class="hero-card float-a" style="animation-delay:0s;">
+        <div class="hero-card-icon">🏡</div>
+        <div class="hero-card-title">Accueil à domicile</div>
+        <div class="hero-card-text">Votre animal vit dans une vraie maison familiale, pas une pension.</div>
+      </div>
+      <div class="hero-card float-b">
+        <div class="hero-card-icon">📸</div>
+        <div class="hero-card-title">Mises à jour quotidiennes</div>
+        <div class="hero-card-text">Photos et nouvelles envoyées chaque jour pour votre sérénité.</div>
+      </div>
+      <div class="hero-card float-c">
+        <div class="hero-card-icon">❤️</div>
+        <div class="hero-card-title">Suivi personnalisé</div>
+        <div class="hero-card-text">Chaque animal est unique — nous adaptons son séjour à ses besoins.</div>
+      </div>
+    </div>
+    <div class="hero-badge pulse-badge" style="animation: fadeInUp 0.8s 0.6s ease both, badgePulse 2.5s 1s ease infinite;">Animaux heureux, propriétaires sereins</div>
+  </section>
+
+  <style>
+    @keyframes fadeInUp   { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:none; } }
+    @keyframes fadeInDown { from { opacity:0; transform:translateY(-16px); } to { opacity:1; transform:none; } }
+  </style>
+
+  <!-- MARQUEE -->
+  <div class="marquee-section">
+    <div class="marquee-inner">
+      <div class="marquee-group" aria-hidden="true">
+        <span class="marquee-item">🐾 Garde à domicile<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🏡 Environnement familial<span class="marquee-dot"></span></span>
+        <span class="marquee-item">📸 Mises à jour quotidiennes<span class="marquee-dot"></span></span>
+        <span class="marquee-item">❤️ Suivi personnalisé<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🔒 Sécurité garantie<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🌿 Bien-être animal<span class="marquee-dot"></span></span>
+        <span class="marquee-item">✓ 98% satisfaits<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🏷️ Projet à vendre<span class="marquee-dot"></span></span>
+      </div>
+      <div class="marquee-group" aria-hidden="true">
+        <span class="marquee-item">🐾 Garde à domicile<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🏡 Environnement familial<span class="marquee-dot"></span></span>
+        <span class="marquee-item">📸 Mises à jour quotidiennes<span class="marquee-dot"></span></span>
+        <span class="marquee-item">❤️ Suivi personnalisé<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🔒 Sécurité garantie<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🌿 Bien-être animal<span class="marquee-dot"></span></span>
+        <span class="marquee-item">✓ 98% satisfaits<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🏷️ Projet à vendre<span class="marquee-dot"></span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-band">
+    <div class="stats-grid">
+      <div class="stat-item reveal d1">
+        <div class="stat-num counter" data-target="98" data-suffix="%">98%</div>
+        <div class="stat-label">de propriétaires satisfaits</div>
+      </div>
+      <div class="stat-item reveal d2">
+        <div class="stat-num counter" data-target="500" data-suffix="+">500+</div>
+        <div class="stat-label">animaux accueillis</div>
+      </div>
+      <div class="stat-item reveal d3">
+        <div class="stat-num">7j/7</div>
+        <div class="stat-label">disponibilité</div>
+      </div>
+      <div class="stat-item reveal d4">
+        <div class="stat-num counter" data-target="0">0</div>
+        <div class="stat-label">animaux laissés seuls la nuit</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="services">
+    <div class="container">
+      <div class="section-eyebrow reveal">Nos prestations</div>
+      <h2 class="section-title reveal d1">Ce que nous offrons<br/>à vos compagnons</h2>
+      <p class="section-sub reveal d2">Des formules adaptées à chaque situation, pensées pour le confort de votre animal et votre tranquillité d'esprit.</p>
+      <div class="services-grid">
+        <div class="service-card tilt-card reveal d1 animated-border">
+          <div class="service-thumb" style="background: linear-gradient(135deg, #f5efe0, #e8dcc8); font-size:72px;">🐾</div>
+          <div class="service-body">
+            <div class="service-tag">Le plus populaire</div>
+            <div class="service-title">Hébergement complet</div>
+            <div class="service-text">Votre animal dort, mange et joue chez nous. Nuits en intérieur, promenades quotidiennes, câlins garantis.</div>
+            <div class="service-price">À partir de 35€ <span>/ nuit</span></div>
+          </div>
+        </div>
+        <div class="service-card tilt-card reveal d2 animated-border">
+          <div class="service-thumb" style="background: linear-gradient(135deg, #e8f0e8, #d4e4d4); font-size:72px;">🌿</div>
+          <div class="service-body">
+            <div class="service-tag">Garde à la journée</div>
+            <div class="service-title">Day Sitting</div>
+            <div class="service-text">Pour les longues journées de travail. Votre animal passe la journée avec nous et rentre le soir.</div>
+            <div class="service-price">À partir de 22€ <span>/ jour</span></div>
+          </div>
+        </div>
+        <div class="service-card tilt-card reveal d3 animated-border">
+          <div class="service-thumb" style="background: linear-gradient(135deg, #f0e8e0, #e0d0c0); font-size:72px;">🏠</div>
+          <div class="service-body">
+            <div class="service-tag">Garde à domicile</div>
+            <div class="service-title">Home Sitting</div>
+            <div class="service-text">Nous venons chez vous pour nourrir, promener et câliner votre animal dans son environnement habituel.</div>
+            <div class="service-price">À partir de 18€ <span>/ visite</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALCULATEUR DE TARIF -->
+  <section class="calc-section" id="calculateur">
+    <div class="container">
+      <div class="section-eyebrow reveal">Estimer votre budget</div>
+      <h2 class="section-title reveal d1">Calculateur de tarif <span style="color:var(--terra)">interactif</span></h2>
+      <p class="section-sub reveal d2">Obtenez une estimation en 30 secondes — sans engagement.</p>
+
+      <div class="calc-card reveal d3">
+        <div class="calc-grid">
+
+          <!-- Col 1: Options -->
+          <div class="calc-col">
+            <div class="calc-group">
+              <label class="calc-label">Votre animal</label>
+              <div class="calc-pills" id="animalPills">
+                <button class="calc-pill active" data-animal="dog" type="button">🐕 Chien</button>
+                <button class="calc-pill" data-animal="cat" type="button">🐱 Chat</button>
+                <button class="calc-pill" data-animal="other" type="button">🐾 Autre</button>
+              </div>
+            </div>
+
+            <div class="calc-group">
+              <label class="calc-label">Type de garde</label>
+              <div class="calc-pills" id="servicePills">
+                <button class="calc-pill active" data-service="hebergement" type="button">🏠 Hébergement</button>
+                <button class="calc-pill" data-service="day" type="button">☀️ Garde de jour</button>
+                <button class="calc-pill" data-service="home" type="button">🚶 À domicile</button>
+              </div>
+            </div>
+
+            <div class="calc-group">
+              <label class="calc-label">Durée : <strong id="durationLabel">3 nuits</strong></label>
+              <input type="range" id="durationSlider" min="1" max="14" value="3" class="calc-slider" />
+              <div class="calc-range-labels"><span>1 nuit</span><span>14 nuits</span></div>
+            </div>
+          </div>
+
+          <!-- Col 2: Result -->
+          <div class="calc-result-col">
+            <div class="calc-result-box">
+              <div class="calc-result-label">Estimation</div>
+              <div class="calc-price-row">
+                <span class="calc-price" id="calcPrice">90</span>
+                <span class="calc-currency">€</span>
+              </div>
+              <div class="calc-price-detail" id="calcDetail">30 €/nuit × 3 nuits</div>
+              <div class="calc-badges">
+                <span class="calc-badge">✓ Sans engagement</span>
+                <span class="calc-badge">✓ Réponse sous 2h</span>
+              </div>
+              <a href="contact.html" class="btn btn-primary calc-cta magnetic ripple">
+                Réserver cette garde
+              </a>
+              <p class="calc-disclaimer">Tarif indicatif. Devis personnalisé sur demande.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+  .calc-section { padding: 80px 0; background: var(--creme); }
+  .calc-card {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 48px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+    margin-top: 40px;
+  }
+  .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .calc-col { display: flex; flex-direction: column; gap: 28px; }
+  .calc-group { display: flex; flex-direction: column; gap: 10px; }
+  .calc-label { font-family: 'Lato', sans-serif; font-weight: 700; color: var(--brun); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; }
+  .calc-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .calc-pill {
+    padding: 10px 18px;
+    border: 2px solid #e0d5ca;
+    border-radius: 50px;
+    background: transparent;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-height: 44px;
+  }
+  .calc-pill:hover { border-color: var(--terra); color: var(--terra); }
+  .calc-pill.active {
+    background: var(--terra);
+    border-color: var(--terra);
+    color: white;
+    box-shadow: 0 4px 12px rgba(201,123,90,0.35);
+  }
+  .calc-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: linear-gradient(to right, var(--terra) 0%, var(--terra) var(--slider-pct, 14%), #e0d5ca var(--slider-pct, 14%), #e0d5ca 100%);
+    outline: none;
+    cursor: pointer;
+    min-height: 0;
+  }
+  .calc-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--terra);
+    box-shadow: 0 2px 8px rgba(201,123,90,0.4);
+    cursor: pointer;
+  }
+  .calc-slider::-moz-range-thumb {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--terra);
+    border: none;
+    box-shadow: 0 2px 8px rgba(201,123,90,0.4);
+    cursor: pointer;
+  }
+  .calc-range-labels { display: flex; justify-content: space-between; font-size: 0.75rem; color: #999; margin-top: 4px; }
+  .calc-result-col { display: flex; justify-content: center; }
+  .calc-result-box {
+    background: linear-gradient(135deg, #2E2A25 0%, #3d3630 100%);
+    border-radius: 20px;
+    padding: 40px 36px;
+    text-align: center;
+    color: white;
+    width: 100%;
+    max-width: 300px;
+    position: relative;
+    overflow: hidden;
+  }
+  .calc-result-box::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,123,90,0.25) 0%, transparent 70%);
+  }
+  .calc-result-label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.55); margin-bottom: 12px; font-family: 'Lato', sans-serif; }
+  .calc-price-row { display: flex; align-items: baseline; justify-content: center; gap: 4px; margin-bottom: 8px; }
+  .calc-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--terra);
+    line-height: 1;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .calc-currency { font-size: 1.8rem; color: var(--terra); font-family: 'Playfair Display', serif; }
+  .calc-price-detail { font-size: 0.82rem; color: rgba(255,255,255,0.5); margin-bottom: 20px; font-family: 'Lato', sans-serif; }
+  .calc-badges { display: flex; flex-direction: column; gap: 6px; margin-bottom: 24px; }
+  .calc-badge { font-size: 0.78rem; color: rgba(255,255,255,0.7); font-family: 'Lato', sans-serif; }
+  .calc-cta { width: 100%; justify-content: center; margin-bottom: 12px; }
+  .calc-disclaimer { font-size: 0.72rem; color: rgba(255,255,255,0.3); font-family: 'Lato', sans-serif; line-height: 1.4; }
+  @media (max-width: 768px) {
+    .calc-grid { grid-template-columns: 1fr; gap: 32px; }
+    .calc-card { padding: 28px 20px; }
+    .calc-result-box { max-width: 100%; }
+  }
+  </style>
+
+  <script>
+  (function() {
+    const rates = {
+      dog:   { hebergement: 35, day: 28, home: 40 },
+      cat:   { hebergement: 25, day: 20, home: 30 },
+      other: { hebergement: 20, day: 18, home: 25 }
+    };
+    let animal = 'dog', service = 'hebergement', duration = 3;
+
+    function updateCalc() {
+      const rate = rates[animal][service];
+      const total = rate * duration;
+      const priceEl = document.getElementById('calcPrice');
+      const detailEl = document.getElementById('calcDetail');
+      const label = document.getElementById('durationLabel');
+      const unit = service === 'day' ? 'jour' : 'nuit';
+      const unitPlural = duration > 1 ? unit + 's' : unit;
+
+      // Animate price change
+      priceEl.style.transform = 'scale(1.15)';
+      priceEl.style.color = '#f5a570';
+      setTimeout(() => {
+        priceEl.textContent = total;
+        priceEl.style.transform = 'scale(1)';
+        priceEl.style.color = '';
+      }, 150);
+
+      detailEl.textContent = rate + ' €/' + unit + ' × ' + duration + ' ' + unitPlural;
+      label.textContent = duration + ' ' + unitPlural;
+
+      // Update slider gradient
+      const slider = document.getElementById('durationSlider');
+      const pct = ((duration - 1) / 13 * 100).toFixed(1) + '%';
+      slider.style.setProperty('--slider-pct', pct);
+      slider.style.background = `linear-gradient(to right, var(--terra) 0%, var(--terra) ${pct}, #e0d5ca ${pct}, #e0d5ca 100%)`;
+    }
+
+    function initCalc() {
+      // Animal pills
+      document.getElementById('animalPills').querySelectorAll('.calc-pill').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.getElementById('animalPills').querySelectorAll('.calc-pill').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          animal = btn.dataset.animal;
+          updateCalc();
+        });
+      });
+
+      // Service pills
+      document.getElementById('servicePills').querySelectorAll('.calc-pill').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.getElementById('servicePills').querySelectorAll('.calc-pill').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          service = btn.dataset.service;
+          updateCalc();
+        });
+      });
+
+      // Duration slider
+      document.getElementById('durationSlider').addEventListener('input', e => {
+        duration = parseInt(e.target.value);
+        updateCalc();
+      });
+
+      updateCalc();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initCalc);
+    } else {
+      initCalc();
+    }
+  })();
+  </script>
+
+  <!-- COMMENT ÇA MARCHE -->
+  <section class="how">
+    <div class="container">
+      <div class="section-eyebrow reveal">Simple & rassurant</div>
+      <h2 class="section-title reveal d1">Comment ça marche ?</h2>
+      <p class="section-sub reveal d2">En 4 étapes simples, votre animal est entre de bonnes mains.</p>
+      <div class="steps">
+        <div class="step reveal d1">
+          <div class="step-num">1</div>
+          <div class="step-title">Contactez-nous</div>
+          <div class="step-text">Remplissez notre formulaire ou appelez-nous pour présenter votre animal et vos dates.</div>
+        </div>
+        <div class="step reveal d2">
+          <div class="step-num">2</div>
+          <div class="step-title">Rencontre découverte</div>
+          <div class="step-text">Une première rencontre gratuite pour que votre animal fasse connaissance avec nous.</div>
+        </div>
+        <div class="step reveal d3">
+          <div class="step-num">3</div>
+          <div class="step-title">Confirmation</div>
+          <div class="step-text">Nous réservons votre créneau et préparons un accueil sur-mesure pour votre compagnon.</div>
+        </div>
+        <div class="step reveal d4">
+          <div class="step-num">4</div>
+          <div class="step-title">Partez l'esprit libre</div>
+          <div class="step-text">Recevez des nouvelles et des photos chaque jour. Voyagez sereinement !</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TÉMOIGNAGES -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-eyebrow reveal">Ils nous font confiance</div>
+      <h2 class="section-title reveal d1">Ce que disent<br/>nos clients</h2>
+      <div class="testi-grid">
+        <div class="testi-card reveal d1">
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-text">« Noisette est rentrée épanouie et détendue. Les photos quotidiennes m'ont permis de vraiment profiter de mes vacances sans culpabilité. Je recommande les yeux fermés ! »</div>
+          <div class="testi-author">
+            <div class="testi-avatar">👩</div>
+            <div>
+              <div class="testi-name">Sophie M.</div>
+              <div class="testi-pet">Propriétaire de Noisette, Labrador</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card reveal d2">
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-text">« Mon chat est très anxieux habituellement en déplacement. Ici, il a été tellement à l'aise qu'il ne voulait plus rentrer ! C'est vraiment une deuxième maison pour lui. »</div>
+          <div class="testi-author">
+            <div class="testi-avatar">👨</div>
+            <div>
+              <div class="testi-name">Lucas T.</div>
+              <div class="testi-pet">Propriétaire de Mochi, Maine Coon</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card reveal d3">
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-text">« Service impeccable, communication parfaite. On sent que les animaux sont vraiment aimés et pas juste gardés. Une perle rare dans ce secteur. Merci du fond du cœur ! »</div>
+          <div class="testi-author">
+            <div class="testi-avatar">👩</div>
+            <div>
+              <div class="testi-name">Amina B.</div>
+              <div class="testi-pet">Propriétaire de Rocky, Beagle</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GARANTIES -->
+  <section class="guarantees">
+    <div class="container">
+      <div class="section-eyebrow reveal">Notre engagement</div>
+      <h2 class="section-title reveal d1">Ce que nous vous garantissons</h2>
+      <div class="guarantees-grid">
+        <div class="guarantee-item reveal d1">
+          <div class="guarantee-icon">🔒</div>
+          <div class="guarantee-title">Environnement sécurisé</div>
+          <div class="guarantee-text">Espace entièrement sécurisé, adapté aux chiens et aux chats de toutes tailles.</div>
+        </div>
+        <div class="guarantee-item reveal d2">
+          <div class="guarantee-icon">📱</div>
+          <div class="guarantee-title">Joignable 24h/24</div>
+          <div class="guarantee-text">En cas de question ou d'urgence, nous sommes toujours disponibles pour vous répondre.</div>
+        </div>
+        <div class="guarantee-item reveal d3">
+          <div class="guarantee-icon">🌿</div>
+          <div class="guarantee-title">Alimentation respectée</div>
+          <div class="guarantee-text">Les habitudes et le régime alimentaire de votre animal sont scrupuleusement respectés.</div>
+        </div>
+        <div class="guarantee-item reveal d4">
+          <div class="guarantee-icon">💝</div>
+          <div class="guarantee-title">Amour garanti</div>
+          <div class="guarantee-text">Chaque animal reçoit l'attention, les câlins et la chaleur qu'il mérite — sans exception.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-section">
+    <h2 class="reveal">Prêt à partir<br/>l'esprit tranquille ?</h2>
+    <p class="reveal d1">Réservez dès maintenant et offrez à votre animal la meilleure des gardes.</p>
+    <a href="contact.html" class="btn-cta-white magnetic ripple reveal d2">Prendre rendez-vous</a>
+  </section>
+
+  <!-- BOUTON FLOTTANT ACHAT -->
+  <a href="contact.html?sujet=achat" class="float-buy">
+    <div class="float-buy-icon">🏷️</div>
+    <div class="float-buy-label">
+      <span>Projet à vendre</span>
+      <span>Acheter ce projet</span>
+    </div>
+    <span class="float-buy-arrow">→</span>
+  </a>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Cabane à Câlin</div>
+        <div class="footer-tagline">Service de garde d'animaux familial, chaleureux et sécurisant. Parce que vos compagnons méritent ce qu'il y a de mieux.</div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Navigation</div>
+        <a href="index.html">Accueil</a>
+        <a href="concept.html">Le concept</a>
+        <a href="forces.html">Forces du projet</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Services</div>
+        <a href="#">Hébergement complet</a>
+        <a href="#">Day Sitting</a>
+        <a href="#">Home Sitting</a>
+        <a href="#">Tarifs</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Contact & Réseaux</div>
+        <a href="mailto:contact@cabaneacalin.fr">contact@cabaneacalin.fr</a>
+        <a href="#">+33 6 XX XX XX XX</a>
+        <a href="contact.html">Prendre RDV</a>
+        <div class="footer-social">
+          <a href="#" class="footer-social-link" aria-label="Instagram" title="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" class="footer-social-link" aria-label="Facebook" title="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" class="footer-social-link" aria-label="TikTok" title="TikTok">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.3 6.3 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.14a8.27 8.27 0 0 0 4.84 1.55V7.25a4.85 4.85 0 0 1-1.07-.56z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© <span id="footer-year"></span> Cabane à Câlin. Tous droits réservés.</span>
+      <span class="footer-heart">Fait avec ♥ pour vos animaux</span>
+    </div>
+  </footer>
+
+  <style>
+  .footer-social { display: flex; gap: 10px; margin-top: 14px; }
+  .footer-social-link {
+    display: flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.07);
+    color: rgba(245,239,224,0.55);
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+  }
+  .footer-social-link:hover {
+    background: var(--terra);
+    color: white;
+    transform: translateY(-2px);
+  }
+  </style>
+
+  <script src="shared.js"></script>
+</body>
+</html>

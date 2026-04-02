@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Forces du Projet — Cabane à Câlin</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- OpenGraph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://cabaneacalin.fr/forces.html" />
+  <meta property="og:title"       content="Forces du Projet — Cabane à Câlin" />
+  <meta property="og:description" content="Atouts concurrentiels, analyse SWOT et roadmap de Cabane à Câlin. Un projet de garde d'animaux premium, clé en main et prêt à exploiter." />
+  <meta property="og:image"       content="https://cabaneacalin.fr/og-image.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale"      content="fr_FR" />
+  <meta property="og:site_name"   content="Cabane à Câlin" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Forces du Projet — Cabane à Câlin" />
+  <meta name="twitter:description" content="Marché porteur, positionnement différenciant, modèle scalable. Découvrez les forces de ce projet à vendre." />
+  <meta name="twitter:image"       content="https://cabaneacalin.fr/og-image.svg" />
+
+  <!-- SEO -->
+  <meta name="description" content="Forces de Cabane à Câlin : analyse SWOT, roadmap et atouts concurrentiels d'un projet de garde d'animaux premium à vendre." />
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <link rel="stylesheet" href="mobile.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --terra:#C97B5A; --terra-d:#b8694a; --sauge:#7A9E7E;
+      --creme:#F5EFE0; --caramel:#8B5E3C; --brun:#2E2A25;
+      --white:#FFFFFF; --text:#5c524a; --light:#a09790;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--creme); color: var(--brun); font-family: 'Lato', sans-serif; font-size: 16px; line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+
+    /* BARRE D'ANNONCE */
+    .sale-banner { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: var(--brun); height: 44px; display: flex; align-items: center; justify-content: center; gap: 16px; }
+    .sale-banner-text { font-size: 13px; color: rgba(245,239,224,0.75); font-weight: 400; }
+    .sale-banner-text strong { color: var(--creme); font-weight: 700; }
+    .sale-banner-cta { background: var(--terra); color: var(--white); border-radius: 50px; padding: 5px 18px; font-size: 12px; font-weight: 700; transition: background .2s, transform .15s; white-space: nowrap; }
+    .sale-banner-cta:hover { background: var(--terra-d); transform: scale(1.04); }
+    .sale-banner-close { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); background: none; border: none; color: rgba(245,239,224,0.4); font-size: 18px; cursor: pointer; padding: 4px; transition: color .2s; }
+    .sale-banner-close:hover { color: var(--creme); }
+
+    /* BOUTON FLOTTANT */
+    .float-buy { position: fixed; right: 24px; bottom: 36px; z-index: 150; background: var(--brun); color: var(--white); border-radius: 50px; padding: 14px 22px; display: flex; align-items: center; gap: 10px; box-shadow: 0 8px 32px rgba(46,42,37,0.30); font-weight: 700; font-size: 14px; transition: transform .25s, box-shadow .25s, background .2s; text-decoration: none; }
+    .float-buy:hover { transform: translateY(-4px) scale(1.03); box-shadow: 0 14px 44px rgba(46,42,37,0.38); background: #1e1a16; }
+    .float-buy-icon { width: 32px; height: 32px; border-radius: 50%; background: var(--terra); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+    .float-buy-label { display: flex; flex-direction: column; line-height: 1.2; }
+    .float-buy-label span:first-child { font-size: 11px; color: rgba(255,255,255,0.55); font-weight: 400; }
+    .float-buy-label span:last-child { font-size: 14px; color: var(--white); font-weight: 700; }
+    .float-buy-arrow { font-size: 16px; color: var(--terra); margin-left: 2px; }
+
+    /* NAV */
+    nav { position: fixed; top: 44px; left: 0; right: 0; z-index: 100; background: rgba(245,239,224,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,123,90,0.12); padding: 0 48px; height: 72px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { font-family: 'Pacifico', cursive; font-size: 22px; color: var(--terra); }
+    .nav-links { display: flex; gap: 36px; align-items: center; }
+    .nav-links a { font-size: 14px; font-weight: 700; color: var(--brun); letter-spacing: 0.3px; opacity: 0.75; transition: opacity .2s, color .2s; }
+    .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--terra); }
+    .nav-cta { background: var(--terra); color: var(--white) !important; opacity: 1 !important; border-radius: 50px; padding: 10px 24px !important; font-size: 13px !important; transition: background .2s !important; }
+    .nav-cta:hover { background: var(--terra-d) !important; }
+    .nav-buy { background: var(--brun) !important; color: var(--creme) !important; opacity: 1 !important; border-radius: 50px; padding: 10px 20px !important; font-size: 12px !important; border: 1.5px solid rgba(201,123,90,0.35) !important; transition: background .2s, border-color .2s !important; }
+    .nav-buy:hover { background: #1e1a16 !important; border-color: var(--terra) !important; }
+
+    @keyframes fadeInUp   { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:none; } }
+    @keyframes fadeInDown { from { opacity:0; transform:translateY(-16px); } to { opacity:1; transform:none; } }
+
+    /* PAGE HERO */
+    .page-hero {
+      background: linear-gradient(-45deg, #5a8060, #3d6045, #4a7055, #6a9070, #5a8060);
+      background-size: 400% 400%;
+      animation: gradientDrift 18s ease infinite;
+      padding: 180px 48px 80px; text-align: center; position: relative; overflow: hidden;
+    }
+    .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 100%, rgba(201,123,90,0.15) 0%, transparent 60%); }
+    .page-hero-tag { font-family: 'Pacifico', cursive; font-size: 13px; color: rgba(245,239,224,0.8); margin-bottom: 16px; position: relative; }
+    .page-hero h1 { font-family: 'Playfair Display', serif; font-size: 56px; color: var(--white); font-weight: 700; line-height: 1.15; margin-bottom: 20px; position: relative; }
+    .page-hero h1 em { color: #f0e0cc; font-style: italic; }
+    .page-hero p { font-size: 18px; color: rgba(245,239,224,0.75); font-weight: 300; line-height: 1.7; max-width: 580px; margin: 0 auto; position: relative; }
+
+    /* LAYOUT */
+    .container { max-width: 1100px; margin: 0 auto; }
+    section { padding: 96px 48px; }
+    .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--terra); margin-bottom: 12px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 42px; color: var(--brun); line-height: 1.2; margin-bottom: 16px; }
+    .section-sub { font-size: 17px; color: var(--text); font-weight: 300; line-height: 1.7; max-width: 600px; }
+
+    /* PLACEHOLDER GRID */
+    .placeholder-intro { background: var(--white); }
+    .placeholder-banner {
+      background: linear-gradient(135deg, rgba(201,123,90,0.08), rgba(122,158,126,0.08));
+      border: 2px dashed rgba(201,123,90,0.3);
+      border-radius: 20px; padding: 36px; text-align: center;
+      margin-bottom: 56px;
+    }
+    .placeholder-banner-icon { font-size: 40px; margin-bottom: 12px; }
+    .placeholder-banner-title { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--caramel); font-weight: 700; margin-bottom: 8px; }
+    .placeholder-banner-text { font-size: 14px; color: var(--light); }
+
+    .forces-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .force-card {
+      border-radius: 24px; overflow: hidden;
+      box-shadow: 0 4px 20px rgba(46,42,37,0.07);
+      background: var(--white);
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+      transform-style: preserve-3d;
+    }
+    .force-card-top { height: 180px; display: flex; align-items: center; justify-content: center; position: relative; }
+    .force-placeholder {
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(-45deg, rgba(245,239,224,0.5) 0px, rgba(245,239,224,0.5) 6px, rgba(201,123,90,0.06) 6px, rgba(201,123,90,0.06) 12px);
+      display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px;
+    }
+    .force-placeholder-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(201,123,90,0.5); }
+    .force-placeholder-emoji { font-size: 40px; opacity: 0.4; }
+    .force-card-body { padding: 24px 28px; }
+    .force-number { font-family: 'Playfair Display', serif; font-size: 12px; color: var(--terra); font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; }
+    .force-title { font-family: 'Playfair Display', serif; font-size: 19px; color: var(--brun); font-weight: 700; margin-bottom: 10px; }
+    .force-text { font-size: 13px; color: var(--light); line-height: 1.65; font-style: italic; }
+    .force-tag { display: inline-block; margin-top: 14px; background: var(--creme); border-radius: 50px; padding: 4px 14px; font-size: 11px; font-weight: 700; color: var(--caramel); letter-spacing: 1px; }
+
+    /* SWOT SECTION */
+    .swot-section { background: var(--creme); }
+    .swot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 56px; }
+    .swot-card { border-radius: 20px; padding: 32px; }
+    .swot-s { background: rgba(122,158,126,0.15); border-top: 4px solid var(--sauge); }
+    .swot-w { background: rgba(201,123,90,0.1); border-top: 4px solid var(--terra); }
+    .swot-o { background: rgba(46,42,37,0.06); border-top: 4px solid var(--brun); }
+    .swot-t { background: rgba(139,94,60,0.1); border-top: 4px solid var(--caramel); }
+    .swot-label { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; }
+    .swot-s .swot-label { color: var(--sauge); }
+    .swot-w .swot-label { color: var(--terra); }
+    .swot-o .swot-label { color: var(--brun); }
+    .swot-t .swot-label { color: var(--caramel); }
+    .swot-title { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--brun); font-weight: 700; margin-bottom: 16px; }
+    .swot-list { list-style: none; }
+    .swot-list li { display: flex; gap: 10px; font-size: 14px; color: var(--text); margin-bottom: 8px; line-height: 1.5; }
+    .swot-list li::before { content: '—'; color: var(--light); flex-shrink: 0; }
+    .swot-placeholder-row { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+    .swot-placeholder-chip { background: rgba(255,255,255,0.6); border: 1.5px dashed rgba(201,123,90,0.25); border-radius: 50px; padding: 4px 14px; font-size: 11px; color: var(--light); font-style: italic; }
+
+    /* ROADMAP */
+    .roadmap-section { background: var(--white); }
+    .roadmap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 56px; }
+    .roadmap-phase { border-radius: 20px; padding: 24px; }
+    .roadmap-phase-1 { background: var(--terra); color: var(--white); }
+    .roadmap-phase-2 { background: var(--creme); border: 2px solid rgba(201,123,90,0.2); }
+    .roadmap-phase-3 { background: var(--creme); border: 2px dashed rgba(201,123,90,0.2); }
+    .roadmap-phase-4 { background: var(--creme); border: 2px dashed rgba(122,158,126,0.2); }
+    .roadmap-phase-num { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; opacity: 0.7; }
+    .roadmap-phase-title { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; margin-bottom: 12px; }
+    .roadmap-phase-1 .roadmap-phase-title { color: var(--white); }
+    .roadmap-phase-2 .roadmap-phase-title, .roadmap-phase-3 .roadmap-phase-title, .roadmap-phase-4 .roadmap-phase-title { color: var(--brun); }
+    .roadmap-phase-items { font-size: 12px; line-height: 1.7; }
+    .roadmap-phase-1 .roadmap-phase-items { color: rgba(255,255,255,0.8); }
+    .roadmap-phase-2 .roadmap-phase-items, .roadmap-phase-3 .roadmap-phase-items, .roadmap-phase-4 .roadmap-phase-items { color: var(--light); font-style: italic; }
+    .roadmap-badge { display: inline-block; margin-top: 16px; border-radius: 50px; padding: 4px 14px; font-size: 10px; font-weight: 700; letter-spacing: 1px; }
+    .roadmap-phase-1 .roadmap-badge { background: rgba(255,255,255,0.2); color: var(--white); }
+    .roadmap-phase-2 .roadmap-badge, .roadmap-phase-3 .roadmap-badge, .roadmap-phase-4 .roadmap-badge { background: rgba(201,123,90,0.1); color: var(--caramel); }
+
+    /* CTA */
+    .cta-section { background: linear-gradient(135deg, var(--terra) 0%, #a0614a 100%); text-align: center; padding: 96px 48px; }
+    .cta-section h2 { font-family: 'Playfair Display', serif; font-size: 42px; color: var(--white); font-weight: 700; margin-bottom: 16px; }
+    .cta-section p { font-size: 17px; color: rgba(255,255,255,0.8); font-weight: 300; margin-bottom: 36px; }
+    .btn-cta-white { background: var(--white); color: var(--terra); border-radius: 50px; padding: 16px 44px; font-weight: 700; font-size: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15); transition: all .25s; display: inline-block; }
+    .btn-cta-white:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(0,0,0,0.22); }
+
+    /* FOOTER */
+    footer { background: var(--brun); padding: 64px 48px 40px; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand { font-family: 'Pacifico', cursive; font-size: 24px; color: var(--terra); margin-bottom: 12px; }
+    .footer-tagline { font-size: 13px; color: rgba(245,239,224,0.5); line-height: 1.7; max-width: 240px; }
+    .footer-col-title { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(245,239,224,0.4); margin-bottom: 16px; }
+    .footer-col a { display: block; font-size: 14px; color: rgba(245,239,224,0.65); margin-bottom: 10px; transition: color .2s; }
+    .footer-col a:hover { color: var(--terra); }
+    .footer-bottom { max-width: 1100px; margin: 0 auto; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.07); display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { font-size: 12px; color: rgba(245,239,224,0.3); }
+    .footer-heart { font-size: 12px; color: var(--terra); }
+  </style>
+</head>
+<body>
+
+  <!-- BARRE D'ANNONCE -->
+  <div class="sale-banner" id="saleBanner">
+    <span class="sale-banner-text">🏷️ <strong>Ce projet est à vendre</strong><span class="banner-hide-mobile"> — Site non en production · Opportunité d'acquisition disponible</span></span>
+    <a href="contact.html?sujet=achat" class="sale-banner-cta">Acheter →</a>
+    <button class="sale-banner-close" onclick="document.getElementById('saleBanner').style.display='none';" aria-label="Fermer">×</button>
+  </div>
+
+  <nav>
+    <a href="index.html" class="nav-brand">Cabane à Câlin</a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Accueil</a>
+      <a href="concept.html">Le concept</a>
+      <a href="forces.html" class="active">Forces du projet</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="nav-cta">Réserver</a>
+      <a href="contact.html?sujet=achat" class="nav-buy">🏷️ Acheter ce projet</a>
+    </div>
+    <button class="nav-hamburger" id="navToggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <div class="page-hero">
+    <div class="page-hero-tag" style="animation:fadeInDown 0.7s ease both; position:relative;">Analyse pour les acquéreurs</div>
+    <h1 style="animation:fadeInUp 0.8s 0.15s ease both; position:relative;">Un marché de <em>450 M€</em><br/>qui ne dort jamais</h1>
+    <p style="animation:fadeInUp 0.8s 0.3s ease both; position:relative;">Le pet-sitting familial en France affiche +8,7 %/an depuis 2020. Cabane à Câlin est positionné pour capter cette croissance dès le premier jour.</p>
+  </div>
+
+  <!-- MARQUEE -->
+  <div class="marquee-section" style="background: var(--sauge);">
+    <div class="marquee-inner">
+      <div class="marquee-group" aria-hidden="true">
+        <span class="marquee-item">📊 Marché pet-sitting France : 450 M€<span class="marquee-dot"></span></span>
+        <span class="marquee-item">📈 +8,7 %/an depuis 2020<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🐾 80 millions d'animaux domestiques en France<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🏠 52 % des foyers ont un animal<span class="marquee-dot"></span></span>
+        <span class="marquee-item">💰 1 500 – 2 700 €/mois de CA possible<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🎯 CAGR projeté : +10,9 % jusqu'en 2030<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🏷️ Projet clé en main à saisir<span class="marquee-dot"></span></span>
+      </div>
+      <div class="marquee-group" aria-hidden="true">
+        <span class="marquee-item">📊 Marché pet-sitting France : 450 M€<span class="marquee-dot"></span></span>
+        <span class="marquee-item">📈 +8,7 %/an depuis 2020<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🐾 80 millions d'animaux domestiques en France<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🏠 52 % des foyers ont un animal<span class="marquee-dot"></span></span>
+        <span class="marquee-item">💰 1 500 – 2 700 €/mois de CA possible<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🎯 CAGR projeté : +10,9 % jusqu'en 2030<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🏷️ Projet clé en main à saisir<span class="marquee-dot"></span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS BAND MARCHÉ -->
+  <section class="stats-band-section">
+    <div class="container">
+      <div class="stats-band">
+        <div class="stat-item reveal d1">
+          <div class="stat-num" data-target="450" data-suffix=" M€">0</div>
+          <div class="stat-label">Taille du marché pet-sitting France 2025</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item reveal d2">
+          <div class="stat-num" data-target="8" data-suffix=",7 %/an">0</div>
+          <div class="stat-label">Croissance annuelle moyenne depuis 2020</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item reveal d3">
+          <div class="stat-num" data-target="80" data-suffix=" M">0</div>
+          <div class="stat-label">Animaux domestiques en France</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item reveal d4">
+          <div class="stat-num" data-target="52" data-suffix=" %">0</div>
+          <div class="stat-label">Des foyers français ont un animal en 2025</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+  .stats-band-section { padding: 0; background: var(--brun); }
+  .stats-band { display: grid; grid-template-columns: repeat(4, 1fr); align-items: center; }
+  .stat-item { padding: 48px 32px; text-align: center; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 700; color: var(--terra); line-height: 1; margin-bottom: 10px; }
+  .stat-label { font-size: 0.8rem; color: rgba(245,239,224,0.55); line-height: 1.5; font-family: 'Lato', sans-serif; max-width: 160px; margin: 0 auto; }
+  .stat-divider { width: 1px; height: 60px; background: rgba(255,255,255,0.1); }
+  @media (max-width: 768px) {
+    .stats-band { grid-template-columns: 1fr 1fr; }
+    .stat-divider { display: none; }
+    .stat-item { padding: 32px 20px; }
+  }
+  </style>
+
+  <!-- 6 FORCES -->
+  <section class="placeholder-intro">
+    <div class="container">
+      <div class="section-eyebrow">Nos atouts concurrentiels</div>
+      <h2 class="section-title">6 forces qui font la<br/>valeur de ce projet</h2>
+      <p class="section-sub" style="margin-bottom: 48px;">Des avantages solides, ancrés dans les réalités du marché français 2025.</p>
+
+      <div class="forces-grid">
+
+        <div class="force-card tilt-card reveal d1 animated-border glow-card">
+          <div class="force-card-top" style="background: linear-gradient(135deg, rgba(201,123,90,0.12), rgba(201,123,90,0.04)); display:flex; align-items:center; justify-content:center;">
+            <div style="font-size:3.5rem; animation: floatB 5s ease-in-out infinite;">📊</div>
+          </div>
+          <div class="force-card-body">
+            <div class="force-number">FORCE 01</div>
+            <div class="force-title">Un marché de 450 M€ en plein essor</div>
+            <div class="force-text">Le secteur du pet-sitting français pèse 450 M€ en 2025, avec un CAGR de +10,9 % prévu jusqu'en 2030. Le marché global des services aux animaux dépasse 7 milliards €. Un terreau idéal pour un acteur premium bien positionné.</div>
+            <span class="force-tag">+8,7 % / an</span>
+          </div>
+        </div>
+
+        <div class="force-card tilt-card reveal d2 animated-border glow-card">
+          <div class="force-card-top" style="background: linear-gradient(135deg, rgba(122,158,126,0.12), rgba(122,158,126,0.04)); display:flex; align-items:center; justify-content:center;">
+            <div style="font-size:3.5rem; animation: floatA 6s ease-in-out infinite 0.5s;">🏡</div>
+          </div>
+          <div class="force-card-body">
+            <div class="force-number">FORCE 02</div>
+            <div class="force-title">Positionnement premium face aux plateformes</div>
+            <div class="force-text">Les plateformes (type Rover) comptent +186 000 profils — mais aucune ne garantit l'environnement familial. Cabane à Câlin s'adresse aux propriétaires qui refusent de confier leur animal à un inconnu. Prix : 25–40 €/nuit vs 15 € en moyenne sur les plateformes. Marge supérieure, fidélisation plus forte.</div>
+            <span class="force-tag">Segment premium</span>
+          </div>
+        </div>
+
+        <div class="force-card tilt-card reveal d3 animated-border glow-card">
+          <div class="force-card-top" style="background: linear-gradient(135deg, rgba(201,123,90,0.08), rgba(139,94,60,0.08)); display:flex; align-items:center; justify-content:center;">
+            <div style="font-size:3.5rem; animation: floatC 5.5s ease-in-out infinite 1s;">💛</div>
+          </div>
+          <div class="force-card-body">
+            <div class="force-number">FORCE 03</div>
+            <div class="force-title">80 % des propriétaires : une demande récurrente</div>
+            <div class="force-text">80 % des propriétaires ont besoin d'une garde au moins une fois par an — vacances, déplacements pros, urgences. Les dépenses moyennes atteignent 1 500 €/an par animal. Un seul client fidèle représente potentiellement 300–600 €/an de CA récurrent, sans effort d'acquisition supplémentaire.</div>
+            <span class="force-tag">Fidélisation naturelle</span>
+          </div>
+        </div>
+
+        <div class="force-card tilt-card reveal d1 animated-border glow-card">
+          <div class="force-card-top" style="background: linear-gradient(135deg, rgba(46,42,37,0.08), rgba(46,42,37,0.04)); display:flex; align-items:center; justify-content:center;">
+            <div style="font-size:3.5rem; animation: floatB 4.5s ease-in-out infinite 0.3s;">🐾</div>
+          </div>
+          <div class="force-card-body">
+            <div class="force-number">FORCE 04</div>
+            <div class="force-title">Niche NAC : 5 millions d'animaux sous-servis</div>
+            <div class="force-text">Lapins, rongeurs, oiseaux, reptiles — 5 millions de NAC en France dont les propriétaires peinent à trouver un pet-sitter compétent. Tarifs : 40–60 €/nuit (vs 15–25 € pour chiens/chats). Ce segment peu saturé offre une marge supérieure et une quasi-absence de concurrence locale.</div>
+            <span class="force-tag">Peu concurrencé</span>
+          </div>
+        </div>
+
+        <div class="force-card tilt-card reveal d2 animated-border glow-card">
+          <div class="force-card-top" style="background: linear-gradient(135deg, rgba(122,158,126,0.1), rgba(201,123,90,0.06)); display:flex; align-items:center; justify-content:center;">
+            <div style="font-size:3.5rem; animation: floatA 7s ease-in-out infinite 0.8s;">🌿</div>
+          </div>
+          <div class="force-card-body">
+            <div class="force-number">FORCE 05</div>
+            <div class="force-title">Modèle scalable : 1 500–2 700 €/mois dès le lancement</div>
+            <div class="force-text">Un pet-sitter à temps plein en zone urbaine génère entre 1 500 et 2 700 €/mois de CA. Le modèle est extensible sans investissement lourd : ajout d'un deuxième sitter, diversification des services (toilettage, promenade) ou développement en franchise. Charges fixes quasi-nulles au démarrage.</div>
+            <span class="force-tag">Scalable & rentable</span>
+          </div>
+        </div>
+
+        <div class="force-card tilt-card reveal d3 animated-border glow-card">
+          <div class="force-card-top" style="background: linear-gradient(135deg, rgba(201,123,90,0.1), rgba(122,158,126,0.06)); display:flex; align-items:center; justify-content:center;">
+            <div style="font-size:3.5rem; animation: floatC 6s ease-in-out infinite 1.2s;">📋</div>
+          </div>
+          <div class="force-card-body">
+            <div class="force-number">FORCE 06</div>
+            <div class="force-title">Réglementation simple, concurrence faible</div>
+            <div class="force-text">L'ACACED (formation obligatoire) est accessible en quelques semaines. Seules 1 080 pensions sont officiellement recensées en France — soit une pension pour 74 000 animaux. Le marché est structurellement sous-équipé, surtout en zones périurbaines et en modèle familial premium.</div>
+            <span class="force-tag">Barrière à l'entrée faible</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PITCH ACHETEUR : POURQUOI INVESTIR MAINTENANT -->
+  <section style="background: var(--brun); padding: 96px 48px;">
+    <div class="container">
+      <div class="section-eyebrow" style="color: rgba(201,123,90,0.8);">Pitch investisseur</div>
+      <h2 class="section-title" style="color: var(--white);">Pourquoi acquérir ce projet<br/><span style="color: var(--terra);">maintenant ?</span></h2>
+      <p class="section-sub" style="color: rgba(245,239,224,0.6); margin-bottom: 56px;">Le marché est en fenêtre d'opportunité. La demande explose, l'offre premium reste rare. Voici les 3 arguments décisifs.</p>
+
+      <div class="pitch-grid">
+        <div class="pitch-card reveal d1">
+          <div class="pitch-icon">⏱️</div>
+          <div class="pitch-num">J+30</div>
+          <div class="pitch-title">Prêt à lancer en 30 jours</div>
+          <div class="pitch-text">Site complet, identité visuelle, processus clients, stratégie réseaux — tout est livré clé en main. L'acquéreur n'a qu'à ouvrir les réservations.</div>
+        </div>
+        <div class="pitch-card reveal d2">
+          <div class="pitch-icon">📈</div>
+          <div class="pitch-num">×2</div>
+          <div class="pitch-title">Le marché double d'ici 2030</div>
+          <div class="pitch-text">Le CAGR de +10,9 % signifie que le marché atteindra 214 M$ en 2030 (source : analyses internationales). Entrer aujourd'hui, c'est capturer la courbe ascendante dès le début.</div>
+        </div>
+        <div class="pitch-card reveal d3">
+          <div class="pitch-icon">💰</div>
+          <div class="pitch-num">ROI rapide</div>
+          <div class="pitch-title">Rentabilité atteignable dès l'année 1</div>
+          <div class="pitch-text">À 25 €/nuit, 3 animaux/semaine moyenne = ~3 900 €/mois de CA brut. Charges quasi-nulles (domicile). Le seuil de rentabilité est atteignable avec seulement 8–10 clients réguliers.</div>
+        </div>
+      </div>
+
+      <div class="pitch-cta-row reveal d4">
+        <div class="pitch-cta-text">Ce projet est disponible à l'acquisition. Dossier complet sur demande.</div>
+        <a href="contact.html?sujet=achat" class="btn-cta-white magnetic ripple">Demander le dossier →</a>
+      </div>
+    </div>
+  </section>
+
+  <style>
+  .pitch-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 48px; }
+  .pitch-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,123,90,0.2);
+    border-radius: 20px;
+    padding: 36px 28px;
+    transition: background 0.3s, border-color 0.3s;
+  }
+  .pitch-card:hover { background: rgba(201,123,90,0.08); border-color: rgba(201,123,90,0.5); }
+  .pitch-icon { font-size: 2rem; margin-bottom: 12px; }
+  .pitch-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--terra); margin-bottom: 8px; line-height: 1; }
+  .pitch-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--white); font-weight: 700; margin-bottom: 12px; }
+  .pitch-text { font-size: 0.88rem; color: rgba(245,239,224,0.55); line-height: 1.7; font-family: 'Lato', sans-serif; }
+  .pitch-cta-row {
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(201,123,90,0.12);
+    border: 1px solid rgba(201,123,90,0.3);
+    border-radius: 16px;
+    padding: 28px 36px;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .pitch-cta-text { font-size: 1rem; color: rgba(245,239,224,0.75); font-family: 'Lato', sans-serif; font-weight: 400; }
+  @media (max-width: 768px) {
+    .pitch-grid { grid-template-columns: 1fr; }
+    .pitch-cta-row { flex-direction: column; text-align: center; }
+  }
+  </style>
+
+  <!-- SWOT -->
+  <section class="swot-section">
+    <div class="container">
+      <div class="section-eyebrow">Analyse stratégique</div>
+      <h2 class="section-title">SWOT du projet</h2>
+      <p class="section-sub">Une vision honnête et complète des forces, faiblesses, opportunités et risques — pour une décision éclairée.</p>
+      <div class="swot-grid">
+        <div class="swot-card swot-s reveal d1">
+          <div class="swot-label">Forces (Strengths)</div>
+          <div class="swot-title">Ce qui crée la valeur</div>
+          <ul class="swot-list">
+            <li>Accueil en environnement familial : différenciation forte vs pensions</li>
+            <li>Positionnement premium avec tarifs 25–40 €/nuit justifiés par la qualité</li>
+            <li>Service ultra-personnalisé (habitudes, régime, besoins spécifiques)</li>
+            <li>Marque & site web professionnels livrés clé en main</li>
+            <li>Segment NAC sous-exploité avec marges supérieures (40–60 €/nuit)</li>
+          </ul>
+        </div>
+        <div class="swot-card swot-w reveal d2">
+          <div class="swot-label">Faiblesses (Weaknesses)</div>
+          <div class="swot-title">À anticiper</div>
+          <ul class="swot-list">
+            <li>Capacité d'accueil limitée au démarrage (modèle domicile)</li>
+            <li>Notoriété locale à construire (0 avis au lancement)</li>
+            <li>Formation ACACED obligatoire si non déjà obtenue</li>
+            <li>Dépendance à une seule personne en phase 1</li>
+          </ul>
+        </div>
+        <div class="swot-card swot-o reveal d3">
+          <div class="swot-label">Opportunités (Opportunities)</div>
+          <div class="swot-title">Le vent dans le dos</div>
+          <ul class="swot-list">
+            <li>Croissance +10,9 %/an jusqu'en 2030 — marché en phase d'expansion</li>
+            <li>52 % des foyers avec animaux en 2025 (vs 46 % en 2020)</li>
+            <li>1 500 €/an de dépenses moyennes par animal : clients à fort panier</li>
+            <li>Seulement 1 080 pensions recensées pour 80 M d'animaux</li>
+            <li>Demande de personnalisation croissante (photos, vidéos, soins spécialisés)</li>
+          </ul>
+        </div>
+        <div class="swot-card swot-t reveal d4">
+          <div class="swot-label">Menaces (Threats)</div>
+          <div class="swot-title">Les risques à gérer</div>
+          <ul class="swot-list">
+            <li>Plateformes (Rover, Pawshake) avec +186 000 profils — concurrence de volume</li>
+            <li>Saisonnalité forte (pic été & fêtes) à lisser avec offres régulières</li>
+            <li>Possible durcissement réglementaire (ACACED, assurance)</li>
+            <li>Dépendance au bouche-à-oreille local en phase de démarrage</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section class="roadmap-section">
+    <div class="container">
+      <div class="section-eyebrow">Projections & vision long terme</div>
+      <h2 class="section-title">Roadmap de croissance</h2>
+      <p class="section-sub">Un plan de développement réaliste, ancré dans les réalités du marché français.</p>
+      <div class="roadmap">
+        <div class="roadmap-phase roadmap-phase-1 reveal d1">
+          <div class="roadmap-phase-num">Phase 1 · 2026</div>
+          <div class="roadmap-phase-title">Lancement & installation</div>
+          <div class="roadmap-phase-items" style="color: rgba(255,255,255,0.85);">
+            Ouverture des réservations, premiers clients via bouche-à-oreille, SEO local et réseaux. Objectif : 8–10 clients réguliers. CA cible : 1 500–2 000 €/mois.
+          </div>
+          <span class="roadmap-badge">🟢 À lancer</span>
+        </div>
+        <div class="roadmap-phase roadmap-phase-2 reveal d2">
+          <div class="roadmap-phase-num">Phase 2 · 2027</div>
+          <div class="roadmap-phase-title">Croissance & premium</div>
+          <div class="roadmap-phase-items">
+            Développement du segment NAC (40–60 €/nuit), liste d'attente, premiers avis Google 5★. Tarifs revalorisés. CA cible : 2 500–3 500 €/mois.
+          </div>
+          <span class="roadmap-badge">⏳ Phase 2</span>
+        </div>
+        <div class="roadmap-phase roadmap-phase-3 reveal d3">
+          <div class="roadmap-phase-num">Phase 3 · 2028</div>
+          <div class="roadmap-phase-title">Extension des services</div>
+          <div class="roadmap-phase-items">
+            Ajout toilettage, promenades, visites à domicile. Partenariats vétérinaires et animaleries. Intégration d'un 2ᵉ sitter. CA cible : 5 000–7 000 €/mois.
+          </div>
+          <span class="roadmap-badge">⏳ Phase 3</span>
+        </div>
+        <div class="roadmap-phase roadmap-phase-4 reveal d4">
+          <div class="roadmap-phase-num">Phase 4 · 2029+</div>
+          <div class="roadmap-phase-title">Marque & franchise</div>
+          <div class="roadmap-phase-items">
+            Développement de la marque à l'échelle nationale. Modèle de franchise ou licence de marque. Valorisation de l'actif. CA cible : >15 000 €/mois.
+          </div>
+          <span class="roadmap-badge">🌟 Vision</span>
+        </div>
+      </div>
+
+      <!-- Projection visuelle -->
+      <div class="projection-bar reveal d5">
+        <div class="proj-label">Projection CA mensuel (estimation)</div>
+        <div class="proj-bars">
+          <div class="proj-bar-item">
+            <div class="proj-bar-fill" style="height: 35%; background: var(--terra);"></div>
+            <div class="proj-bar-val">1 750 €</div>
+            <div class="proj-bar-year">2026</div>
+          </div>
+          <div class="proj-bar-item">
+            <div class="proj-bar-fill" style="height: 58%; background: var(--terra);"></div>
+            <div class="proj-bar-val">3 000 €</div>
+            <div class="proj-bar-year">2027</div>
+          </div>
+          <div class="proj-bar-item">
+            <div class="proj-bar-fill" style="height: 82%; background: var(--sauge);"></div>
+            <div class="proj-bar-val">6 000 €</div>
+            <div class="proj-bar-year">2028</div>
+          </div>
+          <div class="proj-bar-item">
+            <div class="proj-bar-fill" style="height: 100%; background: linear-gradient(to top, var(--sauge), var(--terra));"></div>
+            <div class="proj-bar-val">15 000 €+</div>
+            <div class="proj-bar-year">2029+</div>
+          </div>
+        </div>
+        <div class="proj-disclaimer">* Estimations basées sur les données marché 2025. Non garanties.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <style>
+  .projection-bar { margin-top: 56px; background: var(--white); border-radius: 20px; padding: 36px; }
+  .proj-label { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--light); margin-bottom: 24px; }
+  .proj-bars { display: flex; gap: 16px; align-items: flex-end; height: 160px; }
+  .proj-bar-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; height: 100%; justify-content: flex-end; }
+  .proj-bar-fill { width: 100%; border-radius: 8px 8px 0 0; transition: height 1s ease; }
+  .proj-bar-val { font-family: 'Playfair Display', serif; font-size: 0.9rem; font-weight: 700; color: var(--brun); }
+  .proj-bar-year { font-size: 0.75rem; color: var(--light); font-weight: 700; }
+  .proj-disclaimer { font-size: 0.7rem; color: var(--light); margin-top: 16px; font-style: italic; }
+  </style>
+
+  <!-- BOUTON FLOTTANT ACHAT -->
+  <a href="contact.html?sujet=achat" class="float-buy">
+    <div class="float-buy-icon">🏷️</div>
+    <div class="float-buy-label">
+      <span>Projet à vendre</span>
+      <span>Acheter ce projet</span>
+    </div>
+    <span class="float-buy-arrow">→</span>
+  </a>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div style="font-family:'Pacifico',cursive; font-size:14px; color:rgba(255,255,255,0.6); margin-bottom:16px;">Un marché de 450 M€ qui n'attend pas</div>
+    <h2>Prêt à saisir<br/>cette opportunité ?</h2>
+    <p>Ce projet clé en main est disponible à l'acquisition. Dossier complet, marché validé, identité visuelle professionnelle — tout est prêt pour vous.</p>
+    <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+      <a href="contact.html?sujet=achat" class="btn-cta-white magnetic ripple">🏷️ Acheter ce projet</a>
+      <a href="concept.html" class="btn-cta-white magnetic ripple" style="background:transparent; border:2px solid rgba(255,255,255,0.4); color:white; box-shadow:none;">Découvrir le concept →</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Cabane à Câlin</div>
+        <div class="footer-tagline">Service de garde d'animaux familial, chaleureux et sécurisant. Parce que vos compagnons méritent ce qu'il y a de mieux.</div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Navigation</div>
+        <a href="index.html">Accueil</a>
+        <a href="concept.html">Le concept</a>
+        <a href="forces.html">Forces du projet</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Services</div>
+        <a href="#">Hébergement complet</a>
+        <a href="#">Day Sitting</a>
+        <a href="#">Home Sitting</a>
+        <a href="#">Tarifs</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Contact & Réseaux</div>
+        <a href="mailto:contact@cabaneacalin.fr">contact@cabaneacalin.fr</a>
+        <a href="#">+33 6 XX XX XX XX</a>
+        <a href="contact.html">Prendre RDV</a>
+        <div class="footer-social">
+          <a href="#" class="footer-social-link" aria-label="Instagram" title="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" class="footer-social-link" aria-label="Facebook" title="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" class="footer-social-link" aria-label="TikTok" title="TikTok">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.3 6.3 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.14a8.27 8.27 0 0 0 4.84 1.55V7.25a4.85 4.85 0 0 1-1.07-.56z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© <span id="footer-year"></span> Cabane à Câlin. Tous droits réservés.</span>
+      <span class="footer-heart">Fait avec ♥ pour vos animaux</span>
+    </div>
+  </footer>
+  <style>
+  .footer-social { display: flex; gap: 10px; margin-top: 14px; }
+  .footer-social-link { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.07); color: rgba(245,239,224,0.55); transition: background 0.2s, color 0.2s, transform 0.2s; }
+  .footer-social-link:hover { background: var(--terra); color: white; transform: translateY(-2px); }
+  </style>
+
+  <script src="shared.js"></script>
+</body>
+</html>

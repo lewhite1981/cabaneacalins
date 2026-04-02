@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Contact & Réservation — Cabane à Câlin</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- OpenGraph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://cabaneacalin.fr/contact.html" />
+  <meta property="og:title"       content="Contact & Réservation — Cabane à Câlin" />
+  <meta property="og:description" content="Réservez une garde pour votre animal ou faites une offre d'achat sur ce projet clé en main. Première rencontre gratuite. Réponse sous 24h." />
+  <meta property="og:image"       content="https://cabaneacalin.fr/og-image.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale"      content="fr_FR" />
+  <meta property="og:site_name"   content="Cabane à Câlin" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Contact & Réservation — Cabane à Câlin" />
+  <meta name="twitter:description" content="Contactez Cabane à Câlin pour réserver une garde ou acquérir ce projet. Réponse garantie sous 24h, 7j/7." />
+  <meta name="twitter:image"       content="https://cabaneacalin.fr/og-image.svg" />
+
+  <!-- SEO -->
+  <meta name="description" content="Contactez Cabane à Câlin : formulaire de réservation de garde d'animaux, acquisition du projet, FAQ et localisation. Disponible 7j/7." />
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <link rel="stylesheet" href="mobile.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --terra:#C97B5A; --terra-d:#b8694a; --sauge:#7A9E7E;
+      --creme:#F5EFE0; --caramel:#8B5E3C; --brun:#2E2A25;
+      --white:#FFFFFF; --text:#5c524a; --light:#a09790;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--creme); color: var(--brun); font-family: 'Lato', sans-serif; font-size: 16px; line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+
+    /* BARRE D'ANNONCE */
+    .sale-banner { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: var(--brun); height: 44px; display: flex; align-items: center; justify-content: center; gap: 16px; }
+    .sale-banner-text { font-size: 13px; color: rgba(245,239,224,0.75); font-weight: 400; }
+    .sale-banner-text strong { color: var(--creme); font-weight: 700; }
+    .sale-banner-cta { background: var(--terra); color: var(--white); border-radius: 50px; padding: 5px 18px; font-size: 12px; font-weight: 700; transition: background .2s, transform .15s; white-space: nowrap; }
+    .sale-banner-cta:hover { background: var(--terra-d); transform: scale(1.04); }
+    .sale-banner-close { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); background: none; border: none; color: rgba(245,239,224,0.4); font-size: 18px; cursor: pointer; padding: 4px; transition: color .2s; }
+    .sale-banner-close:hover { color: var(--creme); }
+
+    /* NAV */
+    nav { position: fixed; top: 44px; left: 0; right: 0; z-index: 100; background: rgba(245,239,224,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,123,90,0.12); padding: 0 48px; height: 72px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { font-family: 'Pacifico', cursive; font-size: 22px; color: var(--terra); }
+    .nav-links { display: flex; gap: 36px; align-items: center; }
+    .nav-links a { font-size: 14px; font-weight: 700; color: var(--brun); letter-spacing: 0.3px; opacity: 0.75; transition: opacity .2s, color .2s; }
+    .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--terra); }
+    .nav-cta { background: var(--terra); color: var(--white) !important; opacity: 1 !important; border-radius: 50px; padding: 10px 24px !important; font-size: 13px !important; transition: background .2s !important; }
+    .nav-cta:hover { background: var(--terra-d) !important; }
+    .nav-buy { background: var(--brun) !important; color: var(--creme) !important; opacity: 1 !important; border-radius: 50px; padding: 10px 20px !important; font-size: 12px !important; border: 1.5px solid rgba(201,123,90,0.35) !important; transition: background .2s, border-color .2s !important; }
+    .nav-buy:hover { background: #1e1a16 !important; border-color: var(--terra) !important; }
+
+    @keyframes fadeInUp   { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:none; } }
+    @keyframes fadeInDown { from { opacity:0; transform:translateY(-16px); } to { opacity:1; transform:none; } }
+
+    /* PAGE HERO */
+    .page-hero {
+      background: linear-gradient(-45deg, #2E2A25, #3d3328, #2a2018, #3d3328);
+      background-size: 400% 400%;
+      animation: gradientDrift 16s ease infinite;
+      padding: 180px 48px 80px; text-align: center;
+    }
+    .page-hero-tag { font-family: 'Pacifico', cursive; font-size: 13px; color: var(--terra); margin-bottom: 16px; }
+    .page-hero h1 { font-family: 'Playfair Display', serif; font-size: 56px; color: var(--white); font-weight: 700; line-height: 1.15; margin-bottom: 20px; }
+    .page-hero h1 em { color: var(--terra); font-style: italic; }
+    .page-hero p { font-size: 18px; color: rgba(245,239,224,0.7); font-weight: 300; line-height: 1.7; max-width: 520px; margin: 0 auto; }
+
+    /* LAYOUT */
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    /* CONTACT SPLIT */
+    .contact-section { padding: 96px 48px; background: var(--white); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start; }
+
+    /* INFO SIDE */
+    .contact-info {}
+    .info-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--terra); margin-bottom: 12px; }
+    .info-title { font-family: 'Playfair Display', serif; font-size: 36px; color: var(--brun); line-height: 1.25; margin-bottom: 16px; }
+    .info-sub { font-size: 15px; color: var(--text); line-height: 1.75; margin-bottom: 40px; }
+
+    .info-items { display: flex; flex-direction: column; gap: 20px; }
+    .info-item {
+      display: flex; gap: 16px; align-items: flex-start;
+      transition: transform 0.3s ease;
+    }
+    .info-item:hover { transform: translateX(6px); }
+    .info-icon { transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1); }
+    .info-item:hover .info-icon { transform: scale(1.15) rotate(-8deg); }
+    .info-icon { width: 48px; height: 48px; border-radius: 14px; background: var(--creme); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+    .info-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--light); margin-bottom: 4px; }
+    .info-value { font-size: 15px; color: var(--brun); font-weight: 700; }
+    .info-value-sub { font-size: 13px; color: var(--text); font-weight: 300; margin-top: 2px; }
+
+    .trust-strip { margin-top: 40px; padding: 24px; background: var(--creme); border-radius: 16px; }
+    .trust-strip-title { font-family: 'Playfair Display', serif; font-size: 15px; color: var(--brun); font-weight: 700; margin-bottom: 14px; }
+    .trust-items { display: flex; flex-direction: column; gap: 10px; }
+    .trust-item { display: flex; gap: 10px; font-size: 13px; color: var(--text); align-items: flex-start; }
+    .trust-item::before { content: '✓'; background: var(--sauge); color: var(--white); border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+    /* FORM SIDE */
+    .form-card {
+      background: var(--creme); border-radius: 28px; padding: 48px;
+      box-shadow: 0 8px 40px rgba(46,42,37,0.08);
+    }
+    .form-title { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--brun); font-weight: 700; margin-bottom: 6px; }
+    .form-sub { font-size: 13px; color: var(--light); margin-bottom: 32px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-size: 12px; font-weight: 700; color: var(--brun); letter-spacing: 0.3px; margin-bottom: 8px; }
+    .form-group label span { color: var(--terra); }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; background: var(--white); border: 2px solid transparent;
+      border-radius: 14px; padding: 13px 18px; font-family: 'Lato', sans-serif;
+      font-size: 14px; color: var(--brun); outline: none;
+      transition: border-color .2s, box-shadow .2s; resize: none;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--terra); box-shadow: 0 0 0 4px rgba(201,123,90,0.1);
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: #c0b8b0; }
+    .form-section-divider { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--terra); padding: 10px 0 16px; border-top: 1px solid rgba(201,123,90,0.15); margin-top: 8px; }
+    .animal-types { display: flex; gap: 10px; flex-wrap: wrap; }
+    .animal-type { cursor: pointer; }
+    .animal-type input[type=checkbox] { display: none; }
+    .animal-type-label {
+      display: flex; align-items: center; gap: 6px;
+      background: var(--white); border: 2px solid transparent;
+      border-radius: 50px; padding: 8px 16px; font-size: 13px; font-weight: 700; color: var(--text);
+      transition: all .2s; cursor: pointer;
+    }
+    .animal-type input:checked + .animal-type-label { border-color: var(--terra); color: var(--terra); background: rgba(201,123,90,0.06); }
+    .animal-type-label:hover { border-color: rgba(201,123,90,0.4); }
+    .btn-submit {
+      width: 100%; background: var(--terra); color: var(--white);
+      border: none; border-radius: 50px; padding: 16px 32px;
+      font-family: 'Lato', sans-serif; font-size: 15px; font-weight: 700;
+      letter-spacing: 0.3px; cursor: pointer;
+      box-shadow: 0 6px 24px rgba(201,123,90,0.35);
+      transition: all .25s; margin-top: 8px;
+    }
+    .btn-submit:hover { background: var(--terra-d); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(201,123,90,0.45); }
+    .form-note { font-size: 12px; color: var(--light); text-align: center; margin-top: 14px; line-height: 1.6; }
+
+    /* Real-time validation */
+    .field-error {
+      display: none;
+      font-size: 0.76rem;
+      color: #d64e4e;
+      margin-top: 5px;
+      padding-left: 2px;
+      font-family: 'Lato', sans-serif;
+      animation: fadeInDown 0.2s ease;
+    }
+    @keyframes fadeInDown { from { opacity:0; transform:translateY(-4px); } to { opacity:1; transform:none; } }
+    .field-error.visible { display: block; }
+    .form-group input.invalid,
+    .form-group select.invalid,
+    .form-group textarea.invalid {
+      border-color: #d64e4e !important;
+      box-shadow: 0 0 0 3px rgba(214,78,78,0.12) !important;
+    }
+    .form-group input.valid,
+    .form-group select.valid {
+      border-color: #5a9e72 !important;
+      box-shadow: 0 0 0 3px rgba(90,158,114,0.1) !important;
+    }
+    #animalTypes.invalid .animal-type-label { border-color: #d64e4e; }
+    #submitBtn:disabled { opacity: 0.6; cursor: not-allowed; transform: none !important; box-shadow: none !important; }
+
+    /* SUCCESS */
+    .success-msg { display: none; text-align: center; padding: 32px; }
+    .success-msg.show { display: block; }
+    .success-icon { font-size: 56px; margin-bottom: 16px; }
+    .success-title { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--brun); font-weight: 700; margin-bottom: 10px; }
+    .success-text { font-size: 15px; color: var(--text); }
+
+    /* FAQ */
+    .faq-section { padding: 96px 48px; background: var(--creme); }
+    .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--terra); margin-bottom: 12px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 42px; color: var(--brun); line-height: 1.2; margin-bottom: 48px; }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .faq-item { background: var(--white); border-radius: 16px; padding: 28px; box-shadow: 0 2px 12px rgba(46,42,37,0.05); }
+    .faq-q { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--brun); font-weight: 700; margin-bottom: 10px; display: flex; gap: 12px; }
+    .faq-q::before { content: 'Q'; background: var(--terra); color: var(--white); border-radius: 6px; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+    .faq-a { font-size: 14px; color: var(--text); line-height: 1.7; }
+
+    /* MAP PLACEHOLDER */
+    .map-section { padding: 0 48px 96px; background: var(--creme); }
+    .map-placeholder {
+      max-width: 1100px; margin: 0 auto;
+      background: var(--white); border-radius: 24px; height: 320px;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 12px;
+      border: 2px dashed rgba(201,123,90,0.2);
+      box-shadow: 0 4px 20px rgba(46,42,37,0.05);
+    }
+    .map-placeholder-icon { font-size: 48px; }
+    .map-placeholder-text { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--caramel); }
+    .map-placeholder-sub { font-size: 13px; color: var(--light); }
+
+    /* FOOTER */
+    footer { background: var(--brun); padding: 64px 48px 40px; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand { font-family: 'Pacifico', cursive; font-size: 24px; color: var(--terra); margin-bottom: 12px; }
+    .footer-tagline { font-size: 13px; color: rgba(245,239,224,0.5); line-height: 1.7; max-width: 240px; }
+    .footer-col-title { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(245,239,224,0.4); margin-bottom: 16px; }
+    .footer-col a { display: block; font-size: 14px; color: rgba(245,239,224,0.65); margin-bottom: 10px; transition: color .2s; }
+    .footer-col a:hover { color: var(--terra); }
+    .footer-bottom { max-width: 1100px; margin: 0 auto; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.07); display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { font-size: 12px; color: rgba(245,239,224,0.3); }
+    .footer-heart { font-size: 12px; color: var(--terra); }
+  </style>
+</head>
+<body>
+
+  <!-- BARRE D'ANNONCE -->
+  <div class="sale-banner" id="saleBanner">
+    <span class="sale-banner-text">🏷️ <strong>Ce projet est à vendre</strong><span class="banner-hide-mobile"> — Site non en production · Opportunité d'acquisition disponible</span></span>
+    <a href="#formContent" class="sale-banner-cta">Acheter →</a>
+    <button class="sale-banner-close" onclick="document.getElementById('saleBanner').style.display='none';" aria-label="Fermer">×</button>
+  </div>
+
+  <nav>
+    <a href="index.html" class="nav-brand">Cabane à Câlin</a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Accueil</a>
+      <a href="concept.html">Le concept</a>
+      <a href="forces.html">Forces du projet</a>
+      <a href="contact.html" class="active">Contact</a>
+      <a href="contact.html" class="nav-cta">Réserver</a>
+      <a href="#formContent" class="nav-buy">🏷️ Acheter ce projet</a>
+    </div>
+    <button class="nav-hamburger" id="navToggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <div class="page-hero">
+    <div class="page-hero-tag" style="animation:fadeInDown 0.7s ease both;">On a hâte de rencontrer votre animal</div>
+    <h1 style="animation:fadeInUp 0.8s 0.15s ease both;">Prenons<br/><em>rendez-vous.</em></h1>
+    <p style="animation:fadeInUp 0.8s 0.3s ease both;">La première rencontre est gratuite et sans engagement. Parlez-nous de votre animal, et nous vous proposerons la formule idéale.</p>
+  </div>
+
+  <!-- MARQUEE -->
+  <div class="marquee-section">
+    <div class="marquee-inner">
+      <div class="marquee-group" aria-hidden="true">
+        <span class="marquee-item">📩 Réponse sous 2h<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🎁 Première rencontre gratuite<span class="marquee-dot"></span></span>
+        <span class="marquee-item">📅 Disponible 7j/7<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🔒 Sans engagement<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🏷️ Projet à vendre<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🐾 Devis personnalisé<span class="marquee-dot"></span></span>
+        <span class="marquee-item">❤️ Animaux adorés<span class="marquee-dot"></span></span>
+      </div>
+      <div class="marquee-group" aria-hidden="true">
+        <span class="marquee-item">📩 Réponse sous 2h<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🎁 Première rencontre gratuite<span class="marquee-dot"></span></span>
+        <span class="marquee-item">📅 Disponible 7j/7<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🔒 Sans engagement<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🏷️ Projet à vendre<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🐾 Devis personnalisé<span class="marquee-dot"></span></span>
+        <span class="marquee-item">❤️ Animaux adorés<span class="marquee-dot"></span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- BANDEAU ACHAT PROÉMINENT (page contact uniquement) -->
+  <div class="contact-achat-banner" style="background: linear-gradient(135deg, var(--brun) 0%, #1e1a16 100%); padding: 40px 48px;">
+    <div style="max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;">
+      <div>
+        <div style="font-family: 'Pacifico', cursive; font-size: 12px; color: var(--terra); letter-spacing: 2px; margin-bottom: 8px;">PROJET À VENDRE</div>
+        <div style="font-family: 'Playfair Display', serif; font-size: 28px; color: var(--white); font-weight: 700; line-height: 1.2; margin-bottom: 8px;">Intéressé(e) par l'acquisition<br/>de ce projet clé en main ?</div>
+        <div style="font-size: 14px; color: rgba(245,239,224,0.6); font-weight: 300; max-width: 520px; line-height: 1.6;">Ce site est un démonstrateur. Le projet complet inclut la marque, le concept, le site et les supports — prêt à exploiter immédiatement.</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; align-items: flex-start; flex-shrink: 0;">
+        <a href="#formContent" style="background: var(--terra); color: var(--white); border-radius: 50px; padding: 16px 36px; font-weight: 700; font-size: 15px; box-shadow: 0 6px 24px rgba(201,123,90,0.4); transition: all .25s; display: inline-block; white-space: nowrap;" onmouseover="this.style.background='#b8694a'" onmouseout="this.style.background='#C97B5A'">Faire une offre d'achat →</a>
+        <div style="font-size: 12px; color: rgba(245,239,224,0.35); text-align: center;">Réponse sous 24h · Sans engagement</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- INFO SIDE -->
+        <div class="contact-info reveal-left">
+          <div class="info-eyebrow">Nous joindre</div>
+          <h2 class="info-title">Parlons de votre compagnon</h2>
+          <p class="info-sub">Remplissez le formulaire ou contactez-nous directement — nous répondons généralement sous 2h, 7j/7.</p>
+
+          <div class="info-items">
+            <div class="info-item">
+              <div class="info-icon">📧</div>
+              <div>
+                <div class="info-label">Email</div>
+                <div class="info-value">contact@cabaneacalin.fr</div>
+                <div class="info-value-sub">Réponse sous 2h en journée</div>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">📞</div>
+              <div>
+                <div class="info-label">Téléphone</div>
+                <div class="info-value">+33 6 XX XX XX XX</div>
+                <div class="info-value-sub">Lun–Dim · 8h00–20h00</div>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">📍</div>
+              <div>
+                <div class="info-label">Localisation</div>
+                <div class="info-value">Région parisienne</div>
+                <div class="info-value-sub">Déplacement possible selon zone</div>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">⏰</div>
+              <div>
+                <div class="info-label">Disponibilité</div>
+                <div class="info-value">7 jours sur 7</div>
+                <div class="info-value-sub">Y compris jours fériés et week-ends</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="trust-strip">
+            <div class="trust-strip-title">Votre sérénité, notre priorité</div>
+            <div class="trust-items">
+              <div class="trust-item">Première rencontre gratuite et sans engagement</div>
+              <div class="trust-item">Réponse garantie sous 24h maximum</div>
+              <div class="trust-item">Devis personnalisé selon vos besoins</div>
+              <div class="trust-item">Votre animal reste chez nous uniquement s'il s'y sent bien</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FORM SIDE -->
+        <div class="form-card reveal-right">
+          <div id="formContent">
+            <div class="form-title">Demande de réservation</div>
+            <div class="form-sub">Remplissez ce formulaire et nous revenons vers vous rapidement ✉️</div>
+
+            <form id="contactForm" onsubmit="handleSubmit(event)" novalidate>
+              <div class="form-section-divider">Vos informations</div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="f-prenom">Prénom <span>*</span></label>
+                  <input id="f-prenom" type="text" placeholder="Marie" autocomplete="given-name" />
+                  <div class="field-error" id="err-prenom">Veuillez entrer votre prénom.</div>
+                </div>
+                <div class="form-group">
+                  <label for="f-nom">Nom <span>*</span></label>
+                  <input id="f-nom" type="text" placeholder="Dupont" autocomplete="family-name" />
+                  <div class="field-error" id="err-nom">Veuillez entrer votre nom.</div>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="f-email">Email <span>*</span></label>
+                  <input id="f-email" type="email" placeholder="marie@exemple.fr" autocomplete="email" />
+                  <div class="field-error" id="err-email">Veuillez entrer un email valide.</div>
+                </div>
+                <div class="form-group">
+                  <label for="f-tel">Téléphone</label>
+                  <input id="f-tel" type="tel" placeholder="06 12 34 56 78" autocomplete="tel" />
+                  <div class="field-error" id="err-tel">Format invalide (ex: 06 12 34 56 78).</div>
+                </div>
+              </div>
+
+              <div class="form-section-divider">Votre animal</div>
+
+              <div class="form-group">
+                <label>Type d'animal <span>*</span></label>
+                <div class="animal-types" id="animalTypes">
+                  <label class="animal-type">
+                    <input type="checkbox" name="animal" value="chien" />
+                    <span class="animal-type-label">🐶 Chien</span>
+                  </label>
+                  <label class="animal-type">
+                    <input type="checkbox" name="animal" value="chat" />
+                    <span class="animal-type-label">🐱 Chat</span>
+                  </label>
+                  <label class="animal-type">
+                    <input type="checkbox" name="animal" value="lapin" />
+                    <span class="animal-type-label">🐰 Lapin</span>
+                  </label>
+                  <label class="animal-type">
+                    <input type="checkbox" name="animal" value="autre" />
+                    <span class="animal-type-label">🐾 Autre</span>
+                  </label>
+                </div>
+                <div class="field-error" id="err-animal">Veuillez sélectionner au moins un animal.</div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="f-animal-nom">Prénom de l'animal <span>*</span></label>
+                  <input id="f-animal-nom" type="text" placeholder="Noisette" />
+                  <div class="field-error" id="err-animal-nom">Veuillez entrer le prénom de votre animal.</div>
+                </div>
+                <div class="form-group">
+                  <label for="f-race">Race / espèce</label>
+                  <input id="f-race" type="text" placeholder="Labrador, Maine Coon…" />
+                </div>
+              </div>
+
+              <div class="form-section-divider">Votre besoin</div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="f-service">Type de garde <span>*</span></label>
+                  <select id="f-service">
+                    <option value="" disabled selected>Choisir une formule</option>
+                    <option>Hébergement complet (nuit)</option>
+                    <option>Day Sitting (journée)</option>
+                    <option>Home Sitting (à domicile)</option>
+                    <option>Je ne sais pas encore</option>
+                  </select>
+                  <div class="field-error" id="err-service">Veuillez choisir un type de garde.</div>
+                </div>
+                <div class="form-group">
+                  <label for="f-duree">Durée estimée</label>
+                  <select id="f-duree">
+                    <option value="" disabled selected>Durée</option>
+                    <option>1 nuit / 1 jour</option>
+                    <option>Week-end (2–3 jours)</option>
+                    <option>1 semaine</option>
+                    <option>Plus d'une semaine</option>
+                    <option>Régulier (hebdomadaire)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="f-message">Message & informations sur votre animal</label>
+                <textarea id="f-message" rows="4" placeholder="Parlez-nous de lui : ses habitudes, ses préférences, ses besoins particuliers, votre disponibilité pour la rencontre…"></textarea>
+              </div>
+
+              <button type="submit" id="submitBtn" class="btn-submit magnetic ripple">Envoyer ma demande ✉️</button>
+              <p class="form-note">En soumettant ce formulaire, vous acceptez que vos données soient utilisées pour traiter votre demande. Aucun spam, jamais.</p>
+            </form>
+          </div>
+
+          <div class="success-msg" id="successMsg">
+            <div class="success-icon">🎉</div>
+            <div class="success-title">Message bien reçu !</div>
+            <div class="success-text">Merci pour votre confiance. Nous revenons vers vous sous 24h pour organiser la rencontre avec votre compagnon.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-eyebrow">Questions fréquentes</div>
+      <h2 class="section-title">Tout ce que vous<br/>voulez savoir</h2>
+      <div class="faq-grid">
+        <div class="faq-item glow-card reveal d1">
+          <div class="faq-q">Comment se passe la première rencontre ?</div>
+          <div class="faq-a">C'est un moment gratuit et sans engagement où vous venez nous rencontrer avec votre animal. L'objectif est que tout le monde — vous, nous, et surtout votre compagnon — soit à l'aise avant de confirmer une garde.</div>
+        </div>
+        <div class="faq-item glow-card reveal d2">
+          <div class="faq-q">Acceptez-vous tous les animaux ?</div>
+          <div class="faq-a">Nous accueillons principalement les chiens et les chats. Nous étudions au cas par cas pour les autres animaux de compagnie. L'essentiel est que votre animal soit sociable et en bonne santé.</div>
+        </div>
+        <div class="faq-item glow-card reveal d3">
+          <div class="faq-q">Mon animal peut-il rester seul la nuit ?</div>
+          <div class="faq-a">Jamais. Votre animal dort avec nous dans la maison, jamais seul et jamais en cage. C'est l'une de nos valeurs fondamentales — nous n'en démordons pas.</div>
+        </div>
+        <div class="faq-item glow-card reveal d4">
+          <div class="faq-q">Comment êtes-vous joignables pendant la garde ?</div>
+          <div class="faq-a">Par téléphone et message 7j/7, de 7h à 21h. Vous recevrez également au moins une mise à jour photo quotidienne pour vous montrer que votre compagnon est heureux et en bonne forme.</div>
+        </div>
+        <div class="faq-item glow-card reveal d5">
+          <div class="faq-q">Puis-je réserver à la dernière minute ?</div>
+          <div class="faq-a">Nous faisons notre maximum pour nous adapter, mais nous recommandons de réserver au moins 48h à l'avance pour garantir la disponibilité. En haute saison (été, fêtes), anticipez davantage.</div>
+        </div>
+        <div class="faq-item glow-card reveal d6">
+          <div class="faq-q">Quels sont vos tarifs ?</div>
+          <div class="faq-a">L'hébergement complet démarre à 35€/nuit, le Day Sitting à 22€/jour et le Home Sitting à 18€ par visite. Des formules sur-mesure sont disponibles pour les gardes longues ou régulières — contactez-nous !</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP PLACEHOLDER -->
+  <div class="map-section">
+    <div class="map-placeholder">
+      <div class="map-placeholder-icon">📍</div>
+      <div class="map-placeholder-text">Carte de localisation</div>
+      <div class="map-placeholder-sub">À intégrer avec Google Maps ou OpenStreetMap</div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Cabane à Câlin</div>
+        <div class="footer-tagline">Service de garde d'animaux familial, chaleureux et sécurisant. Parce que vos compagnons méritent ce qu'il y a de mieux.</div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Navigation</div>
+        <a href="index.html">Accueil</a>
+        <a href="concept.html">Le concept</a>
+        <a href="forces.html">Forces du projet</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Services</div>
+        <a href="#">Hébergement complet</a>
+        <a href="#">Day Sitting</a>
+        <a href="#">Home Sitting</a>
+        <a href="#">Tarifs</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Contact & Réseaux</div>
+        <a href="mailto:contact@cabaneacalin.fr">contact@cabaneacalin.fr</a>
+        <a href="#">+33 6 XX XX XX XX</a>
+        <a href="contact.html">Prendre RDV</a>
+        <div class="footer-social">
+          <a href="#" class="footer-social-link" aria-label="Instagram" title="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" class="footer-social-link" aria-label="Facebook" title="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" class="footer-social-link" aria-label="TikTok" title="TikTok">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.3 6.3 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.14a8.27 8.27 0 0 0 4.84 1.55V7.25a4.85 4.85 0 0 1-1.07-.56z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© <span id="footer-year"></span> Cabane à Câlin. Tous droits réservés.</span>
+      <span class="footer-heart">Fait avec ♥ pour vos animaux</span>
+    </div>
+  </footer>
+  <style>
+  .footer-social { display: flex; gap: 10px; margin-top: 14px; }
+  .footer-social-link { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.07); color: rgba(245,239,224,0.55); transition: background 0.2s, color 0.2s, transform 0.2s; }
+  .footer-social-link:hover { background: var(--terra); color: white; transform: translateY(-2px); }
+  </style>
+
+  <script src="shared.js"></script>
+  <script>
+  (function() {
+    // ── Validation helpers ──
+    function showError(id, errId) {
+      const el = document.getElementById(id);
+      const err = document.getElementById(errId);
+      if (el) el.classList.add('invalid'), el.classList.remove('valid');
+      if (err) err.classList.add('visible');
+    }
+    function clearError(id, errId) {
+      const el = document.getElementById(id);
+      const err = document.getElementById(errId);
+      if (el) el.classList.remove('invalid'), el.classList.add('valid');
+      if (err) err.classList.remove('visible');
+    }
+    function isEmpty(val) { return !val || val.trim() === ''; }
+    function isValidEmail(val) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val); }
+    function isValidPhone(val) { return val === '' || /^[\d\s\+\-\.\(\)]{6,20}$/.test(val); }
+
+    // ── Live validation ──
+    function liveValidate(id, errId, checkFn) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const validate = () => {
+        if (checkFn(el.value)) clearError(id, errId);
+        else showError(id, errId);
+      };
+      el.addEventListener('blur', validate);
+      el.addEventListener('input', () => {
+        if (el.classList.contains('invalid')) validate();
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      liveValidate('f-prenom', 'err-prenom', v => !isEmpty(v));
+      liveValidate('f-nom', 'err-nom', v => !isEmpty(v));
+      liveValidate('f-email', 'err-email', v => !isEmpty(v) && isValidEmail(v));
+      liveValidate('f-tel', 'err-tel', v => isValidPhone(v));
+      liveValidate('f-animal-nom', 'err-animal-nom', v => !isEmpty(v));
+      liveValidate('f-service', 'err-service', v => !isEmpty(v));
+
+      // Animal checkboxes: clear error on any check
+      document.querySelectorAll('input[name="animal"]').forEach(cb => {
+        cb.addEventListener('change', () => {
+          const checked = document.querySelectorAll('input[name="animal"]:checked').length;
+          const at = document.getElementById('animalTypes');
+          const err = document.getElementById('err-animal');
+          if (checked > 0) {
+            at && at.classList.remove('invalid');
+            err && err.classList.remove('visible');
+          }
+        });
+      });
+    });
+
+    // ── Submit with full validation ──
+    window.handleSubmit = function(e) {
+      e.preventDefault();
+      let valid = true;
+
+      // Required text fields
+      const checks = [
+        ['f-prenom', 'err-prenom', v => !isEmpty(v)],
+        ['f-nom', 'err-nom', v => !isEmpty(v)],
+        ['f-email', 'err-email', v => !isEmpty(v) && isValidEmail(v)],
+        ['f-tel', 'err-tel', v => isValidPhone(v)],
+        ['f-animal-nom', 'err-animal-nom', v => !isEmpty(v)],
+        ['f-service', 'err-service', v => !isEmpty(v)],
+      ];
+      checks.forEach(([id, errId, fn]) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        if (fn(el.value)) clearError(id, errId);
+        else { showError(id, errId); valid = false; }
+      });
+
+      // At least one animal checked
+      const checkedAnimals = document.querySelectorAll('input[name="animal"]:checked').length;
+      const at = document.getElementById('animalTypes');
+      const errAt = document.getElementById('err-animal');
+      if (checkedAnimals === 0) {
+        at && at.classList.add('invalid');
+        errAt && errAt.classList.add('visible');
+        valid = false;
+      } else {
+        at && at.classList.remove('invalid');
+        errAt && errAt.classList.remove('visible');
+      }
+
+      if (!valid) {
+        // Scroll to first error
+        const firstErr = document.querySelector('.invalid, .field-error.visible');
+        if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      // All good — show success
+      document.getElementById('formContent').style.display = 'none';
+      document.getElementById('successMsg').classList.add('show');
+    };
+  })();
+  </script>
+
+</body>
+</html>

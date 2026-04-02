@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Page introuvable — Cabane à Câlin</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- SEO: noindex for 404 -->
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --terra:#C97B5A; --terra-d:#b8694a; --sauge:#7A9E7E;
+      --creme:#F5EFE0; --caramel:#8B5E3C; --brun:#2E2A25;
+      --white:#FFFFFF; --text:#5c524a; --light:#a09790;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--creme);
+      color: var(--brun);
+      font-family: 'Lato', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 68px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px;
+      background: rgba(245,239,224,0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(139,94,60,0.08);
+    }
+    .nav-logo {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.4rem;
+      color: var(--brun);
+    }
+    .nav-logo span { color: var(--terra); }
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+    .nav-links a { font-size: 0.88rem; color: var(--text); font-weight: 600; letter-spacing: 0.03em; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--terra); }
+    .nav-buy {
+      background: var(--terra);
+      color: white;
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .nav-buy:hover { background: var(--terra-d); transform: scale(1.03); color: white; }
+
+    /* ── 404 MAIN ── */
+    .notfound {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Animated background blobs */
+    .blob-bg {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.18;
+      pointer-events: none;
+    }
+    .blob-bg-1 {
+      width: 500px; height: 500px;
+      background: var(--terra);
+      top: -100px; right: -100px;
+      animation: blobDrift1 18s ease-in-out infinite;
+    }
+    .blob-bg-2 {
+      width: 400px; height: 400px;
+      background: var(--sauge);
+      bottom: -80px; left: -80px;
+      animation: blobDrift2 22s ease-in-out infinite;
+    }
+    @keyframes blobDrift1 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-40px,30px) scale(1.1); } }
+    @keyframes blobDrift2 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(30px,-20px) scale(0.9); } }
+
+    .notfound-inner {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 600px;
+    }
+
+    /* Giant 404 */
+    .four-oh-four {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(7rem, 20vw, 14rem);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      background: linear-gradient(135deg, var(--terra) 0%, #e8a070 40%, var(--caramel) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+      margin-bottom: 8px;
+      animation: floatNum 4s ease-in-out infinite;
+    }
+    @keyframes floatNum { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+
+    /* Paw icon between digits */
+    .four-oh-four-paw {
+      display: inline-block;
+      font-size: clamp(3.5rem, 10vw, 7rem);
+      -webkit-text-fill-color: initial;
+      background: none;
+      animation: floatNum 4s ease-in-out infinite 0.3s;
+      position: relative;
+      top: -8px;
+    }
+
+    .notfound-sub {
+      font-family: 'Pacifico', cursive;
+      font-size: clamp(1.2rem, 4vw, 1.8rem);
+      color: var(--caramel);
+      margin-bottom: 16px;
+    }
+    .notfound-body {
+      font-size: 1rem;
+      color: var(--text);
+      max-width: 420px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+    .notfound-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--terra);
+      color: white;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      font-family: 'Lato', sans-serif;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(201,123,90,0.35);
+    }
+    .btn-primary:hover { background: var(--terra-d); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,123,90,0.45); color: white; }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent;
+      color: var(--brun);
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      font-family: 'Lato', sans-serif;
+      border: 2px solid rgba(46,42,37,0.2);
+      transition: border-color 0.2s, color 0.2s, transform 0.15s;
+    }
+    .btn-secondary:hover { border-color: var(--terra); color: var(--terra); transform: translateY(-2px); }
+
+    /* Quick links */
+    .notfound-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .notfound-links a {
+      font-size: 0.85rem;
+      color: var(--light);
+      font-weight: 600;
+      transition: color 0.2s;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .notfound-links a:hover { color: var(--terra); }
+
+    /* Floating animals decorations */
+    .deco-animal {
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0.15;
+      pointer-events: none;
+    }
+    .deco-1 { top: 15%; left: 8%; animation: floatA 5s ease-in-out infinite; }
+    .deco-2 { top: 25%; right: 6%; animation: floatB 6s ease-in-out infinite 1s; }
+    .deco-3 { bottom: 20%; left: 12%; animation: floatC 7s ease-in-out infinite 0.5s; }
+    .deco-4 { bottom: 15%; right: 10%; animation: floatA 5.5s ease-in-out infinite 1.5s; }
+    @keyframes floatA { 0%,100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-16px) rotate(5deg); } }
+    @keyframes floatB { 0%,100% { transform: translateY(0) rotate(8deg); } 50% { transform: translateY(-20px) rotate(-8deg); } }
+    @keyframes floatC { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-12px) rotate(10deg); } }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--brun);
+      padding: 28px 40px;
+      text-align: center;
+    }
+    .footer-bottom-404 {
+      display: flex; justify-content: center; align-items: center; gap: 32px;
+      flex-wrap: wrap;
+    }
+    .footer-copy { font-size: 12px; color: rgba(245,239,224,0.3); }
+    .footer-heart { font-size: 12px; color: var(--terra); }
+
+    @media (max-width: 600px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .notfound-actions { flex-direction: column; align-items: center; }
+      .btn-primary, .btn-secondary { width: 100%; justify-content: center; max-width: 300px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">Cabane<span>à</span>Câlin</a>
+    <div class="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="concept.html">Le concept</a>
+      <a href="forces.html">Forces</a>
+      <a href="contact.html" class="nav-buy">Acheter ce projet</a>
+    </div>
+  </nav>
+
+  <!-- 404 CONTENT -->
+  <main class="notfound">
+    <!-- Background blobs -->
+    <div class="blob-bg blob-bg-1"></div>
+    <div class="blob-bg blob-bg-2"></div>
+
+    <!-- Floating decorations -->
+    <div class="deco-animal deco-1">🐕</div>
+    <div class="deco-animal deco-2">🐱</div>
+    <div class="deco-animal deco-3">🐾</div>
+    <div class="deco-animal deco-4">🐰</div>
+
+    <div class="notfound-inner">
+      <!-- Giant number -->
+      <div class="four-oh-four">
+        4<span class="four-oh-four-paw">🐾</span>4
+      </div>
+
+      <div class="notfound-sub">Cette page s'est échappée…</div>
+      <p class="notfound-body">
+        On dirait que la page que vous cherchez a pris la patte à son cou !
+        Pas d'inquiétude — nos animaux sont bien gardés, eux. 😄
+      </p>
+
+      <!-- CTAs -->
+      <div class="notfound-actions">
+        <a href="index.html" class="btn-primary">🏠 Retour à l'accueil</a>
+        <a href="contact.html" class="btn-secondary">✉️ Nous contacter</a>
+      </div>
+
+      <!-- Quick nav -->
+      <div class="notfound-links">
+        <a href="concept.html">→ Le concept</a>
+        <a href="forces.html">→ Forces du projet</a>
+        <a href="contact.html?sujet=achat">→ Acheter ce projet</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-bottom-404">
+      <span class="footer-copy">© <span id="footer-year"></span> Cabane à Câlin. Tous droits réservés.</span>
+      <span class="footer-heart">Fait avec ♥ pour vos animaux</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
