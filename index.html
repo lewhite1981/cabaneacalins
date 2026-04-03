@@ -3,10 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Cabane à Câlin — Garde d'animaux familiale & bienveillante</title>
+  <title>Garde d'animaux à domicile en famille — Cabane à Câlin | Île-de-France</title>
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- Performance : preconnect fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+
+  <!-- Theme color mobile -->
+  <meta name="theme-color" content="#C97B5A" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://cabaneacalin.fr/" />
 
   <!-- Schema.org JSON-LD — Local Business + Service -->
   <script type="application/ld+json">
@@ -22,7 +33,6 @@
         "logo": "https://cabaneacalin.fr/og-image.svg",
         "image": "https://cabaneacalin.fr/og-image.svg",
         "telephone": "+33-6-XX-XX-XX-XX",
-        "email": "contact@cabaneacalin.fr",
         "address": {
           "@type": "PostalAddress",
           "addressRegion": "Île-de-France",
@@ -100,8 +110,8 @@
   <!-- OpenGraph -->
   <meta property="og:type"        content="website" />
   <meta property="og:url"         content="https://cabaneacalin.fr/" />
-  <meta property="og:title"       content="Cabane à Câlin — Garde d'animaux familiale & bienveillante" />
-  <meta property="og:description" content="Pendant vos absences, vos animaux sont accueillis comme à la maison — avec amour et attention. Service familial, chaleureux et sécurisant. Projet à vendre." />
+  <meta property="og:title"       content="Garde d'animaux à domicile en famille — Cabane à Câlin" />
+  <meta property="og:description" content="Garde d'animaux à domicile en Île-de-France : chiens, chats et NAC accueillis en famille. Première rencontre gratuite. Alternative humaine aux pensions classiques." />
   <meta property="og:image"       content="https://cabaneacalin.fr/og-image.svg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -110,12 +120,15 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:title"       content="Cabane à Câlin — Garde d'animaux familiale & bienveillante" />
-  <meta name="twitter:description" content="Vos animaux choyés comme à la maison pendant vos absences. Service premium, familial et sécurisant. Projet à vendre." />
+  <meta name="twitter:title"       content="Garde d'animaux à domicile en famille — Cabane à Câlin" />
+  <meta name="twitter:description" content="Pet sitting familial en Île-de-France : chiens, chats, NAC accueillis comme à la maison. Hébergement, day sitting, home sitting. Première rencontre gratuite." />
   <meta name="twitter:image"       content="https://cabaneacalin.fr/og-image.svg" />
 
   <!-- SEO -->
-  <meta name="description" content="Cabane à Câlin : service de garde d'animaux familial, chaleureux et sécurisant. Chiens, chats accueillis à domicile avec amour. Projet clé en main à vendre." />
+  <meta name="description" content="Cabane à Câlin : garde d'animaux à domicile en Île-de-France. Chiens, chats, NAC accueillis en famille comme à la maison. Hébergement, day sitting, home sitting. Première rencontre gratuite." />
+  <meta name="author" content="Cabane à Câlin" />
+  <meta name="geo.region" content="FR-IDF" />
+  <meta name="geo.placename" content="Île-de-France, France" />
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="shared.css" />
@@ -445,7 +458,7 @@
     <div class="hero-blob"></div>
     <div class="hero-content" style="position:relative;z-index:1;">
       <div class="hero-tag" style="animation: fadeInDown 0.7s ease both;">Service de garde premium</div>
-      <h1 style="animation: fadeInUp 0.8s 0.15s ease both;">Votre animal,<br/><em>choyé comme<br/>à la maison.</em></h1>
+      <h1 style="animation: fadeInUp 0.8s 0.15s ease both;">Garde d'animaux<br/>à domicile — <em>choyé comme<br/>à la maison.</em></h1>
       <p style="animation: fadeInUp 0.8s 0.3s ease both;">Pendant vos absences, voyages ou longues journées de travail, votre compagnon est accueilli dans un environnement familial, chaleureux et sécurisant — avec amour et attention.</p>
       <div class="hero-btns" style="animation: fadeInUp 0.8s 0.45s ease both;">
         <a href="contact.html" class="btn-hero-primary magnetic ripple">Réserver une garde</a>
@@ -526,17 +539,17 @@
   </div>
 
   <!-- SERVICES -->
-  <section class="services">
+  <section class="services" id="services">
     <div class="container">
-      <div class="section-eyebrow reveal">Nos prestations</div>
-      <h2 class="section-title reveal d1">Ce que nous offrons<br/>à vos compagnons</h2>
+      <p class="section-eyebrow reveal">Nos prestations</div>
+      <h2 class="section-title reveal d1">Garde chien, chat & NAC —<br/>nos formules de pet sitting</h2>
       <p class="section-sub reveal d2">Des formules adaptées à chaque situation, pensées pour le confort de votre animal et votre tranquillité d'esprit.</p>
       <div class="services-grid">
         <div class="service-card tilt-card reveal d1 animated-border">
           <div class="service-thumb" style="background: linear-gradient(135deg, #f5efe0, #e8dcc8); font-size:72px;">🐾</div>
           <div class="service-body">
             <div class="service-tag">Le plus populaire</div>
-            <div class="service-title">Hébergement complet</div>
+            <h3 class="service-title">Hébergement complet</h3>
             <div class="service-text">Votre animal dort, mange et joue chez nous. Nuits en intérieur, promenades quotidiennes, câlins garantis.</div>
             <div class="service-price">À partir de 35€ <span>/ nuit</span></div>
           </div>
@@ -545,7 +558,7 @@
           <div class="service-thumb" style="background: linear-gradient(135deg, #e8f0e8, #d4e4d4); font-size:72px;">🌿</div>
           <div class="service-body">
             <div class="service-tag">Garde à la journée</div>
-            <div class="service-title">Day Sitting</div>
+            <h3 class="service-title">Garde à la journée — Day Sitting</h3>
             <div class="service-text">Pour les longues journées de travail. Votre animal passe la journée avec nous et rentre le soir.</div>
             <div class="service-price">À partir de 22€ <span>/ jour</span></div>
           </div>
@@ -554,7 +567,7 @@
           <div class="service-thumb" style="background: linear-gradient(135deg, #f0e8e0, #e0d0c0); font-size:72px;">🏠</div>
           <div class="service-body">
             <div class="service-tag">Garde à domicile</div>
-            <div class="service-title">Home Sitting</div>
+            <h3 class="service-title">Garde à domicile — Home Sitting</h3>
             <div class="service-text">Nous venons chez vous pour nourrir, promener et câliner votre animal dans son environnement habituel.</div>
             <div class="service-price">À partir de 18€ <span>/ visite</span></div>
           </div>
@@ -564,9 +577,9 @@
   </section>
 
   <!-- CALCULATEUR DE TARIF -->
-  <section class="calc-section" id="calculateur">
+  <section class="calc-section" id="tarifs">
     <div class="container">
-      <div class="section-eyebrow reveal">Estimer votre budget</div>
+      <p class="section-eyebrow reveal">Estimer votre budget</div>
       <h2 class="section-title reveal d1">Calculateur de tarif <span style="color:var(--terra)">interactif</span></h2>
       <p class="section-sub reveal d2">Obtenez une estimation en 30 secondes — sans engagement.</p>
 
@@ -805,30 +818,30 @@
   </script>
 
   <!-- COMMENT ÇA MARCHE -->
-  <section class="how">
+  <section class="how" id="comment-ca-marche">
     <div class="container">
-      <div class="section-eyebrow reveal">Simple & rassurant</div>
-      <h2 class="section-title reveal d1">Comment ça marche ?</h2>
+      <p class="section-eyebrow reveal">Simple & rassurant</div>
+      <h2 class="section-title reveal d1">Comment réserver votre garde d'animaux ?</h2>
       <p class="section-sub reveal d2">En 4 étapes simples, votre animal est entre de bonnes mains.</p>
       <div class="steps">
         <div class="step reveal d1">
           <div class="step-num">1</div>
-          <div class="step-title">Contactez-nous</div>
+          <h3 class="step-title">Contactez-nous</h3>
           <div class="step-text">Remplissez notre formulaire ou appelez-nous pour présenter votre animal et vos dates.</div>
         </div>
         <div class="step reveal d2">
           <div class="step-num">2</div>
-          <div class="step-title">Rencontre découverte</div>
+          <h3 class="step-title">Rencontre découverte gratuite</h3>
           <div class="step-text">Une première rencontre gratuite pour que votre animal fasse connaissance avec nous.</div>
         </div>
         <div class="step reveal d3">
           <div class="step-num">3</div>
-          <div class="step-title">Confirmation</div>
+          <h3 class="step-title">Confirmation de réservation</h3>
           <div class="step-text">Nous réservons votre créneau et préparons un accueil sur-mesure pour votre compagnon.</div>
         </div>
         <div class="step reveal d4">
           <div class="step-num">4</div>
-          <div class="step-title">Partez l'esprit libre</div>
+          <h3 class="step-title">Partez l'esprit libre</h3>
           <div class="step-text">Recevez des nouvelles et des photos chaque jour. Voyagez sereinement !</div>
         </div>
       </div>
@@ -838,7 +851,7 @@
   <!-- TÉMOIGNAGES -->
   <section class="testimonials">
     <div class="container">
-      <div class="section-eyebrow reveal">Ils nous font confiance</div>
+      <p class="section-eyebrow reveal">Ils nous font confiance</div>
       <h2 class="section-title reveal d1">Ce que disent<br/>nos clients</h2>
       <div class="testi-grid">
         <div class="testi-card reveal d1">
@@ -881,27 +894,27 @@
   <!-- GARANTIES -->
   <section class="guarantees">
     <div class="container">
-      <div class="section-eyebrow reveal">Notre engagement</div>
-      <h2 class="section-title reveal d1">Ce que nous vous garantissons</h2>
+      <p class="section-eyebrow reveal">Notre engagement</div>
+      <h2 class="section-title reveal d1">Nos garanties de garde d'animaux à domicile</h2>
       <div class="guarantees-grid">
         <div class="guarantee-item reveal d1">
           <div class="guarantee-icon">🔒</div>
-          <div class="guarantee-title">Environnement sécurisé</div>
+          <h3 class="guarantee-title">Environnement sécurisé</h3>
           <div class="guarantee-text">Espace entièrement sécurisé, adapté aux chiens et aux chats de toutes tailles.</div>
         </div>
         <div class="guarantee-item reveal d2">
           <div class="guarantee-icon">📱</div>
-          <div class="guarantee-title">Joignable 24h/24</div>
+          <h3 class="guarantee-title">Joignable 24h/24</h3>
           <div class="guarantee-text">En cas de question ou d'urgence, nous sommes toujours disponibles pour vous répondre.</div>
         </div>
         <div class="guarantee-item reveal d3">
           <div class="guarantee-icon">🌿</div>
-          <div class="guarantee-title">Alimentation respectée</div>
+          <h3 class="guarantee-title">Alimentation & habitudes respectées</h3>
           <div class="guarantee-text">Les habitudes et le régime alimentaire de votre animal sont scrupuleusement respectés.</div>
         </div>
         <div class="guarantee-item reveal d4">
           <div class="guarantee-icon">💝</div>
-          <div class="guarantee-title">Amour garanti</div>
+          <h3 class="guarantee-title">Amour garanti pour chaque animal</h3>
           <div class="guarantee-text">Chaque animal reçoit l'attention, les câlins et la chaleur qu'il mérite — sans exception.</div>
         </div>
       </div>
@@ -941,15 +954,15 @@
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Services</div>
-        <a href="#">Hébergement complet</a>
-        <a href="#">Day Sitting</a>
-        <a href="#">Home Sitting</a>
-        <a href="#">Tarifs</a>
+        <a href="index.html#services">Hébergement complet</a>
+        <a href="index.html#services">Garde de jour — Day Sitting</a>
+        <a href="index.html#services">Garde à domicile — Home Sitting</a>
+        <a href="index.html#tarifs">Calculateur de tarifs</a>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Contact & Réseaux</div>
-        <a href="mailto:contact@cabaneacalin.fr">contact@cabaneacalin.fr</a>
-        <a href="#">+33 6 XX XX XX XX</a>
+        <a href="contact.html">Formulaire de contact</a>
+        <a href="tel:+33600000000">+33 6 XX XX XX XX</a>
         <a href="contact.html">Prendre RDV</a>
         <div class="footer-social">
           <a href="#" class="footer-social-link" aria-label="Instagram" title="Instagram">
@@ -987,6 +1000,6 @@
   }
   </style>
 
-  <script src="shared.js"></script>
+  <script src="shared.js" defer></script>
 </body>
 </html>

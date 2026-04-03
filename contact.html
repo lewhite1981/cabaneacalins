@@ -3,16 +3,67 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Contact & Réservation — Cabane à Câlin</title>
+  <title>Réserver une garde d'animaux à domicile — Contact Cabane à Câlin</title>
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
+  <!-- Performance : preconnect fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+
+  <!-- Theme color mobile -->
+  <meta name="theme-color" content="#C97B5A" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://cabaneacalin.fr/contact.html" />
+
+  <!-- Schema.org FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Comment se passe la première rencontre ?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Avant toute réservation, nous organisons une rencontre gratuite chez nous. C'est l'occasion pour votre animal de découvrir son futur environnement et pour nous de faire connaissance. Aucun engagement." }
+      },
+      {
+        "@type": "Question",
+        "name": "Quels animaux acceptez-vous en garde ?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Nous accueillons les chiens, les chats et les NAC (lapins, rongeurs, petits oiseaux). Chaque animal est évalué individuellement lors de la rencontre préalable." }
+      },
+      {
+        "@type": "Question",
+        "name": "Combien coûte une garde d'animaux à domicile ?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Nos tarifs démarrent à 20 €/nuit pour les chats, 30–35 €/nuit pour les chiens, et jusqu'à 40–60 €/nuit pour les NAC. Utilisez notre calculateur en ligne pour une estimation immédiate." }
+      },
+      {
+        "@type": "Question",
+        "name": "Êtes-vous disponibles pendant les vacances d'été ?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Oui, nous sommes disponibles 7j/7 y compris l'été, à Noël et pendant les ponts. Nous recommandons de réserver au moins 3 semaines à l'avance pour les périodes de forte demande." }
+      },
+      {
+        "@type": "Question",
+        "name": "Envoyez-vous des nouvelles de mon animal pendant la garde ?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Absolument ! Vous recevez des photos et messages quotidiens pour rester serein(e) pendant toute la durée de la garde. La communication transparente est au cœur de notre approche." }
+      },
+      {
+        "@type": "Question",
+        "name": "Comment prendre contact pour une réservation ?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Remplissez notre formulaire de contact en ligne ou contactez-nous via WhatsApp. Nous répondons sous 2 heures en journée, 7j/7." }
+      }
+    ]
+  }
+  </script>
+
   <!-- OpenGraph -->
   <meta property="og:type"        content="website" />
   <meta property="og:url"         content="https://cabaneacalin.fr/contact.html" />
-  <meta property="og:title"       content="Contact & Réservation — Cabane à Câlin" />
-  <meta property="og:description" content="Réservez une garde pour votre animal ou faites une offre d'achat sur ce projet clé en main. Première rencontre gratuite. Réponse sous 24h." />
+  <meta property="og:title"       content="Réserver une garde d'animaux à domicile — Cabane à Câlin" />
+  <meta property="og:description" content="Réservez votre garde d'animaux à domicile en Île-de-France. Première rencontre gratuite, réponse sous 2h, disponible 7j/7. Chiens, chats et NAC bienvenus." />
   <meta property="og:image"       content="https://cabaneacalin.fr/og-image.svg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -21,12 +72,14 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:title"       content="Contact & Réservation — Cabane à Câlin" />
-  <meta name="twitter:description" content="Contactez Cabane à Câlin pour réserver une garde ou acquérir ce projet. Réponse garantie sous 24h, 7j/7." />
+  <meta name="twitter:title"       content="Réserver une garde d'animaux à domicile — Cabane à Câlin" />
+  <meta name="twitter:description" content="Formulaire de réservation de garde d'animaux en Île-de-France. Chiens, chats, NAC bienvenus. Première rencontre gratuite, réponse sous 2h, disponible 7j/7." />
   <meta name="twitter:image"       content="https://cabaneacalin.fr/og-image.svg" />
 
   <!-- SEO -->
-  <meta name="description" content="Contactez Cabane à Câlin : formulaire de réservation de garde d'animaux, acquisition du projet, FAQ et localisation. Disponible 7j/7." />
+  <meta name="description" content="Réservez votre garde d'animaux à domicile avec Cabane à Câlin en Île-de-France. Formulaire en ligne, réponse sous 2h, première rencontre gratuite. Chiens, chats, NAC bienvenus 7j/7." />
+  <meta name="author" content="Cabane à Câlin" />
+  <meta name="geo.region" content="FR-IDF" />
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="shared.css" />
@@ -250,7 +303,7 @@
 
   <div class="page-hero">
     <div class="page-hero-tag" style="animation:fadeInDown 0.7s ease both;">On a hâte de rencontrer votre animal</div>
-    <h1 style="animation:fadeInUp 0.8s 0.15s ease both;">Prenons<br/><em>rendez-vous.</em></h1>
+    <h1 style="animation:fadeInUp 0.8s 0.15s ease both;">Réserver une garde<br/>d'animaux — <em>parlons-nous.</em></h1>
     <p style="animation:fadeInUp 0.8s 0.3s ease both;">La première rencontre est gratuite et sans engagement. Parlez-nous de votre animal, et nous vous proposerons la formule idéale.</p>
   </div>
 
@@ -306,10 +359,10 @@
 
           <div class="info-items">
             <div class="info-item">
-              <div class="info-icon">📧</div>
+              <div class="info-icon">💬</div>
               <div>
-                <div class="info-label">Email</div>
-                <div class="info-value">contact@cabaneacalin.fr</div>
+                <div class="info-label">Formulaire</div>
+                <div class="info-value">Via ce formulaire</div>
                 <div class="info-value-sub">Réponse sous 2h en journée</div>
               </div>
             </div>
@@ -474,7 +527,7 @@
   <section class="faq-section">
     <div class="container">
       <div class="section-eyebrow">Questions fréquentes</div>
-      <h2 class="section-title">Tout ce que vous<br/>voulez savoir</h2>
+      <h2 class="section-title">Questions fréquentes sur<br/>la garde d'animaux à domicile</h2>
       <div class="faq-grid">
         <div class="faq-item glow-card reveal d1">
           <div class="faq-q">Comment se passe la première rencontre ?</div>
@@ -528,15 +581,15 @@
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Services</div>
-        <a href="#">Hébergement complet</a>
-        <a href="#">Day Sitting</a>
-        <a href="#">Home Sitting</a>
-        <a href="#">Tarifs</a>
+        <a href="index.html#services">Hébergement complet</a>
+        <a href="index.html#services">Garde de jour — Day Sitting</a>
+        <a href="index.html#services">Garde à domicile — Home Sitting</a>
+        <a href="index.html#tarifs">Calculateur de tarifs</a>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Contact & Réseaux</div>
-        <a href="mailto:contact@cabaneacalin.fr">contact@cabaneacalin.fr</a>
-        <a href="#">+33 6 XX XX XX XX</a>
+        <a href="contact.html">Formulaire de contact</a>
+        <a href="tel:+33600000000">+33 6 XX XX XX XX</a>
         <a href="contact.html">Prendre RDV</a>
         <div class="footer-social">
           <a href="#" class="footer-social-link" aria-label="Instagram" title="Instagram">
@@ -562,7 +615,7 @@
   .footer-social-link:hover { background: var(--terra); color: white; transform: translateY(-2px); }
   </style>
 
-  <script src="shared.js"></script>
+  <script src="shared.js" defer></script>
   <script>
   (function() {
     // ── Validation helpers ──
