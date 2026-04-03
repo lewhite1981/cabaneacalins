@@ -124,6 +124,11 @@
       display: flex; align-items: center; justify-content: center;
       font-size: 96px;
     }
+    .story-visual img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.5s ease;
+    }
+    .story-visual:hover img { transform: scale(1.04); }
     .story-content {}
     .story-content .label { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--sauge); margin-bottom: 12px; }
     .story-content h3 { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--brun); line-height: 1.25; margin-bottom: 16px; }
@@ -266,7 +271,9 @@
     <div class="container">
 
       <div class="story-split">
-        <div class="story-visual reveal-left" style="background: linear-gradient(135deg, #f0e8dc, #ddd0bc);">🏡</div>
+        <div class="story-visual reveal-left">
+          <img src="story-origine.jpg" alt="Gardienne câlinant tendrement un chien dans un espace chaleureux — l'origine de Cabane à Câlin" loading="lazy" />
+        </div>
         <div class="story-content reveal-right">
           <div class="label">Notre origine</div>
           <h3>Né d'un besoin réel, porté par l'amour des animaux</h3>
