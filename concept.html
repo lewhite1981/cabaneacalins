@@ -116,29 +116,20 @@
 
     /* STORY SPLIT */
     .story { background: var(--white); }
-    .story-split { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-bottom: 72px; }
+    .story-split { display: grid; grid-template-columns: 2fr 3fr; gap: 64px; align-items: center; margin-bottom: 72px; }
     .story-split:last-child { margin-bottom: 0; }
+    .story-split.reverse { grid-template-columns: 3fr 2fr; }
     .story-visual {
       border-radius: 28px; overflow: hidden;
-      aspect-ratio: 4/3;
+      aspect-ratio: 16/9;
       display: flex; align-items: center; justify-content: center;
       font-size: 96px;
-      transform: translateZ(0);
-      -webkit-transform: translateZ(0);
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
     }
     .story-visual img {
       width: 100%; height: 100%; object-fit: cover; display: block;
       transition: transform 0.5s ease;
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-      transform: translateZ(0);
-      -webkit-transform: translateZ(0);
-      will-change: transform;
-      image-rendering: auto;
     }
-    .story-visual:hover img { transform: translateZ(0) scale(1.04); }
+    .story-visual:hover img { transform: scale(1.04); }
     .story-content {}
     .story-content .label { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--sauge); margin-bottom: 12px; }
     .story-content h3 { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--brun); line-height: 1.25; margin-bottom: 16px; }
@@ -281,8 +272,8 @@
     <div class="container">
 
       <div class="story-split">
-        <div class="story-visual reveal-left" style="aspect-ratio:16/9;">
-          <img src="story-origine.jpg" alt="Gardienne câlinant tendrement un chien dans un espace chaleureux — l'origine de Cabane à Câlin" loading="lazy" style="image-rendering:auto;" />
+        <div class="story-visual reveal-left">
+          <img src="story-origine.jpg" alt="Gardienne câlinant tendrement un chien dans un espace chaleureux — l'origine de Cabane à Câlin" loading="lazy" />
         </div>
         <div class="story-content reveal-right">
           <div class="label">Notre origine</div>
@@ -293,7 +284,7 @@
         </div>
       </div>
 
-      <div class="story-split">
+      <div class="story-split reverse">
         <div class="story-content reveal-left">
           <div class="label">Notre approche</div>
           <h3>Un cadre familial,<br/>une rigueur professionnelle</h3>
@@ -306,8 +297,8 @@
             <li>Espace sécurisé, propre et adapté aux espèces</li>
           </ul>
         </div>
-        <div class="story-visual reveal-right" style="aspect-ratio:16/9;">
-          <img src="story-approche.jpg" alt="Éducateur professionnel avec un golden retriever dans un espace familial organisé — Cabane à Câlin" loading="lazy" style="image-rendering:auto;" />
+        <div class="story-visual reveal-right">
+          <img src="story-approche.jpg" alt="Éducateur professionnel avec un golden retriever dans un espace familial organisé — Cabane à Câlin" loading="lazy" />
         </div>
       </div>
 
