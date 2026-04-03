@@ -148,9 +148,23 @@
       transition: transform 0.35s ease, box-shadow 0.35s ease;
     }
     .value-card:hover { transform: translateY(-8px); box-shadow: 0 16px 48px rgba(201,123,90,0.15); }
-    .value-icon { transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1); }
-    .value-card:hover .value-icon { transform: scale(1.2) rotate(-5deg); }
-    .value-icon { font-size: 44px; margin-bottom: 20px; }
+    .value-icon {
+      width: 68px; height: 68px; border-radius: 18px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+      transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .value-card:hover .value-icon { transform: scale(1.12) rotate(-4deg); }
+    .value-icon svg {
+      width: 30px; height: 30px; fill: none;
+      stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .value-icon--heart { background: linear-gradient(135deg, rgba(201,123,90,0.15), rgba(201,123,90,0.06)); }
+    .value-icon--heart svg { stroke: var(--terra); }
+    .value-icon--shield { background: linear-gradient(135deg, rgba(122,158,126,0.15), rgba(122,158,126,0.06)); }
+    .value-icon--shield svg { stroke: var(--sauge); }
+    .value-icon--home { background: linear-gradient(135deg, rgba(139,94,60,0.15), rgba(139,94,60,0.06)); }
+    .value-icon--home svg { stroke: var(--caramel); }
     .value-title { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--brun); font-weight: 700; margin-bottom: 12px; }
     .value-text { font-size: 14px; color: var(--text); line-height: 1.7; }
 
@@ -312,17 +326,23 @@
       <h2 class="section-title">Nos 3 valeurs fondatrices</h2>
       <div class="values-grid">
         <div class="value-card reveal d1">
-          <div class="value-icon">💛</div>
+          <div class="value-icon value-icon--heart">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
           <h3 class="value-title">Bienveillance inconditionnelle</h3>
           <div class="value-text">Chaque animal est unique et mérite une attention personnalisée. Nous prenons le temps de connaître sa personnalité, ses peurs, ses plaisirs — et nous adaptons son séjour en conséquence.</div>
         </div>
         <div class="value-card">
-          <div class="value-icon" style="">🔐</div>
+          <div class="value-icon value-icon--shield">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          </div>
           <h3 class="value-title reveal d2">Confiance & transparence</h3>
           <div class="value-text">Vous nous confiez ce que vous avez de plus précieux. En retour, nous vous offrons une communication totale : photos, comptes-rendus, disponibilité. Aucune surprise, aucun doute.</div>
         </div>
         <div class="value-card">
-          <div class="value-icon">🏠</div>
+          <div class="value-icon value-icon--home">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
           <h3 class="value-title reveal d3">Continuité du foyer</h3>
           <div class="value-text">Notre objectif est que votre animal ressente le moins possible votre absence. En l'accueillant dans un vrai foyer, nous lui offrons un cadre stable, rassurant et bienveillant.</div>
         </div>
