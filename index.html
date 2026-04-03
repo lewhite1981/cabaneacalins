@@ -328,8 +328,13 @@
     }
     .service-thumb {
       height: 200px; display: flex; align-items: center; justify-content: center;
-      font-size: 72px; position: relative;
+      font-size: 72px; position: relative; overflow: hidden;
     }
+    .service-thumb img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.45s ease;
+    }
+    .service-card:hover .service-thumb img { transform: scale(1.05); }
     .service-body { padding: 28px; background: var(--white); }
     .service-tag { font-family: 'Pacifico', cursive; font-size: 11px; color: var(--terra); margin-bottom: 8px; }
     .service-title { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--brun); font-weight: 700; margin-bottom: 10px; }
@@ -545,7 +550,9 @@
       <p class="section-sub reveal d2">Des formules adaptées à chaque situation, pensées pour le confort de votre animal et votre tranquillité d'esprit.</p>
       <div class="services-grid">
         <div class="service-card tilt-card reveal d1 animated-border">
-          <div class="service-thumb" style="background: linear-gradient(135deg, #f5efe0, #e8dcc8); font-size:72px;">🐾</div>
+          <div class="service-thumb">
+            <img src="hebergement.jpg" alt="Chien et chat blottis ensemble dans un panier douillet — hébergement complet Cabane à Câlin" loading="lazy" />
+          </div>
           <div class="service-body">
             <div class="service-tag">Le plus populaire</div>
             <h3 class="service-title">Hébergement complet</h3>
@@ -554,7 +561,9 @@
           </div>
         </div>
         <div class="service-card tilt-card reveal d2 animated-border">
-          <div class="service-thumb" style="background: linear-gradient(135deg, #e8f0e8, #d4e4d4); font-size:72px;">🌿</div>
+          <div class="service-thumb">
+            <img src="day-sitting.jpg" alt="Golden retriever heureux en garde à la journée — Day Sitting Cabane à Câlin" loading="lazy" />
+          </div>
           <div class="service-body">
             <div class="service-tag">Garde à la journée</div>
             <h3 class="service-title">Garde à la journée — Day Sitting</h3>
@@ -563,7 +572,9 @@
           </div>
         </div>
         <div class="service-card tilt-card reveal d3 animated-border">
-          <div class="service-thumb" style="background: linear-gradient(135deg, #f0e8e0, #e0d0c0); font-size:72px;">🏠</div>
+          <div class="service-thumb">
+            <img src="home-sitting.jpg" alt="Gardienne câlinant un chien et un chat à domicile — Home Sitting Cabane à Câlin" loading="lazy" />
+          </div>
           <div class="service-body">
             <div class="service-tag">Garde à domicile</div>
             <h3 class="service-title">Garde à domicile — Home Sitting</h3>
