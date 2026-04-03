@@ -281,7 +281,17 @@
       background: rgba(255,255,255,0.12);
       border-color: rgba(201,123,90,0.4);
     }
-    .hero-card-icon { font-size: 28px; margin-bottom: 8px; }
+    .hero-card-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: rgba(201,123,90,0.25);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 12px;
+    }
+    .hero-card-icon svg {
+      width: 22px; height: 22px;
+      stroke: var(--terra); fill: none;
+      stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+    }
     .hero-card-title { font-family: 'Playfair Display', serif; font-size: 15px; color: var(--white); font-weight: 700; margin-bottom: 4px; }
     .hero-card-text { font-size: 12px; color: rgba(245,239,224,0.6); }
     .hero-badge {
@@ -482,17 +492,23 @@
     </div>
     <div class="hero-visual" style="z-index:1;">
       <div class="hero-card float-a" style="animation-delay:0s;">
-        <div class="hero-card-icon">🏡</div>
+        <div class="hero-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
         <div class="hero-card-title">Accueil à domicile</div>
         <div class="hero-card-text">Votre animal vit dans une vraie maison familiale, pas une pension.</div>
       </div>
       <div class="hero-card float-b">
-        <div class="hero-card-icon">📸</div>
+        <div class="hero-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        </div>
         <div class="hero-card-title">Mises à jour quotidiennes</div>
         <div class="hero-card-text">Photos et nouvelles envoyées chaque jour pour votre sérénité.</div>
       </div>
       <div class="hero-card float-c">
-        <div class="hero-card-icon">❤️</div>
+        <div class="hero-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
         <div class="hero-card-title">Suivi personnalisé</div>
         <div class="hero-card-text">Chaque animal est unique — nous adaptons son séjour à ses besoins.</div>
       </div>
