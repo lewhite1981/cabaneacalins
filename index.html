@@ -217,9 +217,7 @@
     /* ── HERO ── */
     .hero {
       min-height: 100vh;
-      background: linear-gradient(-45deg, #2E2A25, #3d3328, #5a3d28, #3a2e22, #2E2A25);
-      background-size: 400% 400%;
-      animation: gradientDrift 14s ease infinite;
+      background: url('hero-home-sitting.jpg') center center / cover no-repeat;
       display: flex; align-items: center;
       padding: 176px 48px 80px;
       position: relative; overflow: hidden;
@@ -232,14 +230,14 @@
     .hero::before {
       content: '';
       position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-      background: radial-gradient(ellipse at 70% 50%, rgba(201,123,90,0.18) 0%, transparent 65%);
+      background: linear-gradient(to right,
+        rgba(30,24,18,0.93) 0%,
+        rgba(30,24,18,0.80) 45%,
+        rgba(30,24,18,0.25) 75%,
+        rgba(30,24,18,0.05) 100%);
     }
     .hero-blob {
-      position: absolute; right: -80px; top: 50%; transform: translateY(-50%);
-      width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(201,123,90,0.12) 0%, rgba(201,123,90,0.04) 50%, transparent 70%);
-      border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
-      animation: blobMorph 12s ease-in-out infinite;
+      display: none;
       pointer-events: none; z-index: 0;
     }
     .hero-content { max-width: 580px; }
@@ -277,14 +275,14 @@
       flex-shrink: 0; z-index: 1;
     }
     .hero-card {
-      background: rgba(255,255,255,0.07); backdrop-filter: blur(8px);
-      border: 1px solid rgba(255,255,255,0.1); border-radius: 20px;
+      background: rgba(20,14,8,0.55); backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.15); border-radius: 20px;
       padding: 20px 24px; width: 260px;
       transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
     }
     .hero-card:hover {
-      background: rgba(255,255,255,0.12);
-      border-color: rgba(201,123,90,0.4);
+      background: rgba(20,14,8,0.7);
+      border-color: rgba(201,123,90,0.5);
     }
     .hero-card-icon {
       width: 44px; height: 44px; border-radius: 12px;
