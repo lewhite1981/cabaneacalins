@@ -190,20 +190,12 @@
 
     /* FOOTER */
     footer { background: var(--brun); padding: 64px 48px 40px; }
-    .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; align-items: start; }
-    .footer-col-brand { display: flex; align-items: flex-start; }
-    .footer-brand { font-family: 'Pacifico', cursive; font-size: 26px; color: var(--terra); }
-    .footer-col-title { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(245,239,224,0.4); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.07); }
-    .footer-list { list-style: none; padding: 0; margin: 0; }
-    .footer-list li { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
-    .footer-list li::before { content: '—'; color: var(--terra); font-size: 12px; flex-shrink: 0; }
-    .footer-list a { font-size: 14px; color: rgba(245,239,224,0.65); transition: color .2s; }
-    .footer-list a:hover { color: var(--terra); }
-    .footer-btn { display: block; font-size: 14px; font-weight: 600; text-align: center; padding: 11px 20px; border-radius: 8px; margin-bottom: 12px; transition: all .2s; }
-    .footer-btn-primary { background: var(--terra); color: var(--creme); }
-    .footer-btn-primary:hover { background: #c0543a; color: var(--creme); }
-    .footer-btn-outline { background: transparent; color: rgba(245,239,224,0.7); border: 1px solid rgba(245,239,224,0.2); }
-    .footer-btn-outline:hover { border-color: var(--terra); color: var(--terra); }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand { font-family: 'Pacifico', cursive; font-size: 24px; color: var(--terra); margin-bottom: 12px; }
+    .footer-tagline { font-size: 13px; color: rgba(245,239,224,0.5); line-height: 1.7; max-width: 240px; }
+    .footer-col-title { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(245,239,224,0.4); margin-bottom: 16px; }
+    .footer-col a { display: block; font-size: 14px; color: rgba(245,239,224,0.65); margin-bottom: 10px; transition: color .2s; }
+    .footer-col a:hover { color: var(--terra); }
     .footer-bottom { max-width: 1100px; margin: 0 auto; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.07); display: flex; justify-content: space-between; align-items: center; }
     .footer-copy { font-size: 12px; color: rgba(245,239,224,0.3); }
     .footer-heart { font-size: 12px; color: var(--terra); }
@@ -613,22 +605,21 @@
 
   <footer>
     <div class="footer-inner">
-      <div class="footer-col footer-col-brand">
+      <div>
         <div class="footer-brand">Cabane à Câlin</div>
+        <div class="footer-tagline">Service de garde d'animaux familial, chaleureux et sécurisant. Parce que vos compagnons méritent ce qu'il y a de mieux.</div>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Services</div>
-        <ul class="footer-list">
-          <li><a href="index.html#services">Hébergement complet</a></li>
-          <li><a href="index.html#services">Garde de jour</a></li>
-          <li><a href="index.html#services">Garde à domicile</a></li>
-          <li><a href="index.html#tarifs">Calculateur de tarifs</a></li>
-        </ul>
+        <a href="index.html#services">Hébergement complet</a>
+        <a href="index.html#services">Garde de jour — Day Sitting</a>
+        <a href="index.html#services">Garde à domicile — Home Sitting</a>
+        <a href="index.html#tarifs">Calculateur de tarifs</a>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Contact</div>
-        <a href="contact.html" class="footer-btn footer-btn-primary">Formulaire de contact</a>
-        <a href="contact.html" class="footer-btn footer-btn-outline">Prendre RDV</a>
+        <a href="contact.html">Formulaire de contact</a>
+        <a href="contact.html">Prendre RDV</a>
       </div>
     </div>
     <div class="footer-bottom">
