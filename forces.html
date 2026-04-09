@@ -204,12 +204,13 @@
 <body>
 
   <!-- BARRE D'ANNONCE -->
-  <div class="sale-banner" id="saleBanner">
+  <aside class="sale-banner" id="saleBanner">
     <span class="sale-banner-text">🏷️ <strong>Ce projet est à vendre</strong></span>
     <a href="https://bizinaclick.com/listing?id=2" target="_blank" rel="noopener" class="sale-banner-cta">Acheter →</a>
     <button class="sale-banner-close" onclick="document.getElementById('saleBanner').style.display='none';" aria-label="Fermer">×</button>
-  </div>
+  </aside>
 
+  <header>
   <nav>
     <a href="index.html" class="nav-brand">Cabane à Câlin</a>
     <div class="nav-links" id="navLinks">
@@ -223,13 +224,16 @@
       <span></span><span></span><span></span>
     </button>
   </nav>
+  </header>
   <div class="nav-overlay" id="navOverlay"></div>
 
-  <div class="page-hero">
+  <main>
+
+  <header class="page-hero">
     <div class="page-hero-tag" style="animation:fadeInDown 0.7s ease both; position:relative;">Analyse pour les acquéreurs</div>
     <h1 style="animation:fadeInUp 0.8s 0.15s ease both; position:relative;">Un marché de <em>450 M€</em><br/>qui ne dort jamais</h1>
     <p style="animation:fadeInUp 0.8s 0.3s ease both; position:relative;">Le pet-sitting familial en France affiche +8,7 %/an depuis 2020. Cabane à Câlin est positionné pour capter cette croissance dès le premier jour.</p>
-  </div>
+  </header>
 
   <!-- MARQUEE -->
   <div class="marquee-section" style="background: var(--sauge);">
@@ -258,25 +262,25 @@
   <!-- STATS BAND MARCHÉ -->
   <section class="stats-band-section">
     <div class="container">
-      <div class="stats-band">
+      <section class="stats-band" aria-label="Statistiques">
         <div class="stat-item reveal d1">
           <div class="stat-num" data-target="450" data-suffix=" M€">0</div>
-          <div class="stat-label">Taille du marché pet-sitting France 2025</div>
+          <p class="stat-label">Taille du marché pet-sitting France 2025</div>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item reveal d2">
           <div class="stat-num" data-target="8" data-suffix=",7 %/an">0</div>
-          <div class="stat-label">Croissance annuelle moyenne depuis 2020</div>
+          <p class="stat-label">Croissance annuelle moyenne depuis 2020</div>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item reveal d3">
           <div class="stat-num" data-target="80" data-suffix=" M">0</div>
-          <div class="stat-label">Animaux domestiques en France</div>
+          <p class="stat-label">Animaux domestiques en France</div>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item reveal d4">
           <div class="stat-num" data-target="52" data-suffix=" %">0</div>
-          <div class="stat-label">Des foyers français ont un animal en 2025</div>
+          <p class="stat-label">Des foyers français ont un animal en 2025</div>
         </div>
       </div>
     </div>
@@ -603,21 +607,23 @@
     </div>
   </section>
 
+  </main>
+
   <footer>
     <div class="footer-inner">
       <div>
-        <div class="footer-brand">Cabane à Câlin</div>
-        <div class="footer-tagline">Service de garde d'animaux familial, chaleureux et sécurisant. Parce que vos compagnons méritent ce qu'il y a de mieux.</div>
+        <p class="footer-brand">Cabane à Câlin</p>
+        <p class="footer-tagline">Service de garde d'animaux familial, chaleureux et sécurisant. Parce que vos compagnons méritent ce qu'il y a de mieux.</p>
       </div>
       <div class="footer-col">
-        <div class="footer-col-title">Services</div>
+        <h3 class="footer-col-title">Services</h3>
         <a href="index.html#services">Hébergement complet</a>
         <a href="index.html#services">Garde de jour — Day Sitting</a>
         <a href="index.html#services">Garde à domicile — Home Sitting</a>
         <a href="index.html#tarifs">Calculateur de tarifs</a>
       </div>
       <div class="footer-col">
-        <div class="footer-col-title">Contact</div>
+        <h3 class="footer-col-title">Contact</h3>
         <a href="contact.html">Nous contacter</a>
         <a href="contact.html#faq">FAQ</a>
         <a href="terms-and-conditions.html">Mentions légales</a>

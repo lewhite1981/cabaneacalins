@@ -206,12 +206,13 @@
 <body>
 
   <!-- BARRE D'ANNONCE -->
-  <div class="sale-banner" id="saleBanner">
+  <aside class="sale-banner" id="saleBanner">
     <span class="sale-banner-text">🏷️ <strong>Ce projet est à vendre</strong> — Site non en production</span>
     <a href="https://bizinaclick.com/listing?id=2" target="_blank" rel="noopener" class="sale-banner-cta">Nous contacter →</a>
     <button class="sale-banner-close" onclick="document.getElementById('saleBanner').style.display='none';" aria-label="Fermer">×</button>
-  </div>
+  </aside>
 
+  <header>
   <nav>
     <a href="index.html" class="nav-brand">Cabane à Câlin</a>
     <div class="nav-links" id="navLinks">
@@ -225,10 +226,13 @@
       <span></span><span></span><span></span>
     </button>
   </nav>
+  </header>
   <div class="nav-overlay" id="navOverlay"></div>
 
+  <main>
+
   <!-- PAGE HERO -->
-  <div class="page-hero">
+  <header class="page-hero">
     <div class="page-hero-tag" style="animation:fadeInDown 0.7s ease both;">Transparence & légalité</div>
     <h1 style="animation:fadeInUp 0.8s 0.15s ease both;">Mentions légales &amp;<br/><em>Conditions d'utilisation</em></h1>
     <p style="animation:fadeInUp 0.8s 0.3s ease both;">Ce site est un projet de démonstration non en production. Toutes les informations légales relatives à son statut et à son acquisition se trouvent ici.</p>
@@ -422,21 +426,23 @@
     </div>
   </section>
 
+  </main>
+
   <footer>
     <div class="footer-inner">
       <div>
-        <div class="footer-brand">Cabane à Câlin</div>
-        <div class="footer-tagline">Projet de garde d'animaux familial, chaleureux et sécurisant — disponible à l'acquisition.</div>
+        <p class="footer-brand">Cabane à Câlin</p>
+        <p class="footer-tagline">Projet de garde d'animaux familial, chaleureux et sécurisant — disponible à l'acquisition.</p>
       </div>
       <div class="footer-col">
-        <div class="footer-col-title">Services</div>
+        <h3 class="footer-col-title">Services</h3>
         <a href="index.html#services">Hébergement complet</a>
         <a href="index.html#services">Garde de jour — Day Sitting</a>
         <a href="index.html#services">Garde à domicile — Home Sitting</a>
         <a href="index.html#tarifs">Calculateur de tarifs</a>
       </div>
       <div class="footer-col">
-        <div class="footer-col-title">Contact</div>
+        <h3 class="footer-col-title">Contact</h3>
         <a href="contact.html">Nous contacter</a>
         <a href="contact.html#faq">FAQ</a>
         <a href="terms-and-conditions.html" style="color:var(--terra);">Mentions légales</a>

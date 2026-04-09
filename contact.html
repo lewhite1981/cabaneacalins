@@ -229,12 +229,13 @@
 <body>
 
   <!-- BARRE D'ANNONCE -->
-  <div class="sale-banner" id="saleBanner">
+  <aside class="sale-banner" id="saleBanner">
     <span class="sale-banner-text">🏷️ <strong>Ce projet est à vendre</strong></span>
     <a href="https://bizinaclick.com/listing?id=2" target="_blank" rel="noopener" class="sale-banner-cta">Acheter →</a>
     <button class="sale-banner-close" onclick="document.getElementById('saleBanner').style.display='none';" aria-label="Fermer">×</button>
-  </div>
+  </aside>
 
+  <header>
   <nav>
     <a href="index.html" class="nav-brand">Cabane à Câlin</a>
     <div class="nav-links" id="navLinks">
@@ -248,16 +249,19 @@
       <span></span><span></span><span></span>
     </button>
   </nav>
+  </header>
   <div class="nav-overlay" id="navOverlay"></div>
 
-  <div class="page-hero">
+  <main>
+
+  <header class="page-hero">
     <div class="page-hero-tag" style="animation:fadeInDown 0.7s ease both;">On a hâte de rencontrer votre animal</div>
     <h1 style="animation:fadeInUp 0.8s 0.15s ease both;">Réserver une garde<br/>d'animaux — <em>parlons-nous.</em></h1>
     <p style="animation:fadeInUp 0.8s 0.3s ease both;">La première rencontre est gratuite et sans engagement. Parlez-nous de votre animal, et nous vous proposerons la formule idéale.</p>
-  </div>
+  </header>
 
   <!-- MARQUEE -->
-  <div class="marquee-section">
+  <section class="marquee-section" aria-label="Bandeau défilant" aria-hidden="true">
     <div class="marquee-inner">
       <div class="marquee-group" aria-hidden="true">
         <span class="marquee-item">📩 Réponse sous 2h<span class="marquee-dot"></span></span>
@@ -327,49 +331,51 @@
       <h2 class="section-title">Questions fréquentes sur<br/>la garde d'animaux à domicile</h2>
       <div class="faq-grid">
         <div class="faq-item glow-card reveal d1">
-          <div class="faq-q">Comment se passe la première rencontre ?</div>
-          <div class="faq-a">C'est un moment gratuit et sans engagement où vous venez nous rencontrer avec votre animal. L'objectif est que tout le monde — vous, nous, et surtout votre compagnon — soit à l'aise avant de confirmer une garde.</div>
+          <p class="faq-q">Comment se passe la première rencontre ?</div>
+          <p class="faq-a">C'est un moment gratuit et sans engagement où vous venez nous rencontrer avec votre animal. L'objectif est que tout le monde — vous, nous, et surtout votre compagnon — soit à l'aise avant de confirmer une garde.</div>
         </div>
         <div class="faq-item glow-card reveal d2">
-          <div class="faq-q">Acceptez-vous tous les animaux ?</div>
-          <div class="faq-a">Nous accueillons principalement les chiens et les chats. Nous étudions au cas par cas pour les autres animaux de compagnie. L'essentiel est que votre animal soit sociable et en bonne santé.</div>
+          <p class="faq-q">Acceptez-vous tous les animaux ?</div>
+          <p class="faq-a">Nous accueillons principalement les chiens et les chats. Nous étudions au cas par cas pour les autres animaux de compagnie. L'essentiel est que votre animal soit sociable et en bonne santé.</div>
         </div>
         <div class="faq-item glow-card reveal d3">
-          <div class="faq-q">Mon animal peut-il rester seul la nuit ?</div>
-          <div class="faq-a">Jamais. Votre animal dort avec nous dans la maison, jamais seul et jamais en cage. C'est l'une de nos valeurs fondamentales — nous n'en démordons pas.</div>
+          <p class="faq-q">Mon animal peut-il rester seul la nuit ?</div>
+          <p class="faq-a">Jamais. Votre animal dort avec nous dans la maison, jamais seul et jamais en cage. C'est l'une de nos valeurs fondamentales — nous n'en démordons pas.</div>
         </div>
         <div class="faq-item glow-card reveal d4">
-          <div class="faq-q">Comment êtes-vous joignables pendant la garde ?</div>
-          <div class="faq-a">Par message WhatsApp et via notre formulaire 7j/7, de 7h à 21h. Vous recevrez également au moins une mise à jour photo quotidienne pour vous montrer que votre compagnon est heureux et en bonne forme.</div>
+          <p class="faq-q">Comment êtes-vous joignables pendant la garde ?</div>
+          <p class="faq-a">Par message WhatsApp et via notre formulaire 7j/7, de 7h à 21h. Vous recevrez également au moins une mise à jour photo quotidienne pour vous montrer que votre compagnon est heureux et en bonne forme.</div>
         </div>
         <div class="faq-item glow-card reveal d5">
-          <div class="faq-q">Puis-je réserver à la dernière minute ?</div>
-          <div class="faq-a">Nous faisons notre maximum pour nous adapter, mais nous recommandons de réserver au moins 48h à l'avance pour garantir la disponibilité. En haute saison (été, fêtes), anticipez davantage.</div>
+          <p class="faq-q">Puis-je réserver à la dernière minute ?</div>
+          <p class="faq-a">Nous faisons notre maximum pour nous adapter, mais nous recommandons de réserver au moins 48h à l'avance pour garantir la disponibilité. En haute saison (été, fêtes), anticipez davantage.</div>
         </div>
         <div class="faq-item glow-card reveal d6">
-          <div class="faq-q">Quels sont vos tarifs ?</div>
-          <div class="faq-a">L'hébergement complet démarre à 35€/nuit, le Day Sitting à 22€/jour et le Home Sitting à 18€ par visite. Des formules sur-mesure sont disponibles pour les gardes longues ou régulières — contactez-nous !</div>
+          <p class="faq-q">Quels sont vos tarifs ?</div>
+          <p class="faq-a">L'hébergement complet démarre à 35€/nuit, le Day Sitting à 22€/jour et le Home Sitting à 18€ par visite. Des formules sur-mesure sont disponibles pour les gardes longues ou régulières — contactez-nous !</div>
         </div>
       </div>
     </div>
   </section>
 
 
+  </main>
+
   <footer>
     <div class="footer-inner">
       <div>
-        <div class="footer-brand">Cabane à Câlin</div>
-        <div class="footer-tagline">Service de garde d'animaux familial, chaleureux et sécurisant. Parce que vos compagnons méritent ce qu'il y a de mieux.</div>
+        <p class="footer-brand">Cabane à Câlin</p>
+        <p class="footer-tagline">Service de garde d'animaux familial, chaleureux et sécurisant. Parce que vos compagnons méritent ce qu'il y a de mieux.</p>
       </div>
       <div class="footer-col">
-        <div class="footer-col-title">Services</div>
+        <h3 class="footer-col-title">Services</h3>
         <a href="index.html#services">Hébergement complet</a>
         <a href="index.html#services">Garde de jour — Day Sitting</a>
         <a href="index.html#services">Garde à domicile — Home Sitting</a>
         <a href="index.html#tarifs">Calculateur de tarifs</a>
       </div>
       <div class="footer-col">
-        <div class="footer-col-title">Contact</div>
+        <h3 class="footer-col-title">Contact</h3>
         <a href="contact.html">Nous contacter</a>
         <a href="contact.html#faq">FAQ</a>
         <a href="terms-and-conditions.html">Mentions légales</a>
