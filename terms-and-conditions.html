@@ -206,6 +206,14 @@
     .footer-bottom { max-width: 1100px; margin: 0 auto; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.07); display: flex; justify-content: space-between; align-items: center; }
     .footer-copy { font-size: 12px; color: rgba(245,239,224,0.3); }
     .footer-heart { font-size: 12px; color: var(--terra); }
+    /* ── FLOAT BUY ── */
+    .float-buy { position: fixed; right: 24px; bottom: 36px; z-index: 150; background: var(--brun); color: var(--white); border-radius: 50px; padding: 14px 22px; display: flex; align-items: center; gap: 10px; box-shadow: 0 8px 32px rgba(46,42,37,0.30); font-weight: 700; font-size: 14px; transition: transform .25s, box-shadow .25s, background .2s; text-decoration: none; }
+    .float-buy:hover { transform: translateY(-4px) scale(1.03); box-shadow: 0 14px 44px rgba(46,42,37,0.38); background: #1e1a16; }
+    .float-buy-icon { width: 32px; height: 32px; border-radius: 50%; background: var(--terra); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+    .float-buy-label { display: flex; flex-direction: column; line-height: 1.2; }
+    .float-buy-label span:first-child { font-size: 11px; color: rgba(255,255,255,0.55); font-weight: 400; }
+    .float-buy-label span:last-child { font-size: 14px; color: var(--white); font-weight: 700; }
+    .float-buy-arrow { font-size: 16px; color: var(--terra); margin-left: 2px; }
   </style>
 </head>
 <body>
@@ -452,6 +460,16 @@
       <span class="footer-heart">Fait avec ♥ pour vos animaux</span>
     </div>
   </footer>
+
+  <!-- FLOAT BUY CTA -->
+  <a href="https://bizinaclick.com/listing?id=2" target="_blank" rel="noopener" class="float-buy">
+    <div class="float-buy-icon">🏷️</div>
+    <div class="float-buy-label">
+      <span>Projet à vendre</span>
+      <span>Acheter ce projet</span>
+    </div>
+    <span class="float-buy-arrow">→</span>
+  </a>
 
   <script src="shared.min.js" defer></script>
   <script>

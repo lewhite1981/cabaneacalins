@@ -309,16 +309,23 @@
   .faq-grid { grid-template-columns: 1fr; gap: 14px; }
   .faq-item { padding: 22px; }
 
-  /* ── Float buy — sticky bottom bar on mobile ── */
+  /* ── Float buy — barre sticky en bas sur mobile ── */
   .float-buy {
     bottom: 0; right: 0; left: 0;
     border-radius: 0;
     padding: 14px 20px;
     justify-content: center;
-    box-shadow: 0 -4px 24px rgba(46,42,37,0.18);
+    gap: 12px;
+    box-shadow: 0 -4px 24px rgba(46,42,37,0.25);
     min-height: 56px;
+    /* Couleur terra plus visible sur mobile */
+    background: var(--terra, #C97B5A) !important;
   }
-  .float-buy-label span:first-child { display: block; }
+  .float-buy:hover { background: var(--terra-d, #b8694a) !important; transform: none; }
+  .float-buy-icon { background: rgba(255,255,255,0.2); }
+  .float-buy-arrow { color: rgba(255,255,255,0.8); }
+  .float-buy-label span:first-child { display: block; color: rgba(255,255,255,0.7); }
+  .float-buy-label span:last-child { font-size: 15px; letter-spacing: 0.2px; }
 
   /* ── Placeholder banner ── */
   .placeholder-banner { padding: 24px 20px; }
@@ -387,22 +394,59 @@
 /* Scroll body lock quand menu ouvert */
 body.menu-open { overflow: hidden; }
 
-/* Touch target minimum 44px sur tous les éléments interactifs */
+/* Touch target minimum 44px sur les éléments interactifs clés */
 @media (max-width: 767px) {
-  button, a, input, select, textarea, label {
-    min-height: 44px;
-  }
+  /* Inputs — toujours 44px + 16px pour éviter le zoom iOS */
   input, select, textarea {
-    font-size: 16px !important; /* évite le zoom auto sur iOS */
+    min-height: 44px;
+    font-size: 16px !important;
   }
-  .nav-links a { min-height: 44px; }
+  label { min-height: 44px; display: flex; align-items: center; }
+
+  /* Boutons natifs */
+  button { min-height: 44px; }
+
+  /* Liens de navigation et CTAs — pas les liens inline dans le texte */
+  .nav-links a,
+  .nav-hamburger,
+  .float-buy,
+  .btn-hero-primary,
+  .btn-hero-ghost,
+  .btn-cta-white,
+  .btn-submit,
+  .sale-banner-cta,
+  .sale-notice-cta,
+  .legal-contact-btn,
+  .contact-card-btn,
+  .calc-cta,
+  .nav-cta,
+  .nav-buy,
+  .footer-links a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .badge, .force-tag { min-height: 36px; display: inline-flex; align-items: center; }
+}
+
+/* Clearance pour la barre float-buy fixe en bas sur mobile */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 64px; /* = hauteur float-buy + marge */
+  }
 }
 
 /* Safe area pour les iPhones avec encoche/barre */
 @supports (padding-bottom: env(safe-area-inset-bottom)) {
   .float-buy {
     padding-bottom: calc(14px + env(safe-area-inset-bottom));
+  }
+  @media (max-width: 767px) {
+    body {
+      padding-bottom: calc(64px + env(safe-area-inset-bottom));
+    }
   }
   footer {
     padding-bottom: calc(32px + env(safe-area-inset-bottom));
