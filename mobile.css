@@ -408,3 +408,186 @@ body.menu-open { overflow: hidden; }
     padding-bottom: calc(32px + env(safe-area-inset-bottom));
   }
 }
+
+
+/* ══════════════════════════════════════════════
+   CORRECTIFS RESPONSIVE — 320px / 375px / 414px
+   (inline CSS des pages spécifiques non couvert
+    par les règles générales ci-dessus)
+══════════════════════════════════════════════ */
+
+/* ─── TABLETTE : corrections inline pages ──── */
+@media (max-width: 1023px) {
+
+  /* Calculator (index.html) */
+  .calc-card { padding: 32px 24px; }
+  .calc-grid { grid-template-columns: 1fr; gap: 32px; }
+  .calc-result-col { justify-content: flex-start; }
+  .calc-result-box { max-width: 100%; }
+
+  /* Contact page inline grids */
+  .contact-section { padding: 72px 32px; }
+  .contact-features { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .contact-dark-card { padding: 48px 36px; }
+
+  /* Terms page inline grids */
+  .sale-notice { padding: 48px 32px; }
+  .sale-notice-inner { grid-template-columns: 1fr; gap: 28px; text-align: center; }
+  .sale-notice-tags { justify-content: center; }
+  .sale-notice-cta { align-self: center; }
+  .legal-section { padding: 64px 32px; }
+  .legal-contact { padding: 40px 32px; }
+
+  /* Forces page pitch grid */
+  .pitch-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+}
+
+/* ─── MOBILE : corrections inline pages ──── */
+@media (max-width: 767px) {
+
+  /* Calculator (index.html) */
+  .calc-card { padding: 24px 16px; }
+  .calc-grid { grid-template-columns: 1fr; gap: 24px; }
+  .calc-result-box { padding: 28px 20px; max-width: 100%; }
+  .calc-result-price { font-size: 48px; }
+  .calc-cta { width: 100%; text-align: center; justify-content: center; }
+  .calc-section { padding: 56px 20px; }
+
+  /* Contact page */
+  .contact-section { padding: 56px 20px; }
+  .contact-main-title { font-size: 30px; }
+  .contact-dark-card { padding: 36px 20px; border-radius: 20px; }
+  .contact-card-title { font-size: 22px; }
+  .contact-card-btn { padding: 14px 28px; font-size: 14px; width: 100%; text-align: center; }
+  .contact-features { grid-template-columns: 1fr; gap: 12px; }
+  .contact-feature { padding: 24px 20px; }
+
+  /* FAQ (contact.html) — h3 question styling sur mobile */
+  .faq-q { font-size: 15px; margin: 0 0 10px; }
+  .faq-a { font-size: 13px; }
+  .faq-item { padding: 20px; }
+
+  /* Terms page */
+  .sale-notice { padding: 40px 20px; }
+  .sale-notice-inner { grid-template-columns: 1fr; gap: 24px; text-align: center; }
+  .sale-notice-title { font-size: 22px; }
+  .sale-notice-body { font-size: 14px; }
+  .sale-notice-tags { justify-content: center; flex-wrap: wrap; gap: 8px; }
+  .sale-notice-badge span { font-size: 22px; }
+  .legal-section { padding: 48px 20px; }
+  .legal-article h3 { font-size: 17px; }
+  .legal-article p { font-size: 13px; }
+  .info-cards { grid-template-columns: 1fr; gap: 12px; }
+  .info-card { padding: 20px; }
+  .legal-contact { padding: 32px 20px; border-radius: 16px; }
+  .legal-contact-title { font-size: 20px; }
+  .legal-contact-btn { width: 100%; text-align: center; padding: 14px 24px; }
+  .content-container { padding: 0; }
+
+  /* Forces page */
+  .pitch-grid { grid-template-columns: 1fr; gap: 14px; }
+  .swot-grid { grid-template-columns: 1fr; gap: 14px; }
+  .roadmap { grid-template-columns: 1fr 1fr; gap: 14px; }
+
+  /* Page-hero (concept, forces, contact, terms) */
+  .page-hero { padding: 100px 20px 48px !important; }
+  .page-hero h1 { font-size: 28px !important; line-height: 1.2; }
+  .page-hero p { font-size: 15px !important; }
+  .page-hero-tag { font-size: 12px; }
+}
+
+/* ─── PETITS SMARTPHONES : 320–375px ────────── */
+@media (max-width: 479px) {
+
+  /* Hero h1 très compact */
+  .hero h1 { font-size: 26px; line-height: 1.2; }
+  .hero { padding: 88px 16px 48px; }
+  .hero p { font-size: 14px; }
+  .hero-badge { font-size: 11px; padding: 8px 16px; }
+
+  /* Sections */
+  section { padding: 48px 16px; }
+  .section-title { font-size: 22px; line-height: 1.25; }
+  .section-sub { font-size: 14px; }
+
+  /* Sale banner ultra compact */
+  .sale-banner { font-size: 10px; min-height: 40px; }
+  .sale-banner-cta { padding: 4px 10px; font-size: 10px; }
+
+  /* Stats — 2 colonnes même à 320px */
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .stat-num   { font-size: 26px; }
+  .stat-label { font-size: 11px; }
+
+  /* Services — 1 col */
+  .services-grid { grid-template-columns: 1fr; }
+
+  /* Steps — 1 col */
+  .steps { grid-template-columns: 1fr; gap: 20px; }
+
+  /* Guarantees — 1 col */
+  .guarantees-grid { grid-template-columns: 1fr; gap: 14px; }
+  .guarantee-title { font-size: 14px; }
+  .guarantee-text  { font-size: 12px; }
+
+  /* Footer */
+  footer { padding: 40px 0 24px; }
+  .footer-inner { padding: 0 16px; gap: 24px; }
+  .footer-bottom { padding: 16px 16px 0; }
+  .footer-brand { font-size: 20px; }
+
+  /* CTA section */
+  .cta-section { padding: 48px 16px; }
+  .cta-section h2 { font-size: 24px; }
+
+  /* Contact */
+  .contact-section { padding: 48px 16px; }
+  .contact-main-title { font-size: 24px; }
+  .contact-dark-card { padding: 28px 16px; }
+  .contact-card-title { font-size: 19px; }
+  .contact-features { grid-template-columns: 1fr; }
+  .contact-feature { padding: 20px 16px; }
+
+  /* FAQ */
+  .faq-item { padding: 18px 14px; }
+  .faq-q { font-size: 14px; }
+  .faq-a { font-size: 12px; }
+
+  /* Calculator */
+  .calc-section { padding: 48px 16px; }
+  .calc-card { padding: 20px 14px; }
+  .calc-result-price { font-size: 40px; }
+
+  /* Terms */
+  .sale-notice { padding: 32px 16px; }
+  .legal-section { padding: 40px 16px; }
+  .legal-contact { padding: 28px 16px; }
+  .legal-contact-title { font-size: 18px; }
+  .legal-article h3 { font-size: 16px; }
+  .info-cards { grid-template-columns: 1fr; }
+
+  /* Forces */
+  .roadmap { grid-template-columns: 1fr; gap: 12px; }
+
+  /* Float buy button */
+  .float-buy { padding: 12px 16px; gap: 6px; font-size: 12px; }
+
+  /* Buttons full-width */
+  .btn-hero-primary,
+  .btn-hero-ghost,
+  .btn-cta-white,
+  .sale-notice-cta,
+  .legal-contact-btn { width: 100%; text-align: center; padding: 14px 16px; font-size: 14px; }
+}
+
+/* ─── iPhone SE / très étroit : 320px ───────── */
+@media (max-width: 340px) {
+  .hero h1 { font-size: 22px; }
+  .section-title { font-size: 20px; }
+  .contact-card-title { font-size: 17px; }
+  .page-hero h1 { font-size: 22px !important; }
+  nav { padding: 0 12px; }
+  .nav-brand { font-size: 18px; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .sale-banner-text { font-size: 9.5px; }
+}
