@@ -466,14 +466,13 @@
 <body>
 
   <!-- BARRE D'ANNONCE PROJET À VENDRE -->
-  <aside class="sale-banner" id="saleBanner">
+  <div class="sale-banner" id="saleBanner">
     <span class="sale-banner-text">🏷️ <strong>Ce projet est à vendre</strong></span>
     <a href="https://bizinaclick.com/listing?id=2" target="_blank" rel="noopener" class="sale-banner-cta">Acheter →</a>
     <button class="sale-banner-close" onclick="document.getElementById('saleBanner').style.display='none';" aria-label="Fermer">×</button>
-  </aside>
+  </div>
 
   <!-- NAV -->
-  <header>
   <nav>
     <a href="index.html" class="nav-brand">Cabane à Câlin</a>
     <div class="nav-links" id="navLinks">
@@ -487,10 +486,7 @@
       <span></span><span></span><span></span>
     </button>
   </nav>
-  </header>
   <div class="nav-overlay" id="navOverlay"></div>
-
-  <main>
 
   <!-- HERO -->
   <section class="hero">
@@ -511,22 +507,22 @@
         <div class="hero-card-icon">
           <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         </div>
-        <p class="hero-card-title">Accueil à domicile</p>
-        <p class="hero-card-text">Votre animal vit dans une vraie maison familiale, pas une pension.</p>
+        <div class="hero-card-title">Accueil à domicile</div>
+        <div class="hero-card-text">Votre animal vit dans une vraie maison familiale, pas une pension.</div>
       </div>
       <div class="hero-card float-b">
         <div class="hero-card-icon">
           <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
         </div>
-        <p class="hero-card-title">Mises à jour quotidiennes</p>
-        <p class="hero-card-text">Photos et nouvelles envoyées chaque jour pour votre sérénité.</p>
+        <div class="hero-card-title">Mises à jour quotidiennes</div>
+        <div class="hero-card-text">Photos et nouvelles envoyées chaque jour pour votre sérénité.</div>
       </div>
       <div class="hero-card float-c">
         <div class="hero-card-icon">
           <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
         </div>
-        <p class="hero-card-title">Suivi personnalisé</p>
-        <p class="hero-card-text">Chaque animal est unique — nous adaptons son séjour à ses besoins.</div>
+        <div class="hero-card-title">Suivi personnalisé</div>
+        <div class="hero-card-text">Chaque animal est unique — nous adaptons son séjour à ses besoins.</div>
       </div>
     </div><!-- end hero-visual -->
     </div><!-- end hero-inner -->
@@ -538,7 +534,7 @@
   </style>
 
   <!-- MARQUEE -->
-  <section class="marquee-section" aria-label="Bandeau défilant" aria-hidden="true">
+  <div class="marquee-section">
     <div class="marquee-inner">
       <div class="marquee-group" aria-hidden="true">
         <span class="marquee-item">🐾 Garde à domicile<span class="marquee-dot"></span></span>
@@ -561,29 +557,29 @@
         <span class="marquee-item">🏷️ Projet à vendre<span class="marquee-dot"></span></span>
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- STATS -->
-  <section class="stats-band" aria-label="Statistiques">
+  <div class="stats-band">
     <div class="stats-grid">
       <div class="stat-item reveal d1">
         <div class="stat-num counter" data-target="98" data-suffix="%">98%</div>
-        <p class="stat-label">de propriétaires satisfaits</div>
+        <div class="stat-label">de propriétaires satisfaits</div>
       </div>
       <div class="stat-item reveal d2">
         <div class="stat-num counter" data-target="500" data-suffix="+">500+</div>
-        <p class="stat-label">animaux accueillis</div>
+        <div class="stat-label">animaux accueillis</div>
       </div>
       <div class="stat-item reveal d3">
         <div class="stat-num">7j/7</div>
-        <p class="stat-label">disponibilité</div>
+        <div class="stat-label">disponibilité</div>
       </div>
       <div class="stat-item reveal d4">
         <div class="stat-num counter" data-target="0">0</div>
-        <p class="stat-label">animaux laissés seuls la nuit</div>
+        <div class="stat-label">animaux laissés seuls la nuit</div>
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- SERVICES -->
   <section class="services" id="services">
@@ -599,8 +595,8 @@
           <div class="service-body">
             <div class="service-tag">Le plus populaire</div>
             <h3 class="service-title">Hébergement complet</h3>
-            <p class="service-text">Votre animal dort, mange et joue chez nous. Nuits en intérieur, promenades quotidiennes, câlins garantis.</div>
-            <p class="service-price">À partir de 35€ <span>/ nuit</span></div>
+            <div class="service-text">Votre animal dort, mange et joue chez nous. Nuits en intérieur, promenades quotidiennes, câlins garantis.</div>
+            <div class="service-price">À partir de 35€ <span>/ nuit</span></div>
           </div>
         </div>
         <div class="service-card tilt-card reveal d2 animated-border">
@@ -610,8 +606,8 @@
           <div class="service-body">
             <div class="service-tag">Garde à la journée</div>
             <h3 class="service-title">Garde à la journée — Day Sitting</h3>
-            <p class="service-text">Pour les longues journées de travail. Votre animal passe la journée avec nous et rentre le soir.</div>
-            <p class="service-price">À partir de 22€ <span>/ jour</span></div>
+            <div class="service-text">Pour les longues journées de travail. Votre animal passe la journée avec nous et rentre le soir.</div>
+            <div class="service-price">À partir de 22€ <span>/ jour</span></div>
           </div>
         </div>
         <div class="service-card tilt-card reveal d3 animated-border">
@@ -621,8 +617,8 @@
           <div class="service-body">
             <div class="service-tag">Garde à domicile</div>
             <h3 class="service-title">Garde à domicile — Home Sitting</h3>
-            <p class="service-text">Nous venons chez vous pour nourrir, promener et câliner votre animal dans son environnement habituel.</div>
-            <p class="service-price">À partir de 18€ <span>/ visite</span></div>
+            <div class="service-text">Nous venons chez vous pour nourrir, promener et câliner votre animal dans son environnement habituel.</div>
+            <div class="service-price">À partir de 18€ <span>/ visite</span></div>
           </div>
         </div>
       </div>
@@ -880,22 +876,22 @@
         <div class="step reveal d1">
           <div class="step-num">1</div>
           <h3 class="step-title">Contactez-nous</h3>
-          <p class="step-text">Remplissez notre formulaire ou appelez-nous pour présenter votre animal et vos dates.</div>
+          <div class="step-text">Remplissez notre formulaire ou appelez-nous pour présenter votre animal et vos dates.</div>
         </div>
         <div class="step reveal d2">
           <div class="step-num">2</div>
           <h3 class="step-title">Rencontre découverte gratuite</h3>
-          <p class="step-text">Une première rencontre gratuite pour que votre animal fasse connaissance avec nous.</div>
+          <div class="step-text">Une première rencontre gratuite pour que votre animal fasse connaissance avec nous.</div>
         </div>
         <div class="step reveal d3">
           <div class="step-num">3</div>
           <h3 class="step-title">Confirmation de réservation</h3>
-          <p class="step-text">Nous réservons votre créneau et préparons un accueil sur-mesure pour votre compagnon.</div>
+          <div class="step-text">Nous réservons votre créneau et préparons un accueil sur-mesure pour votre compagnon.</div>
         </div>
         <div class="step reveal d4">
           <div class="step-num">4</div>
           <h3 class="step-title">Partez l'esprit libre</h3>
-          <p class="step-text">Recevez des nouvelles et des photos chaque jour. Voyagez sereinement !</div>
+          <div class="step-text">Recevez des nouvelles et des photos chaque jour. Voyagez sereinement !</div>
         </div>
       </div>
     </div>
@@ -907,45 +903,45 @@
       <p class="section-eyebrow reveal">Ils nous font confiance</p>
       <h2 class="section-title reveal d1">Ce que disent<br/>nos clients</h2>
       <div class="testi-grid">
-        <article class="testi-card reveal d1">
+        <div class="testi-card reveal d1">
           <div class="testi-stars">★★★★★</div>
-          <blockquote class="testi-text">« Noisette est rentrée épanouie et détendue. Les photos quotidiennes m'ont permis de vraiment profiter de mes vacances sans culpabilité. Je recommande les yeux fermés ! »</blockquote>
+          <div class="testi-text">« Noisette est rentrée épanouie et détendue. Les photos quotidiennes m'ont permis de vraiment profiter de mes vacances sans culpabilité. Je recommande les yeux fermés ! »</div>
           <div class="testi-author">
             <div class="testi-avatar">
               <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
             </div>
             <div>
-              <cite class="testi-name">Sophie M.</cite>
-              <p class="testi-pet">Propriétaire de Noisette, Labrador</div>
+              <div class="testi-name">Sophie M.</div>
+              <div class="testi-pet">Propriétaire de Noisette, Labrador</div>
             </div>
           </div>
         </div>
-        <article class="testi-card reveal d2">
+        <div class="testi-card reveal d2">
           <div class="testi-stars">★★★★★</div>
-          <blockquote class="testi-text">« Mon chat est très anxieux habituellement en déplacement. Ici, il a été tellement à l'aise qu'il ne voulait plus rentrer ! C'est vraiment une deuxième maison pour lui. »</blockquote>
+          <div class="testi-text">« Mon chat est très anxieux habituellement en déplacement. Ici, il a été tellement à l'aise qu'il ne voulait plus rentrer ! C'est vraiment une deuxième maison pour lui. »</div>
           <div class="testi-author">
             <div class="testi-avatar">
               <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
             </div>
             <div>
-              <cite class="testi-name">Lucas T.</cite>
-              <p class="testi-pet">Propriétaire de Mochi, Maine Coon</div>
+              <div class="testi-name">Lucas T.</div>
+              <div class="testi-pet">Propriétaire de Mochi, Maine Coon</div>
             </div>
           </div>
         </div>
-        <article class="testi-card reveal d3">
+        <div class="testi-card reveal d3">
           <div class="testi-stars">★★★★★</div>
-          <blockquote class="testi-text">« Service impeccable, communication parfaite. On sent que les animaux sont vraiment aimés et pas juste gardés. Une perle rare dans ce secteur. Merci du fond du cœur ! »</blockquote>
+          <div class="testi-text">« Service impeccable, communication parfaite. On sent que les animaux sont vraiment aimés et pas juste gardés. Une perle rare dans ce secteur. Merci du fond du cœur ! »</div>
           <div class="testi-author">
             <div class="testi-avatar">
               <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
             </div>
             <div>
-              <cite class="testi-name">Amina B.</cite>
-              <p class="testi-pet">Propriétaire de Rocky, Beagle</div>
+              <div class="testi-name">Amina B.</div>
+              <div class="testi-pet">Propriétaire de Rocky, Beagle</div>
             </div>
           </div>
-        </article>
+        </div>
       </div>
     </div>
   </section>
@@ -961,28 +957,28 @@
             <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
           <h3 class="guarantee-title">Environnement sécurisé</h3>
-          <p class="guarantee-text">Espace entièrement sécurisé, adapté aux chiens et aux chats de toutes tailles.</div>
+          <div class="guarantee-text">Espace entièrement sécurisé, adapté aux chiens et aux chats de toutes tailles.</div>
         </div>
         <div class="guarantee-item reveal d2">
           <div class="guarantee-icon">
             <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           </div>
           <h3 class="guarantee-title">Joignable 24h/24</h3>
-          <p class="guarantee-text">En cas de question ou d'urgence, nous sommes toujours disponibles pour vous répondre.</div>
+          <div class="guarantee-text">En cas de question ou d'urgence, nous sommes toujours disponibles pour vous répondre.</div>
         </div>
         <div class="guarantee-item reveal d3">
           <div class="guarantee-icon">
             <svg viewBox="0 0 24 24"><path d="M3 2h4l2 5-2.5 1.5a11 11 0 0 0 5 5L13 11l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 1 4a2 2 0 0 1 2-2"/><path d="M15 7a2 2 0 0 1 2-2"/><path d="M19 3a4 4 0 0 1 0 8"/></svg>
           </div>
           <h3 class="guarantee-title">Alimentation & habitudes respectées</h3>
-          <p class="guarantee-text">Les habitudes et le régime alimentaire de votre animal sont scrupuleusement respectés.</div>
+          <div class="guarantee-text">Les habitudes et le régime alimentaire de votre animal sont scrupuleusement respectés.</div>
         </div>
         <div class="guarantee-item reveal d4">
           <div class="guarantee-icon">
             <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </div>
           <h3 class="guarantee-title">Amour garanti pour chaque animal</h3>
-          <p class="guarantee-text">Chaque animal reçoit l'attention, les câlins et la chaleur qu'il mérite — sans exception.</div>
+          <div class="guarantee-text">Chaque animal reçoit l'attention, les câlins et la chaleur qu'il mérite — sans exception.</div>
         </div>
       </div>
     </div>
@@ -1005,24 +1001,22 @@
     <span class="float-buy-arrow">→</span>
   </a>
 
-  </main>
-
   <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
       <div>
-        <p class="footer-brand">Cabane à Câlin</p>
-        <p class="footer-tagline">Service de garde d'animaux familial, chaleureux et sécurisant. Parce que vos compagnons méritent ce qu'il y a de mieux.</p>
+        <div class="footer-brand">Cabane à Câlin</div>
+        <div class="footer-tagline">Service de garde d'animaux familial, chaleureux et sécurisant. Parce que vos compagnons méritent ce qu'il y a de mieux.</div>
       </div>
       <div class="footer-col">
-        <h3 class="footer-col-title">Services</h3>
+        <div class="footer-col-title">Services</div>
         <a href="index.html#services">Hébergement complet</a>
         <a href="index.html#services">Garde de jour — Day Sitting</a>
         <a href="index.html#services">Garde à domicile — Home Sitting</a>
         <a href="index.html#tarifs">Calculateur de tarifs</a>
       </div>
       <div class="footer-col">
-        <h3 class="footer-col-title">Contact</h3>
+        <div class="footer-col-title">Contact</div>
         <a href="contact.html">Nous contacter</a>
         <a href="contact.html#faq">FAQ</a>
         <a href="terms-and-conditions.html">Mentions légales</a>

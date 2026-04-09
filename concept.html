@@ -229,13 +229,12 @@
 <body>
 
   <!-- BARRE D'ANNONCE -->
-  <aside class="sale-banner" id="saleBanner">
+  <div class="sale-banner" id="saleBanner">
     <span class="sale-banner-text">🏷️ <strong>Ce projet est à vendre</strong></span>
     <a href="https://bizinaclick.com/listing?id=2" target="_blank" rel="noopener" class="sale-banner-cta">Acheter →</a>
     <button class="sale-banner-close" onclick="document.getElementById('saleBanner').style.display='none';" aria-label="Fermer">×</button>
-  </aside>
+  </div>
 
-  <header>
   <nav>
     <a href="index.html" class="nav-brand">Cabane à Câlin</a>
     <div class="nav-links" id="navLinks">
@@ -249,20 +248,17 @@
       <span></span><span></span><span></span>
     </button>
   </nav>
-  </header>
   <div class="nav-overlay" id="navOverlay"></div>
 
-  <main>
-
-  <header class="page-hero">
+  <div class="page-hero">
     <div class="page-hero-blob"></div>
     <div class="page-hero-tag" style="animation:fadeInDown 0.7s ease both; position:relative;">Notre histoire & notre vision</div>
     <h1 style="animation:fadeInUp 0.8s 0.15s ease both; position:relative;">Garde d'animaux en famille —<br/>une <em>vraie alternative</em> aux pensions.</h1>
     <p style="animation:fadeInUp 0.8s 0.3s ease both; position:relative;">Cabane à Câlin est né d'une conviction simple : les animaux méritent mieux qu'une cage pendant vos absences. Ils méritent amour, chaleur et continuité.</p>
-  </header>
+  </div>
 
   <!-- MARQUEE -->
-  <section class="marquee-section" aria-label="Bandeau défilant" aria-hidden="true">
+  <div class="marquee-section">
     <div class="marquee-inner">
       <div class="marquee-group" aria-hidden="true">
         <span class="marquee-item">🏡 Maison familiale<span class="marquee-dot"></span></span>
@@ -456,23 +452,21 @@
     </div>
   </section>
 
-  </main>
-
   <footer>
     <div class="footer-inner">
       <div>
-        <p class="footer-brand">Cabane à Câlin</p>
-        <p class="footer-tagline">Service de garde d'animaux familial, chaleureux et sécurisant. Parce que vos compagnons méritent ce qu'il y a de mieux.</p>
+        <div class="footer-brand">Cabane à Câlin</div>
+        <div class="footer-tagline">Service de garde d'animaux familial, chaleureux et sécurisant. Parce que vos compagnons méritent ce qu'il y a de mieux.</div>
       </div>
       <div class="footer-col">
-        <h3 class="footer-col-title">Services</h3>
+        <div class="footer-col-title">Services</div>
         <a href="index.html#services">Hébergement complet</a>
         <a href="index.html#services">Garde de jour — Day Sitting</a>
         <a href="index.html#services">Garde à domicile — Home Sitting</a>
         <a href="index.html#tarifs">Calculateur de tarifs</a>
       </div>
       <div class="footer-col">
-        <h3 class="footer-col-title">Contact</h3>
+        <div class="footer-col-title">Contact</div>
         <a href="contact.html">Nous contacter</a>
         <a href="contact.html#faq">FAQ</a>
         <a href="terms-and-conditions.html">Mentions légales</a>
