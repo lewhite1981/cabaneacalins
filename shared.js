@@ -215,15 +215,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function adjustNavTop() {
     if (!nav) return;
-    const bannerH = banner && banner.style.display !== 'none' ? (banner.offsetHeight || 44) : 0;
-    if (window.innerWidth <= 767) {
-      nav.style.top = '0px';
-    } else {
-      nav.style.top = bannerH + 'px';
-    }
+    const bannerH = banner && banner.style.display !== 'none' ? (banner.offsetHeight || 0) : 0;
+    // Always position nav below the sale banner, on all screen sizes
+    nav.style.setProperty('top', bannerH + 'px', 'important');
+    const navH = nav.offsetHeight || (window.innerWidth <= 767 ? 60 : 72);
     const progressBar = document.getElementById('read-progress');
     if (progressBar) {
-      progressBar.style.top = window.innerWidth <= 767 ? '60px' : (bannerH + 72) + 'px';
+      progressBar.style.top = (bannerH + navH) + 'px';
     }
   }
 
@@ -238,6 +236,11 @@ document.addEventListener('DOMContentLoaded', () => {
         links.classList.add('open');
         overlay && overlay.classList.add('open');
         document.body.classList.add('menu-open');
+        // Position dropdown just below the nav bar (banner + nav height)
+        if (nav && links) {
+          const navRect = nav.getBoundingClientRect();
+          links.style.top = navRect.bottom + 'px';
+        }
       }
     });
 

@@ -7,6 +7,25 @@
    ============================================= */
 
 /* ══════════════════════════════════════════════
+   RÈGLES GLOBALES — s'appliquent à tous les écrans
+══════════════════════════════════════════════ */
+
+/* Empêche le défilement horizontal sur tous les écrans */
+html { overflow-x: hidden; }
+
+/* Images et médias toujours dans leur conteneur */
+img, video, iframe, embed, object { max-width: 100%; }
+
+/* Éléments qui peuvent déborder sur mobile */
+@media (max-width: 767px) {
+  * { box-sizing: border-box; }
+  /* Empêche les éléments d'étirer la page horizontalement */
+  body { overflow-x: hidden; max-width: 100vw; }
+  /* Sections et conteneurs : jamais plus larges que la fenêtre */
+  section, .container, footer, nav { max-width: 100%; }
+}
+
+/* ══════════════════════════════════════════════
    TABLETTE  (< 1024px)
 ══════════════════════════════════════════════ */
 @media (max-width: 1023px) {
@@ -103,11 +122,9 @@
 
   /* ── Nav desktop links → hidden, hamburger shown ── */
   nav {
-    top: 0 !important;
     padding: 0 16px;
     height: 60px;
   }
-  nav.banner-open { top: 52px !important; }
   .nav-links { display: none; }
   .nav-links.open {
     display: flex;
@@ -181,8 +198,9 @@
   #read-progress { top: 60px; }
 
   /* ── Hero ── */
+  /* banner (~44px) + nav (60px) = ~104px — top padding doit être > 104px */
   .hero {
-    padding: 100px 20px 56px;
+    padding: 124px 20px 56px;
     min-height: auto;
   }
   .hero h1 { font-size: 36px; line-height: 1.15; }
@@ -208,7 +226,8 @@
   .hero-blob { display: none; }
 
   /* ── Page hero (inner pages) ── */
-  .page-hero { padding: 120px 20px 56px; }
+  /* banner (~44px) + nav (60px) = ~104px → 124px confortable */
+  .page-hero { padding: 124px 20px 56px; }
   .page-hero h1 { font-size: 36px; line-height: 1.15; }
   .page-hero p  { font-size: 15px; }
 
@@ -534,7 +553,7 @@ body.menu-open { overflow: hidden; }
   .roadmap { grid-template-columns: 1fr 1fr; gap: 14px; }
 
   /* Page-hero (concept, forces, contact, terms) */
-  .page-hero { padding: 100px 20px 48px !important; }
+  .page-hero { padding: 116px 20px 48px !important; }
   .page-hero h1 { font-size: 28px !important; line-height: 1.2; }
   .page-hero p { font-size: 15px !important; }
   .page-hero-tag { font-size: 12px; }
@@ -545,7 +564,8 @@ body.menu-open { overflow: hidden; }
 
   /* Hero h1 très compact */
   .hero h1 { font-size: 26px; line-height: 1.2; }
-  .hero { padding: 88px 16px 48px; }
+  /* banner peut être ~44px + nav 60px = 104px → padding > 104px */
+  .hero { padding: 116px 16px 48px; }
   .hero p { font-size: 14px; }
   .hero-badge { font-size: 11px; padding: 8px 16px; }
 
