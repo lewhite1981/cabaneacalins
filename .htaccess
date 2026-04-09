@@ -1,0 +1,52 @@
+# ── Cache-Control ──────────────────────────────────────────────────
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # Images
+  ExpiresByType image/webp    "access plus 1 year"
+  ExpiresByType image/jpeg    "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/png     "access plus 1 year"
+
+  # CSS & JS
+  ExpiresByType text/css        "access plus 1 month"
+  ExpiresByType text/javascript "access plus 1 month"
+
+  # Fonts
+  ExpiresByType font/woff2  "access plus 1 year"
+  ExpiresByType font/woff   "access plus 1 year"
+
+  # HTML
+  ExpiresByType text/html   "access plus 1 hour"
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Immutable cache for versioned assets
+  <FilesMatch "\.(webp|jpg|jpeg|png|svg|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=3600, must-revalidate"
+  </FilesMatch>
+
+  # Security headers (bonus Lighthouse)
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ── Compression Gzip ───────────────────────────────────────────────
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript image/svg+xml
+</IfModule>
+
+# ── Keep-Alive ─────────────────────────────────────────────────────
+<IfModule mod_headers.c>
+  Header set Connection keep-alive
+</IfModule>
+
+# ── Redirect 404 ──────────────────────────────────────────────────
+ErrorDocument 404 /404.html

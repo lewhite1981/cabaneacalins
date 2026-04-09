@@ -81,9 +81,14 @@
   <meta name="author" content="Cabane à Câlin" />
   <meta name="geo.region" content="FR-IDF" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="shared.css" />
-  <link rel="stylesheet" href="mobile.css" />
+  <!-- Fonts: non-render-blocking -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Pacifico&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Pacifico&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Pacifico&display=swap" /></noscript>
+  <link rel="stylesheet" href="shared.min.css" />
+  <link rel="preload" as="style" href="mobile.css" />
+  <link rel="stylesheet" href="mobile.css" media="(max-width:768px)" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="mobile.css" /></noscript>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -380,7 +385,7 @@
       <span class="footer-heart">Fait avec ♥ pour vos animaux</span>
     </div>
   </footer>
-  <script src="shared.js" defer></script>
+  <script src="shared.min.js" defer></script>
   <script>
   (function() {
     // ── Validation helpers ──

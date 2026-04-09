@@ -41,9 +41,15 @@
   <meta name="author" content="Cabane à Câlin" />
   <meta name="geo.region" content="FR-IDF" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="shared.css" />
-  <link rel="stylesheet" href="mobile.css" />
+  <!-- Fonts: non-render-blocking -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Pacifico&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Pacifico&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Pacifico&display=swap" /></noscript>
+  <link rel="preload" as="image" href="story-origine.webp" type="image/webp" fetchpriority="high" />
+  <link rel="stylesheet" href="shared.min.css" />
+  <link rel="preload" as="style" href="mobile.css" />
+  <link rel="stylesheet" href="mobile.css" media="(max-width:768px)" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="mobile.css" /></noscript>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -289,7 +295,7 @@
         <div class="story-visual reveal-left">
           <picture>
             <source srcset="story-origine.webp" type="image/webp" />
-            <img src="story-origine.jpg" alt="Gardienne câlinant tendrement un chien dans un espace chaleureux — l'origine de Cabane à Câlin" loading="lazy" />
+            <img src="story-origine.jpg" width="536" height="287" alt="Gardienne câlinant tendrement un chien dans un espace chaleureux — l'origine de Cabane à Câlin" loading="lazy" />
           </picture>
         </div>
         <div class="story-content reveal-right">
@@ -317,7 +323,7 @@
         <div class="story-visual reveal-right">
           <picture>
             <source srcset="story-approche.webp" type="image/webp" />
-            <img src="story-approche.jpg" alt="Éducateur professionnel avec un golden retriever dans un espace familial organisé — Cabane à Câlin" loading="lazy" />
+            <img src="story-approche.jpg" width="523" height="281" alt="Éducateur professionnel avec un golden retriever dans un espace familial organisé — Cabane à Câlin" loading="lazy" />
           </picture>
         </div>
       </div>
@@ -484,6 +490,6 @@
     </div>
   </footer>
 
-  <script src="shared.js" defer></script>
+  <script src="shared.min.js" defer></script>
 </body>
 </html>
