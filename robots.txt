@@ -1,4 +1,14 @@
 User-agent: *
 Allow: /
 
+# Pages internes — non destinées à l'indexation
+Disallow: /charte-couleurs.html
+Disallow: /terms-and-conditions.html
+Disallow: /politique-de-confidentialite.html
+Disallow: /404.html
+
+# Fichiers de développement non utiles aux moteurs de recherche
+Disallow: /final.PNG
+Disallow: /og-image.svg
+
 Sitemap: https://cabaneacalin.fr/sitemap.xml
