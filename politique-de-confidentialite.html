@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Politique de confidentialité — Cabane à Câlin</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- Performance : preconnect fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+
+  <!-- Theme color mobile -->
+  <meta name="theme-color" content="#C97B5A" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://cabaneacalin.fr/politique-de-confidentialite.html" />
+
+  <!-- SEO -->
+  <meta name="description" content="Politique de confidentialité et protection des données personnelles — Cabane à Câlin, projet de garde d'animaux à domicile." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="author" content="Cabane à Câlin" />
+
+  <!-- OpenGraph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://cabaneacalin.fr/politique-de-confidentialite.html" />
+  <meta property="og:title"       content="Politique de confidentialité — Cabane à Câlin" />
+  <meta property="og:description" content="Politique de confidentialité et protection des données personnelles du projet Cabane à Câlin — garde d'animaux en Île-de-France." />
+  <meta property="og:image"       content="https://cabaneacalin.fr/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type"  content="image/png" />
+  <meta property="og:locale"      content="fr_FR" />
+  <meta property="og:site_name"   content="Cabane à Câlin" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Politique de confidentialité — Cabane à Câlin" />
+  <meta name="twitter:description" content="Protection des données personnelles et politique de confidentialité du projet Cabane à Câlin." />
+  <meta name="twitter:image"       content="https://cabaneacalin.fr/og-image.png" />
+
+  <!-- Fonts: non-render-blocking -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Pacifico&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Pacifico&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Pacifico&display=swap" /></noscript>
+  <link rel="stylesheet" href="shared.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --terra:#C97B5A; --terra-d:#b8694a; --sauge:#7A9E7E;
+      --creme:#F5EFE0; --caramel:#8B5E3C; --brun:#2E2A25;
+      --white:#FFFFFF; --text:#5c524a; --light:#a09790;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--creme); color: var(--brun); font-family: 'Lato', sans-serif; font-size: 16px; line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+
+    /* BARRE D'ANNONCE */
+    .sale-banner { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: var(--brun); height: 44px; display: flex; align-items: center; justify-content: center; gap: 16px; }
+    .sale-banner-text { font-size: 13px; color: rgba(245,239,224,0.75); font-weight: 400; }
+    .sale-banner-text strong { color: var(--creme); font-weight: 700; }
+    .sale-banner-cta { background: var(--terra); color: var(--white); border-radius: 50px; padding: 5px 18px; font-size: 12px; font-weight: 700; transition: background .2s, transform .15s; white-space: nowrap; }
+    .sale-banner-cta:hover { background: var(--terra-d); transform: scale(1.04); }
+    .sale-banner-close { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); background: none; border: none; color: rgba(245,239,224,0.4); font-size: 18px; cursor: pointer; padding: 4px; transition: color .2s; }
+    .sale-banner-close:hover { color: var(--creme); }
+
+    /* NAV */
+    nav { position: fixed; top: 44px; left: 0; right: 0; z-index: 100; background: rgba(245,239,224,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,123,90,0.12); padding: 0 48px; height: 72px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { font-family: 'Pacifico', cursive; font-size: 22px; color: var(--terra); }
+    .nav-links { display: flex; gap: 36px; align-items: center; }
+    .nav-links a { font-size: 14px; font-weight: 700; color: var(--brun); letter-spacing: 0.3px; opacity: 0.75; transition: opacity .2s, color .2s; }
+    .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--terra); }
+    .nav-cta { background: var(--terra); color: var(--white) !important; opacity: 1 !important; border-radius: 50px; padding: 10px 24px !important; font-size: 13px !important; transition: background .2s !important; }
+    .nav-cta:hover { background: var(--terra-d) !important; }
+
+    @keyframes fadeInUp   { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:none; } }
+    @keyframes fadeInDown { from { opacity:0; transform:translateY(-16px); } to { opacity:1; transform:none; } }
+    @keyframes gradientDrift { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+
+    /* PAGE HERO */
+    .page-hero {
+      background: linear-gradient(-45deg, #2E2A25, #3d3328, #2a2018, #3d3328);
+      background-size: 400% 400%;
+      animation: gradientDrift 16s ease infinite;
+      padding: 180px 48px 80px; text-align: center;
+    }
+    .page-hero-tag { font-family: 'Pacifico', cursive; font-size: 13px; color: var(--terra); margin-bottom: 16px; }
+    .page-hero h1 { font-family: 'Playfair Display', serif; font-size: 52px; color: var(--white); font-weight: 700; line-height: 1.15; margin-bottom: 20px; }
+    .page-hero h1 em { color: var(--terra); font-style: italic; }
+    .page-hero p { font-size: 17px; color: rgba(245,239,224,0.65); font-weight: 300; line-height: 1.7; max-width: 540px; margin: 0 auto; }
+
+    /* LAYOUT */
+    .container { max-width: 1100px; margin: 0 auto; }
+    .content-container { max-width: 780px; margin: 0 auto; }
+
+    /* SECTION LÉGALE */
+    .legal-section { padding: 80px 48px; background: var(--white); }
+    .legal-section:nth-child(even) { background: var(--creme); }
+
+    .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--terra); margin-bottom: 12px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 36px; color: var(--brun); line-height: 1.2; margin-bottom: 40px; }
+
+    .legal-article { margin-bottom: 40px; }
+    .legal-article:last-child { margin-bottom: 0; }
+    .legal-article-num {
+      display: inline-block; background: var(--terra); color: var(--white);
+      border-radius: 8px; padding: 3px 10px; font-size: 11px; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px;
+    }
+    .legal-article h3 {
+      font-family: 'Playfair Display', serif; font-size: 20px;
+      color: var(--brun); font-weight: 700; margin-bottom: 14px;
+    }
+    .legal-article p {
+      font-size: 14px; color: var(--text); line-height: 1.85; margin-bottom: 12px;
+    }
+    .legal-article p:last-child { margin-bottom: 0; }
+    .legal-article ul {
+      list-style: none; margin: 12px 0; padding: 0;
+    }
+    .legal-article ul li {
+      font-size: 14px; color: var(--text); line-height: 1.8;
+      padding: 6px 0 6px 24px; position: relative; border-bottom: 1px solid rgba(46,42,37,0.06);
+    }
+    .legal-article ul li:last-child { border-bottom: none; }
+    .legal-article ul li::before {
+      content: '›'; position: absolute; left: 0;
+      color: var(--terra); font-weight: 700; font-size: 16px; line-height: 1.6;
+    }
+    .legal-highlight {
+      background: rgba(201,123,90,0.08); border-left: 3px solid var(--terra);
+      border-radius: 0 12px 12px 0; padding: 16px 20px; margin: 16px 0;
+      font-size: 14px; color: var(--text); line-height: 1.8;
+    }
+    .legal-highlight strong { color: var(--brun); }
+
+    .legal-divider { border: none; border-top: 1px solid rgba(46,42,37,0.08); margin: 40px 0; }
+
+    /* INFO CARDS */
+    .info-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 32px; }
+    .info-card {
+      background: var(--white); border-radius: 16px; padding: 24px;
+      box-shadow: 0 2px 12px rgba(46,42,37,0.06);
+      border: 1px solid rgba(201,123,90,0.1);
+    }
+    .legal-section:nth-child(even) .info-card { background: var(--white); }
+    .info-card-icon { font-size: 28px; margin-bottom: 12px; }
+    .info-card-title { font-size: 14px; font-weight: 700; color: var(--brun); margin-bottom: 8px; }
+    .info-card-text { font-size: 13px; color: var(--text); line-height: 1.7; }
+
+    /* TABLE COOKIES */
+    .cookie-table { width: 100%; border-collapse: collapse; margin-top: 24px; font-size: 13px; }
+    .cookie-table th {
+      background: var(--brun); color: var(--white);
+      padding: 12px 16px; text-align: left; font-weight: 700; font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+    .cookie-table th:first-child { border-radius: 8px 0 0 0; }
+    .cookie-table th:last-child { border-radius: 0 8px 0 0; }
+    .cookie-table td {
+      padding: 12px 16px; border-bottom: 1px solid rgba(46,42,37,0.07);
+      color: var(--text); line-height: 1.6;
+    }
+    .cookie-table tr:last-child td { border-bottom: none; }
+    .cookie-table tr:nth-child(even) td { background: rgba(245,239,224,0.5); }
+    .badge-ok { background: rgba(122,158,126,0.15); color: #4a7a50; border-radius: 50px; padding: 3px 10px; font-size: 11px; font-weight: 700; white-space: nowrap; }
+    .badge-no { background: rgba(201,123,90,0.12); color: var(--terra); border-radius: 50px; padding: 3px 10px; font-size: 11px; font-weight: 700; white-space: nowrap; }
+
+    /* CONTACT LÉGAL */
+    .legal-contact {
+      background: var(--brun); border-radius: 24px; padding: 48px;
+      text-align: center; margin-top: 0;
+    }
+    .legal-contact-icon { font-size: 44px; margin-bottom: 16px; }
+    .legal-contact-title { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--white); font-weight: 700; margin-bottom: 12px; }
+    .legal-contact-sub { font-size: 14px; color: rgba(245,239,224,0.55); line-height: 1.7; max-width: 420px; margin: 0 auto 28px; }
+    .legal-contact-btn {
+      display: inline-block; background: var(--terra); color: var(--white);
+      border-radius: 50px; padding: 14px 36px; font-size: 14px; font-weight: 700;
+      box-shadow: 0 6px 24px rgba(201,123,90,0.4); transition: all .25s;
+    }
+    .legal-contact-btn:hover { background: var(--terra-d); transform: translateY(-2px); color: var(--white); }
+
+    /* FOOTER */
+    footer { background: var(--brun); padding: 64px 48px 40px; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand { font-family: 'Pacifico', cursive; font-size: 24px; color: var(--terra); margin-bottom: 12px; }
+    .footer-tagline { font-size: 13px; color: rgba(245,239,224,0.5); line-height: 1.7; max-width: 240px; }
+    .footer-col-title { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(245,239,224,0.4); margin-bottom: 16px; }
+    .footer-col a { display: block; font-size: 14px; color: rgba(245,239,224,0.65); margin-bottom: 10px; transition: color .2s; }
+    .footer-col a:hover { color: var(--terra); }
+    .footer-bottom { max-width: 1100px; margin: 0 auto; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.07); display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { font-size: 12px; color: rgba(245,239,224,0.3); }
+    .footer-heart { font-size: 12px; color: var(--terra); }
+
+    /* FLOAT BUY */
+    .float-buy { position: fixed; right: 24px; bottom: 36px; z-index: 150; background: var(--brun); color: var(--white); border-radius: 50px; padding: 14px 22px; display: flex; align-items: center; gap: 10px; box-shadow: 0 8px 32px rgba(46,42,37,0.30); font-weight: 700; font-size: 14px; transition: transform .25s, box-shadow .25s, background .2s; text-decoration: none; }
+    .float-buy:hover { transform: translateY(-4px) scale(1.03); box-shadow: 0 14px 44px rgba(46,42,37,0.38); background: #1e1a16; }
+    .float-buy-icon { width: 32px; height: 32px; border-radius: 50%; background: var(--terra); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+    .float-buy-label { display: flex; flex-direction: column; line-height: 1.2; }
+    .float-buy-label span:first-child { font-size: 11px; color: rgba(255,255,255,0.55); font-weight: 400; }
+    .float-buy-label span:last-child { font-size: 14px; color: var(--white); font-weight: 700; }
+    .float-buy-arrow { font-size: 16px; color: var(--terra); margin-left: 2px; }
+  </style>
+  <!-- Mobile CSS après les styles inline pour garantir la priorité des règles responsive -->
+  <link rel="stylesheet" href="mobile.min.css" />
+
+</head>
+<body>
+
+  <!-- BARRE D'ANNONCE -->
+  <div class="sale-banner" id="saleBanner">
+    <span class="sale-banner-text">🏷️ <strong>Ce projet est à vendre</strong> — Site non en production</span>
+    <a href="https://bizinaclick.com/listing?id=2" target="_blank" rel="noopener" class="sale-banner-cta">Nous contacter →</a>
+    <button class="sale-banner-close" onclick="document.getElementById('saleBanner').style.display='none';" aria-label="Fermer">×</button>
+  </div>
+
+  <nav>
+    <a href="index.html" class="nav-brand">Cabane à Câlin</a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Accueil</a>
+      <a href="concept.html">Le concept</a>
+      <a href="forces.html">Forces du projet</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://bizinaclick.com/listing?id=2" target="_blank" rel="noopener" class="nav-cta">Réserver</a>
+    </div>
+    <button class="nav-hamburger" id="navToggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-tag" style="animation:fadeInDown 0.7s ease both;">RGPD & Protection des données</div>
+    <h1 style="animation:fadeInUp 0.8s 0.15s ease both;">Politique de<br/><em>confidentialité</em></h1>
+    <p style="animation:fadeInUp 0.8s 0.3s ease both;">Vos données personnelles nous importent. Voici comment nous les collectons, les utilisons et les protégeons, en conformité avec le RGPD et les recommandations de la CNIL.</p>
+  </div>
+
+  <!-- ARTICLE 1 : RESPONSABLE -->
+  <section class="legal-section">
+    <div class="content-container">
+      <p class="section-eyebrow">Article 1</p>
+      <h2 class="section-title">Responsable du traitement</h2>
+
+      <div class="legal-article">
+        <span class="legal-article-num">Identité</span>
+        <h3>Qui est responsable de vos données ?</h3>
+        <p>Le responsable du traitement des données personnelles collectées sur le site <strong>cabaneacalin.fr</strong> est le créateur du projet Cabane à Câlin, entreprise individuelle en cours de constitution dans le cadre d'une cession commerciale.</p>
+        <div class="legal-highlight">
+          <strong>Statut du site :</strong> Ce site est un projet de démonstration non en production. Aucune prestation commerciale de garde d'animaux n'est actuellement réalisée. Les données collectées via les formulaires de contact sont utilisées uniquement dans le cadre du processus d'acquisition du projet.
+        </div>
+        <p>Pour toute question relative à vos données personnelles, vous pouvez nous contacter via notre <a href="contact.html" style="color:var(--terra);font-weight:700;">page de contact</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE 2 : DONNÉES COLLECTÉES -->
+  <section class="legal-section">
+    <div class="content-container">
+      <p class="section-eyebrow">Article 2</p>
+      <h2 class="section-title">Données collectées</h2>
+
+      <div class="legal-article">
+        <span class="legal-article-num">Formulaire</span>
+        <h3>Données issues du formulaire de contact</h3>
+        <p>Lorsque vous remplissez le formulaire de contact disponible sur ce site, nous collectons les informations suivantes :</p>
+        <ul>
+          <li><strong>Prénom et nom</strong> — pour personnaliser notre réponse</li>
+          <li><strong>Adresse e-mail</strong> — pour vous répondre</li>
+          <li><strong>Numéro de téléphone</strong> (facultatif) — pour un contact téléphonique si vous le souhaitez</li>
+          <li><strong>Message libre</strong> — pour comprendre votre demande ou intérêt pour le projet</li>
+        </ul>
+      </div>
+
+      <hr class="legal-divider" />
+
+      <div class="legal-article">
+        <span class="legal-article-num">Données techniques</span>
+        <h3>Données de navigation</h3>
+        <p>Comme tout site web, notre serveur peut enregistrer automatiquement certaines données techniques lors de votre visite :</p>
+        <ul>
+          <li>Adresse IP (anonymisée dès que possible)</li>
+          <li>Type et version du navigateur</li>
+          <li>Système d'exploitation</li>
+          <li>Pages consultées et durée de la visite</li>
+          <li>Date et heure de connexion</li>
+        </ul>
+        <p>Ces données sont collectées à des fins de sécurité et de maintenance technique uniquement. Elles ne sont pas utilisées à des fins de profilage ou de ciblage publicitaire.</p>
+      </div>
+
+      <hr class="legal-divider" />
+
+      <div class="legal-article">
+        <span class="legal-article-num">Non collecté</span>
+        <h3>Données que nous ne collectons pas</h3>
+        <p>Nous ne collectons ni ne traitons aucune des données suivantes :</p>
+        <ul>
+          <li>Données bancaires ou financières</li>
+          <li>Données de santé</li>
+          <li>Données relatives aux mineurs</li>
+          <li>Données biométriques</li>
+          <li>Opinions politiques, convictions religieuses ou données sensibles</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE 3 : FINALITÉS ET BASE LÉGALE -->
+  <section class="legal-section">
+    <div class="content-container">
+      <p class="section-eyebrow">Article 3</p>
+      <h2 class="section-title">Finalités & base légale</h2>
+
+      <div class="legal-article">
+        <span class="legal-article-num">Pourquoi</span>
+        <h3>Pourquoi traitons-nous vos données ?</h3>
+        <p>Les données que vous nous transmettez sont utilisées exclusivement pour les finalités suivantes :</p>
+
+        <div class="info-cards">
+          <div class="info-card">
+            <div class="info-card-icon">💬</div>
+            <div class="info-card-title">Répondre à vos demandes</div>
+            <div class="info-card-text">Traitement de vos messages et questions envoyés via le formulaire de contact.</div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon">🤝</div>
+            <div class="info-card-title">Processus d'acquisition</div>
+            <div class="info-card-text">Échanges dans le cadre d'une démarche d'achat ou de reprise du projet Cabane à Câlin.</div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon">🔒</div>
+            <div class="info-card-title">Sécurité du site</div>
+            <div class="info-card-text">Assurer la sécurité et le bon fonctionnement technique du site web.</div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon">⚖️</div>
+            <div class="info-card-title">Obligations légales</div>
+            <div class="info-card-text">Respecter les obligations légales auxquelles nous sommes soumis en tant qu'éditeur de site.</div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="legal-divider" />
+
+      <div class="legal-article">
+        <span class="legal-article-num">Base légale</span>
+        <h3>Sur quelle base traitons-nous vos données ?</h3>
+        <p>Conformément au RGPD, chaque traitement de données repose sur une base légale :</p>
+        <ul>
+          <li><strong>Votre consentement</strong> — pour le traitement de vos messages via le formulaire de contact</li>
+          <li><strong>Intérêt légitime</strong> — pour la sécurité et la maintenance technique du site</li>
+          <li><strong>Obligation légale</strong> — pour la conservation de certains logs techniques conformément à la loi française</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE 4 : DURÉE DE CONSERVATION -->
+  <section class="legal-section">
+    <div class="content-container">
+      <p class="section-eyebrow">Article 4</p>
+      <h2 class="section-title">Durée de conservation</h2>
+
+      <div class="legal-article">
+        <span class="legal-article-num">Délais</span>
+        <h3>Combien de temps conservons-nous vos données ?</h3>
+        <p>Vos données personnelles sont conservées uniquement le temps nécessaire à la réalisation des finalités pour lesquelles elles ont été collectées :</p>
+        <ul>
+          <li><strong>Messages du formulaire de contact</strong> — 12 mois maximum à compter de votre envoi, ou jusqu'à la finalisation du projet de cession</li>
+          <li><strong>Logs techniques de navigation</strong> — 12 mois conformément à la réglementation française (loi pour la confiance dans l'économie numérique)</li>
+          <li><strong>Données liées à une transaction d'acquisition</strong> — durée nécessaire à l'exécution du contrat, puis archivage légal de 5 ans</li>
+        </ul>
+        <div class="legal-highlight">
+          <strong>Principe de minimisation :</strong> À l'issue des délais de conservation, vos données sont supprimées de façon sécurisée ou anonymisées de manière irréversible.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE 5 : DESTINATAIRES -->
+  <section class="legal-section">
+    <div class="content-container">
+      <p class="section-eyebrow">Article 5</p>
+      <h2 class="section-title">Destinataires des données</h2>
+
+      <div class="legal-article">
+        <span class="legal-article-num">Partage</span>
+        <h3>Qui a accès à vos données ?</h3>
+        <p>Vos données personnelles sont traitées de manière confidentielle. Elles peuvent être transmises aux destinataires suivants, dans la stricte limite de ce qui est nécessaire :</p>
+        <ul>
+          <li><strong>Le créateur du projet</strong> — pour le traitement de votre demande</li>
+          <li><strong>L'hébergeur du site</strong> — pour les besoins techniques d'hébergement (données techniques uniquement)</li>
+          <li><strong>Les autorités compétentes</strong> — sur demande légale ou judiciaire uniquement</li>
+        </ul>
+        <p>Nous ne vendons, ne louons et ne partageons jamais vos données personnelles à des tiers à des fins commerciales ou publicitaires.</p>
+        <div class="legal-highlight">
+          <strong>Transferts hors UE :</strong> Vos données sont hébergées et traitées au sein de l'Union Européenne. Aucun transfert vers un pays tiers n'est effectué sans garanties appropriées conformes au RGPD.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE 6 : COOKIES -->
+  <section class="legal-section">
+    <div class="content-container">
+      <p class="section-eyebrow">Article 6</p>
+      <h2 class="section-title">Cookies & traceurs</h2>
+
+      <div class="legal-article">
+        <span class="legal-article-num">Cookies</span>
+        <h3>Quels cookies utilisons-nous ?</h3>
+        <p>Un cookie est un petit fichier texte déposé sur votre terminal (ordinateur, smartphone, tablette) lors de votre visite sur un site web. Ce site de démonstration utilise uniquement les cookies strictement nécessaires à son fonctionnement :</p>
+
+        <table class="cookie-table">
+          <thead>
+            <tr>
+              <th>Nom du cookie</th>
+              <th>Finalité</th>
+              <th>Durée</th>
+              <th>Consentement</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>session_id</code></td>
+              <td>Maintien de la session de navigation</td>
+              <td>Session</td>
+              <td><span class="badge-ok">Exempt</span></td>
+            </tr>
+            <tr>
+              <td><code>banner_closed</code></td>
+              <td>Mémorisation de la fermeture de la bannière d'annonce</td>
+              <td>30 jours</td>
+              <td><span class="badge-ok">Exempt</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p style="margin-top: 20px;">Ce site <strong>n'utilise pas</strong> de cookies de mesure d'audience (Google Analytics, etc.), de cookies publicitaires ou de cookies de réseaux sociaux.</p>
+        <div class="legal-highlight">
+          <strong>Note :</strong> Lors de la mise en production commerciale du site, une bannière de gestion des cookies conforme aux recommandations de la CNIL devra être mise en place si des cookies non essentiels sont ajoutés.
+        </div>
+      </div>
+
+      <hr class="legal-divider" />
+
+      <div class="legal-article">
+        <span class="legal-article-num">Paramétrage</span>
+        <h3>Comment gérer vos cookies ?</h3>
+        <p>Vous pouvez à tout moment configurer votre navigateur pour refuser les cookies ou être averti de leur dépôt. Voici comment procéder selon votre navigateur :</p>
+        <ul>
+          <li><strong>Google Chrome</strong> — Paramètres → Confidentialité et sécurité → Cookies</li>
+          <li><strong>Mozilla Firefox</strong> — Options → Vie privée et sécurité → Cookies</li>
+          <li><strong>Safari</strong> — Préférences → Confidentialité → Cookies</li>
+          <li><strong>Microsoft Edge</strong> — Paramètres → Confidentialité, recherche et services</li>
+        </ul>
+        <p>Notez que la désactivation des cookies techniques strictement nécessaires peut affecter le fonctionnement du site.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE 7 : VOS DROITS -->
+  <section class="legal-section">
+    <div class="content-container">
+      <p class="section-eyebrow">Article 7</p>
+      <h2 class="section-title">Vos droits</h2>
+
+      <div class="legal-article">
+        <span class="legal-article-num">RGPD</span>
+        <h3>Droits garantis par le RGPD</h3>
+        <p>Conformément au Règlement Général sur la Protection des Données (RGPD — UE 2016/679) et à la loi Informatique et Libertés modifiée, vous disposez des droits suivants :</p>
+
+        <div class="info-cards">
+          <div class="info-card">
+            <div class="info-card-icon">📋</div>
+            <div class="info-card-title">Droit d'accès</div>
+            <div class="info-card-text">Obtenir la confirmation que vos données sont traitées et en recevoir une copie.</div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon">✏️</div>
+            <div class="info-card-title">Droit de rectification</div>
+            <div class="info-card-text">Demander la correction de données inexactes ou incomplètes vous concernant.</div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon">🗑️</div>
+            <div class="info-card-title">Droit à l'effacement</div>
+            <div class="info-card-text">Obtenir la suppression de vos données dans les cas prévus par la réglementation.</div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon">⏸️</div>
+            <div class="info-card-title">Droit à la limitation</div>
+            <div class="info-card-text">Demander la suspension temporaire du traitement de vos données.</div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon">🚫</div>
+            <div class="info-card-title">Droit d'opposition</div>
+            <div class="info-card-text">Vous opposer au traitement de vos données pour des raisons légitimes.</div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon">📦</div>
+            <div class="info-card-title">Droit à la portabilité</div>
+            <div class="info-card-text">Recevoir vos données dans un format structuré et lisible par machine.</div>
+          </div>
+        </div>
+
+        <p style="margin-top: 28px;">Pour exercer l'un de ces droits, contactez-nous via notre <a href="contact.html" style="color:var(--terra);font-weight:700;">page de contact</a>. Nous nous engageons à vous répondre dans un délai d'un mois suivant votre demande.</p>
+        <p>Si vous estimez que le traitement de vos données ne respecte pas la réglementation, vous disposez du droit d'introduire une réclamation auprès de la <strong>CNIL</strong> : <a href="https://www.cnil.fr" style="color:var(--terra);" target="_blank" rel="noopener noreferrer">www.cnil.fr</a> — 3, place de Fontenoy, TSA 80715, 75334 Paris Cedex 07.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE 8 : SÉCURITÉ -->
+  <section class="legal-section">
+    <div class="content-container">
+      <p class="section-eyebrow">Article 8</p>
+      <h2 class="section-title">Sécurité des données</h2>
+
+      <div class="legal-article">
+        <span class="legal-article-num">Mesures</span>
+        <h3>Comment protégeons-nous vos données ?</h3>
+        <p>Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données personnelles contre toute accès non autorisé, divulgation, altération ou destruction :</p>
+        <ul>
+          <li>Transmission des données chiffrée via le protocole <strong>HTTPS / TLS</strong></li>
+          <li>Accès aux données restreint aux seules personnes habilitées</li>
+          <li>Hébergement sur des serveurs sécurisés situés au sein de l'Union Européenne</li>
+          <li>Suppression sécurisée des données à l'issue des délais de conservation</li>
+        </ul>
+        <div class="legal-highlight">
+          <strong>En cas de violation de données :</strong> En cas de violation susceptible d'engendrer un risque pour vos droits et libertés, nous nous engageons à notifier la CNIL dans les 72 heures et, le cas échéant, les personnes concernées dans les meilleurs délais.
+        </div>
+      </div>
+
+      <!-- CONTACT LÉGAL -->
+      <div class="legal-contact" style="margin-top: 48px;">
+        <div class="legal-contact-icon">🛡️</div>
+        <h3 class="legal-contact-title">Une question sur vos données ?</h3>
+        <p class="legal-contact-sub">Pour exercer vos droits ou pour toute question relative à la protection de vos données personnelles, contactez-nous directement.</p>
+        <a href="contact.html" class="legal-contact-btn">Nous contacter →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE 9 : MISE À JOUR -->
+  <section class="legal-section">
+    <div class="content-container">
+      <p class="section-eyebrow">Article 9</p>
+      <h2 class="section-title">Mise à jour de la politique</h2>
+
+      <div class="legal-article">
+        <span class="legal-article-num">Révision</span>
+        <h3>Évolution de cette politique</h3>
+        <p>La présente politique de confidentialité peut être mise à jour à tout moment, notamment en cas d'évolution réglementaire ou de modification des traitements de données. Nous vous invitons à la consulter régulièrement.</p>
+        <p>En cas de modification substantielle, une information sera affichée de manière visible sur le site.</p>
+        <div class="legal-highlight">
+          <strong>Dernière mise à jour :</strong> Avril 2026 — Version applicable au site de démonstration Cabane à Câlin.<br/>
+          Cette politique est également accessible depuis le bas de chaque page du site et depuis les <a href="terms-and-conditions.html" style="color:var(--terra);font-weight:700;">mentions légales</a>.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Cabane à Câlin</div>
+        <div class="footer-tagline">Projet de garde d'animaux familial, chaleureux et sécurisant — disponible à l'acquisition.</div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Services</div>
+        <a href="index.html#services">Hébergement complet</a>
+        <a href="index.html#services">Garde de jour — Day Sitting</a>
+        <a href="index.html#services">Garde à domicile — Home Sitting</a>
+        <a href="index.html#tarifs">Calculateur de tarifs</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Contact</div>
+        <a href="contact.html">Nous contacter</a>
+        <a href="contact.html#faq">FAQ</a>
+        <a href="terms-and-conditions.html">Mentions légales</a>
+        <a href="politique-de-confidentialite.html" style="color:var(--terra);">Politique de confidentialité</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© <span id="footer-year"></span> Cabane à Câlin. Tous droits réservés. — Projet non en production.</span>
+      <span class="footer-heart">Fait avec ♥ pour vos animaux</span>
+    </div>
+  </footer>
+
+  <!-- FLOAT BUY CTA -->
+  <a href="https://bizinaclick.com/listing?id=2" target="_blank" rel="noopener" class="float-buy">
+    <div class="float-buy-icon">🏷️</div>
+    <div class="float-buy-label">
+      <span>Projet à vendre</span>
+      <span>Acheter ce projet</span>
+    </div>
+    <span class="float-buy-arrow">→</span>
+  </a>
+
+  <script src="shared.min.js" defer></script>
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
