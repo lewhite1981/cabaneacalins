@@ -403,14 +403,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ── 20. HERO PARALLAX BACKGROUND ── */
   (function() {
-    const heroBg = document.querySelector('.hero-bg-layer');
-    if (!heroBg) return;
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
     let ticking = false;
     window.addEventListener('scroll', () => {
       if (!ticking) {
         requestAnimationFrame(() => {
           const y = window.scrollY;
-          heroBg.style.transform = `translateY(${y * 0.38}px)`;
+          // Parallax via background-position: image monte moins vite que le scroll
+          const posY = 40 + (y * 0.18);
+          hero.style.backgroundPosition = `center ${posY}%`;
           ticking = false;
         });
         ticking = true;
