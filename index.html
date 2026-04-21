@@ -903,6 +903,301 @@
     </div>
   </section>
 
+  <!-- GALERIE DES PENSIONNAIRES -->
+  <section id="galerie" style="padding: 80px 0; background: #fff;">
+    <div class="container">
+      <p class="section-eyebrow reveal">Ils ont séjourné chez nous</p>
+      <h2 class="section-title reveal d1">La galerie des <span style="color:var(--terra)">pensionnaires</span></h2>
+      <p class="section-sub reveal d2">Chaque animal a sa personnalité, son histoire. Voici quelques uns de nos adorables visiteurs — avec l'accord de leurs familles.</p>
+
+      <!-- Filtres -->
+      <div class="gallery-filters reveal d3">
+        <button class="gf-btn active" data-filter="all">Tous</button>
+        <button class="gf-btn" data-filter="chien">🐕 Chiens</button>
+        <button class="gf-btn" data-filter="chat">🐱 Chats</button>
+        <button class="gf-btn" data-filter="nac">🐾 NAC</button>
+      </div>
+
+      <!-- Grille masonry -->
+      <div class="gallery-grid" id="galleryGrid">
+
+        <div class="gallery-item" data-type="chien">
+          <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=500&q=80" alt="Rocky le golden retriever" loading="lazy" />
+          <div class="gallery-overlay">
+            <div class="gallery-info">
+              <span class="gallery-name">Rocky</span>
+              <span class="gallery-breed">Golden Retriever · 3 ans</span>
+              <span class="gallery-quote">« Il est reparti épuisé de ses promenades… et heureux ! »</span>
+            </div>
+          </div>
+          <div class="gallery-tag">Chien</div>
+        </div>
+
+        <div class="gallery-item gallery-item--tall" data-type="chat">
+          <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=500&q=80" alt="Luna la chatte" loading="lazy" />
+          <div class="gallery-overlay">
+            <div class="gallery-info">
+              <span class="gallery-name">Luna</span>
+              <span class="gallery-breed">Siamoise · 5 ans</span>
+              <span class="gallery-quote">« Très indépendante au départ, elle s'est laissée apprivoiser ! »</span>
+            </div>
+          </div>
+          <div class="gallery-tag">Chat</div>
+        </div>
+
+        <div class="gallery-item" data-type="chien">
+          <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=500&q=80" alt="Max le labrador" loading="lazy" />
+          <div class="gallery-overlay">
+            <div class="gallery-info">
+              <span class="gallery-name">Max</span>
+              <span class="gallery-breed">Labrador · 2 ans</span>
+              <span class="gallery-quote">« Un vrai clown, il a fait rire toute la maison ! »</span>
+            </div>
+          </div>
+          <div class="gallery-tag">Chien</div>
+        </div>
+
+        <div class="gallery-item gallery-item--wide" data-type="chien">
+          <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=700&q=80" alt="Bella le border collie" loading="lazy" />
+          <div class="gallery-overlay">
+            <div class="gallery-info">
+              <span class="gallery-name">Bella</span>
+              <span class="gallery-breed">Border Collie · 4 ans</span>
+              <span class="gallery-quote">« Intelligente et joueuse — elle a appris un tour en 2 jours ! »</span>
+            </div>
+          </div>
+          <div class="gallery-tag">Chien</div>
+        </div>
+
+        <div class="gallery-item" data-type="chat">
+          <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=500&q=80" alt="Milo le chat roux" loading="lazy" />
+          <div class="gallery-overlay">
+            <div class="gallery-info">
+              <span class="gallery-name">Milo</span>
+              <span class="gallery-breed">Maine Coon · 7 ans</span>
+              <span class="gallery-quote">« Le seigneur de la maison — il a rapidement pris ses aises ! »</span>
+            </div>
+          </div>
+          <div class="gallery-tag">Chat</div>
+        </div>
+
+        <div class="gallery-item gallery-item--tall" data-type="nac">
+          <img src="https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?w=500&q=80" alt="Caramel le lapin" loading="lazy" />
+          <div class="gallery-overlay">
+            <div class="gallery-info">
+              <span class="gallery-name">Caramel</span>
+              <span class="gallery-breed">Lapin nain · 2 ans</span>
+              <span class="gallery-quote">« Curieux et gourmand — les légumes frais ont été très appréciés ! »</span>
+            </div>
+          </div>
+          <div class="gallery-tag">NAC</div>
+        </div>
+
+        <div class="gallery-item" data-type="chien">
+          <img src="https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?w=500&q=80" alt="Oscar le beagle" loading="lazy" />
+          <div class="gallery-overlay">
+            <div class="gallery-info">
+              <span class="gallery-name">Oscar</span>
+              <span class="gallery-breed">Beagle · 6 ans</span>
+              <span class="gallery-quote">« Toujours le nez en l'air — les balades en forêt étaient son moment préféré. »</span>
+            </div>
+          </div>
+          <div class="gallery-tag">Chien</div>
+        </div>
+
+        <div class="gallery-item" data-type="chat">
+          <img src="https://images.unsplash.com/photo-1561037404-61cd46aa615b?w=500&q=80" alt="Noisette la chatte tigrée" loading="lazy" />
+          <div class="gallery-overlay">
+            <div class="gallery-info">
+              <span class="gallery-name">Noisette</span>
+              <span class="gallery-breed">Europeen · 3 ans</span>
+              <span class="gallery-quote">« Câline à souhait — elle ronronnait à longueur de journée. »</span>
+            </div>
+          </div>
+          <div class="gallery-tag">Chat</div>
+        </div>
+
+      </div><!-- end gallery-grid -->
+
+      <!-- CTA bas de galerie -->
+      <div style="text-align:center; margin-top: 48px;" class="reveal">
+        <p style="font-size: 0.95rem; color: var(--text); margin-bottom: 16px;">Votre animal a séjourné chez nous ? Partagez sa photo !</p>
+        <a href="contact.html" class="gal-share-btn">📸 Partager une photo</a>
+      </div>
+    </div>
+  </section>
+
+  <style>
+  /* ── FILTRES ── */
+  .gallery-filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 40px 0 36px;
+  }
+  .gf-btn {
+    padding: 9px 22px;
+    border-radius: 50px;
+    border: 2px solid #e0d5ca;
+    background: transparent;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .gf-btn:hover  { border-color: var(--terra); color: var(--terra); }
+  .gf-btn.active { background: var(--terra); border-color: var(--terra); color: #fff; }
+
+  /* ── GRILLE MASONRY ── */
+  .gallery-grid {
+    columns: 4;
+    column-gap: 16px;
+  }
+  .gallery-item {
+    break-inside: avoid;
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(46,42,37,0.10);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .gallery-item:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 12px 36px rgba(46,42,37,0.18);
+  }
+  .gallery-item img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .gallery-item--tall img  { aspect-ratio: 3/4; }
+  .gallery-item--wide      { break-inside: avoid; }
+  .gallery-item--wide img  { aspect-ratio: 16/9; }
+  .gallery-item:not(.gallery-item--tall):not(.gallery-item--wide) img { aspect-ratio: 1/1; }
+
+  .gallery-item:hover img { transform: scale(1.06); }
+
+  /* Overlay au survol */
+  .gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(46,42,37,0.90) 0%, rgba(46,42,37,0.30) 55%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+  }
+  .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+  .gallery-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .gallery-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+  }
+  .gallery-breed {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.78rem;
+    color: var(--terra);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .gallery-quote {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.80rem;
+    color: rgba(255,255,255,0.75);
+    font-style: italic;
+    line-height: 1.4;
+    margin-top: 4px;
+  }
+
+  /* Badge type */
+  .gallery-tag {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(46,42,37,0.65);
+    backdrop-filter: blur(6px);
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.70rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 4px 10px;
+    border-radius: 50px;
+  }
+
+  /* Item masqué par filtre */
+  .gallery-item.hidden {
+    display: none;
+  }
+
+  /* CTA partage */
+  .gal-share-btn {
+    display: inline-block;
+    padding: 13px 28px;
+    background: var(--brun);
+    color: #fff;
+    border-radius: 50px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .gal-share-btn:hover { background: #1e1a16; transform: translateY(-2px); }
+
+  @media (max-width: 1024px) { .gallery-grid { columns: 3; } }
+  @media (max-width: 700px)  { .gallery-grid { columns: 2; } }
+  @media (max-width: 480px)  { .gallery-grid { columns: 1; } }
+  </style>
+
+  <script>
+  (function() {
+    function initGallery() {
+      const btns  = document.querySelectorAll('.gf-btn');
+      const items = document.querySelectorAll('#galleryGrid .gallery-item');
+
+      btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          btns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.dataset.filter;
+
+          items.forEach(item => {
+            if (filter === 'all' || item.dataset.type === filter) {
+              item.classList.remove('hidden');
+            } else {
+              item.classList.add('hidden');
+            }
+          });
+        });
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initGallery);
+    } else {
+      initGallery();
+    }
+  })();
+  </script>
+
   <!-- TÉMOIGNAGES -->
   <section class="testimonials">
     <div class="container">
