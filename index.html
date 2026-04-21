@@ -177,6 +177,8 @@
     html { scroll-behavior: smooth; }
     body { background: var(--creme); color: var(--brun); font-family: 'Lato', sans-serif; font-size: 16px; line-height: 1.6; }
     a { text-decoration: none; color: inherit; }
+    @keyframes fadeInUp   { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:none; } }
+    @keyframes fadeInDown { from { opacity:0; transform:translateY(-16px); } to { opacity:1; transform:none; } }
 
     /* ── BARRE D'ANNONCE ── */
     .sale-banner {
@@ -498,7 +500,7 @@
 
   <!-- BARRE D'ANNONCE PROJET À VENDRE -->
   <div class="sale-banner" id="saleBanner">
-    <span class="sale-banner-text">ðŸ·️ <strong>Ce projet est à vendre</strong></span>
+    <span class="sale-banner-text">🏷️ <strong>Ce projet est à vendre</strong></span>
     <a href="https://bizinaclick.com/listing?id=2" target="_blank" rel="noopener" class="sale-banner-cta">Acheter →</a>
     <button class="sale-banner-close" onclick="document.getElementById('saleBanner').style.display='none';" aria-label="Fermer">×</button>
   </div>
@@ -522,8 +524,6 @@
 
   <!-- HERO -->
   <section class="hero hero-grain">
-    <!-- Parallax background layer -->
-    <div class="hero-bg-layer"></div>
     <!-- Particle canvas -->
     <canvas id="hero-canvas"></canvas>
     <div class="hero-blob"></div>
@@ -565,39 +565,35 @@
     </div><!-- end hero-inner -->
   </section>
 
-  <style>
-    @keyframes fadeInUp   { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:none; } }
-    @keyframes fadeInDown { from { opacity:0; transform:translateY(-16px); } to { opacity:1; transform:none; } }
-  </style>
 
   <!-- MARQUEE -->
   <div class="marquee-section">
     <div class="marquee-inner">
       <div class="marquee-group" aria-hidden="true">
-        <span class="marquee-item">ðŸ¾ Garde à domicile<span class="marquee-dot"></span></span>
-        <span class="marquee-item">ðŸ¡ Environnement familial<span class="marquee-dot"></span></span>
-        <span class="marquee-item">ðŸ“¸ Mises à jour quotidiennes<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🐾 Garde à domicile<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🏡 Environnement familial<span class="marquee-dot"></span></span>
+        <span class="marquee-item">📸 Mises à jour quotidiennes<span class="marquee-dot"></span></span>
         <span class="marquee-item">❤️ Suivi personnalisé<span class="marquee-dot"></span></span>
-        <span class="marquee-item">ðŸ”’ Sécurité garantie<span class="marquee-dot"></span></span>
-        <span class="marquee-item">ðŸŒ¿ Bien-être animal<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🔒 Sécurité garantie<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🌿 Bien-être animal<span class="marquee-dot"></span></span>
         <span class="marquee-item">✓ 98% satisfaits<span class="marquee-dot"></span></span>
-        <span class="marquee-item">ðŸ·️ Projet à vendre<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🏷️ Projet à vendre<span class="marquee-dot"></span></span>
       </div>
       <div class="marquee-group" aria-hidden="true">
-        <span class="marquee-item">ðŸ¾ Garde à domicile<span class="marquee-dot"></span></span>
-        <span class="marquee-item">ðŸ¡ Environnement familial<span class="marquee-dot"></span></span>
-        <span class="marquee-item">ðŸ“¸ Mises à jour quotidiennes<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🐾 Garde à domicile<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🏡 Environnement familial<span class="marquee-dot"></span></span>
+        <span class="marquee-item">📸 Mises à jour quotidiennes<span class="marquee-dot"></span></span>
         <span class="marquee-item">❤️ Suivi personnalisé<span class="marquee-dot"></span></span>
-        <span class="marquee-item">ðŸ”’ Sécurité garantie<span class="marquee-dot"></span></span>
-        <span class="marquee-item">ðŸŒ¿ Bien-être animal<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🔒 Sécurité garantie<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🌿 Bien-être animal<span class="marquee-dot"></span></span>
         <span class="marquee-item">✓ 98% satisfaits<span class="marquee-dot"></span></span>
-        <span class="marquee-item">ðŸ·️ Projet à vendre<span class="marquee-dot"></span></span>
+        <span class="marquee-item">🏷️ Projet à vendre<span class="marquee-dot"></span></span>
       </div>
     </div>
   </div>
 
   <!-- STATS — fullscreen band avec gradient animé -->
-  <div class="stats-band stats-band-animated section-fs">
+  <div class="stats-band stats-band-animated">
     <div class="stats-grid reveal-grid">
       <div class="stat-item reveal d1">
         <div class="stat-num counter" data-target="98" data-suffix="%">98%</div>
@@ -691,7 +687,7 @@
               <div class="calc-pills" id="animalPills">
                 <button class="calc-pill active" data-animal="dog" type="button">ðŸ• Chien</button>
                 <button class="calc-pill" data-animal="cat" type="button">ðŸ± Chat</button>
-                <button class="calc-pill" data-animal="other" type="button">ðŸ¾ Autre</button>
+                <button class="calc-pill" data-animal="other" type="button">🐾 Autre</button>
               </div>
             </div>
 
