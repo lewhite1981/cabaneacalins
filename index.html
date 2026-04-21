@@ -908,7 +908,7 @@
     <div class="container">
       <p class="section-eyebrow reveal">Ils ont séjourné chez nous</p>
       <h2 class="section-title reveal d1">La galerie des <span style="color:var(--terra)">pensionnaires</span></h2>
-      <p class="section-sub reveal d2">Chaque animal a sa personnalité, son histoire. Voici quelques uns de nos adorables visiteurs — avec l'accord de leurs familles.</p>
+      <p class="section-sub reveal d2">Chaque animal a sa personnalité, son histoire. Les cartes <span style="color:var(--terra); font-weight:700;">❤️ Chouchouté</span> montrent nos pensionnaires dans les bras de leurs gardiens — avec l'accord de leurs familles.</p>
 
       <!-- Filtres -->
       <div class="gallery-filters reveal d3">
@@ -921,16 +921,16 @@
       <!-- Grille masonry -->
       <div class="gallery-grid" id="galleryGrid">
 
-        <div class="gallery-item" data-type="chien">
-          <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=500&q=80" alt="Rocky le golden retriever" loading="lazy" />
+        <div class="gallery-item gallery-item--caretaker" data-type="chien">
+          <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=500&q=80" alt="Rocky câliné par notre gardienne" loading="lazy" />
           <div class="gallery-overlay">
             <div class="gallery-info">
               <span class="gallery-name">Rocky</span>
               <span class="gallery-breed">Golden Retriever · 3 ans</span>
-              <span class="gallery-quote">« Il est reparti épuisé de ses promenades… et heureux ! »</span>
+              <span class="gallery-quote">« Il réclamait ses caresses toutes les heures — on a adoré ! »</span>
             </div>
           </div>
-          <div class="gallery-tag">Chien</div>
+          <div class="gallery-tag gallery-tag--care">❤️ Chouchouté</div>
         </div>
 
         <div class="gallery-item gallery-item--tall" data-type="chat">
@@ -945,16 +945,16 @@
           <div class="gallery-tag">Chat</div>
         </div>
 
-        <div class="gallery-item" data-type="chien">
-          <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=500&q=80" alt="Max le labrador" loading="lazy" />
+        <div class="gallery-item gallery-item--caretaker" data-type="chien">
+          <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=500&q=80" alt="Max câliné par notre gardienne" loading="lazy" />
           <div class="gallery-overlay">
             <div class="gallery-info">
               <span class="gallery-name">Max</span>
               <span class="gallery-breed">Labrador · 2 ans</span>
-              <span class="gallery-quote">« Un vrai clown, il a fait rire toute la maison ! »</span>
+              <span class="gallery-quote">« Il s'endormait dans les bras de notre gardienne chaque soir. »</span>
             </div>
           </div>
-          <div class="gallery-tag">Chien</div>
+          <div class="gallery-tag gallery-tag--care">❤️ Chouchouté</div>
         </div>
 
         <div class="gallery-item gallery-item--wide" data-type="chien">
@@ -993,16 +993,16 @@
           <div class="gallery-tag">NAC</div>
         </div>
 
-        <div class="gallery-item" data-type="chien">
-          <img src="https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?w=500&q=80" alt="Oscar le beagle" loading="lazy" />
+        <div class="gallery-item gallery-item--caretaker" data-type="chien">
+          <img src="https://images.unsplash.com/photo-1612195583950-b8fd34c87093?w=500&q=80" alt="Oscar tenant la patte de la gardienne" loading="lazy" />
           <div class="gallery-overlay">
             <div class="gallery-info">
               <span class="gallery-name">Oscar</span>
               <span class="gallery-breed">Beagle · 6 ans</span>
-              <span class="gallery-quote">« Toujours le nez en l'air — les balades en forêt étaient son moment préféré. »</span>
+              <span class="gallery-quote">« Il posait sa patte sur la main pour réclamer des caresses — trop attachant ! »</span>
             </div>
           </div>
-          <div class="gallery-tag">Chien</div>
+          <div class="gallery-tag gallery-tag--care">❤️ Chouchouté</div>
         </div>
 
         <div class="gallery-item" data-type="chat">
@@ -1140,6 +1140,25 @@
     letter-spacing: 0.06em;
     padding: 4px 10px;
     border-radius: 50px;
+  }
+
+  /* Badge Chouchouté */
+  .gallery-tag--care {
+    background: var(--terra) !important;
+    color: #fff !important;
+  }
+
+  /* Bordure chaleureuse sur les cartes gardienne */
+  .gallery-item--caretaker {
+    box-shadow: 0 4px 16px rgba(201,123,90,0.18);
+  }
+  .gallery-item--caretaker::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    border: 2px solid rgba(201,123,90,0.35);
+    pointer-events: none;
   }
 
   /* Item masqué par filtre */
