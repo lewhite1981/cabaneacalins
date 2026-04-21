@@ -670,246 +670,207 @@
     </div>
   </section>
 
-  <!-- CALCULATEUR DE TARIF -->
-  <section class="calc-section" id="tarifs">
+  <!-- TARIFS -->
+  <section id="tarifs" style="padding: 80px 0; background: var(--creme);">
     <div class="container">
-      <p class="section-eyebrow reveal">Estimer votre budget</p>
-      <h2 class="section-title reveal d1">Calculateur de tarif <span style="color:var(--terra)">interactif</span></h2>
-      <p class="section-sub reveal d2">Obtenez une estimation en 30 secondes — sans engagement.</p>
+      <p class="section-eyebrow reveal">Nos tarifs</p>
+      <h2 class="section-title reveal d1">Des formules <span style="color:var(--terra)">transparentes</span></h2>
+      <p class="section-sub reveal d2">Sans surprise, sans engagement — première rencontre toujours gratuite.</p>
 
-      <div class="calc-card reveal d3">
-        <div class="calc-grid">
+      <div class="pricing-grid reveal-grid">
 
-          <!-- Col 1: Options -->
-          <div class="calc-col">
-            <div class="calc-group">
-              <label class="calc-label">Votre animal</label>
-              <div class="calc-pills" id="animalPills">
-                <button class="calc-pill active" data-animal="dog" type="button">🐕 Chien</button>
-                <button class="calc-pill" data-animal="cat" type="button">🐱 Chat</button>
-                <button class="calc-pill" data-animal="other" type="button">🐾 Autre</button>
-              </div>
-            </div>
-
-            <div class="calc-group">
-              <label class="calc-label">Type de garde</label>
-              <div class="calc-pills" id="servicePills">
-                <button class="calc-pill active" data-service="hebergement" type="button">🏠 Hébergement</button>
-                <button class="calc-pill" data-service="day" type="button">☀️ Garde de jour</button>
-                <button class="calc-pill" data-service="home" type="button">🚶 À domicile</button>
-              </div>
-            </div>
-
-            <div class="calc-group">
-              <label class="calc-label">Durée : <strong id="durationLabel">3 nuits</strong></label>
-              <input type="range" id="durationSlider" min="1" max="14" value="3" class="calc-slider" />
-              <div class="calc-range-labels"><span>1 nuit</span><span>14 nuits</span></div>
-            </div>
+        <!-- Hébergement -->
+        <div class="pricing-card reveal d1">
+          <div class="pricing-icon">🏡</div>
+          <h3 class="pricing-name">Hébergement complet</h3>
+          <p class="pricing-desc">Votre animal vit chez nous jour et nuit, dans notre maison familiale.</p>
+          <div class="pricing-price-row">
+            <span class="pricing-amount">35</span>
+            <span class="pricing-unit">€ / nuit</span>
           </div>
-
-          <!-- Col 2: Result -->
-          <div class="calc-result-col">
-            <div class="calc-result-box">
-              <div class="calc-result-label">Estimation</div>
-              <div class="calc-price-row">
-                <span class="calc-price" id="calcPrice">90</span>
-                <span class="calc-currency">€</span>
-              </div>
-              <div class="calc-price-detail" id="calcDetail">30 €/nuit × 3 nuits</div>
-              <div class="calc-badges">
-                <span class="calc-badge">✓ Sans engagement</span>
-                <span class="calc-badge">✓ Réponse sous 2h</span>
-              </div>
-              <a href="https://bizinaclick.com/listing?id=2" target="_blank" rel="noopener" class="btn btn-primary calc-cta magnetic ripple">
-                Réserver cette garde
-              </a>
-              <p class="calc-disclaimer">Tarif indicatif. Devis personnalisé sur demande.</p>
-            </div>
-          </div>
-
+          <ul class="pricing-features">
+            <li>✓ Nuits en intérieur</li>
+            <li>✓ Promenades quotidiennes</li>
+            <li>✓ Photos chaque jour</li>
+            <li>✓ Repas selon vos consignes</li>
+          </ul>
+          <a href="https://bizinaclick.com/listing?id=2" target="_blank" rel="noopener" class="pricing-cta">Réserver</a>
         </div>
+
+        <!-- Day Sitting — mis en avant -->
+        <div class="pricing-card pricing-card--featured reveal d2">
+          <div class="pricing-badge">Le plus choisi</div>
+          <div class="pricing-icon">☀️</div>
+          <h3 class="pricing-name">Day Sitting</h3>
+          <p class="pricing-desc">Garde à la journée — votre animal rentre chez vous le soir.</p>
+          <div class="pricing-price-row">
+            <span class="pricing-amount">22</span>
+            <span class="pricing-unit">€ / jour</span>
+          </div>
+          <ul class="pricing-features">
+            <li>✓ Accueil dès 7h</li>
+            <li>✓ Jeux & activités</li>
+            <li>✓ Retour jusqu'à 20h</li>
+            <li>✓ Mise à jour en journée</li>
+          </ul>
+          <a href="https://bizinaclick.com/listing?id=2" target="_blank" rel="noopener" class="pricing-cta pricing-cta--featured">Réserver</a>
+        </div>
+
+        <!-- Home Sitting -->
+        <div class="pricing-card reveal d3">
+          <div class="pricing-icon">🚶</div>
+          <h3 class="pricing-name">Home Sitting</h3>
+          <p class="pricing-desc">Nous venons chez vous — votre animal reste dans son environnement.</p>
+          <div class="pricing-price-row">
+            <span class="pricing-amount">18</span>
+            <span class="pricing-unit">€ / visite</span>
+          </div>
+          <ul class="pricing-features">
+            <li>✓ Visite à domicile</li>
+            <li>✓ Repas & câlins</li>
+            <li>✓ Compte-rendu après chaque visite</li>
+            <li>✓ Idéal pour les chats</li>
+          </ul>
+          <a href="https://bizinaclick.com/listing?id=2" target="_blank" rel="noopener" class="pricing-cta">Réserver</a>
+        </div>
+
       </div>
+
+      <p style="text-align:center; margin-top: 32px; font-size: 0.85rem; color: var(--light);">
+        Tarifs indicatifs — devis personnalisé sur demande · Première rencontre gratuite &amp; sans engagement
+      </p>
     </div>
   </section>
 
   <style>
-  .calc-section { padding: 80px 0; background: var(--creme); }
-  .calc-card {
-    background: var(--white);
-    border-radius: 24px;
-    padding: 48px;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.08);
-    margin-top: 40px;
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+    align-items: stretch;
   }
-  .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
-  .calc-col { display: flex; flex-direction: column; gap: 28px; }
-  .calc-group { display: flex; flex-direction: column; gap: 10px; }
-  .calc-label { font-family: 'Lato', sans-serif; font-weight: 700; color: var(--brun); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; }
-  .calc-pills { display: flex; flex-wrap: wrap; gap: 8px; }
-  .calc-pill {
-    padding: 10px 18px;
-    border: 2px solid #e0d5ca;
-    border-radius: 50px;
-    background: transparent;
-    font-family: 'Lato', sans-serif;
-    font-size: 0.9rem;
-    color: var(--text);
-    cursor: pointer;
-    transition: all 0.2s ease;
-    min-height: 44px;
-  }
-  .calc-pill:hover { border-color: var(--terra); color: var(--terra); }
-  .calc-pill.active {
-    background: var(--terra);
-    border-color: var(--terra);
-    color: white;
-    box-shadow: 0 4px 12px rgba(201,123,90,0.35);
-  }
-  .calc-slider {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 100%;
-    height: 6px;
-    border-radius: 3px;
-    background: linear-gradient(to right, var(--terra) 0%, var(--terra) var(--slider-pct, 14%), #e0d5ca var(--slider-pct, 14%), #e0d5ca 100%);
-    outline: none;
-    cursor: pointer;
-    min-height: 0;
-  }
-  .calc-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 22px; height: 22px;
-    border-radius: 50%;
-    background: var(--terra);
-    box-shadow: 0 2px 8px rgba(201,123,90,0.4);
-    cursor: pointer;
-  }
-  .calc-slider::-moz-range-thumb {
-    width: 22px; height: 22px;
-    border-radius: 50%;
-    background: var(--terra);
-    border: none;
-    box-shadow: 0 2px 8px rgba(201,123,90,0.4);
-    cursor: pointer;
-  }
-  .calc-range-labels { display: flex; justify-content: space-between; font-size: 0.75rem; color: #999; margin-top: 4px; }
-  .calc-result-col { display: flex; justify-content: center; }
-  .calc-result-box {
-    background: linear-gradient(135deg, #2E2A25 0%, #3d3630 100%);
+  .pricing-card {
+    background: #fff;
     border-radius: 20px;
-    padding: 40px 36px;
-    text-align: center;
-    color: white;
-    width: 100%;
-    max-width: 300px;
+    padding: 36px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: 0 4px 24px rgba(46,42,37,0.07);
+    border: 2px solid transparent;
+    transition: transform 0.25s, box-shadow 0.25s;
     position: relative;
-    overflow: hidden;
   }
-  .calc-result-box::before {
-    content: '';
+  .pricing-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(46,42,37,0.13);
+  }
+  .pricing-card--featured {
+    background: #2E2A25;
+    border-color: var(--terra);
+    color: #fff;
+  }
+  .pricing-badge {
     position: absolute;
-    top: -60px; right: -60px;
-    width: 180px; height: 180px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(201,123,90,0.25) 0%, transparent 70%);
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--terra);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 50px;
+    white-space: nowrap;
   }
-  .calc-result-label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.55); margin-bottom: 12px; font-family: 'Lato', sans-serif; }
-  .calc-price-row { display: flex; align-items: baseline; justify-content: center; gap: 4px; margin-bottom: 8px; }
-  .calc-price {
+  .pricing-icon { font-size: 2rem; line-height: 1; }
+  .pricing-name {
     font-family: 'Playfair Display', serif;
-    font-size: 4rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--brun);
+    margin: 0;
+  }
+  .pricing-card--featured .pricing-name { color: #fff; }
+  .pricing-desc {
+    font-size: 0.88rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+    flex-grow: 0;
+  }
+  .pricing-card--featured .pricing-desc { color: rgba(255,255,255,0.65); }
+  .pricing-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin: 4px 0;
+  }
+  .pricing-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
     font-weight: 700;
     color: var(--terra);
     line-height: 1;
-    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
-  .calc-currency { font-size: 1.8rem; color: var(--terra); font-family: 'Playfair Display', serif; }
-  .calc-price-detail { font-size: 0.82rem; color: rgba(255,255,255,0.5); margin-bottom: 20px; font-family: 'Lato', sans-serif; }
-  .calc-badges { display: flex; flex-direction: column; gap: 6px; margin-bottom: 24px; }
-  .calc-badge { font-size: 0.78rem; color: rgba(255,255,255,0.7); font-family: 'Lato', sans-serif; }
-  .calc-cta { width: 100%; justify-content: center; margin-bottom: 12px; }
-  .calc-disclaimer { font-size: 0.72rem; color: rgba(255,255,255,0.3); font-family: 'Lato', sans-serif; line-height: 1.4; }
-  @media (max-width: 768px) {
-    .calc-grid { grid-template-columns: 1fr; gap: 32px; }
-    .calc-card { padding: 28px 20px; }
-    .calc-result-box { max-width: 100%; }
+  .pricing-unit {
+    font-size: 0.9rem;
+    color: var(--light);
+    font-family: 'Lato', sans-serif;
+  }
+  .pricing-card--featured .pricing-unit { color: rgba(255,255,255,0.5); }
+  .pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-grow: 1;
+  }
+  .pricing-features li {
+    font-size: 0.85rem;
+    color: var(--text);
+    font-family: 'Lato', sans-serif;
+  }
+  .pricing-card--featured .pricing-features li { color: rgba(255,255,255,0.75); }
+  .pricing-cta {
+    display: block;
+    text-align: center;
+    padding: 13px 20px;
+    border-radius: 50px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+    background: transparent;
+    border: 2px solid var(--terra);
+    color: var(--terra);
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    margin-top: auto;
+  }
+  .pricing-cta:hover {
+    background: var(--terra);
+    color: #fff;
+  }
+  .pricing-cta--featured {
+    background: var(--terra);
+    color: #fff;
+  }
+  .pricing-cta--featured:hover {
+    background: var(--terra-d);
+    color: #fff;
+  }
+  @media (max-width: 900px) {
+    .pricing-grid { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }
+    .pricing-card--featured { order: -1; }
   }
   </style>
-
-  <script>
-  (function() {
-    const rates = {
-      dog:   { hebergement: 35, day: 28, home: 40 },
-      cat:   { hebergement: 25, day: 20, home: 30 },
-      other: { hebergement: 20, day: 18, home: 25 }
-    };
-    let animal = 'dog', service = 'hebergement', duration = 3;
-
-    function updateCalc() {
-      const rate = rates[animal][service];
-      const total = rate * duration;
-      const priceEl = document.getElementById('calcPrice');
-      const detailEl = document.getElementById('calcDetail');
-      const label = document.getElementById('durationLabel');
-      const unit = service === 'day' ? 'jour' : 'nuit';
-      const unitPlural = duration > 1 ? unit + 's' : unit;
-
-      // Animate price change
-      priceEl.style.transform = 'scale(1.15)';
-      priceEl.style.color = '#f5a570';
-      setTimeout(() => {
-        priceEl.textContent = total;
-        priceEl.style.transform = 'scale(1)';
-        priceEl.style.color = '';
-      }, 150);
-
-      detailEl.textContent = rate + ' €/' + unit + ' × ' + duration + ' ' + unitPlural;
-      label.textContent = duration + ' ' + unitPlural;
-
-      // Update slider gradient
-      const slider = document.getElementById('durationSlider');
-      const pct = ((duration - 1) / 13 * 100).toFixed(1) + '%';
-      slider.style.setProperty('--slider-pct', pct);
-      slider.style.background = `linear-gradient(to right, var(--terra) 0%, var(--terra) ${pct}, #e0d5ca ${pct}, #e0d5ca 100%)`;
-    }
-
-    function initCalc() {
-      // Animal pills
-      document.getElementById('animalPills').querySelectorAll('.calc-pill').forEach(btn => {
-        btn.addEventListener('click', () => {
-          document.getElementById('animalPills').querySelectorAll('.calc-pill').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          animal = btn.dataset.animal;
-          updateCalc();
-        });
-      });
-
-      // Service pills
-      document.getElementById('servicePills').querySelectorAll('.calc-pill').forEach(btn => {
-        btn.addEventListener('click', () => {
-          document.getElementById('servicePills').querySelectorAll('.calc-pill').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          service = btn.dataset.service;
-          updateCalc();
-        });
-      });
-
-      // Duration slider
-      document.getElementById('durationSlider').addEventListener('input', e => {
-        duration = parseInt(e.target.value);
-        updateCalc();
-      });
-
-      updateCalc();
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initCalc);
-    } else {
-      initCalc();
-    }
-  })();
-  </script>
 
   <!-- COMMENT ÇA MARCHE -->
   <section class="how" id="comment-ca-marche">
@@ -1059,7 +1020,7 @@
         <a href="#services">Hébergement complet</a>
         <a href="#services">Garde de jour — Day Sitting</a>
         <a href="#services">Garde à domicile — Home Sitting</a>
-        <a href="#tarifs">Calculateur de tarifs</a>
+        <a href="#tarifs">Nos tarifs</a>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Contact</div>
