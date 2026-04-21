@@ -614,6 +614,7 @@
   </section>
 
 
+    <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
       <div>
@@ -625,7 +626,7 @@
         <a href="index.html#services">Hébergement complet</a>
         <a href="index.html#services">Garde de jour — Day Sitting</a>
         <a href="index.html#services">Garde à domicile — Home Sitting</a>
-        <a href="index.html#tarifs">Calculateur de tarifs</a>
+        <a href="index.html#tarifs">Nos tarifs</a>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Contact</div>
@@ -634,10 +635,11 @@
         <a href="terms-and-conditions.html">Mentions légales</a>
         <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
       </div>
-    
       <div class="footer-col">
         <div class="footer-col-title">Professionnels</div>
         <a href="annuaire-depot.html">Déposer une annonce</a>
+        <a href="concept.html">Le concept</a>
+        <a href="forces.html">Forces du projet</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -646,88 +648,11 @@
     </div>
   </footer>
 
-  <!-- FLOAT BUY CTA -->
-  <a href="https://bizinaclick.com/listing?id=2" target="_blank" rel="noopener" class="float-buy">
-    <div class="float-buy-icon">🏷️</div>
-    <div class="float-buy-label">
-      <span>Projet à vendre</span>
-      <span>Acheter ce projet</span>
-    </div>
-    <span class="float-buy-arrow">→</span>
-  </a>
-
   <script src="shared.min.js" defer></script>
   <script>
-  (function() {
-    function showErr(id, errId) {
-      const el = document.getElementById(id);
-      const err = document.getElementById(errId);
-      if (el)  { el.classList.add('invalid'); el.classList.remove('valid'); }
-      if (err) err.classList.add('visible');
-    }
-    function clearErr(id, errId) {
-      const el = document.getElementById(id);
-      const err = document.getElementById(errId);
-      if (el)  { el.classList.remove('invalid'); el.classList.add('valid'); }
-      if (err) err.classList.remove('visible');
-    }
-    const isEmpty = v => !v || v.trim() === '';
-    const isEmail = v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
-    const isPhone = v => v.trim() === '' || /^[\d\s\+\-\.\(\)]{6,20}$/.test(v.trim());
-
-    function liveValidate(id, errId, fn) {
-      const el = document.getElementById(id);
-      if (!el) return;
-      const check = () => fn(el.value) ? clearErr(id, errId) : showErr(id, errId);
-      el.addEventListener('blur', check);
-      el.addEventListener('input', () => { if (el.classList.contains('invalid')) check(); });
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-      liveValidate('f-prenom', 'err-prenom', v => !isEmpty(v));
-      liveValidate('f-nom',    'err-nom',    v => !isEmpty(v));
-      liveValidate('f-email',  'err-email',  v => !isEmpty(v) && isEmail(v));
-      liveValidate('f-tel',    'err-tel',    v => isPhone(v));
-      liveValidate('f-ville',  'err-ville',  v => !isEmpty(v));
-
-      // Prestations — effacer erreur dès qu'une case est cochée
-      document.querySelectorAll('input[name="prestation"]').forEach(cb => {
-        cb.addEventListener('change', () => {
-          const any = document.querySelectorAll('input[name="prestation"]:checked').length > 0;
-          const err = document.getElementById('err-prestation');
-          if (any && err) err.classList.remove('visible');
-        });
-      });
-
-      // Moyen de contact — effacer erreur dès qu'un choix est fait
-      document.querySelectorAll('input[name="contact_pref"]').forEach(r => {
-        r.addEventListener('change', () => {
-          const err = document.getElementById('err-contact');
-          if (err) err.classList.remove('visible');
-        });
-      });
-    });
-
-    window.handleSubmit = function(e) {
-      e.preventDefault();
-      let valid = true;
-
-      // Champs texte
-      [
-        ['f-prenom', 'err-prenom', v => !isEmpty(v)],
-        ['f-nom',    'err-nom',    v => !isEmpty(v)],
-        ['f-email',  'err-email',  v => !isEmpty(v) && isEmail(v)],
-        ['f-tel',    'err-tel',    v => isPhone(v)],
-        ['f-ville',  'err-ville',  v => !isEmpty(v)],
-      ].forEach(([id, errId, fn]) => {
-        const el = document.getElementById(id);
-        if (!el) return;
-        if (fn(el.value)) clearErr(id, errId);
-        else { showErr(id, errId); valid = false; }
-      });
-
-      // Au moins une prestation cochée
-      const hasPrest = document.querySelectorAll('input[name="
-
+  (function(){
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+  })();
+  </script>
 </body>
 </html>

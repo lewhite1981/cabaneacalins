@@ -759,8 +759,8 @@
     </div>
   </main>
 
-  <!-- ═══ FOOTER ═══ -->
-  <footer role="contentinfo">
+  <!-- FOOTER -->
+  <footer>
     <div class="footer-inner">
       <div>
         <div class="footer-brand">Cabane à Câlin</div>
@@ -771,7 +771,7 @@
         <a href="index.html#services">Hébergement complet</a>
         <a href="index.html#services">Garde de jour — Day Sitting</a>
         <a href="index.html#services">Garde à domicile — Home Sitting</a>
-        <a href="index.html#tarifs">Calculateur de tarifs</a>
+        <a href="index.html#tarifs">Nos tarifs</a>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Contact</div>
@@ -780,10 +780,11 @@
         <a href="terms-and-conditions.html">Mentions légales</a>
         <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
       </div>
-    
       <div class="footer-col">
         <div class="footer-col-title">Professionnels</div>
         <a href="annuaire-depot.html">Déposer une annonce</a>
+        <a href="concept.html">Le concept</a>
+        <a href="forces.html">Forces du projet</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -792,65 +793,11 @@
     </div>
   </footer>
 
-  <!-- Float CTA -->
-  <a href="contact.html" class="float-buy" aria-label="Réserver une garde">
-    Réserver une garde
-    <span class="float-buy-arrow">→</span>
-  </a>
-
   <script src="shared.min.js" defer></script>
   <script>
-  (function () {
-    /* ── Footer year ── */
+  (function(){
     document.getElementById('footer-year').textContent = new Date().getFullYear();
-
-    /* ── Stepper via IntersectionObserver ── */
-    const sections = [
-      { id: 'sec-pro',      step: 'step1' },
-      { id: 'sec-loc',      step: 'step2' },
-      { id: 'sec-annonce',  step: 'step3' },
-      { id: 'sec-paiement', step: 'step4' },
-    ];
-    const stepEls = sections.map(s => document.getElementById(s.step));
-
-    function setStep(idx) {
-      stepEls.forEach((el, i) => {
-        el.classList.remove('active', 'done');
-        if (i < idx)  el.classList.add('done');
-        if (i === idx) el.classList.add('active');
-      });
-    }
-
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const found = sections.findIndex(s => s.id === entry.target.id);
-          if (found !== -1) setStep(found);
-        }
-      });
-    }, { rootMargin: '-30% 0px -50% 0px', threshold: 0 });
-
-    sections.forEach(s => {
-      const el = document.getElementById(s.id);
-      if (el) obs.observe(el);
-    });
-
-    /* ── Code postal — digits only, max 5 ── */
-    const cpInput = document.getElementById('f-cp');
-    if (cpInput) {
-      cpInput.addEventListener('input', () => {
-        cpInput.value = cpInput.value.replace(/\D/g, '').slice(0, 5);
-      });
-    }
-
-    /* ── Char counter ── */
-    const descEl = document.getElementById('f-desc');
-    const counter = document.getElementById('charCount');
-    if (descEl && counter) {
-      descEl.addEventListener('input', () => {
-        const len = descEl.value.length;
-        counter.textContent = len + ' / 200';
-        counter.className = 'char-counter' + (len >= 200 ? ' error' : len >=
-
+  })();
+  </script>
 </body>
 </html>

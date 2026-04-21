@@ -279,16 +279,43 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-bottom-404">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Cabane à Câlin</div>
+        <div class="footer-tagline">Service de garde d'animaux familial, chaleureux et sécurisant. Parce que vos compagnons méritent ce qu'il y a de mieux.</div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Services</div>
+        <a href="index.html#services">Hébergement complet</a>
+        <a href="index.html#services">Garde de jour — Day Sitting</a>
+        <a href="index.html#services">Garde à domicile — Home Sitting</a>
+        <a href="index.html#tarifs">Nos tarifs</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Contact</div>
+        <a href="contact.html">Nous contacter</a>
+        <a href="contact.html#faq">FAQ</a>
+        <a href="terms-and-conditions.html">Mentions légales</a>
+        <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Professionnels</div>
+        <a href="annuaire-depot.html">Déposer une annonce</a>
+        <a href="concept.html">Le concept</a>
+        <a href="forces.html">Forces du projet</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
       <span class="footer-copy">© <span id="footer-year"></span> Cabane à Câlin. Tous droits réservés.</span>
       <span class="footer-heart">Fait avec ♥ pour vos animaux</span>
     </div>
   </footer>
 
-  <script>
-    document.getElementById('footer-year').textContent = new Date().getFullYear();
-  </script>
-
   <script src="shared.min.js" defer></script>
+  <script>
+  (function(){
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+  })();
+  </script>
 </body>
 </html>
