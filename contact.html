@@ -194,21 +194,123 @@
     .contact-feature-title { font-size: 15px; font-weight: 700; color: var(--brun); margin-bottom: 8px; }
     .contact-feature-sub { font-size: 13px; color: var(--text); line-height: 1.6; }
 
-    /* legacy unused (kept for safety) */
-    .form-group input.valid,
-    .form-group select.valid {
-      border-color: #5a9e72 !important;
-      box-shadow: 0 0 0 3px rgba(90,158,114,0.1) !important;
+    /* ── FORMULAIRE ── */
+    .form-card {
+      background: var(--brun); border-radius: 28px; padding: 56px 48px;
+      max-width: 860px; margin: 0 auto 48px; position: relative; overflow: hidden;
+      text-align: left;
     }
-    #animalTypes.invalid .animal-type-label { border-color: #d64e4e; }
+    .form-card::before {
+      content: ''; position: absolute; width: 340px; height: 340px; border-radius: 50%;
+      background: rgba(201,123,90,0.07); top: -80px; right: -80px; pointer-events: none;
+    }
+    .form-card::after {
+      content: ''; position: absolute; width: 220px; height: 220px; border-radius: 50%;
+      background: rgba(122,158,126,0.05); bottom: -60px; left: -50px; pointer-events: none;
+    }
+    .form-card-header { text-align: center; margin-bottom: 40px; position: relative; z-index: 1; }
+    .form-card-icon { font-size: 48px; display: block; margin-bottom: 14px; }
+    .form-card-title { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--white); font-weight: 700; line-height: 1.3; margin-bottom: 10px; }
+    .form-card-title span { color: var(--terra); font-style: italic; }
+    .form-card-sub { font-size: 14px; color: rgba(245,239,224,0.5); line-height: 1.65; }
+
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; position: relative; z-index: 1; }
+    .form-grid .full { grid-column: 1 / -1; }
+
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: rgba(245,239,224,0.5);
+    }
+    .form-label .req { color: var(--terra); margin-left: 2px; }
+    .form-input, .form-select, .form-textarea {
+      background: rgba(255,255,255,0.07);
+      border: 1.5px solid rgba(255,255,255,0.12);
+      border-radius: 12px; padding: 14px 16px;
+      color: var(--white); font-family: 'Lato', sans-serif; font-size: 15px;
+      width: 100%; min-height: 52px; outline: none;
+      transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
+      -webkit-appearance: none;
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: rgba(245,239,224,0.25); }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--terra);
+      background: rgba(255,255,255,0.1);
+      box-shadow: 0 0 0 4px rgba(201,123,90,0.15);
+    }
+    .form-input.valid, .form-select.valid { border-color: #5a9e72; }
+    .form-input.invalid, .form-select.invalid, .form-textarea.invalid {
+      border-color: #d64e4e;
+      box-shadow: 0 0 0 3px rgba(214,78,78,0.12);
+    }
+    .form-select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(245,239,224,0.4)' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 40px; }
+    .form-select option { background: #2E2A25; color: white; }
+    .form-textarea { min-height: 110px; resize: vertical; }
+
+    /* Radio pills moyen de contact */
+    .form-contact-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+    .contact-pill-label {
+      display: flex; align-items: center; gap: 7px; cursor: pointer;
+      background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.12);
+      border-radius: 50px; padding: 10px 18px;
+      font-size: 13px; font-weight: 600; color: rgba(245,239,224,0.7);
+      transition: all 0.2s ease; user-select: none;
+    }
+    .contact-pill-label:hover { border-color: rgba(201,123,90,0.5); color: var(--creme); }
+    .contact-pill-input { display: none; }
+    .contact-pill-input:checked + .contact-pill-label {
+      background: var(--terra); border-color: var(--terra);
+      color: var(--white); box-shadow: 0 4px 14px rgba(201,123,90,0.35);
+    }
+
+    /* Checkboxes prestations */
+    .prestation-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+    .prestation-pill-label {
+      display: flex; align-items: center; gap: 7px; cursor: pointer;
+      background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.12);
+      border-radius: 50px; padding: 10px 18px;
+      font-size: 13px; font-weight: 600; color: rgba(245,239,224,0.7);
+      transition: all 0.2s ease; user-select: none;
+    }
+    .prestation-pill-label:hover { border-color: rgba(201,123,90,0.5); color: var(--creme); }
+    .prestation-pill-input { display: none; }
+    .prestation-pill-input:checked + .prestation-pill-label {
+      background: var(--terra); border-color: var(--terra);
+      color: var(--white); box-shadow: 0 4px 14px rgba(201,123,90,0.35);
+    }
+
+    /* Erreurs */
+    .field-error { font-size: 12px; color: #e87070; display: none; margin-top: 2px; }
+    .field-error.visible { display: block; }
+
+    /* Submit */
+    #submitBtn {
+      width: 100%; background: var(--terra); color: var(--white);
+      border: none; border-radius: 50px; padding: 18px 40px;
+      font-family: 'Lato', sans-serif; font-weight: 700; font-size: 15px;
+      cursor: pointer; margin-top: 8px;
+      box-shadow: 0 6px 24px rgba(201,123,90,0.4);
+      transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+      position: relative; overflow: hidden; z-index: 1;
+    }
+    #submitBtn:hover { background: var(--terra-d); transform: translateY(-2px); box-shadow: 0 12px 36px rgba(201,123,90,0.55); }
     #submitBtn:disabled { opacity: 0.6; cursor: not-allowed; transform: none !important; box-shadow: none !important; }
+    .form-note { font-size: 12px; color: rgba(245,239,224,0.25); text-align: center; margin-top: 12px; position: relative; z-index: 1; }
 
     /* SUCCESS */
-    .success-msg { display: none; text-align: center; padding: 32px; }
+    .success-msg { display: none; text-align: center; padding: 48px 32px; position: relative; z-index: 1; }
     .success-msg.show { display: block; }
-    .success-icon { font-size: 56px; margin-bottom: 16px; }
-    .success-title { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--brun); font-weight: 700; margin-bottom: 10px; }
-    .success-text { font-size: 15px; color: var(--text); }
+    .success-icon { font-size: 64px; display: block; margin-bottom: 20px; animation: successBounce 0.6s cubic-bezier(0.34,1.56,0.64,1) both; }
+    @keyframes successBounce { from { transform: scale(0) rotate(-15deg); opacity: 0; } to { transform: scale(1) rotate(0); opacity: 1; } }
+    .success-title { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--white); font-weight: 700; margin-bottom: 12px; }
+    .success-title span { color: var(--terra); font-style: italic; }
+    .success-text { font-size: 15px; color: rgba(245,239,224,0.55); line-height: 1.7; max-width: 380px; margin: 0 auto; }
+
+    @media (max-width: 640px) {
+      .form-card { padding: 32px 20px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-grid .full { grid-column: 1; }
+    }
 
     /* FAQ */
     .faq-section { padding: 96px 48px; background: var(--creme); }
@@ -321,13 +423,118 @@
       <h2 class="contact-main-title">Une seule étape pour démarrer</h2>
       <p class="contact-main-sub">Envoyez-nous votre demande directement — notre équipe revient vers vous avec une proposition personnalisée sous 2 heures, sans engagement.</p>
 
-      <!-- DARK CARD -->
-      <div class="contact-dark-card reveal">
-        <span class="contact-card-icon">🐾</span>
-        <h3 class="contact-card-title">Votre animal entre de bonnes mains — <span>commençons ici</span></h3>
-        <p class="contact-card-desc">Décrivez-nous votre besoin : hébergement complet, garde de jour ou visite à domicile. Nous construisons une solution sur-mesure pour votre compagnon, avec une attention toute particulière à son bien-être.</p>
-        <a href="https://bizinaclick.com/listing?id=2" target="_blank" rel="noopener" class="contact-card-btn">Nous contacter →</a>
-        <div class="contact-card-note">Ouverture dans votre messagerie · Réponse sous 2h · Sans engagement</div>
+      <!-- FORMULAIRE DE CONTACT -->
+      <div class="form-card reveal">
+        <div id="formContent">
+          <div class="form-card-header">
+            <span class="form-card-icon">🐾</span>
+            <h3 class="form-card-title">Votre animal entre de bonnes mains — <span>commençons ici</span></h3>
+            <p class="form-card-sub">Remplissez le formulaire ci-dessous — nous vous répondons sous 2h avec une proposition personnalisée, sans engagement.</p>
+          </div>
+
+          <form id="contactForm" novalidate onsubmit="handleSubmit(event)">
+            <div class="form-grid">
+
+              <!-- Prénom -->
+              <div class="form-group">
+                <label class="form-label" for="f-prenom">Prénom <span class="req">*</span></label>
+                <input class="form-input" type="text" id="f-prenom" name="prenom" placeholder="Marie" autocomplete="given-name" required />
+                <span class="field-error" id="err-prenom">Veuillez saisir votre prénom.</span>
+              </div>
+
+              <!-- Nom -->
+              <div class="form-group">
+                <label class="form-label" for="f-nom">Nom <span class="req">*</span></label>
+                <input class="form-input" type="text" id="f-nom" name="nom" placeholder="Dupont" autocomplete="family-name" required />
+                <span class="field-error" id="err-nom">Veuillez saisir votre nom.</span>
+              </div>
+
+              <!-- Email -->
+              <div class="form-group">
+                <label class="form-label" for="f-email">Adresse e-mail <span class="req">*</span></label>
+                <input class="form-input" type="email" id="f-email" name="email" placeholder="marie@email.com" autocomplete="email" required />
+                <span class="field-error" id="err-email">Adresse e-mail invalide.</span>
+              </div>
+
+              <!-- Téléphone -->
+              <div class="form-group">
+                <label class="form-label" for="f-tel">Numéro de téléphone</label>
+                <input class="form-input" type="tel" id="f-tel" name="tel" placeholder="06 12 34 56 78" autocomplete="tel" />
+                <span class="field-error" id="err-tel">Numéro de téléphone invalide.</span>
+              </div>
+
+              <!-- Ville -->
+              <div class="form-group full">
+                <label class="form-label" for="f-ville">Votre ville <span class="req">*</span></label>
+                <input class="form-input" type="text" id="f-ville" name="ville" placeholder="Paris, Versailles, Boulogne…" autocomplete="address-level2" required />
+                <span class="field-error" id="err-ville">Veuillez indiquer votre ville.</span>
+              </div>
+
+              <!-- Prestations recherchées -->
+              <div class="form-group full">
+                <label class="form-label">Prestation(s) recherchée(s) <span class="req">*</span></label>
+                <div class="prestation-pills" id="prestationPills">
+                  <input class="prestation-pill-input" type="checkbox" id="p-heberg" name="prestation" value="hebergement" />
+                  <label class="prestation-pill-label" for="p-heberg">🏠 Hébergement complet</label>
+
+                  <input class="prestation-pill-input" type="checkbox" id="p-day" name="prestation" value="day-sitting" />
+                  <label class="prestation-pill-label" for="p-day">☀️ Garde de jour</label>
+
+                  <input class="prestation-pill-input" type="checkbox" id="p-home" name="prestation" value="home-sitting" />
+                  <label class="prestation-pill-label" for="p-home">🚶 Garde à domicile</label>
+
+                  <input class="prestation-pill-input" type="checkbox" id="p-rencontre" name="prestation" value="rencontre" />
+                  <label class="prestation-pill-label" for="p-rencontre">🤝 Rencontre découverte</label>
+
+                  <input class="prestation-pill-input" type="checkbox" id="p-nac" name="prestation" value="nac" />
+                  <label class="prestation-pill-label" for="p-nac">🐾 NAC (lapins, rongeurs…)</label>
+                </div>
+                <span class="field-error" id="err-prestation">Veuillez sélectionner au moins une prestation.</span>
+              </div>
+
+              <!-- Moyen de contact préféré -->
+              <div class="form-group full">
+                <label class="form-label">Moyen de contact préféré <span class="req">*</span></label>
+                <div class="form-contact-pills" id="contactPills">
+                  <input class="contact-pill-input" type="radio" id="c-email" name="contact_pref" value="email" />
+                  <label class="contact-pill-label" for="c-email">📧 E-mail</label>
+
+                  <input class="contact-pill-input" type="radio" id="c-tel" name="contact_pref" value="telephone" />
+                  <label class="contact-pill-label" for="c-tel">📞 Téléphone</label>
+
+                  <input class="contact-pill-input" type="radio" id="c-sms" name="contact_pref" value="sms" />
+                  <label class="contact-pill-label" for="c-sms">💬 SMS</label>
+
+                  <input class="contact-pill-input" type="radio" id="c-whatsapp" name="contact_pref" value="whatsapp" />
+                  <label class="contact-pill-label" for="c-whatsapp">💚 WhatsApp</label>
+                </div>
+                <span class="field-error" id="err-contact">Veuillez choisir un moyen de contact.</span>
+              </div>
+
+              <!-- Message libre -->
+              <div class="form-group full">
+                <label class="form-label" for="f-message">Votre message <small style="font-weight:400;text-transform:none;letter-spacing:0;color:rgba(245,239,224,0.3)">(facultatif)</small></label>
+                <textarea class="form-textarea" id="f-message" name="message" placeholder="Parlez-nous de votre animal : race, âge, habitudes particulières, dates de garde souhaitées…"></textarea>
+              </div>
+
+              <!-- Submit -->
+              <div class="full" style="position:relative;z-index:1;">
+                <button type="submit" id="submitBtn" class="btn-shimmer">
+                  Envoyer ma demande →
+                </button>
+                <p class="form-note">🔒 Vos données sont confidentielles et ne seront jamais partagées. <a href="politique-de-confidentialite.html" style="color:rgba(201,123,90,0.6);text-decoration:underline;">Politique de confidentialité</a></p>
+              </div>
+
+            </div>
+          </form>
+        </div>
+
+        <!-- MESSAGE DE SUCCÈS -->
+        <div class="success-msg" id="successMsg">
+          <span class="success-icon">✅</span>
+          <h3 class="success-title">Demande envoyée — <span>merci !</span></h3>
+          <p class="success-text">Nous avons bien reçu votre message et nous vous répondrons sous 2 heures avec une proposition personnalisée pour votre animal.</p>
+        </div>
       </div>
 
       <!-- FEATURE CARDS -->
@@ -446,101 +653,93 @@
   <script src="shared.min.js" defer></script>
   <script>
   (function() {
-    // ── Validation helpers ──
-    function showError(id, errId) {
+    function showErr(id, errId) {
       const el = document.getElementById(id);
       const err = document.getElementById(errId);
-      if (el) el.classList.add('invalid'), el.classList.remove('valid');
+      if (el)  { el.classList.add('invalid'); el.classList.remove('valid'); }
       if (err) err.classList.add('visible');
     }
-    function clearError(id, errId) {
+    function clearErr(id, errId) {
       const el = document.getElementById(id);
       const err = document.getElementById(errId);
-      if (el) el.classList.remove('invalid'), el.classList.add('valid');
+      if (el)  { el.classList.remove('invalid'); el.classList.add('valid'); }
       if (err) err.classList.remove('visible');
     }
-    function isEmpty(val) { return !val || val.trim() === ''; }
-    function isValidEmail(val) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val); }
-    function isValidPhone(val) { return val === '' || /^[\d\s\+\-\.\(\)]{6,20}$/.test(val); }
+    const isEmpty = v => !v || v.trim() === '';
+    const isEmail = v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+    const isPhone = v => v.trim() === '' || /^[\d\s\+\-\.\(\)]{6,20}$/.test(v.trim());
 
-    // ── Live validation ──
-    function liveValidate(id, errId, checkFn) {
+    function liveValidate(id, errId, fn) {
       const el = document.getElementById(id);
       if (!el) return;
-      const validate = () => {
-        if (checkFn(el.value)) clearError(id, errId);
-        else showError(id, errId);
-      };
-      el.addEventListener('blur', validate);
-      el.addEventListener('input', () => {
-        if (el.classList.contains('invalid')) validate();
-      });
+      const check = () => fn(el.value) ? clearErr(id, errId) : showErr(id, errId);
+      el.addEventListener('blur', check);
+      el.addEventListener('input', () => { if (el.classList.contains('invalid')) check(); });
     }
 
     document.addEventListener('DOMContentLoaded', function() {
       liveValidate('f-prenom', 'err-prenom', v => !isEmpty(v));
-      liveValidate('f-nom', 'err-nom', v => !isEmpty(v));
-      liveValidate('f-email', 'err-email', v => !isEmpty(v) && isValidEmail(v));
-      liveValidate('f-tel', 'err-tel', v => isValidPhone(v));
-      liveValidate('f-animal-nom', 'err-animal-nom', v => !isEmpty(v));
-      liveValidate('f-service', 'err-service', v => !isEmpty(v));
+      liveValidate('f-nom',    'err-nom',    v => !isEmpty(v));
+      liveValidate('f-email',  'err-email',  v => !isEmpty(v) && isEmail(v));
+      liveValidate('f-tel',    'err-tel',    v => isPhone(v));
+      liveValidate('f-ville',  'err-ville',  v => !isEmpty(v));
 
-      // Animal checkboxes: clear error on any check
-      document.querySelectorAll('input[name="animal"]').forEach(cb => {
+      // Prestations — effacer erreur dès qu'une case est cochée
+      document.querySelectorAll('input[name="prestation"]').forEach(cb => {
         cb.addEventListener('change', () => {
-          const checked = document.querySelectorAll('input[name="animal"]:checked').length;
-          const at = document.getElementById('animalTypes');
-          const err = document.getElementById('err-animal');
-          if (checked > 0) {
-            at && at.classList.remove('invalid');
-            err && err.classList.remove('visible');
-          }
+          const any = document.querySelectorAll('input[name="prestation"]:checked').length > 0;
+          const err = document.getElementById('err-prestation');
+          if (any && err) err.classList.remove('visible');
+        });
+      });
+
+      // Moyen de contact — effacer erreur dès qu'un choix est fait
+      document.querySelectorAll('input[name="contact_pref"]').forEach(r => {
+        r.addEventListener('change', () => {
+          const err = document.getElementById('err-contact');
+          if (err) err.classList.remove('visible');
         });
       });
     });
 
-    // ── Submit with full validation ──
     window.handleSubmit = function(e) {
       e.preventDefault();
       let valid = true;
 
-      // Required text fields
-      const checks = [
+      // Champs texte
+      [
         ['f-prenom', 'err-prenom', v => !isEmpty(v)],
-        ['f-nom', 'err-nom', v => !isEmpty(v)],
-        ['f-email', 'err-email', v => !isEmpty(v) && isValidEmail(v)],
-        ['f-tel', 'err-tel', v => isValidPhone(v)],
-        ['f-animal-nom', 'err-animal-nom', v => !isEmpty(v)],
-        ['f-service', 'err-service', v => !isEmpty(v)],
-      ];
-      checks.forEach(([id, errId, fn]) => {
+        ['f-nom',    'err-nom',    v => !isEmpty(v)],
+        ['f-email',  'err-email',  v => !isEmpty(v) && isEmail(v)],
+        ['f-tel',    'err-tel',    v => isPhone(v)],
+        ['f-ville',  'err-ville',  v => !isEmpty(v)],
+      ].forEach(([id, errId, fn]) => {
         const el = document.getElementById(id);
         if (!el) return;
-        if (fn(el.value)) clearError(id, errId);
-        else { showError(id, errId); valid = false; }
+        if (fn(el.value)) clearErr(id, errId);
+        else { showErr(id, errId); valid = false; }
       });
 
-      // At least one animal checked
-      const checkedAnimals = document.querySelectorAll('input[name="animal"]:checked').length;
-      const at = document.getElementById('animalTypes');
-      const errAt = document.getElementById('err-animal');
-      if (checkedAnimals === 0) {
-        at && at.classList.add('invalid');
-        errAt && errAt.classList.add('visible');
-        valid = false;
-      } else {
-        at && at.classList.remove('invalid');
-        errAt && errAt.classList.remove('visible');
-      }
+      // Au moins une prestation cochée
+      const hasPrest = document.querySelectorAll('input[name="prestation"]:checked').length > 0;
+      const errPrest = document.getElementById('err-prestation');
+      if (!hasPrest) { if (errPrest) errPrest.classList.add('visible'); valid = false; }
+      else           { if (errPrest) errPrest.classList.remove('visible'); }
+
+      // Un moyen de contact sélectionné
+      const hasContact = document.querySelector('input[name="contact_pref"]:checked');
+      const errContact = document.getElementById('err-contact');
+      if (!hasContact) { if (errContact) errContact.classList.add('visible'); valid = false; }
+      else             { if (errContact) errContact.classList.remove('visible'); }
 
       if (!valid) {
-        // Scroll to first error
         const firstErr = document.querySelector('.invalid, .field-error.visible');
-        if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (firstErr) firstErr.closest('.form-group, .full')
+          .scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
       }
 
-      // All good — show success
+      // Succès
       document.getElementById('formContent').style.display = 'none';
       document.getElementById('successMsg').classList.add('show');
     };
