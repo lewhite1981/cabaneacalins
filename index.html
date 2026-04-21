@@ -245,7 +245,7 @@
     /* ── HERO ── */
     .hero {
       min-height: 100vh;
-      background: url('hero-calin.webp') center 40% / cover no-repeat;
+      background: #19120a;
       display: flex; align-items: center;
       padding: 176px 48px 80px;
       position: relative; overflow: hidden;
@@ -520,7 +520,11 @@
   <div class="nav-overlay" id="navOverlay"></div>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero hero-grain">
+    <!-- Parallax background layer -->
+    <div class="hero-bg-layer"></div>
+    <!-- Particle canvas -->
+    <canvas id="hero-canvas"></canvas>
     <div class="hero-blob"></div>
     <div class="hero-inner">
       <div class="hero-content">
@@ -590,9 +594,9 @@
     </div>
   </div>
 
-  <!-- STATS -->
-  <div class="stats-band">
-    <div class="stats-grid">
+  <!-- STATS — fullscreen band avec gradient animé -->
+  <div class="stats-band stats-band-animated section-fs">
+    <div class="stats-grid reveal-grid">
       <div class="stat-item reveal d1">
         <div class="stat-num counter" data-target="98" data-suffix="%">98%</div>
         <div class="stat-label">de propriétaires satisfaits</div>
@@ -618,13 +622,14 @@
       <p class="section-eyebrow reveal">Nos prestations</p>
       <h2 class="section-title reveal d1">Garde chien, chat & NAC —<br/>nos formules de pet sitting</h2>
       <p class="section-sub reveal d2">Des formules adaptées à chaque situation, pensées pour le confort de votre animal et votre tranquillité d'esprit.</p>
-      <div class="services-grid">
-        <div class="service-card tilt-card reveal d1 animated-border">
-          <div class="service-thumb">
+      <div class="services-grid reveal-grid">
+        <div class="service-card tilt-card animated-border">
+          <div class="service-thumb gallery-item">
             <picture>
               <source srcset="hero-hebergement.webp" type="image/webp" />
               <img src="hero-hebergement.jpg" width="514" height="281" alt="Chien et chat blottis ensemble dans un panier douillet — hébergement complet Cabane à Câlin" loading="lazy" />
             </picture>
+            <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
           </div>
           <div class="service-body">
             <div class="service-tag">Le plus populaire</div>
@@ -633,12 +638,13 @@
             <div class="service-price">À partir de 35€ <span>/ nuit</span></div>
           </div>
         </div>
-        <div class="service-card tilt-card reveal d2 animated-border">
-          <div class="service-thumb">
+        <div class="service-card tilt-card animated-border">
+          <div class="service-thumb gallery-item">
             <picture>
               <source srcset="hero-day-sitting.webp" type="image/webp" />
               <img src="hero-day-sitting.jpg" width="516" height="294" alt="Golden retriever heureux en garde à la journée — Day Sitting Cabane à Câlin" loading="lazy" />
             </picture>
+            <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
           </div>
           <div class="service-body">
             <div class="service-tag">Garde à la journée</div>
@@ -647,12 +653,13 @@
             <div class="service-price">À partir de 22€ <span>/ jour</span></div>
           </div>
         </div>
-        <div class="service-card tilt-card reveal d3 animated-border">
-          <div class="service-thumb">
+        <div class="service-card tilt-card animated-border">
+          <div class="service-thumb gallery-item">
             <picture>
               <source srcset="hero-home-sitting.webp" type="image/webp" />
               <img src="hero-home-sitting.jpg" width="500" height="293" alt="Gardienne câlinant un chien et un chat à domicile — Home Sitting Cabane à Câlin" loading="lazy" />
             </picture>
+            <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
           </div>
           <div class="service-body">
             <div class="service-tag">Garde à domicile</div>
@@ -912,23 +919,23 @@
       <p class="section-eyebrow reveal">Simple & rassurant</p>
       <h2 class="section-title reveal d1">Comment réserver votre garde d'animaux ?</h2>
       <p class="section-sub reveal d2">En 4 étapes simples, votre animal est entre de bonnes mains.</p>
-      <div class="steps">
-        <div class="step reveal d1">
+      <div class="steps reveal-grid">
+        <div class="step">
           <div class="step-num">1</div>
           <h3 class="step-title">Contactez-nous</h3>
           <div class="step-text">Remplissez notre formulaire ou appelez-nous pour présenter votre animal et vos dates.</div>
         </div>
-        <div class="step reveal d2">
+        <div class="step">
           <div class="step-num">2</div>
           <h3 class="step-title">Rencontre découverte gratuite</h3>
           <div class="step-text">Une première rencontre gratuite pour que votre animal fasse connaissance avec nous.</div>
         </div>
-        <div class="step reveal d3">
+        <div class="step">
           <div class="step-num">3</div>
           <h3 class="step-title">Confirmation de réservation</h3>
           <div class="step-text">Nous réservons votre créneau et préparons un accueil sur-mesure pour votre compagnon.</div>
         </div>
-        <div class="step reveal d4">
+        <div class="step">
           <div class="step-num">4</div>
           <h3 class="step-title">Partez l'esprit libre</h3>
           <div class="step-text">Recevez des nouvelles et des photos chaque jour. Voyagez sereinement !</div>
@@ -942,8 +949,8 @@
     <div class="container">
       <p class="section-eyebrow reveal">Ils nous font confiance</p>
       <h2 class="section-title reveal d1">Ce que disent<br/>nos clients</h2>
-      <div class="testi-grid">
-        <div class="testi-card reveal d1">
+      <div class="testi-grid reveal-grid">
+        <div class="testi-card">
           <div class="testi-stars">★★★★★</div>
           <div class="testi-text">« Noisette est rentrée épanouie et détendue. Les photos quotidiennes m'ont permis de vraiment profiter de mes vacances sans culpabilité. Je recommande les yeux fermés ! »</div>
           <div class="testi-author">
@@ -956,7 +963,7 @@
             </div>
           </div>
         </div>
-        <div class="testi-card reveal d2">
+        <div class="testi-card">
           <div class="testi-stars">★★★★★</div>
           <div class="testi-text">« Mon chat est très anxieux habituellement en déplacement. Ici, il a été tellement à l'aise qu'il ne voulait plus rentrer ! C'est vraiment une deuxième maison pour lui. »</div>
           <div class="testi-author">
@@ -969,7 +976,7 @@
             </div>
           </div>
         </div>
-        <div class="testi-card reveal d3">
+        <div class="testi-card">
           <div class="testi-stars">★★★★★</div>
           <div class="testi-text">« Service impeccable, communication parfaite. On sent que les animaux sont vraiment aimés et pas juste gardés. Une perle rare dans ce secteur. Merci du fond du cœur ! »</div>
           <div class="testi-author">
@@ -991,29 +998,29 @@
     <div class="container">
       <p class="section-eyebrow reveal">Notre engagement</p>
       <h2 class="section-title reveal d1">Nos garanties de garde d'animaux à domicile</h2>
-      <div class="guarantees-grid">
-        <div class="guarantee-item reveal d1">
+      <div class="guarantees-grid reveal-grid">
+        <div class="guarantee-item">
           <div class="guarantee-icon">
             <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
           <h3 class="guarantee-title">Environnement sécurisé</h3>
           <div class="guarantee-text">Espace entièrement sécurisé, adapté aux chiens et aux chats de toutes tailles.</div>
         </div>
-        <div class="guarantee-item reveal d2">
+        <div class="guarantee-item">
           <div class="guarantee-icon">
             <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           </div>
           <h3 class="guarantee-title">Joignable 24h/24</h3>
           <div class="guarantee-text">En cas de question ou d'urgence, nous sommes toujours disponibles pour vous répondre.</div>
         </div>
-        <div class="guarantee-item reveal d3">
+        <div class="guarantee-item">
           <div class="guarantee-icon">
             <svg viewBox="0 0 24 24"><path d="M3 2h4l2 5-2.5 1.5a11 11 0 0 0 5 5L13 11l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 1 4a2 2 0 0 1 2-2"/><path d="M15 7a2 2 0 0 1 2-2"/><path d="M19 3a4 4 0 0 1 0 8"/></svg>
           </div>
           <h3 class="guarantee-title">Alimentation & habitudes respectées</h3>
           <div class="guarantee-text">Les habitudes et le régime alimentaire de votre animal sont scrupuleusement respectés.</div>
         </div>
-        <div class="guarantee-item reveal d4">
+        <div class="guarantee-item">
           <div class="guarantee-icon">
             <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </div>
@@ -1024,11 +1031,11 @@
     </div>
   </section>
 
-  <!-- CTA FINAL -->
-  <section class="cta-section">
+  <!-- CTA FINAL — plein écran avec aurora animée -->
+  <section class="cta-section cta-aurora section-fs" style="flex-direction:column; justify-content:center;">
     <h2 class="reveal">Prêt à partir<br/>l'esprit tranquille ?</h2>
     <p class="reveal d1">Réservez dès maintenant et offrez à votre animal la meilleure des gardes.</p>
-    <a href="https://bizinaclick.com/listing?id=2" target="_blank" rel="noopener" class="btn-cta-white magnetic ripple reveal d2">Prendre rendez-vous</a>
+    <a href="https://bizinaclick.com/listing?id=2" target="_blank" rel="noopener" class="btn-cta-white magnetic ripple btn-shimmer reveal d2">Prendre rendez-vous</a>
   </section>
 
   <!-- BOUTON FLOTTANT ACHAT -->

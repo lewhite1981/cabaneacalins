@@ -370,3 +370,189 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', checkMobileFloatBuy);
 
 });
+
+
+  /* ══════════════════════════════════════
+     INNOVATIONS v2 — Animations avancées
+     ══════════════════════════════════════ */
+
+  /* ── 19. PAGE TRANSITION ── */
+  (function() {
+    const pt = document.createElement('div');
+    pt.id = 'page-transition';
+    pt.style.cssText = 'position:fixed;inset:0;z-index:9999;background:#2E2A25;opacity:1;pointer-events:none;transition:opacity 0.55s cubic-bezier(0.76,0,0.24,1);';
+    document.body.prepend(pt);
+    // Fade in on page load
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      pt.style.opacity = '0';
+    }));
+    // Intercept internal .html links
+    document.addEventListener('click', (e) => {
+      const a = e.target.closest('a[href]');
+      if (!a) return;
+      const href = a.getAttribute('href');
+      if (!href || href.startsWith('http') || href.startsWith('#') || href.startsWith('mailto') || href.startsWith('tel') || a.target === '_blank') return;
+      if (!href.endsWith('.html') && !href.endsWith('/')) return;
+      e.preventDefault();
+      pt.style.opacity = '1';
+      pt.style.pointerEvents = 'all';
+      setTimeout(() => { window.location.href = href; }, 480);
+    });
+  })();
+
+
+  /* ── 20. HERO PARALLAX BACKGROUND ── */
+  (function() {
+    const heroBg = document.querySelector('.hero-bg-layer');
+    if (!heroBg) return;
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const y = window.scrollY;
+          heroBg.style.transform = `translateY(${y * 0.38}px)`;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  })();
+
+
+  /* ── 21. CANVAS PARTICLES (hero) ── */
+  (function() {
+    const canvas = document.getElementById('hero-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let W, H, particles = [];
+
+    function resize() {
+      W = canvas.width  = canvas.offsetWidth;
+      H = canvas.height = canvas.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function mkParticle() {
+      return {
+        x: Math.random() * W,
+        y: Math.random() * H,
+        r: Math.random() * 2 + 0.4,
+        dx: (Math.random() - 0.5) * 0.25,
+        dy: -(Math.random() * 0.35 + 0.08),
+        a: Math.random() * 0.35 + 0.08,
+        da: (Math.random() > 0.5 ? 1 : -1) * 0.0015,
+      };
+    }
+    for (let i = 0; i < 70; i++) particles.push(mkParticle());
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(201,123,90,${p.a.toFixed(2)})`;
+        ctx.fill();
+        p.x += p.dx; p.y += p.dy;
+        p.a += p.da;
+        if (p.a < 0.05 || p.a > 0.45) p.da *= -1;
+        if (p.y < -6) { p.y = H + 4; p.x = Math.random() * W; }
+        if (p.x < -4) p.x = W + 2;
+        if (p.x > W + 4) p.x = -2;
+      });
+      requestAnimationFrame(draw);
+    }
+    draw();
+  })();
+
+
+  /* ── 22. LIGHTBOX ── */
+  (function() {
+    const lightbox = document.createElement('div');
+    lightbox.id = 'lightbox';
+    lightbox.innerHTML = `
+      <button id="lightbox-close" aria-label="Fermer">×</button>
+      <img id="lightbox-img" src="" alt="" />
+    `;
+    document.body.appendChild(lightbox);
+
+    function openLightbox(src, alt) {
+      const lb  = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      img.src = src; img.alt = alt || '';
+      lb.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      const img = item.querySelector('img');
+      if (!img) return;
+      // add overlay HTML if not present
+      if (!item.querySelector('.gallery-overlay')) {
+        const ov = document.createElement('div');
+        ov.className = 'gallery-overlay';
+        ov.innerHTML = '<span class="gallery-overlay-icon">🔍</span>';
+        item.appendChild(ov);
+      }
+      item.addEventListener('click', () => {
+        const src = img.src.replace(/\.(webp)$/, '.jpg') || img.src;
+        openLightbox(img.src, img.alt);
+      });
+    });
+
+    document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+    document.getElementById('lightbox').addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) closeLightbox();
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  })();
+
+
+  /* ── 23. REVEAL GRID OBSERVER ── */
+  const revealGridObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealGridObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal-grid').forEach(el => revealGridObs.observe(el));
+
+
+  /* ── 24. PARALLAX SECTIONS (data-parallax) ── */
+  (function() {
+    const items = [...document.querySelectorAll('[data-parallax]')].map(el => ({
+      el, speed: parseFloat(el.dataset.parallax || '0.15')
+    }));
+    if (!items.length) return;
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          items.forEach(({ el, speed }) => {
+            const rect = el.getBoundingClientRect();
+            const midY = rect.top + rect.height / 2 - window.innerHeight / 2;
+            el.style.transform = `translateY(${midY * speed}px)`;
+          });
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  })();
+
+
+  /* ── 25. MICRO-INTERACTIONS BOUTONS (glow pulse) ── */
+  document.querySelectorAll('.btn-hero-primary, .btn-cta-white, .calc-cta, .nav-cta').forEach(btn => {
+    btn.classList.add('btn-shimmer');
+    btn.addEventListener('mouseenter', () => {
+      btn.style.transition = 'transform 0.25s ease, box-shadow 0.25s ease, background 0.2s';
+    });
+  });
+
+
