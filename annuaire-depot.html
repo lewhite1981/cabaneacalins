@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Déposer une annonce — Annuaire garde d'animaux | Cabane à Câlin</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- Performance : preconnect fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Theme color -->
+  <meta name="theme-color" content="#C97B5A" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://cabaneacalin.fr/annuaire-depot.html" />
+
+  <!-- SEO -->
+  <meta name="description" content="Référencez votre service de garde d'animaux dans l'annuaire Cabane à Câlin. Déposez votre annonce gratuitement ou optez pour la visibilité Premium." />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- OpenGraph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://cabaneacalin.fr/annuaire-depot.html" />
+  <meta property="og:title"       content="Déposer une annonce — Annuaire Cabane à Câlin" />
+  <meta property="og:description" content="Référencez votre service de garde d'animaux dans l'annuaire Cabane à Câlin." />
+  <meta property="og:image"       content="https://cabaneacalin.fr/og-image.png" />
+  <meta property="og:locale"      content="fr_FR" />
+  <meta property="og:site_name"   content="Cabane à Câlin" />
+
+  <!-- Fonts -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Pacifico&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Pacifico&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Pacifico&display=swap" /></noscript>
+
+  <link rel="stylesheet" href="shared.min.css" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --terra:#C97B5A; --terra-d:#b8694a; --terra-light:rgba(201,123,90,0.12);
+      --sauge:#7A9E7E; --sauge-light:rgba(122,158,126,0.12);
+      --creme:#F5EFE0; --caramel:#8B5E3C; --brun:#2E2A25;
+      --white:#FFFFFF; --text:#5c524a; --light:#a09790;
+      --border:rgba(46,42,37,0.1); --radius:16px;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--creme); color: var(--brun); font-family: 'Lato', sans-serif; font-size: 16px; line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── ANNOUNCEMENT BANNER ── */
+    .sale-banner { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: var(--brun); height: 44px; display: flex; align-items: center; justify-content: center; gap: 16px; }
+    .sale-banner-text { font-size: 13px; color: rgba(245,239,224,0.75); font-weight: 400; }
+    .sale-banner-text strong { color: var(--creme); font-weight: 700; }
+    .sale-banner-cta { background: var(--terra); color: var(--white); border-radius: 50px; padding: 5px 18px; font-size: 12px; font-weight: 700; transition: background .2s, transform .15s; white-space: nowrap; }
+    .sale-banner-cta:hover { background: var(--terra-d); transform: scale(1.04); }
+    .sale-banner-close { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); background: none; border: none; color: rgba(245,239,224,0.4); font-size: 18px; cursor: pointer; padding: 4px; transition: color .2s; }
+    .sale-banner-close:hover { color: var(--creme); }
+
+    /* ── NAV ── */
+    nav { position: fixed; top: 44px; left: 0; right: 0; z-index: 100; background: rgba(245,239,224,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,123,90,0.12); padding: 0 48px; height: 72px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { font-family: 'Pacifico', cursive; font-size: 22px; color: var(--terra); }
+    .nav-links { display: flex; gap: 36px; align-items: center; }
+    .nav-links a { font-size: 14px; font-weight: 700; color: var(--brun); letter-spacing: 0.3px; opacity: 0.75; transition: opacity .2s, color .2s; }
+    .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--terra); }
+    .nav-cta { background: var(--terra); color: var(--white) !important; opacity: 1 !important; border-radius: 50px; padding: 10px 24px !important; font-size: 13px !important; transition: background .2s !important; }
+    .nav-cta:hover { background: var(--terra-d) !important; }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: linear-gradient(-45deg, #2E2A25, #3d3328, #2a2018, #3d3328);
+      background-size: 400% 400%;
+      animation: gradientDrift 16s ease infinite;
+      padding: 180px 48px 80px; text-align: center;
+    }
+    @keyframes gradientDrift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .page-hero-tag { font-family: 'Pacifico', cursive; font-size: 13px; color: var(--terra); margin-bottom: 16px; }
+    .page-hero h1 { font-family: 'Playfair Display', serif; font-size: 52px; color: var(--white); font-weight: 700; line-height: 1.15; margin-bottom: 20px; }
+    .page-hero h1 em { color: var(--terra); font-style: italic; }
+    .page-hero p { font-size: 17px; color: rgba(245,239,224,0.7); font-weight: 300; line-height: 1.7; max-width: 520px; margin: 0 auto; }
+
+    /* ── CONTAINER ── */
+    .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── STEPPER ── */
+    .stepper-wrap { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 116px; z-index: 90; }
+    .stepper { display: flex; justify-content: center; gap: 0; max-width: 700px; margin: 0 auto; padding: 20px 24px; }
+    .step-item { display: flex; align-items: center; flex: 1; }
+    .step-bubble {
+      width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700; flex-shrink: 0; transition: all .4s;
+      background: var(--creme); color: var(--light); border: 2px solid var(--border);
+    }
+    .step-item.active .step-bubble { background: var(--terra); color: var(--white); border-color: var(--terra); transform: scale(1.1); box-shadow: 0 4px 16px rgba(201,123,90,0.35); }
+    .step-item.done .step-bubble { background: var(--sauge); color: var(--white); border-color: var(--sauge); }
+    .step-label { font-size: 12px; font-weight: 700; color: var(--light); margin-left: 10px; text-transform: uppercase; letter-spacing: 0.5px; transition: color .3s; white-space: nowrap; }
+    .step-item.active .step-label { color: var(--terra); }
+    .step-item.done .step-label { color: var(--sauge); }
+    .step-line { flex: 1; height: 2px; background: var(--border); margin: 0 12px; border-radius: 2px; transition: background .4s; }
+    .step-item.done + .step-item .step-line,
+    .step-item.done .step-line { background: var(--sauge); }
+
+    /* ── FORM WRAPPER ── */
+    .form-wrapper { padding: 64px 0 100px; }
+
+    /* ── SECTION CARD ── */
+    .form-section {
+      background: var(--white); border-radius: 24px; padding: 48px 48px 40px;
+      margin-bottom: 28px; border: 1px solid var(--border);
+      box-shadow: 0 2px 20px rgba(46,42,37,0.04);
+      transition: box-shadow .3s;
+    }
+    .form-section:hover { box-shadow: 0 8px 40px rgba(46,42,37,0.08); }
+    .section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+    .section-icon {
+      width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center;
+      font-size: 22px; flex-shrink: 0;
+    }
+    .section-icon.terra { background: var(--terra-light); }
+    .section-icon.sauge { background: var(--sauge-light); }
+    .section-icon.caramel { background: rgba(139,94,60,0.1); }
+    .section-icon.brun { background: rgba(46,42,37,0.07); }
+    .section-num { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--terra); margin-bottom: 4px; }
+    .section-title-sm { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--brun); font-weight: 700; }
+
+    /* ── FORM GRID ── */
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .form-grid .full { grid-column: 1 / -1; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+
+    /* ── LABELS ── */
+    label { font-size: 13px; font-weight: 700; color: var(--brun); letter-spacing: 0.2px; }
+    label .req { color: var(--terra); margin-left: 2px; }
+    .field-hint { font-size: 12px; color: var(--light); margin-top: 2px; }
+
+    /* ── INPUTS ── */
+    .input-wrap { position: relative; display: flex; align-items: center; }
+    .input-icon { position: absolute; left: 16px; font-size: 16px; pointer-events: none; z-index: 1; }
+    .form-input {
+      width: 100%; background: var(--creme); border: 1.5px solid var(--border);
+      border-radius: var(--radius); padding: 14px 16px; font-size: 15px;
+      font-family: 'Lato', sans-serif; color: var(--brun);
+      transition: border-color .2s, box-shadow .2s, background .2s;
+      outline: none; appearance: none;
+    }
+    .input-wrap .form-input { padding-left: 44px; }
+    .form-input:focus { border-color: var(--terra); background: var(--white); box-shadow: 0 0 0 3px rgba(201,123,90,0.12); }
+    .form-input.valid { border-color: var(--sauge); }
+    .form-input.invalid { border-color: #e05050; background: #fff8f8; box-shadow: 0 0 0 3px rgba(224,80,80,0.08); }
+    .form-input::placeholder { color: var(--light); }
+    textarea.form-input { resize: vertical; min-height: 120px; padding-left: 16px !important; }
+    select.form-input { cursor: pointer; }
+    select.form-input:invalid { color: var(--light); }
+
+    /* ── FIELD ERROR ── */
+    .field-error { font-size: 12px; color: #e05050; font-weight: 600; display: none; align-items: center; gap: 4px; }
+    .field-error.visible { display: flex; }
+
+    /* ── CHAR COUNTER ── */
+    .char-counter-wrap { display: flex; justify-content: flex-end; margin-top: 4px; }
+    .char-counter { font-size: 12px; color: var(--light); font-weight: 600; transition: color .2s; }
+    .char-counter.warn { color: #e09050; }
+    .char-counter.error { color: #e05050; }
+
+    /* ── PHOTO UPLOAD ── */
+    .upload-zone {
+      border: 2px dashed rgba(201,123,90,0.3); border-radius: var(--radius);
+      padding: 36px 24px; text-align: center; cursor: pointer;
+      background: rgba(201,123,90,0.03); transition: all .25s; position: relative;
+    }
+    .upload-zone:hover, .upload-zone.drag-over { border-color: var(--terra); background: var(--terra-light); }
+    .upload-zone input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
+    .upload-icon { font-size: 36px; margin-bottom: 10px; display: block; }
+    .upload-title { font-size: 15px; font-weight: 700; color: var(--brun); margin-bottom: 4px; }
+    .upload-sub { font-size: 13px; color: var(--light); }
+    .upload-sub span { color: var(--terra); font-weight: 700; }
+    .photos-preview { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+    .photo-thumb {
+      width: 90px; height: 90px; border-radius: 12px; position: relative; overflow: hidden;
+      border: 2px solid var(--border); flex-shrink: 0;
+      animation: thumbIn .3s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    @keyframes thumbIn { from { opacity:0; transform: scale(0.7); } to { opacity:1; transform: scale(1); } }
+    .photo-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .photo-thumb-remove {
+      position: absolute; top: 4px; right: 4px; width: 22px; height: 22px; border-radius: 50%;
+      background: rgba(0,0,0,0.55); color: var(--white); border: none; cursor: pointer;
+      font-size: 13px; display: flex; align-items: center; justify-content: center;
+      transition: background .2s; line-height: 1;
+    }
+    .photo-thumb-remove:hover { background: #e05050; }
+
+    /* ── PLAN CARDS ── */
+    .plan-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .plan-card {
+      border: 2px solid var(--border); border-radius: 20px; padding: 28px 24px; cursor: pointer;
+      transition: all .3s; position: relative; overflow: hidden;
+      background: var(--white);
+    }
+    .plan-card:hover { border-color: rgba(201,123,90,0.4); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(46,42,37,0.08); }
+    .plan-card.selected { border-color: var(--terra); background: rgba(201,123,90,0.04); box-shadow: 0 0 0 4px rgba(201,123,90,0.12); }
+    .plan-card.selected-premium { border-color: var(--brun); background: rgba(46,42,37,0.03); box-shadow: 0 0 0 4px rgba(46,42,37,0.08); }
+    .plan-card input[type="radio"] { display: none; }
+    .plan-badge {
+      display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase; padding: 4px 12px; border-radius: 50px;
+      margin-bottom: 16px;
+    }
+    .plan-badge.standard { background: var(--sauge-light); color: var(--sauge); }
+    .plan-badge.premium { background: rgba(46,42,37,0.08); color: var(--brun); }
+    .plan-price { font-family: 'Playfair Display', serif; font-size: 36px; color: var(--brun); font-weight: 700; line-height: 1; margin-bottom: 4px; }
+    .plan-price sup { font-size: 18px; vertical-align: super; }
+    .plan-price .period { font-size: 13px; font-weight: 400; color: var(--light); font-family: 'Lato', sans-serif; }
+    .plan-desc { font-size: 14px; color: var(--text); line-height: 1.6; margin-bottom: 20px; }
+    .plan-features { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .plan-features li { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--text); }
+    .plan-features li::before { content: '✓'; color: var(--sauge); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .plan-features li.off { color: var(--light); }
+    .plan-features li.off::before { content: '–'; color: var(--border); }
+    .plan-check {
+      position: absolute; top: 16px; right: 16px; width: 24px; height: 24px; border-radius: 50%;
+      background: var(--terra); color: var(--white); font-size: 13px;
+      display: none; align-items: center; justify-content: center; font-weight: 700;
+    }
+    .plan-card.selected .plan-check,
+    .plan-card.selected-premium .plan-check { display: flex; }
+    .plan-card.selected-premium .plan-check { background: var(--brun); }
+
+    /* ── PLAN RECAP ── */
+    .plan-recap {
+      background: var(--brun); border-radius: 16px; padding: 20px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: 24px; gap: 16px;
+    }
+    .recap-label { font-size: 14px; color: rgba(245,239,224,0.6); }
+    .recap-plan { font-size: 16px; font-weight: 700; color: var(--white); }
+    .recap-price { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--terra); font-weight: 700; text-align: right; }
+    .recap-price small { font-family: 'Lato', sans-serif; font-size: 12px; color: rgba(245,239,224,0.4); font-weight: 400; display: block; }
+
+    /* ── SUBMIT ── */
+    .submit-wrap { text-align: center; padding-top: 12px; }
+    .btn-submit {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: var(--terra); color: var(--white); border: none; cursor: pointer;
+      border-radius: 50px; padding: 18px 48px; font-size: 16px; font-weight: 700;
+      font-family: 'Lato', sans-serif; letter-spacing: 0.3px;
+      box-shadow: 0 8px 32px rgba(201,123,90,0.45);
+      transition: all .25s; position: relative; overflow: hidden;
+    }
+    .btn-submit:hover { background: var(--terra-d); transform: translateY(-2px); box-shadow: 0 14px 44px rgba(201,123,90,0.55); }
+    .btn-submit:active { transform: translateY(0); }
+    .btn-submit .spinner { display: none; width: 20px; height: 20px; border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin .7s linear infinite; }
+    .btn-submit.loading .btn-text { display: none; }
+    .btn-submit.loading .spinner { display: block; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .submit-note { font-size: 13px; color: var(--light); margin-top: 12px; }
+
+    /* ── SUCCESS PAGE ── */
+    .success-page {
+      display: none; text-align: center; padding: 80px 24px;
+      animation: fadeInUp .6s ease;
+    }
+    @keyframes fadeInUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:none; } }
+    .success-page.show { display: block; }
+    .success-icon { font-size: 72px; margin-bottom: 24px; display: block; }
+    .success-title { font-family: 'Playfair Display', serif; font-size: 38px; color: var(--brun); font-weight: 700; margin-bottom: 16px; }
+    .success-title em { color: var(--terra); font-style: italic; }
+    .success-sub { font-size: 16px; color: var(--text); max-width: 480px; margin: 0 auto 36px; line-height: 1.7; }
+    .success-plan-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--brun); color: var(--white); border-radius: 50px;
+      padding: 12px 28px; font-weight: 700; font-size: 15px; margin-bottom: 36px;
+    }
+    .success-plan-badge span { color: var(--terra); }
+    .success-btn {
+      display: inline-block; background: var(--terra); color: var(--white);
+      border-radius: 50px; padding: 14px 36px; font-weight: 700; font-size: 15px;
+      box-shadow: 0 6px 24px rgba(201,123,90,0.4); transition: all .25s;
+    }
+    .success-btn:hover { background: var(--terra-d); transform: translateY(-2px); color: var(--white); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--brun); padding: 64px 48px 32px; }
+    .footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; max-width: 1100px; margin: 0 auto 48px; }
+    .footer-brand { font-family: 'Pacifico', cursive; font-size: 24px; color: var(--terra); margin-bottom: 12px; }
+    .footer-tagline { font-size: 14px; color: rgba(245,239,224,0.5); line-height: 1.7; max-width: 280px; }
+    .footer-col { display: flex; flex-direction: column; gap: 10px; }
+    .footer-col-title { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--terra); margin-bottom: 6px; }
+    .footer-col a { font-size: 14px; color: rgba(245,239,224,0.5); transition: color .2s; }
+    .footer-col a:hover { color: var(--creme); }
+    .footer-bottom { border-top: 1px solid rgba(245,239,224,0.08); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; max-width: 1100px; margin: 0 auto; }
+    .footer-copy { font-size: 13px; color: rgba(245,239,224,0.3); }
+    .footer-heart { font-size: 13px; color: rgba(201,123,90,0.6); }
+
+    /* ── FLOAT BUY BUTTON ── */
+    .float-buy {
+      position: fixed; bottom: 28px; right: 28px; z-index: 500;
+      background: var(--brun); color: var(--creme);
+      border-radius: 50px; padding: 14px 22px; font-size: 13px; font-weight: 700;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25); transition: all .25s;
+      display: flex; align-items: center; gap: 8px; border: 1.5px solid rgba(201,123,90,0.3);
+    }
+    .float-buy:hover { background: #1e1a16; border-color: var(--terra); transform: translateY(-2px); color: var(--creme); }
+    .float-buy-arrow { transition: transform .2s; display: inline-block; }
+    .float-buy:hover .float-buy-arrow { transform: translateX(4px); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 720px) {
+      nav { padding: 0 20px; }
+      .nav-links { gap: 16px; }
+      .page-hero { padding: 160px 24px 60px; }
+      .page-hero h1 { font-size: 34px; }
+      .form-section { padding: 32px 24px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-grid .full { grid-column: 1; }
+      .plan-grid { grid-template-columns: 1fr; }
+      .stepper-wrap { top: 116px; }
+      .stepper { gap: 0; padding: 16px 12px; }
+      .step-label { display: none; }
+      .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+      .plan-recap { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ ANNOUNCEMENT BANNER ═══ -->
+  <div class="sale-banner" id="saleBanner" role="banner" aria-label="Offre promotionnelle">
+    <p class="sale-banner-text">🐾 Référencez votre service — <strong>Annonce Standard offerte</strong> jusqu'au 30 juin</p>
+    <a href="#paiement" class="sale-banner-cta">Voir les offres</a>
+    <button class="sale-banner-close" aria-label="Fermer" onclick="this.parentElement.style.display='none'">✕</button>
+  </div>
+
+  <!-- ═══ NAV ═══ -->
+  <nav role="navigation" aria-label="Navigation principale">
+    <a href="index.html" class="nav-brand" aria-label="Cabane à Câlin — Accueil">Cabane à Câlin</a>
+    <div class="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="index.html#services">Services</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="nav-cta">Réserver</a>
+    </div>
+  </nav>
+
+  <!-- ═══ PAGE HERO ═══ -->
+  <header class="page-hero" role="banner">
+    <p class="page-hero-tag">Annuaire professionnel</p>
+    <h1>Déposez votre <em>annonce</em></h1>
+    <p>Rejoignez notre réseau de professionnels de la garde d'animaux et gagnez en visibilité auprès de milliers de propriétaires en Île-de-France.</p>
+  </header>
+
+  <!-- ═══ STEPPER ═══ -->
+  <div class="stepper-wrap" role="navigation" aria-label="Étapes du formulaire">
+    <div class="stepper" id="stepper">
+      <div class="step-item active" id="step1">
+        <div class="step-bubble">1</div>
+        <div class="step-label">Pro</div>
+      </div>
+      <div class="step-line"></div>
+      <div class="step-item" id="step2">
+        <div class="step-bubble">2</div>
+        <div class="step-label">Localisation</div>
+      </div>
+      <div class="step-line"></div>
+      <div class="step-item" id="step3">
+        <div class="step-bubble">3</div>
+        <div class="step-label">Annonce</div>
+      </div>
+      <div class="step-line"></div>
+      <div class="step-item" id="step4">
+        <div class="step-bubble">4</div>
+        <div class="step-label">Paiement</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ MAIN CONTENT ═══ -->
+  <main>
+    <div class="form-wrapper">
+      <div class="container">
+
+        <div id="formContent">
+          <form id="mainForm" novalidate onsubmit="handleFormSubmit(event)">
+
+            <!-- ═══ SECTION 1 — PRO ═══ -->
+            <div class="form-section reveal" id="sec-pro" data-step="1">
+              <div class="section-header">
+                <div class="section-icon terra">🏢</div>
+                <div>
+                  <div class="section-num">Partie 01</div>
+                  <h2 class="section-title-sm">Informations professionnelles</h2>
+                </div>
+              </div>
+              <div class="form-grid">
+
+                <div class="form-group full">
+                  <label for="f-entreprise">Nom de l'entreprise <span class="req">*</span></label>
+                  <div class="input-wrap">
+                    <span class="input-icon">🏷️</span>
+                    <input type="text" id="f-entreprise" name="entreprise" class="form-input"
+                      placeholder="Ex : Pension des Petites Pattes" maxlength="80" required />
+                  </div>
+                  <span class="field-error" id="err-entreprise">⚠ Ce champ est requis</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="f-email">Adresse email <span class="req">*</span></label>
+                  <div class="input-wrap">
+                    <span class="input-icon">✉️</span>
+                    <input type="email" id="f-email" name="email" class="form-input"
+                      placeholder="contact@monservice.fr" required />
+                  </div>
+                  <span class="field-error" id="err-email">⚠ Email invalide</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="f-tel">Téléphone <span class="req">*</span></label>
+                  <div class="input-wrap">
+                    <span class="input-icon">📞</span>
+                    <input type="tel" id="f-tel" name="telephone" class="form-input"
+                      placeholder="06 xx xx xx xx" required />
+                  </div>
+                  <span class="field-error" id="err-tel">⚠ Numéro invalide</span>
+                </div>
+
+                <div class="form-group full">
+                  <label for="f-site">Site web <span style="color:var(--light);font-weight:400">(optionnel)</span></label>
+                  <div class="input-wrap">
+                    <span class="input-icon">🌐</span>
+                    <input type="url" id="f-site" name="site" class="form-input"
+                      placeholder="https://monsite.fr" />
+                  </div>
+                  <span class="field-error" id="err-site">⚠ URL invalide (commencer par https://)</span>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- ═══ SECTION 2 — LOCALISATION ═══ -->
+            <div class="form-section reveal" id="sec-loc" data-step="2">
+              <div class="section-header">
+                <div class="section-icon sauge">📍</div>
+                <div>
+                  <div class="section-num">Partie 02</div>
+                  <h2 class="section-title-sm">Localisation</h2>
+                </div>
+              </div>
+              <div class="form-grid">
+
+                <div class="form-group">
+                  <label for="f-cp">Code postal <span class="req">*</span></label>
+                  <div class="input-wrap">
+                    <span class="input-icon">🗺️</span>
+                    <input type="text" id="f-cp" name="code_postal" class="form-input"
+                      placeholder="75001" maxlength="5" pattern="[0-9]{5}" required />
+                  </div>
+                  <p class="field-hint">Utilisé pour trier les annonces par zone géographique</p>
+                  <span class="field-error" id="err-cp">⚠ Code postal à 5 chiffres requis</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="f-ville">Ville <span class="req">*</span></label>
+                  <div class="input-wrap">
+                    <span class="input-icon">🏙️</span>
+                    <input type="text" id="f-ville" name="ville" class="form-input"
+                      placeholder="Paris" required />
+                  </div>
+                  <span class="field-error" id="err-ville">⚠ Ce champ est requis</span>
+                </div>
+
+                <div class="form-group full">
+                  <label for="f-rayon">Rayon d'intervention <span style="color:var(--light);font-weight:400">(optionnel)</span></label>
+                  <div class="input-wrap">
+                    <span class="input-icon">📏</span>
+                    <select id="f-rayon" name="rayon" class="form-input">
+                      <option value="" selected>Sélectionner un rayon</option>
+                      <option value="5">5 km autour de chez moi</option>
+                      <option value="10">10 km</option>
+                      <option value="20">20 km</option>
+                      <option value="50">50 km</option>
+                      <option value="tout">Toute l'Île-de-France</option>
+                    </select>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- ═══ SECTION 3 — ANNONCE ═══ -->
+            <div class="form-section reveal" id="sec-annonce" data-step="3">
+              <div class="section-header">
+                <div class="section-icon caramel">📝</div>
+                <div>
+                  <div class="section-num">Partie 03</div>
+                  <h2 class="section-title-sm">Votre annonce</h2>
+                </div>
+              </div>
+              <div class="form-grid">
+
+                <div class="form-group full">
+                  <label for="f-titre">Titre de l'annonce <span class="req">*</span></label>
+                  <div class="input-wrap">
+                    <span class="input-icon">✍️</span>
+                    <input type="text" id="f-titre" name="titre" class="form-input"
+                      placeholder="Ex : Garde d'animaux à domicile — Paris 11e" maxlength="80" required />
+                  </div>
+                  <span class="field-error" id="err-titre">⚠ Ce champ est requis</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="f-categorie">Catégorie <span class="req">*</span></label>
+                  <div class="input-wrap">
+                    <span class="input-icon">🐾</span>
+                    <select id="f-categorie" name="categorie" class="form-input" required>
+                      <option value="" selected disabled>Choisir une catégorie</option>
+                      <option value="pension">Pension</option>
+                      <option value="visites">Visites à domicile</option>
+                      <option value="education">Éducation canine</option>
+                      <option value="promenade">Promenade</option>
+                    </select>
+                  </div>
+                  <span class="field-error" id="err-categorie">⚠ Veuillez choisir une catégorie</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="f-tarif">Tarif indicatif <span style="color:var(--light);font-weight:400">(optionnel)</span></label>
+                  <div class="input-wrap">
+                    <span class="input-icon">💶</span>
+                    <input type="text" id="f-tarif" name="tarif" class="form-input"
+                      placeholder="Ex : 30 €/nuit" maxlength="40" />
+                  </div>
+                </div>
+
+                <div class="form-group full">
+                  <label for="f-desc">Description <span class="req">*</span></label>
+                  <textarea id="f-desc" name="description" class="form-input"
+                    placeholder="Décrivez votre service, vos atouts, vos conditions d'accueil…" maxlength="200" required></textarea>
+                  <div class="char-counter-wrap">
+                    <span class="char-counter" id="charCount">0 / 200</span>
+                  </div>
+                  <span class="field-error" id="err-desc">⚠ Description requise (10 caractères minimum)</span>
+                </div>
+
+                <!-- Upload photos -->
+                <div class="form-group full">
+                  <label>Photos <span style="color:var(--light);font-weight:400">(3 max · JPG/PNG/WebP · 5 Mo)</span></label>
+                  <div class="upload-zone" id="uploadZone">
+                    <input type="file" id="f-photos" accept="image/jpeg,image/png,image/webp" multiple />
+                    <span class="upload-icon">📷</span>
+                    <p class="upload-title">Glissez vos photos ici</p>
+                    <p class="upload-sub">ou <span>parcourir les fichiers</span></p>
+                  </div>
+                  <div class="photos-preview" id="photosPreview"></div>
+                  <span class="field-error" id="err-photos"></span>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- ═══ SECTION 4 — PAIEMENT ═══ -->
+            <div class="form-section reveal" id="sec-paiement" data-step="4">
+              <div class="section-header">
+                <div class="section-icon brun">💳</div>
+                <div>
+                  <div class="section-num">Partie 04</div>
+                  <h2 class="section-title-sm">Choisissez votre formule</h2>
+                </div>
+              </div>
+
+              <div class="plan-grid">
+
+                <!-- Standard -->
+                <label class="plan-card selected" id="card-standard" for="plan-standard">
+                  <input type="radio" id="plan-standard" name="plan" value="standard" checked />
+                  <div class="plan-check">✓</div>
+                  <div class="plan-badge standard">⭐ Standard</div>
+                  <div class="plan-price"><sup>€</sup>0<span class="period"> / mois</span></div>
+                  <p class="plan-desc">Démarrez gratuitement et testez la visibilité de votre annonce dans l'annuaire.</p>
+                  <ul class="plan-features">
+                    <li>1 annonce active</li>
+                    <li>Fiche pro complète</li>
+                    <li>Contact via formulaire</li>
+                    <li class="off">Mise en avant dans les résultats</li>
+                    <li class="off">Badge "Certifié Cabane à Câlin"</li>
+                    <li class="off">Statistiques de visibilité</li>
+                  </ul>
+                </label>
+
+                <!-- Premium -->
+                <label class="plan-card" id="card-premium" for="plan-premium">
+                  <input type="radio" id="plan-premium" name="plan" value="premium" />
+                  <div class="plan-check">✓</div>
+                  <div class="plan-badge premium">🏆 Premium</div>
+                  <div class="plan-price"><sup>€</sup>9<span style="font-size:24px">,90</span><span class="period"> / mois</span></div>
+                  <p class="plan-desc">Maximisez votre visibilité avec un accès prioritaire et des outils exclusifs.</p>
+                  <ul class="plan-features">
+                    <li>Annonces illimitées</li>
+                    <li>Fiche pro enrichie + photos</li>
+                    <li>Contact direct (téléphone + email)</li>
+                    <li>Mise en avant dans les résultats</li>
+                    <li>Badge "Certifié Cabane à Câlin"</li>
+                    <li>Statistiques de visibilité</li>
+                  </ul>
+                </label>
+
+              </div>
+
+              <!-- Recap -->
+              <div class="plan-recap" id="planRecap">
+                <div>
+                  <div class="recap-label">Formule sélectionnée</div>
+                  <div class="recap-plan" id="recapPlan">Standard</div>
+                </div>
+                <div class="recap-price" id="recapPrice">
+                  0 €
+                  <small>par mois</small>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- ═══ SUBMIT ═══ -->
+            <div class="submit-wrap">
+              <button type="submit" class="btn-submit" id="btnSubmit">
+                <span class="btn-text">Déposer mon annonce →</span>
+                <span class="spinner"></span>
+              </button>
+              <p class="submit-note">En soumettant ce formulaire, vous acceptez nos <a href="terms-and-conditions.html" style="color:var(--terra);text-decoration:underline">mentions légales</a> et notre <a href="politique-de-confidentialite.html" style="color:var(--terra);text-decoration:underline">politique de confidentialité</a>.</p>
+            </div>
+
+          </form>
+        </div>
+
+        <!-- ═══ SUCCESS STATE ═══ -->
+        <div class="success-page" id="successPage">
+          <span class="success-icon">🎉</span>
+          <h2 class="success-title">Annonce déposée <em>avec succès</em> !</h2>
+          <p class="success-sub">Votre annonce est en cours de validation par notre équipe. Vous recevrez une confirmation par email sous 24h.</p>
+          <div class="success-plan-badge" id="successBadge">
+            Formule <span id="successPlanName">Standard</span> — <span id="successPlanPrice">Gratuit</span>
+          </div>
+          <br/>
+          <a href="index.html" class="success-btn">← Retour à l'accueil</a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Cabane à Câlin</div>
+        <div class="footer-tagline">Service de garde d'animaux familial, chaleureux et sécurisant. Parce que vos compagnons méritent ce qu'il y a de mieux.</div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Services</div>
+        <a href="index.html#services">Hébergement complet</a>
+        <a href="index.html#services">Garde de jour — Day Sitting</a>
+        <a href="index.html#services">Garde à domicile — Home Sitting</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Contact</div>
+        <a href="contact.html">Nous contacter</a>
+        <a href="contact.html#faq">FAQ</a>
+        <a href="terms-and-conditions.html">Mentions légales</a>
+        <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© <span id="footer-year"></span> Cabane à Câlin. Tous droits réservés.</span>
+      <span class="footer-heart">Fait avec ♥ pour vos animaux</span>
+    </div>
+  </footer>
+
+  <!-- Float CTA -->
+  <a href="contact.html" class="float-buy" aria-label="Réserver une garde">
+    Réserver une garde
+    <span class="float-buy-arrow">→</span>
+  </a>
+
+  <script src="shared.min.js" defer></script>
+  <script>
+  (function () {
+    /* ── Footer year ── */
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    /* ── Stepper via IntersectionObserver ── */
+    const sections = [
+      { id: 'sec-pro',      step: 'step1' },
+      { id: 'sec-loc',      step: 'step2' },
+      { id: 'sec-annonce',  step: 'step3' },
+      { id: 'sec-paiement', step: 'step4' },
+    ];
+    const stepEls = sections.map(s => document.getElementById(s.step));
+
+    function setStep(idx) {
+      stepEls.forEach((el, i) => {
+        el.classList.remove('active', 'done');
+        if (i < idx)  el.classList.add('done');
+        if (i === idx) el.classList.add('active');
+      });
+    }
+
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const found = sections.findIndex(s => s.id === entry.target.id);
+          if (found !== -1) setStep(found);
+        }
+      });
+    }, { rootMargin: '-30% 0px -50% 0px', threshold: 0 });
+
+    sections.forEach(s => {
+      const el = document.getElementById(s.id);
+      if (el) obs.observe(el);
+    });
+
+    /* ── Code postal — digits only, max 5 ── */
+    const cpInput = document.getElementById('f-cp');
+    if (cpInput) {
+      cpInput.addEventListener('input', () => {
+        cpInput.value = cpInput.value.replace(/\D/g, '').slice(0, 5);
+      });
+    }
+
+    /* ── Char counter ── */
+    const descEl = document.getElementById('f-desc');
+    const counter = document.getElementById('charCount');
+    if (descEl && counter) {
+      descEl.addEventListener('input', () => {
+        const len = descEl.value.length;
+        counter.textContent = len + ' / 200';
+        counter.className = 'char-counter' + (len >= 200 ? ' error' : len >= 180 ? ' warn' : '');
+      });
+    }
+
+    /* ── Photo upload ── */
+    let uploadedFiles = [];
+    const uploadZone  = document.getElementById('uploadZone');
+    const fileInput   = document.getElementById('f-photos');
+    const preview     = document.getElementById('photosPreview');
+    const errPhotos   = document.getElementById('err-photos');
+
+    function addFiles(files) {
+      const allowed = ['image/jpeg','image/png','image/webp'];
+      for (const file of files) {
+        if (uploadedFiles.length >= 3) { showPhotoErr('3 photos maximum'); break; }
+        if (!allowed.includes(file.type)) { showPhotoErr('Format non supporté (JPG/PNG/WebP)'); continue; }
+        if (file.size > 5 * 1024 * 1024) { showPhotoErr('Fichier trop lourd (max 5 Mo)'); continue; }
+        uploadedFiles.push(file);
+        renderThumb(file, uploadedFiles.length - 1);
+      }
+    }
+    function showPhotoErr(msg) {
+      errPhotos.textContent = '⚠ ' + msg;
+      errPhotos.classList.add('visible');
+      setTimeout(() => errPhotos.classList.remove('visible'), 3000);
+    }
+    function renderThumb(file, idx) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const div = document.createElement('div');
+        div.className = 'photo-thumb';
+        div.dataset.idx = idx;
+        div.innerHTML = `<img src="${e.target.result}" alt="Photo ${idx+1}" /><button type="button" class="photo-thumb-remove" data-idx="${idx}" title="Supprimer">✕</button>`;
+        div.querySelector('.photo-thumb-remove').addEventListener('click', () => {
+          uploadedFiles.splice(idx, 1);
+          renderAllThumbs();
+        });
+        preview.appendChild(div);
+      };
+      reader.readAsDataURL(file);
+    }
+    function renderAllThumbs() {
+      preview.innerHTML = '';
+      uploadedFiles.forEach((f, i) => renderThumb(f, i));
+    }
+
+    fileInput.addEventListener('change', () => { addFiles(fileInput.files); fileInput.value = ''; });
+    uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('drag-over'); });
+    uploadZone.addEventListener('dragleave', ()  => uploadZone.classList.remove('drag-over'));
+    uploadZone.addEventListener('drop', e => {
+      e.preventDefault();
+      uploadZone.classList.remove('drag-over');
+      addFiles(e.dataTransfer.files);
+    });
+
+    /* ── Plan selection ── */
+    const cardStd  = document.getElementById('card-standard');
+    const cardPrem = document.getElementById('card-premium');
+    const recapPlan  = document.getElementById('recapPlan');
+    const recapPrice = document.getElementById('recapPrice');
+
+    function updateRecap(isPremium) {
+      cardStd.classList.toggle('selected', !isPremium);
+      cardPrem.classList.toggle('selected-premium', isPremium);
+      if (isPremium) {
+        recapPlan.textContent = 'Premium';
+        recapPrice.innerHTML = '9,90 €<small>par mois</small>';
+      } else {
+        recapPlan.textContent = 'Standard';
+        recapPrice.innerHTML = '0 €<small>par mois</small>';
+      }
+    }
+
+    document.querySelectorAll('input[name="plan"]').forEach(r => {
+      r.addEventListener('change', () => updateRecap(r.value === 'premium'));
+    });
+
+    /* ── Validation helpers ── */
+    function showErr(id, errId) {
+      const el = document.getElementById(id);
+      const err = document.getElementById(errId);
+      if (el)  { el.classList.add('invalid'); el.classList.remove('valid'); }
+      if (err) err.classList.add('visible');
+    }
+    function clearErr(id, errId) {
+      const el = document.getElementById(id);
+      const err = document.getElementById(errId);
+      if (el)  { el.classList.remove('invalid'); el.classList.add('valid'); }
+      if (err) err.classList.remove('visible');
+    }
+    const isEmpty = v => !v || v.trim() === '';
+    const isEmail = v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+    const isPhone = v => /^[\d\s\+\-\.\(\)]{6,20}$/.test(v.trim());
+    const isCP    = v => /^\d{5}$/.test(v.trim());
+    const isURL   = v => v.trim() === '' || /^https?:\/\/.+/.test(v.trim());
+
+    function liveVal(id, errId, fn) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const check = () => fn(el.value) ? clearErr(id, errId) : showErr(id, errId);
+      el.addEventListener('blur', check);
+      el.addEventListener('input', () => { if (el.classList.contains('invalid')) check(); });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      liveVal('f-entreprise', 'err-entreprise', v => !isEmpty(v));
+      liveVal('f-email',      'err-email',      v => !isEmpty(v) && isEmail(v));
+      liveVal('f-tel',        'err-tel',        v => !isEmpty(v) && isPhone(v));
+      liveVal('f-site',       'err-site',       v => isURL(v));
+      liveVal('f-cp',         'err-cp',         v => isCP(v));
+      liveVal('f-ville',      'err-ville',      v => !isEmpty(v));
+      liveVal('f-titre',      'err-titre',      v => !isEmpty(v));
+      liveVal('f-desc',       'err-desc',       v => v.trim().length >= 10);
+      liveVal('f-categorie',  'err-categorie',  v => !isEmpty(v));
+    });
+
+    /* ── Submit ── */
+    window.handleFormSubmit = function(e) {
+      e.preventDefault();
+      let valid = true;
+
+      const checks = [
+        ['f-entreprise', 'err-entreprise', v => !isEmpty(v)],
+        ['f-email',      'err-email',      v => !isEmpty(v) && isEmail(v)],
+        ['f-tel',        'err-tel',        v => !isEmpty(v) && isPhone(v)],
+        ['f-site',       'err-site',       v => isURL(v)],
+        ['f-cp',         'err-cp',         v => isCP(v)],
+        ['f-ville',      'err-ville',      v => !isEmpty(v)],
+        ['f-titre',      'err-titre',      v => !isEmpty(v)],
+        ['f-desc',       'err-desc',       v => v.trim().length >= 10],
+        ['f-categorie',  'err-categorie',  v => !isEmpty(v)],
+      ];
+
+      checks.forEach(([id, errId, fn]) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        if (fn(el.value)) clearErr(id, errId);
+        else { showErr(id, errId); valid = false; }
+      });
+
+      if (!valid) {
+        const firstInvalid = document.querySelector('.invalid');
+        if (firstInvalid) firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      // Loading state
+      const btn = document.getElementById('btnSubmit');
+      btn.classList.add('loading');
+      btn.disabled = true;
+
+      setTimeout(() => {
+        const isPremium = document.querySelector('input[name="plan"]:checked').value === 'premium';
+        document.getElementById('successPlanName').textContent  = isPremium ? 'Premium' : 'Standard';
+        document.getElementById('successPlanPrice').textContent = isPremium ? '9,90 €/mois' : 'Gratuit';
+
+        document.getElementById('formContent').style.display = 'none';
+        document.getElementById('successPage').classList.add('show');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 1200);
+    };
+
+  })();
+  </script>
+
+</body>
+</html>
