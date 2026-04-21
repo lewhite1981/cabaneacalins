@@ -241,8 +241,37 @@
     }
     .recap-label { font-size: 14px; color: rgba(245,239,224,0.6); }
     .recap-plan { font-size: 16px; font-weight: 700; color: var(--white); }
+    .recap-cycle { font-size: 12px; color: rgba(245,239,224,0.65); margin-top: 3px; }
     .recap-price { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--terra); font-weight: 700; text-align: right; }
     .recap-price small { font-family: 'Lato', sans-serif; font-size: 12px; color: rgba(245,239,224,0.4); font-weight: 400; display: block; }
+
+    /* ── AUTOMATION + BILLING ── */
+    .sub-block {
+      margin-top: 22px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: #fcfaf6;
+      padding: 18px;
+    }
+    .sub-block-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--brun);
+      margin-bottom: 14px;
+      letter-spacing: .2px;
+    }
+    .inline-check {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 14px;
+      color: var(--text);
+      margin-top: 6px;
+      cursor: pointer;
+    }
+    .inline-check input { width: 17px; height: 17px; accent-color: var(--terra); cursor: pointer; }
+    .payment-fields { transition: opacity .2s ease; }
+    .payment-fields.disabled { opacity: .45; pointer-events: none; }
 
     /* ── SUBMIT ── */
     .submit-wrap { text-align: center; padding-top: 12px; }
@@ -612,11 +641,82 @@
 
               </div>
 
+              <div class="sub-block">
+                <div class="sub-block-title">Automatiser le depot de l'annonce</div>
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label for="f-publication">Mode de publication <span class="req">*</span></label>
+                    <select id="f-publication" name="publication_mode" class="form-input" required>
+                      <option value="" selected disabled>Choisir un mode</option>
+                      <option value="immediate">Publication immediate</option>
+                      <option value="validation">Publication apres validation</option>
+                      <option value="scheduled">Publication planifiee</option>
+                    </select>
+                    <span class="field-error" id="err-publication">⚠ Choisissez un mode de publication</span>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="f-start">Date de demarrage <span class="req">*</span></label>
+                    <input type="date" id="f-start" name="start_date" class="form-input" required />
+                    <span class="field-error" id="err-start">⚠ Choisissez une date valide</span>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="f-frequency">Frequence de redepot automatique</label>
+                    <select id="f-frequency" name="auto_frequency" class="form-input">
+                      <option value="none" selected>Pas de redepot</option>
+                      <option value="weekly">Chaque semaine</option>
+                      <option value="biweekly">Toutes les 2 semaines</option>
+                      <option value="monthly">Chaque mois</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="inline-check" for="f-renew">
+                      <input type="checkbox" id="f-renew" name="auto_renew" checked />
+                      Renouvellement automatique de l'abonnement
+                    </label>
+                    <p class="field-hint">Recommande pour garder l'annonce active sans interruption.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sub-block payment-fields disabled" id="paymentFields">
+                <div class="sub-block-title">Paiement securise (obligatoire pour Premium)</div>
+                <div class="form-grid">
+                  <div class="form-group full">
+                    <label for="f-card-name">Titulaire de la carte <span class="req">*</span></label>
+                    <input type="text" id="f-card-name" name="card_name" class="form-input" placeholder="Nom Prenom" autocomplete="cc-name" />
+                    <span class="field-error" id="err-card-name">⚠ Nom du titulaire requis</span>
+                  </div>
+
+                  <div class="form-group full">
+                    <label for="f-card-number">Numero de carte <span class="req">*</span></label>
+                    <input type="text" id="f-card-number" name="card_number" class="form-input" placeholder="4242 4242 4242 4242" inputmode="numeric" autocomplete="cc-number" maxlength="19" />
+                    <span class="field-error" id="err-card-number">⚠ Numero de carte invalide</span>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="f-card-expiry">Expiration <span class="req">*</span></label>
+                    <input type="text" id="f-card-expiry" name="card_expiry" class="form-input" placeholder="MM/AA" inputmode="numeric" autocomplete="cc-exp" maxlength="5" />
+                    <span class="field-error" id="err-card-expiry">⚠ Date invalide</span>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="f-card-cvc">CVC <span class="req">*</span></label>
+                    <input type="text" id="f-card-cvc" name="card_cvc" class="form-input" placeholder="123" inputmode="numeric" autocomplete="cc-csc" maxlength="4" />
+                    <span class="field-error" id="err-card-cvc">⚠ CVC invalide</span>
+                  </div>
+                </div>
+                <p class="field-hint">Simulation front-end: branchez ensuite votre PSP (Stripe/PayPal) cote serveur.</p>
+              </div>
+
               <!-- Recap -->
               <div class="plan-recap" id="planRecap">
                 <div>
                   <div class="recap-label">Formule sélectionnée</div>
                   <div class="recap-plan" id="recapPlan">Standard</div>
+                  <div class="recap-cycle" id="recapCycle">Sans renouvellement automatique</div>
                 </div>
                 <div class="recap-price" id="recapPrice">
                   0 €
@@ -642,7 +742,7 @@
         <div class="success-page" id="successPage">
           <span class="success-icon">🎉</span>
           <h2 class="success-title">Annonce déposée <em>avec succès</em> !</h2>
-          <p class="success-sub">Votre annonce est en cours de validation par notre équipe. Vous recevrez une confirmation par email sous 24h.</p>
+          <p class="success-sub" id="successMessage">Votre annonce est en cours de validation par notre équipe. Vous recevrez une confirmation par email sous 24h.</p>
           <div class="success-plan-badge" id="successBadge">
             Formule <span id="successPlanName">Standard</span> — <span id="successPlanPrice">Gratuit</span>
           </div>
@@ -799,6 +899,53 @@
     const cardPrem = document.getElementById('card-premium');
     const recapPlan  = document.getElementById('recapPlan');
     const recapPrice = document.getElementById('recapPrice');
+    const recapCycle = document.getElementById('recapCycle');
+    const paymentFields = document.getElementById('paymentFields');
+    const renewInput = document.getElementById('f-renew');
+    const startInput = document.getElementById('f-start');
+    const cardNumberInput = document.getElementById('f-card-number');
+    const cardExpiryInput = document.getElementById('f-card-expiry');
+    const cardCvcInput = document.getElementById('f-card-cvc');
+    const cardNameInput = document.getElementById('f-card-name');
+
+    if (startInput) {
+      const today = new Date().toISOString().split('T')[0];
+      startInput.min = today;
+      if (!startInput.value) startInput.value = today;
+    }
+
+    function formatCardNumber(v) {
+      return v.replace(/\D/g, '').slice(0, 16).replace(/(.{4})/g, '$1 ').trim();
+    }
+    function formatExpiry(v) {
+      const digits = v.replace(/\D/g, '').slice(0, 4);
+      if (digits.length < 3) return digits;
+      return digits.slice(0, 2) + '/' + digits.slice(2);
+    }
+    if (cardNumberInput) {
+      cardNumberInput.addEventListener('input', () => { cardNumberInput.value = formatCardNumber(cardNumberInput.value); });
+    }
+    if (cardExpiryInput) {
+      cardExpiryInput.addEventListener('input', () => { cardExpiryInput.value = formatExpiry(cardExpiryInput.value); });
+    }
+    if (cardCvcInput) {
+      cardCvcInput.addEventListener('input', () => { cardCvcInput.value = cardCvcInput.value.replace(/\D/g, '').slice(0, 4); });
+    }
+
+    function togglePaymentFields(isPremium) {
+      if (!paymentFields) return;
+      paymentFields.classList.toggle('disabled', !isPremium);
+      [cardNameInput, cardNumberInput, cardExpiryInput, cardCvcInput].forEach((el) => {
+        if (!el) return;
+        el.required = isPremium;
+        if (!isPremium) {
+          el.classList.remove('invalid');
+          const errId = el.id.replace('f-', 'err-');
+          const errEl = document.getElementById(errId);
+          if (errEl) errEl.classList.remove('visible');
+        }
+      });
+    }
 
     function updateRecap(isPremium) {
       cardStd.classList.toggle('selected', !isPremium);
@@ -810,11 +957,22 @@
         recapPlan.textContent = 'Standard';
         recapPrice.innerHTML = '0 €<small>par mois</small>';
       }
+      recapCycle.textContent = renewInput && renewInput.checked
+        ? 'Renouvellement automatique actif'
+        : 'Sans renouvellement automatique';
+      togglePaymentFields(isPremium);
     }
 
     document.querySelectorAll('input[name="plan"]').forEach(r => {
       r.addEventListener('change', () => updateRecap(r.value === 'premium'));
     });
+    if (renewInput) {
+      renewInput.addEventListener('change', () => {
+        const isPremium = document.querySelector('input[name="plan"]:checked').value === 'premium';
+        updateRecap(isPremium);
+      });
+    }
+    updateRecap(false);
 
     /* ── Validation helpers ── */
     function showErr(id, errId) {
@@ -834,6 +992,24 @@
     const isPhone = v => /^[\d\s\+\-\.\(\)]{6,20}$/.test(v.trim());
     const isCP    = v => /^\d{5}$/.test(v.trim());
     const isURL   = v => v.trim() === '' || /^https?:\/\/.+/.test(v.trim());
+    const isCardNumber = v => /^\d{4}\s\d{4}\s\d{4}\s\d{4}$/.test(v.trim());
+    const isCardCvc = v => /^\d{3,4}$/.test(v.trim());
+    const isFutureExpiry = (v) => {
+      if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(v.trim())) return false;
+      const [monthStr, yearStr] = v.split('/');
+      const month = parseInt(monthStr, 10);
+      const year = 2000 + parseInt(yearStr, 10);
+      const now = new Date();
+      const expiryDate = new Date(year, month, 0, 23, 59, 59);
+      return expiryDate >= now;
+    };
+    const isValidStartDate = (v) => {
+      if (!v) return false;
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const selected = new Date(v + 'T00:00:00');
+      return !Number.isNaN(selected.getTime()) && selected >= today;
+    };
 
     function liveVal(id, errId, fn) {
       const el = document.getElementById(id);
@@ -853,6 +1029,12 @@
       liveVal('f-titre',      'err-titre',      v => !isEmpty(v));
       liveVal('f-desc',       'err-desc',       v => v.trim().length >= 10);
       liveVal('f-categorie',  'err-categorie',  v => !isEmpty(v));
+      liveVal('f-publication','err-publication',v => !isEmpty(v));
+      liveVal('f-start',      'err-start',      v => isValidStartDate(v));
+      liveVal('f-card-name',  'err-card-name',  v => !isEmpty(v));
+      liveVal('f-card-number','err-card-number',v => isCardNumber(v));
+      liveVal('f-card-expiry','err-card-expiry',v => isFutureExpiry(v));
+      liveVal('f-card-cvc',   'err-card-cvc',   v => isCardCvc(v));
     });
 
     /* ── Submit ── */
@@ -870,6 +1052,8 @@
         ['f-titre',      'err-titre',      v => !isEmpty(v)],
         ['f-desc',       'err-desc',       v => v.trim().length >= 10],
         ['f-categorie',  'err-categorie',  v => !isEmpty(v)],
+        ['f-publication','err-publication',v => !isEmpty(v)],
+        ['f-start',      'err-start',      v => isValidStartDate(v)],
       ];
 
       checks.forEach(([id, errId, fn]) => {
@@ -878,6 +1062,22 @@
         if (fn(el.value)) clearErr(id, errId);
         else { showErr(id, errId); valid = false; }
       });
+
+      const isPremium = document.querySelector('input[name="plan"]:checked').value === 'premium';
+      if (isPremium) {
+        const premiumChecks = [
+          ['f-card-name',   'err-card-name',   v => !isEmpty(v)],
+          ['f-card-number', 'err-card-number', v => isCardNumber(v)],
+          ['f-card-expiry', 'err-card-expiry', v => isFutureExpiry(v)],
+          ['f-card-cvc',    'err-card-cvc',    v => isCardCvc(v)],
+        ];
+        premiumChecks.forEach(([id, errId, fn]) => {
+          const el = document.getElementById(id);
+          if (!el) return;
+          if (fn(el.value)) clearErr(id, errId);
+          else { showErr(id, errId); valid = false; }
+        });
+      }
 
       if (!valid) {
         const firstInvalid = document.querySelector('.invalid');
@@ -891,9 +1091,11 @@
       btn.disabled = true;
 
       setTimeout(() => {
-        const isPremium = document.querySelector('input[name="plan"]:checked').value === 'premium';
         document.getElementById('successPlanName').textContent  = isPremium ? 'Premium' : 'Standard';
         document.getElementById('successPlanPrice').textContent = isPremium ? '9,90 €/mois' : 'Gratuit';
+        document.getElementById('successMessage').textContent = isPremium
+          ? "Votre annonce est active et votre abonnement Premium est lance en renouvellement automatique."
+          : "Votre annonce est en cours de validation. Vous pouvez passer en Premium a tout moment pour un depot automatique payant.";
 
         document.getElementById('formContent').style.display = 'none';
         document.getElementById('successPage').classList.add('show');
