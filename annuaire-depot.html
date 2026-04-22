@@ -759,6 +759,152 @@
     </div>
   </main>
 
+  <script>
+  /* ══════════════════════════════════════════════
+     WEB3FORMS — Dépôt d'annonce
+     Clé API : 4b7fc680-80c0-4584-a933-e623f0082696
+  ══════════════════════════════════════════════ */
+  async function handleFormSubmit(event) {
+    event.preventDefault();
+
+    const form  = document.getElementById('mainForm');
+    const btn   = document.getElementById('btnSubmit');
+
+    /* ── 1. VALIDATION des champs obligatoires ── */
+    const rules = [
+      { id: 'f-entreprise', err: 'err-entreprise', type: 'text',  label: "Nom de l'entreprise" },
+      { id: 'f-email',      err: 'err-email',      type: 'email', label: 'Email' },
+      { id: 'f-tel',        err: 'err-tel',        type: 'tel',   label: 'Téléphone' },
+      { id: 'f-cp',         err: 'err-cp',         type: 'text',  label: 'Code postal' },
+      { id: 'f-ville',      err: 'err-ville',      type: 'text',  label: 'Ville' },
+      { id: 'f-titre',      err: 'err-titre',      type: 'text',  label: "Titre de l'annonce" },
+      { id: 'f-categorie',  err: 'err-categorie',  type: 'text',  label: 'Catégorie' },
+    ];
+
+    let valid = true;
+    let firstBad = null;
+
+    for (const rule of rules) {
+      const el  = document.getElementById(rule.id);
+      const err = document.getElementById(rule.err);
+      if (!el) continue;
+
+      const val = el.value.trim();
+      let ok = val.length > 0;
+      if (ok && rule.type === 'email') ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+      if (ok && rule.id === 'f-cp')    ok = /^\d{5}$/.test(val);
+
+      if (!ok) {
+        el.classList.add('input-error');
+        err && err.classList.add('visible');
+        valid = false;
+        if (!firstBad) firstBad = el;
+      } else {
+        el.classList.remove('input-error');
+        err && err.classList.remove('visible');
+      }
+    }
+
+    if (!valid) {
+      firstBad && firstBad.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    /* ── 2. ÉTAT CHARGEMENT ── */
+    btn.classList.add('loading');
+    btn.disabled = true;
+
+    /* ── 3. COLLECTE DES DONNÉES ── */
+    const plan      = document.querySelector('input[name="plan"]:checked')?.value || 'standard';
+    const planLabel = plan === 'premium' ? 'Premium — 9,90 €/mois' : 'Standard — Gratuit';
+
+    const get = id => { const el = document.getElementById(id); return el ? el.value.trim() : ''; };
+
+    const payload = {
+      access_key : '4b7fc680-80c0-4584-a933-e623f0082696',
+      subject    : `📋 Nouvelle annonce : ${get('f-entreprise')} (${plan}) — Cabane à Câlin`,
+      from_name  : get('f-entreprise'),
+      replyto    : get('f-email'),
+
+      /* Bloc Pro */
+      'Entreprise'  : get('f-entreprise'),
+      'Email'       : get('f-email'),
+      'Téléphone'   : get('f-tel'),
+      'Site web'    : get('f-site') || '—',
+
+      /* Bloc Localisation */
+      'Code postal' : get('f-cp'),
+      'Ville'       : get('f-ville'),
+      'Rayon'       : get('f-rayon') || '—',
+
+      /* Bloc Annonce */
+      'Titre'       : get('f-titre'),
+      'Catégorie'   : get('f-categorie'),
+      'Tarif'       : get('f-tarif') || '—',
+      'Description' : get('f-desc'),
+
+      /* Bloc Paiement */
+      'Formule'     : planLabel,
+      'Mode publication' : get('f-publication') || '—',
+      'Date de début'    : get('f-start') || '—',
+    };
+
+    /* ── 4. ENVOI À WEB3FORMS ── */
+    try {
+      const res  = await fetch('https://api.web3forms.com/submit', {
+        method  : 'POST',
+        headers : { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body    : JSON.stringify(payload)
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        /* ── 5a. SUCCÈS : affichage page confirmation ── */
+        document.getElementById('formContent').style.display = 'none';
+        const sp = document.getElementById('successPage');
+        sp.classList.add('show');
+        document.getElementById('successPlanName').textContent  = plan === 'premium' ? 'Premium' : 'Standard';
+        document.getElementById('successPlanPrice').textContent = plan === 'premium' ? '9,90 €/mois' : 'Gratuit';
+        sp.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        throw new Error(data.message || 'Échec de l\'envoi');
+      }
+
+    } catch (err) {
+      /* ── 5b. ERREUR : message inline ── */
+      btn.classList.remove('loading');
+      btn.disabled = false;
+
+      let errBox = document.getElementById('web3f-error');
+      if (!errBox) {
+        errBox = document.createElement('p');
+        errBox.id = 'web3f-error';
+        errBox.style.cssText = [
+          'background:#fee2e2','color:#b91c1c','border-radius:12px',
+          'padding:14px 18px','margin-top:16px','font-size:.88rem',
+          'text-align:center','font-family:Lato,sans-serif'
+        ].join(';');
+        btn.parentNode.appendChild(errBox);
+      }
+      errBox.textContent = '⚠ Une erreur est survenue lors de l\'envoi. Vérifiez votre connexion et réessayez.';
+    }
+  }
+
+  /* ── Live-remove des erreurs au focus ── */
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.form-input').forEach(function(el) {
+      el.addEventListener('input', function() {
+        el.classList.remove('input-error');
+        const errId = 'err-' + (el.id || '').replace('f-', '');
+        const err   = document.getElementById(errId);
+        if (err) err.classList.remove('visible');
+        const box = document.getElementById('web3f-error');
+        if (box) box.remove();
+      });
+    });
+  });
+  </script>
+
   <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
