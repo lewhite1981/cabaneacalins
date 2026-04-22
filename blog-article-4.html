@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Pacifico&display=swap" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="shared.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --terra:#C97B5A; --terra-d:#b8694a; --sauge:#7A9E7E; --creme:#F5EFE0; --caramel:#8B5E3C; --brun:#2E2A25; --white:#FFFFFF; --text:#5c524a; --light:#a09790; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--creme); color: var(--brun); font-family: 'Lato', sans-serif; font-size: 16px; line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .art-hero { position:relative; height:420px; overflow:hidden; }
+    .art-hero img { width:100%; height:100%; object-fit:cover; }
+    .art-hero::after { content:''; position:absolute; inset:0; background:linear-gradient(to bottom,rgba(46,42,37,.2) 0%,rgba(46,42,37,.7) 100%); }
+    .art-hero-inner { position:absolute; bottom:0; left:0; right:0; z-index:2; padding:40px 0; }
+    .art-cat { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--terra); background:rgba(255,255,255,.15); backdrop-filter:blur(8px); padding:5px 14px; border-radius:50px; display:inline-block; margin-bottom:14px; }
+    .art-title { font-family:'Playfair Display',serif; font-size:clamp(1.6rem,4vw,2.6rem); color:#fff; font-weight:700; line-height:1.25; margin-bottom:14px; }
+    .art-meta { display:flex; gap:20px; align-items:center; flex-wrap:wrap; }
+    .art-meta span { font-size:.82rem; color:rgba(255,255,255,.7); }
+    .art-layout { display:grid; grid-template-columns:1fr 300px; gap:64px; padding:64px 0 96px; align-items:start; }
+    .art-body { max-width:680px; }
+    .art-body h2 { font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:700; color:var(--brun); margin:36px 0 14px; }
+    .art-body h3 { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:700; color:var(--brun); margin:28px 0 10px; }
+    .art-body p { font-size:1rem; color:var(--text); line-height:1.8; margin-bottom:18px; }
+    .art-body ul, .art-body ol { margin:0 0 18px 24px; color:var(--text); line-height:1.8; }
+    .art-body li { margin-bottom:6px; }
+    .art-body strong { color:var(--brun); font-weight:700; }
+    .art-body blockquote { border-left:4px solid var(--terra); padding:16px 20px; background:#fff; border-radius:0 12px 12px 0; margin:24px 0; color:var(--brun); font-style:italic; font-family:'Playfair Display',serif; font-size:1.05rem; }
+    .art-highlight { background:var(--brun); color:#fff; border-radius:16px; padding:28px; margin:32px 0; }
+    .art-highlight p { color:rgba(255,255,255,.85); margin:0; }
+    .art-highlight strong { color:var(--terra); }
+    .art-tip { background:#fff; border:2px solid rgba(201,123,90,.3); border-radius:16px; padding:20px 24px; margin:24px 0; }
+    .art-tip-label { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--terra); margin-bottom:8px; }
+    .art-tip p { margin:0; color:var(--text); font-size:.92rem; }
+    .art-checklist { list-style:none; padding:0; margin:0 0 18px; }
+    .art-checklist li { display:flex; align-items:flex-start; gap:10px; padding:8px 0; border-bottom:1px solid rgba(46,42,37,.07); color:var(--text); font-size:.95rem; }
+    .art-checklist li::before { content:"✓"; color:var(--terra); font-weight:700; flex-shrink:0; margin-top:2px; }
+    .art-sidebar { position:sticky; top:100px; display:flex; flex-direction:column; gap:24px; }
+    .art-sidebar-box { background:#fff; border-radius:16px; padding:24px; box-shadow:0 4px 20px rgba(46,42,37,.07); }
+    .art-sidebar-box h4 { font-family:'Playfair Display',serif; font-size:1rem; color:var(--brun); margin-bottom:14px; }
+    .art-sidebar-box ul { list-style:none; padding:0; display:flex; flex-direction:column; gap:8px; }
+    .art-sidebar-box ul li a { font-size:.85rem; color:var(--text); transition:color .2s; display:flex; align-items:center; gap:8px; }
+    .art-sidebar-box ul li a:hover { color:var(--terra); }
+    .art-sidebar-cta { background:var(--terra); border-radius:16px; padding:28px 24px; text-align:center; color:#fff; }
+    .art-sidebar-cta h4 { font-family:'Playfair Display',serif; color:#fff; margin-bottom:8px; }
+    .art-sidebar-cta p { font-size:.85rem; color:rgba(255,255,255,.8); margin-bottom:16px; }
+    .art-sidebar-cta a { display:block; background:#fff; color:var(--terra); border-radius:50px; padding:10px 20px; font-weight:700; font-size:.85rem; transition:background .2s; }
+    .art-sidebar-cta a:hover { background:var(--creme); }
+    .art-nav { display:flex; justify-content:space-between; gap:16px; padding:40px 0 80px; border-top:1px solid rgba(46,42,37,.1); }
+    .art-nav-btn { font-size:.88rem; font-weight:700; color:var(--terra); font-family:'Lato',sans-serif; transition:color .2s; }
+    .art-nav-btn:hover { color:var(--terra-d); }
+    .art-nav-btn--right { margin-left:auto; }
+    @media(max-width:900px){ .art-layout{grid-template-columns:1fr;} .art-sidebar{position:static;} }
+    @media(max-width:600px){ .art-hero{height:280px;} }
+  </style>
+  <title>Que mettre dans le sac de votre chien pour une garde ? | Blog Cabane à Câlin</title>
+  <meta name="description" content="Que mettre dans le sac de votre chien pour une garde ?." />
+</head>
+<body>
+  <div class="sale-banner" id="saleBanner">
+    <span class="sale-banner-text">🏷️ <strong>Ce projet est à vendre</strong> — Site + concept clé en main</span>
+    <a href="https://bizinaclick.com/listing?id=2" target="_blank" rel="noopener" class="sale-banner-cta">Acheter →</a>
+    <button class="sale-banner-close" id="saleBannerClose" aria-label="Fermer">✕</button>
+  </div>
+  <nav>
+    <a href="index.html" class="nav-brand">Cabane à Câlin</a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Accueil</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="annuaire-depot.html">Déposer une annonce</a>
+      <a href="concept.html">Le concept</a>
+      <a href="forces.html">Forces du projet</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://bizinaclick.com/listing?id=2" target="_blank" rel="noopener" class="nav-cta">Réserver</a>
+    </div>
+    <button class="nav-hamburger" id="navToggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-overlay" id="navOverlay"></div>
+  <!-- HERO ARTICLE -->
+  <div class="art-hero">
+    <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=1200&q=85" alt="Que mettre dans le sac de votre chien pour une garde ?" />
+    <div class="art-hero-inner">
+      <div class="container">
+        <span class="art-cat">Pratique</span>
+        <h1 class="art-title">Que mettre dans le sac de votre chien pour une garde ?</h1>
+        <div class="art-meta">
+          <span>📅 13 mai 2026</span>
+          <span>🕐 Lecture : 3 min de lecture</span>
+          <span>✍️ Cabane à Câlin</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <div class="container">
+      <div class="art-layout">
+
+        <!-- CORPS -->
+        <div class="art-body">
+          <p><a href="blog.html" style="color:var(--terra);font-weight:700;font-size:.85rem;">← Retour au blog</a></p>
+          <br/>
+
+          <h2 id="section-1">Pourquoi bien préparer le sac de votre chien ?</h2>
+          <p>Votre chien part en garde — et comme tout voyageur, il a besoin de ses affaires. Mais contrairement à vous, il ne peut pas vous dire ce qu'il a oublié. Un sac bien préparé rassure votre animal (les odeurs familières jouent un rôle crucial), facilite le travail du gardien, et prévient les petits accidents du quotidien.</p>
+          <p>Voici la checklist complète, testée et approuvée par notre équipe.</p>
+
+          <h2 id="section-2">Les essentiels absolus</h2>
+
+          <h3>🍖 L'alimentation</h3>
+          <ul class="art-checklist">
+            <li>Sa nourriture habituelle — en quantité suffisante pour toute la durée de la garde (+ 1 ou 2 repas de réserve)</li>
+            <li>Sa gamelle (de préférence la sienne, avec son odeur)</li>
+            <li>Ses friandises habituelles si vous en utilisez</li>
+            <li>Une note écrite sur les quantités, la fréquence et les éventuelles restrictions alimentaires</li>
+          </ul>
+
+          <div class="art-tip">
+            <div class="art-tip-label">⚠️ Important</div>
+            <p>Ne changez pas la nourriture de votre chien pendant une garde : un changement alimentaire couplé au stress de la séparation peut provoquer des troubles digestifs.</p>
+          </div>
+
+          <h3>🏠 Le confort et les objets familiers</h3>
+          <ul class="art-checklist">
+            <li>Son lit ou sa couverture (avec son odeur — ne la lavez pas juste avant !)</li>
+            <li>1 ou 2 jouets préférés</li>
+            <li>Un vêtement qui vous appartient — votre odeur le rassure énormément</li>
+            <li>Sa laisse habituelle</li>
+          </ul>
+
+          <h2 id="section-3">Les documents indispensables</h2>
+
+          <ul class="art-checklist">
+            <li>Son carnet de vaccination à jour</li>
+            <li>Le numéro de votre vétérinaire (et celui d'urgence)</li>
+            <li>Une autorisation écrite pour actes vétérinaires si besoin</li>
+            <li>Son traitement médical en cours avec posologie (si applicable)</li>
+            <li>Vos coordonnées + un contact de secours joignable</li>
+          </ul>
+
+          <blockquote>"Les premières heures en garde sont les plus délicates. Un objet familier peut faire toute la différence entre un chien anxieux et un chien curieux."</blockquote>
+
+          <h3>🛁 L'hygiène</h3>
+          <ul class="art-checklist">
+            <li>Ses sacs de ramassage (le gardien en a, mais c'est une marque de politesse)</li>
+            <li>Son shampoing si la garde est longue</li>
+            <li>Une serviette</li>
+          </ul>
+
+          <div class="art-highlight">
+            <p><strong>Le conseil bonus :</strong> glissez dans le sac un petit mot manuscrit pour le gardien — habitudes particulières, mots que votre chien comprend, ce qui le fait peur, ce qui le réconforte. Ce document vaut plus que n'importe quelle liste.</p>
+          </div>
+
+        </div>
+
+        <!-- SIDEBAR -->
+        <aside class="art-sidebar">
+          <div class="art-sidebar-box">
+            <h4>📋 Sommaire</h4>
+            <ul>
+              <li><a href="#section-1">→ Partie 1</a></li>
+              <li><a href="#section-2">→ Partie 2</a></li>
+              <li><a href="#section-3">→ Partie 3</a></li>
+            </ul>
+          </div>
+          <div class="art-sidebar-cta">
+            <h4>Besoin d'une garde ?</h4>
+            <p>Première rencontre gratuite, sans engagement.</p>
+            <a href="https://bizinaclick.com/listing?id=2" target="_blank" rel="noopener">Réserver maintenant</a>
+          </div>
+          <div class="art-sidebar-box">
+            <h4>📖 Autres articles</h4>
+            <ul>
+              <li><a href="blog-article-1.html">Comment choisir une garde sans stress ?</a></li>
+              <li><a href="blog-article-2.html">Dans les coulisses de nos gardes</a></li>
+              <li><a href="blog-article-3.html">Pet-sitting éthique</a></li>
+              <li><a href="blog-article-4.html">Le sac de votre chien</a></li>
+            </ul>
+          </div>
+        </aside>
+
+      </div>
+
+      <!-- NAVIGATION ARTICLES -->
+      <div class="art-nav">
+        <a href="blog-article-3.html" class="art-nav-btn">← Garde d'animaux éthique : le futur du pet-sit…</a>
+        
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Cabane à Câlin</div>
+        <div class="footer-tagline">Service de garde d'animaux familial, chaleureux et sécurisant. Parce que vos compagnons méritent ce qu'il y a de mieux.</div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Services</div>
+        <a href="index.html#services">Hébergement complet</a>
+        <a href="index.html#services">Garde de jour — Day Sitting</a>
+        <a href="index.html#services">Garde à domicile — Home Sitting</a>
+        <a href="index.html#tarifs">Nos tarifs</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Contact</div>
+        <a href="contact.html">Nous contacter</a>
+        <a href="contact.html#faq">FAQ</a>
+        <a href="terms-and-conditions.html">Mentions légales</a>
+        <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Professionnels</div>
+        <a href="annuaire-depot.html">Déposer une annonce</a>
+        <a href="concept.html">Le concept</a>
+        <a href="forces.html">Forces du projet</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© <span id="footer-year"></span> Cabane à Câlin. Tous droits réservés.</span>
+      <span class="footer-heart">Fait avec ♥ pour vos animaux</span>
+    </div>
+  </footer>
+  <script src="shared.min.js" defer></script>
+  <script>(function(){ document.getElementById("footer-year").textContent = new Date().getFullYear(); })();</script>
+</body>
+</html>

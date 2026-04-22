@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Pacifico&display=swap" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="shared.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --terra:#C97B5A; --terra-d:#b8694a; --sauge:#7A9E7E; --creme:#F5EFE0; --caramel:#8B5E3C; --brun:#2E2A25; --white:#FFFFFF; --text:#5c524a; --light:#a09790; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--creme); color: var(--brun); font-family: 'Lato', sans-serif; font-size: 16px; line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .art-hero { position:relative; height:420px; overflow:hidden; }
+    .art-hero img { width:100%; height:100%; object-fit:cover; }
+    .art-hero::after { content:''; position:absolute; inset:0; background:linear-gradient(to bottom,rgba(46,42,37,.2) 0%,rgba(46,42,37,.7) 100%); }
+    .art-hero-inner { position:absolute; bottom:0; left:0; right:0; z-index:2; padding:40px 0; }
+    .art-cat { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--terra); background:rgba(255,255,255,.15); backdrop-filter:blur(8px); padding:5px 14px; border-radius:50px; display:inline-block; margin-bottom:14px; }
+    .art-title { font-family:'Playfair Display',serif; font-size:clamp(1.6rem,4vw,2.6rem); color:#fff; font-weight:700; line-height:1.25; margin-bottom:14px; }
+    .art-meta { display:flex; gap:20px; align-items:center; flex-wrap:wrap; }
+    .art-meta span { font-size:.82rem; color:rgba(255,255,255,.7); }
+    .art-layout { display:grid; grid-template-columns:1fr 300px; gap:64px; padding:64px 0 96px; align-items:start; }
+    .art-body { max-width:680px; }
+    .art-body h2 { font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:700; color:var(--brun); margin:36px 0 14px; }
+    .art-body h3 { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:700; color:var(--brun); margin:28px 0 10px; }
+    .art-body p { font-size:1rem; color:var(--text); line-height:1.8; margin-bottom:18px; }
+    .art-body ul, .art-body ol { margin:0 0 18px 24px; color:var(--text); line-height:1.8; }
+    .art-body li { margin-bottom:6px; }
+    .art-body strong { color:var(--brun); font-weight:700; }
+    .art-body blockquote { border-left:4px solid var(--terra); padding:16px 20px; background:#fff; border-radius:0 12px 12px 0; margin:24px 0; color:var(--brun); font-style:italic; font-family:'Playfair Display',serif; font-size:1.05rem; }
+    .art-highlight { background:var(--brun); color:#fff; border-radius:16px; padding:28px; margin:32px 0; }
+    .art-highlight p { color:rgba(255,255,255,.85); margin:0; }
+    .art-highlight strong { color:var(--terra); }
+    .art-tip { background:#fff; border:2px solid rgba(201,123,90,.3); border-radius:16px; padding:20px 24px; margin:24px 0; }
+    .art-tip-label { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--terra); margin-bottom:8px; }
+    .art-tip p { margin:0; color:var(--text); font-size:.92rem; }
+    .art-checklist { list-style:none; padding:0; margin:0 0 18px; }
+    .art-checklist li { display:flex; align-items:flex-start; gap:10px; padding:8px 0; border-bottom:1px solid rgba(46,42,37,.07); color:var(--text); font-size:.95rem; }
+    .art-checklist li::before { content:"✓"; color:var(--terra); font-weight:700; flex-shrink:0; margin-top:2px; }
+    .art-sidebar { position:sticky; top:100px; display:flex; flex-direction:column; gap:24px; }
+    .art-sidebar-box { background:#fff; border-radius:16px; padding:24px; box-shadow:0 4px 20px rgba(46,42,37,.07); }
+    .art-sidebar-box h4 { font-family:'Playfair Display',serif; font-size:1rem; color:var(--brun); margin-bottom:14px; }
+    .art-sidebar-box ul { list-style:none; padding:0; display:flex; flex-direction:column; gap:8px; }
+    .art-sidebar-box ul li a { font-size:.85rem; color:var(--text); transition:color .2s; display:flex; align-items:center; gap:8px; }
+    .art-sidebar-box ul li a:hover { color:var(--terra); }
+    .art-sidebar-cta { background:var(--terra); border-radius:16px; padding:28px 24px; text-align:center; color:#fff; }
+    .art-sidebar-cta h4 { font-family:'Playfair Display',serif; color:#fff; margin-bottom:8px; }
+    .art-sidebar-cta p { font-size:.85rem; color:rgba(255,255,255,.8); margin-bottom:16px; }
+    .art-sidebar-cta a { display:block; background:#fff; color:var(--terra); border-radius:50px; padding:10px 20px; font-weight:700; font-size:.85rem; transition:background .2s; }
+    .art-sidebar-cta a:hover { background:var(--creme); }
+    .art-nav { display:flex; justify-content:space-between; gap:16px; padding:40px 0 80px; border-top:1px solid rgba(46,42,37,.1); }
+    .art-nav-btn { font-size:.88rem; font-weight:700; color:var(--terra); font-family:'Lato',sans-serif; transition:color .2s; }
+    .art-nav-btn:hover { color:var(--terra-d); }
+    .art-nav-btn--right { margin-left:auto; }
+    @media(max-width:900px){ .art-layout{grid-template-columns:1fr;} .art-sidebar{position:static;} }
+    @media(max-width:600px){ .art-hero{height:280px;} }
+  </style>
+  <title>Garde d'animaux éthique : le futur du pet-sitting est-il plus responsable ? | Blog Cabane à Câlin</title>
+  <meta name="description" content="Garde d'animaux éthique : le futur du pet-sitting est-il plus responsable ?." />
+</head>
+<body>
+  <div class="sale-banner" id="saleBanner">
+    <span class="sale-banner-text">🏷️ <strong>Ce projet est à vendre</strong> — Site + concept clé en main</span>
+    <a href="https://bizinaclick.com/listing?id=2" target="_blank" rel="noopener" class="sale-banner-cta">Acheter →</a>
+    <button class="sale-banner-close" id="saleBannerClose" aria-label="Fermer">✕</button>
+  </div>
+  <nav>
+    <a href="index.html" class="nav-brand">Cabane à Câlin</a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Accueil</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="annuaire-depot.html">Déposer une annonce</a>
+      <a href="concept.html">Le concept</a>
+      <a href="forces.html">Forces du projet</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://bizinaclick.com/listing?id=2" target="_blank" rel="noopener" class="nav-cta">Réserver</a>
+    </div>
+    <button class="nav-hamburger" id="navToggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-overlay" id="navOverlay"></div>
+  <!-- HERO ARTICLE -->
+  <div class="art-hero">
+    <img src="https://images.unsplash.com/photo-1601979031925-424e53b6caaa?w=1200&q=85" alt="Garde d'animaux éthique : le futur du pet-sitting est-il plus responsable ?" />
+    <div class="art-hero-inner">
+      <div class="container">
+        <span class="art-cat">Tendances</span>
+        <h1 class="art-title">Garde d'animaux éthique : le futur du pet-sitting est-il plus responsable ?</h1>
+        <div class="art-meta">
+          <span>📅 6 mai 2026</span>
+          <span>🕐 Lecture : 6 min de lecture</span>
+          <span>✍️ Cabane à Câlin</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <div class="container">
+      <div class="art-layout">
+
+        <!-- CORPS -->
+        <div class="art-body">
+          <p><a href="blog.html" style="color:var(--terra);font-weight:700;font-size:.85rem;">← Retour au blog</a></p>
+          <br/>
+
+          <h2 id="section-1">Pourquoi l'éthique s'impose dans le pet-sitting ?</h2>
+          <p>Le marché du pet-sitting a explosé ces dix dernières années. En France, on estime que près de 50 % des foyers possèdent un animal de compagnie, et la demande de garde ne cesse de croître. Avec cette croissance est venue une réflexion profonde sur les pratiques : comment garder un animal de manière vraiment respectueuse de son bien-être ?</p>
+          <p>Car l'éthique dans la garde d'animaux, ce n'est pas qu'une question de marketing. C'est une question de fond, qui touche au comportement animal, à la psychologie, et à la relation que nous entretenons avec nos compagnons.</p>
+
+          <div class="art-tip">
+            <div class="art-tip-label">📊 Chiffre clé</div>
+            <p>Le marché du pet-sitting en France représente plus de 1,2 milliard d'euros en 2025, avec une croissance annuelle de +8,7 %. La demande de gardes éthiques et responsables est le principal facteur de cette croissance.</p>
+          </div>
+
+          <h2 id="section-2">Les pratiques qui font la différence</h2>
+
+          <h3>Refuser la cage et l'isolement</h3>
+          <p>La première rupture éthique est simple : <strong>ne plus accepter l'isolement systématique des animaux</strong>. Un chien enfermé seul dans un chenil pendant des heures n'est pas gardé — il est stocké. L'approche éthique impose une présence humaine réelle, une intégration dans la vie familiale, et une stimulation adaptée.</p>
+
+          <h3>Adapter, ne pas formater</h3>
+          <p>Un animal stressé ne doit pas être forcé à "s'adapter" à n'importe quel environnement. L'éthique, c'est d'adapter l'environnement à l'animal. Cela demande de la flexibilité, de l'observation, et une vraie connaissance des comportements animaux.</p>
+
+          <blockquote>"Un animal heureux n'est pas un animal obéissant. C'est un animal qui se sent en sécurité, stimulé, et aimé."</blockquote>
+
+          <h3>Transparence totale avec les propriétaires</h3>
+          <p>L'éthique passe aussi par la <strong>transparence</strong> : informer les propriétaires de tout incident, même mineur. Un animal qui a refusé de manger, qui a semblé anxieux, qui a eu un accident. Ces informations permettent aux propriétaires de mieux comprendre leur animal et de prendre de meilleures décisions pour les prochaines gardes.</p>
+
+          <h2 id="section-3">Vers un label "garde responsable" ?</h2>
+          <p>Plusieurs acteurs du secteur réfléchissent à la création d'un label officiel pour les gardes éthiques. Ce label impliquerait des critères précis : formation aux comportements animaux, refus de l'isolement, reporting quotidien, vérification des antécédents des gardiens.</p>
+          <p>En attendant, la meilleure garantie reste la transparence du gardien, les avis vérifiés des clients, et la possibilité de visiter les lieux avant de confier son animal. Le futur du pet-sitting est plus responsable — et c'est une très bonne nouvelle pour nos compagnons.</p>
+
+          <div class="art-highlight">
+            <p><strong>Notre engagement :</strong> chez Cabane à Câlin, tous nos gardiens partenaires s'engagent sur une charte éthique : présence humaine constante, zéro cage, reporting quotidien, et première rencontre systématique avant toute garde.</p>
+          </div>
+
+        </div>
+
+        <!-- SIDEBAR -->
+        <aside class="art-sidebar">
+          <div class="art-sidebar-box">
+            <h4>📋 Sommaire</h4>
+            <ul>
+              <li><a href="#section-1">→ Partie 1</a></li>
+              <li><a href="#section-2">→ Partie 2</a></li>
+              <li><a href="#section-3">→ Partie 3</a></li>
+            </ul>
+          </div>
+          <div class="art-sidebar-cta">
+            <h4>Besoin d'une garde ?</h4>
+            <p>Première rencontre gratuite, sans engagement.</p>
+            <a href="https://bizinaclick.com/listing?id=2" target="_blank" rel="noopener">Réserver maintenant</a>
+          </div>
+          <div class="art-sidebar-box">
+            <h4>📖 Autres articles</h4>
+            <ul>
+              <li><a href="blog-article-1.html">Comment choisir une garde sans stress ?</a></li>
+              <li><a href="blog-article-2.html">Dans les coulisses de nos gardes</a></li>
+              <li><a href="blog-article-3.html">Pet-sitting éthique</a></li>
+              <li><a href="blog-article-4.html">Le sac de votre chien</a></li>
+            </ul>
+          </div>
+        </aside>
+
+      </div>
+
+      <!-- NAVIGATION ARTICLES -->
+      <div class="art-nav">
+        <a href="blog-article-2.html" class="art-nav-btn">← Dans les coulisses d'une journée à Cabane à C…</a>
+        <a href="blog-article-4.html" class="art-nav-btn art-nav-btn--right">Prochain article →</a>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Cabane à Câlin</div>
+        <div class="footer-tagline">Service de garde d'animaux familial, chaleureux et sécurisant. Parce que vos compagnons méritent ce qu'il y a de mieux.</div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Services</div>
+        <a href="index.html#services">Hébergement complet</a>
+        <a href="index.html#services">Garde de jour — Day Sitting</a>
+        <a href="index.html#services">Garde à domicile — Home Sitting</a>
+        <a href="index.html#tarifs">Nos tarifs</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Contact</div>
+        <a href="contact.html">Nous contacter</a>
+        <a href="contact.html#faq">FAQ</a>
+        <a href="terms-and-conditions.html">Mentions légales</a>
+        <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Professionnels</div>
+        <a href="annuaire-depot.html">Déposer une annonce</a>
+        <a href="concept.html">Le concept</a>
+        <a href="forces.html">Forces du projet</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© <span id="footer-year"></span> Cabane à Câlin. Tous droits réservés.</span>
+      <span class="footer-heart">Fait avec ♥ pour vos animaux</span>
+    </div>
+  </footer>
+  <script src="shared.min.js" defer></script>
+  <script>(function(){ document.getElementById("footer-year").textContent = new Date().getFullYear(); })();</script>
+</body>
+</html>

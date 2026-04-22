@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Pacifico&display=swap" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="shared.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --terra:#C97B5A; --terra-d:#b8694a; --sauge:#7A9E7E; --creme:#F5EFE0; --caramel:#8B5E3C; --brun:#2E2A25; --white:#FFFFFF; --text:#5c524a; --light:#a09790; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--creme); color: var(--brun); font-family: 'Lato', sans-serif; font-size: 16px; line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .page-hero { background: var(--brun); padding: 120px 0 64px; text-align: center; }
+    .page-hero-eyebrow { font-size:.78rem; text-transform:uppercase; letter-spacing:.14em; color:var(--terra); font-weight:700; margin-bottom:14px; }
+    .page-hero-title { font-family:'Playfair Display',serif; font-size:clamp(2rem,5vw,3.2rem); color:#fff; font-weight:700; line-height:1.2; margin-bottom:16px; }
+    .page-hero-sub { font-size:1rem; color:rgba(255,255,255,0.65); max-width:520px; margin:0 auto; }
+    .blog-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:32px; padding:72px 0 96px; }
+    .blog-card { background:#fff; border-radius:20px; overflow:hidden; box-shadow:0 4px 24px rgba(46,42,37,.07); transition:transform .3s,box-shadow .3s; display:flex; flex-direction:column; }
+    .blog-card:hover { transform:translateY(-5px); box-shadow:0 14px 48px rgba(46,42,37,.13); }
+    .blog-card--published { border:2px solid rgba(201,123,90,.3); }
+    .blog-card-img { position:relative; overflow:hidden; height:220px; }
+    .blog-card-img img { width:100%; height:100%; object-fit:cover; transition:transform .5s; }
+    .blog-card:hover .blog-card-img img { transform:scale(1.05); }
+    .blog-badge { position:absolute; top:14px; left:14px; font-size:.7rem; font-weight:700; font-family:'Lato',sans-serif; letter-spacing:.06em; text-transform:uppercase; padding:5px 12px; border-radius:50px; }
+    .blog-badge--live { background:var(--terra); color:#fff; }
+    .blog-badge--soon { background:rgba(46,42,37,.65); backdrop-filter:blur(6px); color:rgba(255,255,255,.8); }
+    .blog-card-body { padding:28px; display:flex; flex-direction:column; gap:12px; flex:1; }
+    .blog-card-meta { display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+    .blog-cat { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--terra); }
+    .blog-date, .blog-read { font-size:.78rem; color:var(--light); }
+    .blog-read { margin-left:auto; }
+    .blog-card-title { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:700; line-height:1.35; }
+    .blog-card-title a { color:var(--brun); transition:color .2s; }
+    .blog-card-title a:hover { color:var(--terra); }
+    .blog-card-title span { color:var(--light); }
+    .blog-card-excerpt { font-size:.88rem; color:var(--text); line-height:1.6; flex:1; }
+    .blog-card-cta { display:inline-block; margin-top:auto; font-size:.85rem; font-weight:700; color:var(--terra); transition:color .2s; }
+    .blog-card-cta:hover { color:var(--terra-d); }
+    .blog-card-cta--disabled { color:var(--light); cursor:default; font-size:.82rem; }
+    @media(max-width:700px){ .blog-grid{grid-template-columns:1fr; padding:48px 0 64px;} }
+  </style>
+  <title>Blog — Conseils garde d'animaux | Cabane à Câlin</title>
+  <meta name="description" content="Conseils, coulisses et tendances autour de la garde d'animaux à domicile. Le blog de Cabane à Câlin — tous les mercredis." />
+</head>
+<body>
+  <div class="sale-banner" id="saleBanner">
+    <span class="sale-banner-text">🏷️ <strong>Ce projet est à vendre</strong> — Site + concept clé en main</span>
+    <a href="https://bizinaclick.com/listing?id=2" target="_blank" rel="noopener" class="sale-banner-cta">Acheter →</a>
+    <button class="sale-banner-close" id="saleBannerClose" aria-label="Fermer">✕</button>
+  </div>
+  <nav>
+    <a href="index.html" class="nav-brand">Cabane à Câlin</a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Accueil</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="annuaire-depot.html">Déposer une annonce</a>
+      <a href="concept.html">Le concept</a>
+      <a href="forces.html">Forces du projet</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://bizinaclick.com/listing?id=2" target="_blank" rel="noopener" class="nav-cta">Réserver</a>
+    </div>
+    <button class="nav-hamburger" id="navToggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-overlay" id="navOverlay"></div>
+  <div class="page-hero">
+    <div class="container">
+      <p class="page-hero-eyebrow">Tous les mercredis</p>
+      <h1 class="page-hero-title">Le blog de<br/><em style="color:var(--terra)">Cabane à Câlin</em></h1>
+      <p class="page-hero-sub">Conseils pratiques, coulisses de nos gardes et tendances du pet-sitting — pour des propriétaires sereins et des animaux heureux.</p>
+    </div>
+  </div>
+  <main>
+    <div class="container">
+      <div class="blog-grid">
+        <article class="blog-card reveal blog-card--published">
+          <div class="blog-card-img">
+            <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=700&q=80" alt="Comment choisir une garde pour son animal sans stress ?" loading="lazy" />
+            <span class="blog-badge blog-badge--live">● Publié</span>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-cat">Conseils</span>
+              <span class="blog-date">22 avril 2026</span>
+              <span class="blog-read">🕐 5 min</span>
+            </div>
+            <h2 class="blog-card-title"><a href="blog-article-1.html">Comment choisir une garde pour son animal sans stress ?</a></h2>
+            <p class="blog-card-excerpt">Trouver la bonne garde peut sembler compliqué. Voici les critères essentiels pour faire le bon choix — sans angoisser.</p>
+            <a href="blog-article-1.html" class="blog-card-cta">Lire l'article →</a>
+          </div>
+        </article>
+        <article class="blog-card reveal">
+          <div class="blog-card-img">
+            <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=700&q=80" alt="Dans les coulisses d'une journée à Cabane à Câlin" loading="lazy" />
+            <span class="blog-badge blog-badge--soon">À venir</span>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-cat">Dans les coulisses</span>
+              <span class="blog-date">29 avril 2026</span>
+              <span class="blog-read">🕐 4 min</span>
+            </div>
+            <h2 class="blog-card-title"><span>Dans les coulisses d'une journée à Cabane à Câlin</span></h2>
+            <p class="blog-card-excerpt">De 7h à 21h, que se passe-t-il vraiment dans notre maison quand vos animaux sont en garde ? On vous raconte tout.</p>
+            <span class="blog-card-cta blog-card-cta--disabled">Disponible le 29 avril 2026</span>
+          </div>
+        </article>
+        <article class="blog-card reveal">
+          <div class="blog-card-img">
+            <img src="https://images.unsplash.com/photo-1601979031925-424e53b6caaa?w=700&q=80" alt="Garde d'animaux éthique : le futur du pet-sitting est-il plus responsable ?" loading="lazy" />
+            <span class="blog-badge blog-badge--soon">À venir</span>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-cat">Tendances</span>
+              <span class="blog-date">6 mai 2026</span>
+              <span class="blog-read">🕐 6 min</span>
+            </div>
+            <h2 class="blog-card-title"><span>Garde d'animaux éthique : le futur du pet-sitting est-il plus responsable ?</span></h2>
+            <p class="blog-card-excerpt">Le bien-être animal n'est plus un bonus. Comment le pet-sitting évolue vers des pratiques plus éthiques.</p>
+            <span class="blog-card-cta blog-card-cta--disabled">Disponible le 6 mai 2026</span>
+          </div>
+        </article>
+        <article class="blog-card reveal">
+          <div class="blog-card-img">
+            <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=700&q=80" alt="Que mettre dans le sac de votre chien pour une garde ?" loading="lazy" />
+            <span class="blog-badge blog-badge--soon">À venir</span>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-cat">Pratique</span>
+              <span class="blog-date">13 mai 2026</span>
+              <span class="blog-read">🕐 3 min</span>
+            </div>
+            <h2 class="blog-card-title"><span>Que mettre dans le sac de votre chien pour une garde ?</span></h2>
+            <p class="blog-card-excerpt">La checklist complète pour préparer le séjour de votre chien : affaires essentielles, confort, documents.</p>
+            <span class="blog-card-cta blog-card-cta--disabled">Disponible le 13 mai 2026</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Cabane à Câlin</div>
+        <div class="footer-tagline">Service de garde d'animaux familial, chaleureux et sécurisant. Parce que vos compagnons méritent ce qu'il y a de mieux.</div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Services</div>
+        <a href="index.html#services">Hébergement complet</a>
+        <a href="index.html#services">Garde de jour — Day Sitting</a>
+        <a href="index.html#services">Garde à domicile — Home Sitting</a>
+        <a href="index.html#tarifs">Nos tarifs</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Contact</div>
+        <a href="contact.html">Nous contacter</a>
+        <a href="contact.html#faq">FAQ</a>
+        <a href="terms-and-conditions.html">Mentions légales</a>
+        <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Professionnels</div>
+        <a href="annuaire-depot.html">Déposer une annonce</a>
+        <a href="concept.html">Le concept</a>
+        <a href="forces.html">Forces du projet</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© <span id="footer-year"></span> Cabane à Câlin. Tous droits réservés.</span>
+      <span class="footer-heart">Fait avec ♥ pour vos animaux</span>
+    </div>
+  </footer>
+  <script src="shared.min.js" defer></script>
+  <script>(function(){ document.getElementById("footer-year").textContent = new Date().getFullYear(); })();</script>
+</body>
+</html>
