@@ -56,6 +56,8 @@
     .blog-card-cta { display:inline-block; margin-top:auto; font-size:.85rem; font-weight:700; color:var(--terra); transition:color .2s; }
     .blog-card-cta:hover { color:var(--terra-d); }
     .blog-card-cta--disabled { color:var(--light); cursor:default; font-size:.82rem; }
+    /* ── FILTRE PUBLICATION : seuls les articles publiés sont visibles ── */
+    .blog-card:not(.blog-card--published) { display: none; }
     @media(max-width:700px){ .blog-grid{grid-template-columns:1fr; padding:48px 0 64px;} }
     /* FOOTER */
     footer { background: var(--brun); padding: 64px 48px 40px; }
