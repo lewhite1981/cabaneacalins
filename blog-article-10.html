@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Pacifico&display=swap" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="shared.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --terra:#C97B5A; --terra-d:#b8694a; --sauge:#7A9E7E; --creme:#F5EFE0; --caramel:#8B5E3C; --brun:#2E2A25; --white:#FFFFFF; --text:#5c524a; --light:#a09790; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--creme); color: var(--brun); font-family: 'Lato', sans-serif; font-size: 16px; line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .sale-banner { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: var(--brun); height: 44px; display: flex; align-items: center; justify-content: center; gap: 16px; }
+    .sale-banner-text { font-size: 13px; color: rgba(245,239,224,0.75); font-weight: 400; }
+    .sale-banner-text strong { color: var(--creme); font-weight: 700; }
+    .sale-banner-cta { background: var(--terra); color: var(--white); border-radius: 50px; padding: 5px 18px; font-size: 12px; font-weight: 700; transition: background .2s, transform .15s; white-space: nowrap; }
+    .sale-banner-cta:hover { background: var(--terra-d); transform: scale(1.04); }
+    .sale-banner-close { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); background: none; border: none; color: rgba(245,239,224,0.4); font-size: 18px; cursor: pointer; padding: 4px; transition: color .2s; }
+    .sale-banner-close:hover { color: var(--creme); }
+    nav { position: fixed; top: 44px; left: 0; right: 0; z-index: 100; background: rgba(245,239,224,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,123,90,0.12); padding: 0 48px; height: 72px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { font-family: 'Pacifico', cursive; font-size: 22px; color: var(--terra); }
+    .nav-links { display: flex; gap: 36px; align-items: center; }
+    .nav-links a { font-size: 14px; font-weight: 700; color: var(--brun); letter-spacing: 0.3px; opacity: 0.75; transition: opacity .2s, color .2s; text-decoration: none; }
+    .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--terra); }
+    .nav-cta { background: var(--terra); color: var(--white) !important; opacity: 1 !important; border-radius: 50px; padding: 10px 24px !important; font-size: 13px !important; transition: background .2s, transform .2s !important; }
+    .nav-cta:hover { background: var(--terra-d) !important; transform: translateY(-1px); }
+    .art-hero { position:relative; height:420px; overflow:hidden; }
+    .art-hero img { width:100%; height:100%; object-fit:cover; }
+    .art-hero::after { content:''; position:absolute; inset:0; background:linear-gradient(to bottom,rgba(46,42,37,.2) 0%,rgba(46,42,37,.7) 100%); }
+    .art-hero-inner { position:absolute; bottom:0; left:0; right:0; z-index:2; padding:40px 0; }
+    .art-cat { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--terra); background:rgba(255,255,255,.15); backdrop-filter:blur(8px); padding:5px 14px; border-radius:50px; display:inline-block; margin-bottom:14px; }
+    .art-title { font-family:'Playfair Display',serif; font-size:clamp(1.6rem,4vw,2.6rem); color:#fff; font-weight:700; line-height:1.25; margin-bottom:14px; }
+    .art-meta { display:flex; gap:20px; align-items:center; flex-wrap:wrap; }
+    .art-meta span { font-size:.82rem; color:rgba(255,255,255,.7); }
+    .art-layout { display:grid; grid-template-columns:1fr 300px; gap:64px; padding:64px 0 96px; align-items:start; }
+    .art-body { max-width:680px; }
+    .art-body h2 { font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:700; color:var(--brun); margin:36px 0 14px; }
+    .art-body h3 { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:700; color:var(--brun); margin:28px 0 10px; }
+    .art-body p { font-size:1rem; color:var(--text); line-height:1.8; margin-bottom:18px; }
+    .art-body ul, .art-body ol { margin:0 0 18px 24px; color:var(--text); line-height:1.8; }
+    .art-body li { margin-bottom:6px; }
+    .art-body strong { color:var(--brun); font-weight:700; }
+    .art-body blockquote { border-left:4px solid var(--terra); padding:16px 20px; background:#fff; border-radius:0 12px 12px 0; margin:24px 0; color:var(--brun); font-style:italic; font-family:'Playfair Display',serif; font-size:1.05rem; }
+    .art-highlight { background:var(--brun); color:#fff; border-radius:16px; padding:28px; margin:32px 0; }
+    .art-highlight p { color:rgba(255,255,255,.85); margin:0; }
+    .art-highlight strong { color:var(--terra); }
+    .art-tip { background:#fff; border:2px solid rgba(201,123,90,.3); border-radius:16px; padding:20px 24px; margin:24px 0; }
+    .art-tip-label { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--terra); margin-bottom:8px; }
+    .art-tip p { margin:0; color:var(--text); font-size:.92rem; }
+    .art-checklist { list-style:none; padding:0; margin:0 0 18px; }
+    .art-checklist li { display:flex; align-items:flex-start; gap:10px; padding:8px 0; border-bottom:1px solid rgba(46,42,37,.07); color:var(--text); font-size:.95rem; }
+    .art-checklist li::before { content:"\2713"; color:var(--terra); font-weight:700; flex-shrink:0; margin-top:2px; }
+    .art-sidebar { position:sticky; top:100px; display:flex; flex-direction:column; gap:24px; }
+    .art-sidebar-box { background:#fff; border-radius:16px; padding:24px; box-shadow:0 4px 20px rgba(46,42,37,.07); }
+    .art-sidebar-box h4 { font-family:'Playfair Display',serif; font-size:1rem; color:var(--brun); margin-bottom:14px; }
+    .art-sidebar-box ul { list-style:none; padding:0; display:flex; flex-direction:column; gap:8px; }
+    .art-sidebar-box ul li a { font-size:.85rem; color:var(--text); transition:color .2s; display:flex; align-items:center; gap:8px; }
+    .art-sidebar-box ul li a:hover { color:var(--terra); }
+    .art-sidebar-cta { background:var(--terra); border-radius:16px; padding:28px 24px; text-align:center; color:#fff; }
+    .art-sidebar-cta h4 { font-family:'Playfair Display',serif; color:#fff; margin-bottom:8px; }
+    .art-sidebar-cta p { font-size:.85rem; color:rgba(255,255,255,.8); margin-bottom:16px; }
+    .art-sidebar-cta a { display:block; background:#fff; color:var(--terra); border-radius:50px; padding:10px 20px; font-weight:700; font-size:.85rem; transition:background .2s; }
+    .art-sidebar-cta a:hover { background:var(--creme); }
+    .art-nav { display:flex; justify-content:space-between; gap:16px; padding:40px 0 80px; border-top:1px solid rgba(46,42,37,.1); }
+    .art-nav-btn { font-size:.88rem; font-weight:700; color:var(--terra); font-family:'Lato',sans-serif; transition:color .2s; }
+    .art-nav-btn:hover { color:var(--terra-d); }
+    .art-nav-btn--right { margin-left:auto; }
+    @media(max-width:900px){ .art-layout{grid-template-columns:1fr;} .art-sidebar{position:static;} }
+    @media(max-width:600px){ .art-hero{height:280px;} }
+    footer { background: var(--brun); padding: 64px 48px 40px; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand { font-family: 'Pacifico', cursive; font-size: 24px; color: var(--terra); margin-bottom: 12px; }
+    .footer-tagline { font-size: 13px; color: rgba(245,239,224,0.5); line-height: 1.7; max-width: 240px; }
+    .footer-col-title { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(245,239,224,0.4); margin-bottom: 16px; }
+    .footer-col a { display: block; font-size: 14px; color: rgba(245,239,224,0.65); margin-bottom: 10px; transition: color .2s; }
+    .footer-col a:hover { color: var(--terra); }
+    .footer-bottom { max-width: 1100px; margin: 0 auto; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.07); display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { font-size: 12px; color: rgba(245,239,224,0.3); }
+    .footer-heart { font-size: 12px; color: var(--terra); }
+    @media(max-width:700px){ footer { padding: 48px 24px 32px; } .footer-inner { grid-template-columns: 1fr; gap: 32px; } .footer-bottom { flex-direction: column; gap: 8px; text-align: center; } }
+  </style>
+  <title>Pourquoi éviter les cages en garde ? | Blog Cabane &agrave; C&acirc;lin</title>
+  <meta name="description" content="Pourquoi éviter les cages en garde ? — Le blog Cabane &agrave; C&acirc;lin." />
+</head>
+<body>
+  <div class="sale-banner" id="saleBanner">
+    <span class="sale-banner-text">&#127991;&#65039; <strong>Ce projet est &agrave; vendre</strong> &mdash; Site + concept cl&eacute; en main</span>
+    <a href="https://bizinaclick.com/listing?id=2" target="_blank" rel="noopener" class="sale-banner-cta">Acheter &rarr;</a>
+    <button class="sale-banner-close" id="saleBannerClose" aria-label="Fermer">&#10005;</button>
+  </div>
+  <nav>
+    <a href="index.html" class="nav-brand">Cabane &agrave; C&acirc;lin</a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Accueil</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="annuaire-depot.html">D&eacute;poser une annonce</a>
+      <a href="concept.html">Le concept</a>
+      <a href="forces.html">Forces du projet</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://bizinaclick.com/listing?id=2" target="_blank" rel="noopener" class="nav-cta">R&eacute;server</a>
+    </div>
+    <button class="nav-hamburger" id="navToggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-overlay" id="navOverlay"></div>
+  <!-- HERO ARTICLE -->
+  <div class="art-hero">
+    <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=1200&q=85" alt="Chien libre dans un espace confortable" />
+    <div class="art-hero-inner">
+      <div class="container">
+        <span class="art-cat">Éthique</span>
+        <h1 class="art-title">Pourquoi &eacute;viter les cages en garde ?</h1>
+        <div class="art-meta">
+          <span>&#128197; 24 juin 2026</span>
+          <span>&#128336; 5 min de lecture</span>
+          <span>&#9997;&#65039; Cabane &agrave; C&acirc;lin</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <div class="container">
+      <div class="art-layout">
+
+        <!-- CORPS -->
+        <div class="art-body">
+          <p><a href="blog.html" style="color:var(--terra);font-weight:700;font-size:.85rem;">&larr; Retour au blog</a></p>
+          <br/>
+
+          <h2 id="section-1">La cage en garde : une pratique encore courante</h2>
+          <p>Dans de nombreuses pensions traditionnelles, les animaux sont plac&eacute;s en cage ou en box la majorit&eacute; de la journ&eacute;e. C&rsquo;est une r&eacute;alit&eacute; que beaucoup de propri&eacute;taires ne soupçonnent pas au moment de la r&eacute;servation. On leur montre les photos des espaces communs, mais on ne leur montre pas les heures pass&eacute;es confi&eacute;s.</p>
+          <p>Chez Cabane &agrave; C&acirc;lin, nous avons fait le choix inverse : <strong>aucune cage, aucun box</strong>. Voici pourquoi c&rsquo;est un choix &eacute;thique et pratique fondamental.</p>
+
+          <div class="art-tip">
+            <div class="art-tip-label">&#128161; Attention</div>
+            <p>La cage n&rsquo;est pas toujours ill&eacute;gitime &mdash; elle peut &ecirc;tre un outil de confort pour certains chiens entraîn&eacute;s sp&eacute;cifiquement. Mais l&rsquo;enfermer comme mode de garde g&eacute;n&eacute;ral est une tout autre chose.</p>
+          </div>
+
+          <h2 id="section-2">Les effets d&rsquo;un confinement prolong&eacute;</h2>
+
+          <h3>Sur le plan physique</h3>
+          <p>Un chien confi&eacute; plusieurs heures dans un espace restreint ne peut pas se d&eacute;penser, pas s&rsquo;&eacute;tirer, pas explorer. Cela entra&icirc;ne des tensions musculaires, une &eacute;nergie contenue qui explose lors des rares moments de libert&eacute;, et &agrave; long terme des <strong>probl&egrave;mes articulaires</strong> chez les races sensibles.</p>
+
+          <h3>Sur le plan psychologique</h3>
+          <p>L&rsquo;enfermement r&eacute;p&eacute;t&eacute; est une source de stress majeure. Des &eacute;tudes comportementales montrent une <strong>augmentation du cortisol</strong> (hormone du stress) chez les chiens plac&eacute;s en cage, m&ecirc;me pour de courtes p&eacute;riodes, lorsqu&rsquo;ils n&rsquo;y sont pas habitu&eacute;s.</p>
+
+          <h3>Sur le comportement &agrave; long terme</h3>
+          <p>Un animal qui a v&eacute;cu plusieurs s&eacute;jours en pension avec confinement peut d&eacute;velopper une <strong>phobie des lieux de garde</strong>, une anxi&eacute;t&eacute; de s&eacute;paration aggrav&eacute;e, ou des r&eacute;actions agressives &agrave; l&rsquo;&eacute;gard d&rsquo;autres chiens ou humains inconnus.</p>
+
+          <blockquote>&laquo; La libert&eacute; surveill&eacute;e vaut mille fois mieux que la s&eacute;curit&eacute; de l&rsquo;enfermement. &raquo;</blockquote>
+
+          <h2 id="section-3">Ce que propose une vraie garde familiale</h2>
+          <ul class="art-checklist">
+            <li>Acc&egrave;s libre &agrave; l&rsquo;espace de vie de la famille</li>
+            <li>Pr&eacute;sence humaine continue ou quasi-continue</li>
+            <li>Possibilit&eacute; de se d&eacute;placer, d&rsquo;explorer, de se reposer librement</li>
+            <li>Interactions sociales naturelles avec les membres du foyer</li>
+            <li>Sorties r&eacute;guli&egrave;res dans un espace ext&eacute;rieur s&eacute;curis&eacute;</li>
+            <li>Respect du rythme de l&rsquo;animal, sans horaire impos&eacute;</li>
+          </ul>
+
+          <div class="art-highlight">
+            <p><strong>Notre position :</strong> chaque animal que nous accueillons vit dans notre maison, pas dans un espace de confinement. C&rsquo;est un choix &eacute;thique non n&eacute;gociable chez Cabane &agrave; C&acirc;lin, parce que <strong>nous recevons vos animaux comme nous voudrions que les n&ocirc;tres soient re&ccedil;us</strong>.</p>
+          </div>
+
+        </div>
+
+        <!-- SIDEBAR -->
+        <aside class="art-sidebar">
+          <div class="art-sidebar-box">
+            <h4>&#128203; Sommaire</h4>
+            <ul>
+              <li><a href="#section-1">&rarr; Partie 1</a></li>
+              <li><a href="#section-2">&rarr; Partie 2</a></li>
+              <li><a href="#section-3">&rarr; Partie 3</a></li>
+            </ul>
+          </div>
+          <div class="art-sidebar-cta">
+            <h4>Besoin d&rsquo;une garde ?</h4>
+            <p>Premi&egrave;re rencontre gratuite, sans engagement.</p>
+            <a href="https://bizinaclick.com/listing?id=2" target="_blank" rel="noopener">R&eacute;server maintenant</a>
+          </div>
+          <div class="art-sidebar-box">
+            <h4>&#128214; Autres articles</h4>
+            <ul>
+              <li><a href="blog-article-5.html">Les signes qu'un chien est heureux</a></li>
+              <li><a href="blog-article-6.html">Comment reconnaître un animal stressé ?</a></li>
+              <li><a href="blog-article-7.html">L'importance de la routine chez le chien</a></li>
+              <li><a href="blog-article-8.html">Pourquoi les animaux ont besoin d'attention humaine</a></li>
+              <li><a href="blog-article-9.html">Le rôle du jeu dans le bien-être animal</a></li>
+            </ul>
+          </div>
+        </aside>
+
+      </div>
+
+      <!-- NAVIGATION ARTICLES -->
+      <div class="art-nav">
+        <a href="blog-article-9.html" class="art-nav-btn">&larr; Le r&ocirc;le du jeu</a>
+        <a href="blog-article-11.html" class="art-nav-btn art-nav-btn--right">Les besoins &eacute;motionnels &rarr;</a>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Cabane &agrave; C&acirc;lin</div>
+        <div class="footer-tagline">Service de garde d&rsquo;animaux familial, chaleureux et s&eacute;curisant. Parce que vos compagnons m&eacute;ritent ce qu&rsquo;il y a de mieux.</div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Services</div>
+        <a href="index.html#services">H&eacute;bergement complet</a>
+        <a href="index.html#services">Garde de jour &mdash; Day Sitting</a>
+        <a href="index.html#services">Garde &agrave; domicile &mdash; Home Sitting</a>
+        <a href="index.html#tarifs">Nos tarifs</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Contact</div>
+        <a href="contact.html">Nous contacter</a>
+        <a href="contact.html#faq">FAQ</a>
+        <a href="terms-and-conditions.html">Mentions l&eacute;gales</a>
+        <a href="politique-de-confidentialite.html">Politique de confidentialit&eacute;</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Professionnels</div>
+        <a href="annuaire-depot.html">D&eacute;poser une annonce</a>
+        <a href="concept.html">Le concept</a>
+        <a href="forces.html">Forces du projet</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; <span id="footer-year"></span> Cabane &agrave; C&acirc;lin. Tous droits r&eacute;serv&eacute;s.</span>
+      <span class="footer-heart">Fait avec &#9825; pour vos animaux</span>
+    </div>
+  </footer>
+  <script src="shared.min.js" defer></script>
+  <script>(function(){ document.getElementById("footer-year").textContent = new Date().getFullYear(); })();</script>
+</body>
+</html>
