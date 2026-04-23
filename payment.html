@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Choisissez votre formule — Cabane à Câlin</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- Theme color -->
+  <meta name="theme-color" content="#C97B5A" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://cabaneacalins.com/payment" />
+
+  <!-- SEO -->
+  <meta name="description" content="Choisissez votre formule d'abonnement pour votre annonce dans l'annuaire Cabane à Câlin. Mensuel ou annuel, paiement sécurisé via Stripe." />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- OpenGraph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://cabaneacalins.com/payment" />
+  <meta property="og:title"       content="Choisissez votre formule — Cabane à Câlin" />
+  <meta property="og:description" content="Référencez votre service dans l'annuaire Cabane à Câlin." />
+  <meta property="og:image"       content="https://cabaneacalin.fr/og-image.png" />
+  <meta property="og:locale"      content="fr_FR" />
+  <meta property="og:site_name"   content="Cabane à Câlin" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Pacifico&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Pacifico&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Pacifico&display=swap" /></noscript>
+
+  <link rel="stylesheet" href="shared.min.css" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --terra:#C97B5A; --terra-d:#b8694a; --terra-light:rgba(201,123,90,0.12);
+      --sauge:#7A9E7E; --sauge-light:rgba(122,158,126,0.12);
+      --creme:#F5EFE0; --caramel:#8B5E3C; --brun:#2E2A25;
+      --white:#FFFFFF; --text:#5c524a; --light:#a09790;
+      --border:rgba(46,42,37,0.1); --radius:16px;
+      --gold:#D4A843;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--creme); color: var(--brun); font-family: 'Lato', sans-serif; font-size: 16px; line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── ANNOUNCEMENT BANNER ── */
+    .sale-banner { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: var(--brun); height: 44px; display: flex; align-items: center; justify-content: center; gap: 16px; }
+    .sale-banner-text { font-size: 13px; color: rgba(245,239,224,0.75); font-weight: 400; }
+    .sale-banner-text strong { color: var(--creme); font-weight: 700; }
+    .sale-banner-cta { background: var(--terra); color: var(--white); border-radius: 50px; padding: 5px 18px; font-size: 12px; font-weight: 700; transition: background .2s, transform .15s; white-space: nowrap; }
+    .sale-banner-cta:hover { background: var(--terra-d); transform: scale(1.04); }
+    .sale-banner-close { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); background: none; border: none; color: rgba(245,239,224,0.4); font-size: 18px; cursor: pointer; padding: 4px; transition: color .2s; }
+    .sale-banner-close:hover { color: var(--creme); }
+
+    /* ── NAV ── */
+    nav { position: fixed; top: 44px; left: 0; right: 0; z-index: 100; background: rgba(245,239,224,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,123,90,0.12); padding: 0 48px; height: 72px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { font-family: 'Pacifico', cursive; font-size: 22px; color: var(--terra); }
+    .nav-links { display: flex; gap: 36px; align-items: center; }
+    .nav-links a { font-size: 14px; font-weight: 700; color: var(--brun); letter-spacing: 0.3px; opacity: 0.75; transition: opacity .2s, color .2s; text-decoration: none; }
+    .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--terra); }
+    .nav-cta { background: var(--terra); color: var(--white) !important; opacity: 1 !important; border-radius: 50px; padding: 10px 24px !important; font-size: 13px !important; transition: background .2s !important; }
+    .nav-cta:hover { background: var(--terra-d) !important; }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: linear-gradient(-45deg, #2E2A25, #3d3328, #2a2018, #3d3328);
+      background-size: 400% 400%;
+      animation: gradientDrift 16s ease infinite;
+      padding: 180px 48px 80px; text-align: center;
+    }
+    @keyframes gradientDrift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .page-hero-tag { font-family: 'Pacifico', cursive; font-size: 13px; color: var(--terra); margin-bottom: 16px; }
+    .page-hero h1 { font-family: 'Playfair Display', serif; font-size: 52px; color: var(--white); font-weight: 700; line-height: 1.15; margin-bottom: 20px; }
+    .page-hero h1 em { color: var(--terra); font-style: italic; }
+    .page-hero p { font-size: 17px; color: rgba(245,239,224,0.7); font-weight: 300; line-height: 1.7; max-width: 520px; margin: 0 auto; }
+
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 48px;
+      display: flex; align-items: center; justify-content: center; gap: 40px;
+      flex-wrap: wrap;
+    }
+    .trust-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text); font-weight: 600; }
+    .trust-item span { font-size: 18px; }
+
+    /* ── CONTAINER ── */
+    .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── SECTION PAYMENT ── */
+    .payment-section { padding: 72px 0 100px; }
+
+    /* ── TOGGLE ── */
+    .toggle-wrap {
+      display: flex; align-items: center; justify-content: center;
+      gap: 16px; margin-bottom: 52px;
+    }
+    .toggle-label { font-size: 15px; font-weight: 700; color: var(--light); transition: color .25s; cursor: pointer; }
+    .toggle-label.active { color: var(--brun); }
+    .toggle-switch {
+      width: 52px; height: 28px; background: var(--terra); border-radius: 50px;
+      position: relative; cursor: pointer; border: none;
+      transition: background .25s; flex-shrink: 0;
+    }
+    .toggle-switch::after {
+      content: ''; position: absolute; top: 4px; left: 4px;
+      width: 20px; height: 20px; background: var(--white);
+      border-radius: 50%; transition: transform .25s;
+    }
+    .toggle-switch.annual::after { transform: translateX(24px); }
+    .toggle-switch.annual { background: var(--brun); }
+    .toggle-badge {
+      background: var(--sauge); color: var(--white);
+      font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
+      padding: 3px 10px; border-radius: 50px;
+    }
+
+    /* ── PLANS GRID ── */
+    .plans-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 28px;
+      max-width: 780px; margin: 0 auto;
+    }
+
+    /* ── PLAN CARD ── */
+    .plan-card {
+      background: var(--white); border-radius: 28px;
+      border: 2px solid var(--border);
+      padding: 40px 36px 36px;
+      display: flex; flex-direction: column;
+      transition: all .3s; position: relative; overflow: hidden;
+    }
+    .plan-card:hover { border-color: rgba(201,123,90,0.4); transform: translateY(-4px); box-shadow: 0 16px 48px rgba(46,42,37,0.1); }
+    .plan-card.featured {
+      border-color: var(--terra);
+      box-shadow: 0 8px 40px rgba(201,123,90,0.2);
+    }
+    .plan-card.featured:hover { box-shadow: 0 20px 60px rgba(201,123,90,0.28); }
+
+    /* Popular ribbon */
+    .plan-ribbon {
+      position: absolute; top: 0; right: 0;
+      background: var(--terra); color: var(--white);
+      font-size: 11px; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; padding: 6px 20px 6px 16px;
+      border-radius: 0 28px 0 16px;
+    }
+
+    .plan-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; padding: 5px 14px; border-radius: 50px;
+      margin-bottom: 24px; width: fit-content;
+    }
+    .plan-badge.mensuel { background: var(--terra-light); color: var(--terra); }
+    .plan-badge.annuel  { background: rgba(46,42,37,0.07); color: var(--brun); }
+
+    .plan-name { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--brun); font-weight: 700; margin-bottom: 8px; }
+
+    .plan-price-block { margin-bottom: 6px; display: flex; align-items: flex-end; gap: 4px; }
+    .plan-amount { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 700; color: var(--brun); line-height: 1; }
+    .plan-amount sup { font-size: 24px; vertical-align: super; color: var(--terra); }
+    .plan-period { font-size: 14px; color: var(--light); font-family: 'Lato', sans-serif; margin-bottom: 10px; align-self: flex-end; }
+
+    .plan-savings {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--sauge-light); color: var(--sauge);
+      font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 50px;
+      margin-bottom: 20px; width: fit-content;
+    }
+    .plan-savings-hidden { visibility: hidden; }
+
+    .plan-desc { font-size: 14px; color: var(--text); line-height: 1.7; margin-bottom: 28px; flex-grow: 1; }
+
+    /* Features */
+    .plan-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 36px; }
+    .plan-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text); line-height: 1.5; }
+    .feat-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+    /* CTA Button */
+    .plan-cta {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      border-radius: 50px; padding: 16px 32px; font-size: 15px; font-weight: 700;
+      font-family: 'Lato', sans-serif; cursor: pointer; transition: all .25s;
+      text-decoration: none; border: none; width: 100%;
+    }
+    .plan-cta.primary {
+      background: var(--terra); color: var(--white);
+      box-shadow: 0 8px 28px rgba(201,123,90,0.4);
+    }
+    .plan-cta.primary:hover { background: var(--terra-d); transform: translateY(-2px); box-shadow: 0 14px 40px rgba(201,123,90,0.5); color: var(--white); }
+    .plan-cta.secondary {
+      background: var(--brun); color: var(--creme);
+      box-shadow: 0 8px 28px rgba(46,42,37,0.25);
+    }
+    .plan-cta.secondary:hover { background: #1e1a16; transform: translateY(-2px); box-shadow: 0 14px 40px rgba(46,42,37,0.35); color: var(--creme); }
+    .cta-arrow { display: inline-block; transition: transform .2s; }
+    .plan-cta:hover .cta-arrow { transform: translateX(4px); }
+
+    /* Secure note */
+    .plan-secure { text-align: center; font-size: 12px; color: var(--light); margin-top: 12px; display: flex; align-items: center; justify-content: center; gap: 5px; }
+
+    /* ── FAQ STRIP ── */
+    .faq-strip { background: var(--white); border-top: 1px solid var(--border); padding: 56px 0; }
+    .faq-strip h2 { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--brun); font-weight: 700; text-align: center; margin-bottom: 40px; }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 780px; margin: 0 auto; }
+    .faq-item { background: var(--creme); border-radius: 16px; padding: 24px; }
+    .faq-q { font-weight: 700; font-size: 14px; color: var(--brun); margin-bottom: 8px; display: flex; gap: 10px; }
+    .faq-q::before { content: '?'; background: var(--terra); color: var(--white); font-size: 11px; font-weight: 700; width: 20px; height: 20px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+    .faq-a { font-size: 13px; color: var(--text); line-height: 1.6; padding-left: 30px; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--brun); padding: 64px 48px 32px; }
+    .footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; max-width: 1100px; margin: 0 auto 48px; }
+    .footer-brand { font-family: 'Pacifico', cursive; font-size: 24px; color: var(--terra); margin-bottom: 12px; }
+    .footer-tagline { font-size: 14px; color: rgba(245,239,224,0.5); line-height: 1.7; max-width: 280px; }
+    .footer-col { display: flex; flex-direction: column; gap: 10px; }
+    .footer-col-title { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--terra); margin-bottom: 6px; }
+    .footer-col a { font-size: 14px; color: rgba(245,239,224,0.5); transition: color .2s; }
+    .footer-col a:hover { color: var(--creme); }
+    .footer-bottom { border-top: 1px solid rgba(245,239,224,0.08); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; max-width: 1100px; margin: 0 auto; }
+    .footer-copy { font-size: 13px; color: rgba(245,239,224,0.3); }
+    .footer-heart { font-size: 13px; color: rgba(201,123,90,0.6); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 720px) {
+      nav { padding: 0 20px; }
+      .nav-links { gap: 16px; }
+      .page-hero { padding: 160px 24px 60px; }
+      .page-hero h1 { font-size: 34px; }
+      .plans-grid { grid-template-columns: 1fr; gap: 20px; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .trust-bar { gap: 20px; padding: 14px 20px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+    }
+
+    /* ── ANIMATIONS ── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ ANNOUNCEMENT BANNER ═══ -->
+  <div class="sale-banner" id="saleBanner" role="banner">
+    <p class="sale-banner-text">🐾 Référencez votre service — <strong>Annonce Standard offerte</strong> jusqu'au 30 juin</p>
+    <a href="#plans" class="sale-banner-cta">Voir les offres</a>
+    <button class="sale-banner-close" aria-label="Fermer" onclick="this.parentElement.style.display='none'">✕</button>
+  </div>
+
+  <!-- ═══ NAV ═══ -->
+  <nav>
+    <a href="index.html" class="nav-brand">Cabane à Câlin</a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Accueil</a>
+      <a href="blog.html">Blog</a>
+      <a href="annuaire-depot.html" class="active">Déposer une annonce</a>
+      <a href="concept.html">Le concept</a>
+      <a href="forces.html">Forces du projet</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://bizinaclick.com/listing?id=2" target="_blank" rel="noopener" class="nav-cta">Réserver</a>
+    </div>
+    <button class="nav-hamburger" id="navToggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ═══ PAGE HERO ═══ -->
+  <header class="page-hero" role="banner">
+    <p class="page-hero-tag">Dernière étape 🎉</p>
+    <h1>Votre annonce est <em>enregistrée</em></h1>
+    <p>Choisissez maintenant la formule qui correspond à votre ambition. Paiement sécurisé, sans engagement caché.</p>
+  </header>
+
+  <!-- ═══ TRUST BAR ═══ -->
+  <div class="trust-bar">
+    <div class="trust-item"><span>🔒</span> Paiement 100 % sécurisé</div>
+    <div class="trust-item"><span>💳</span> Stripe — leader mondial du paiement</div>
+    <div class="trust-item"><span>✉️</span> Confirmation par email immédiate</div>
+    <div class="trust-item"><span>🔄</span> Résiliation à tout moment</div>
+  </div>
+
+  <!-- ═══ MAIN ═══ -->
+  <main>
+    <section class="payment-section" id="plans">
+      <div class="container">
+
+        <!-- Toggle mensuel / annuel -->
+        <div class="toggle-wrap reveal">
+          <span class="toggle-label active" id="labelMensuel">Mensuel</span>
+          <button class="toggle-switch" id="toggleSwitch" aria-label="Basculer entre mensuel et annuel" onclick="togglePlan()"></button>
+          <span class="toggle-label" id="labelAnnuel">Annuel</span>
+          <span class="toggle-badge">2 mois offerts</span>
+        </div>
+
+        <!-- Plans -->
+        <div class="plans-grid">
+
+          <!-- ── Plan Mensuel ── -->
+          <div class="plan-card reveal" id="cardMensuel">
+            <div class="plan-badge mensuel">📅 Mensuel</div>
+            <div class="plan-name">Flexibilité totale</div>
+            <div class="plan-price-block">
+              <div class="plan-amount"><sup>€</sup>19<span style="font-size:32px">,90</span></div>
+              <div class="plan-period">/ mois</div>
+            </div>
+            <div class="plan-savings plan-savings-hidden">–</div>
+            <p class="plan-desc">Idéal pour tester notre annuaire. Abonnement mensuel, résiliable à tout moment depuis votre espace Stripe.</p>
+            <ul class="plan-features">
+              <li><span class="feat-icon">✅</span>Annonce active dans l'annuaire</li>
+              <li><span class="feat-icon">✅</span>Fiche pro enrichie avec photos</li>
+              <li><span class="feat-icon">✅</span>Contact direct visible (tél + email)</li>
+              <li><span class="feat-icon">✅</span>Mise en avant dans les résultats</li>
+              <li><span class="feat-icon">✅</span>Badge « Certifié Cabane à Câlin »</li>
+              <li><span class="feat-icon">✅</span>Statistiques de visibilité</li>
+              <li><span class="feat-icon">🔄</span>Résiliation à tout moment</li>
+            </ul>
+            <a href="https://buy.stripe.com/dRm4gzfBe2C81FrdgZ0480w" class="plan-cta primary" target="_blank" rel="noopener">
+              Choisir le mensuel <span class="cta-arrow">→</span>
+            </a>
+            <p class="plan-secure">🔒 Paiement sécurisé via Stripe</p>
+          </div>
+
+          <!-- ── Plan Annuel ── -->
+          <div class="plan-card featured reveal" id="cardAnnuel">
+            <div class="plan-ribbon">⭐ Meilleur rapport</div>
+            <div class="plan-badge annuel">🏆 Annuel</div>
+            <div class="plan-name">La formule complète</div>
+            <div class="plan-price-block">
+              <div class="plan-amount"><sup>€</sup>199</div>
+              <div class="plan-period">/ an</div>
+            </div>
+            <div class="plan-savings">🎁 2 mois offerts — économisez 39,80 €</div>
+            <p class="plan-desc">La formule la plus avantageuse. Payez une fois, profitez toute l'année. Deux mois gratuits par rapport au mensuel.</p>
+            <ul class="plan-features">
+              <li><span class="feat-icon">✅</span>Annonce active dans l'annuaire</li>
+              <li><span class="feat-icon">✅</span>Fiche pro enrichie avec photos</li>
+              <li><span class="feat-icon">✅</span>Contact direct visible (tél + email)</li>
+              <li><span class="feat-icon">✅</span>Mise en avant dans les résultats</li>
+              <li><span class="feat-icon">✅</span>Badge « Certifié Cabane à Câlin »</li>
+              <li><span class="feat-icon">✅</span>Statistiques de visibilité</li>
+              <li><span class="feat-icon">💰</span>Économie de 39,80 € vs mensuel</li>
+            </ul>
+            <a href="https://buy.stripe.com/4gMcN52OsccI83PdgZ0480x" class="plan-cta secondary" target="_blank" rel="noopener">
+              Choisir l'annuel <span class="cta-arrow">→</span>
+            </a>
+            <p class="plan-secure">🔒 Paiement sécurisé via Stripe</p>
+          </div>
+
+        </div>
+
+        <!-- Back link -->
+        <div class="reveal" style="text-align:center; margin-top: 40px;">
+          <a href="annuaire-depot.html" style="font-size:14px; color:var(--light); text-decoration:underline; text-underline-offset:3px;">
+            ← Modifier mon annonce
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══ FAQ ═══ -->
+    <section class="faq-strip">
+      <div class="container">
+        <h2>Questions fréquentes</h2>
+        <div class="faq-grid">
+          <div class="faq-item reveal">
+            <div class="faq-q">Puis-je changer de formule ?</div>
+            <div class="faq-a">Oui, vous pouvez passer de mensuel à annuel (ou inversement) à tout moment depuis votre portail Stripe.</div>
+          </div>
+          <div class="faq-item reveal">
+            <div class="faq-q">Comment résilier mon abonnement ?</div>
+            <div class="faq-a">Depuis votre email de confirmation Stripe, cliquez sur "Gérer mon abonnement" et résiliez en un clic. Aucun frais caché.</div>
+          </div>
+          <div class="faq-item reveal">
+            <div class="faq-q">Mon paiement est-il sécurisé ?</div>
+            <div class="faq-a">Oui. Nous utilisons Stripe, leader mondial du paiement en ligne. Vos coordonnées bancaires ne transitent jamais sur nos serveurs.</div>
+          </div>
+          <div class="faq-item reveal">
+            <div class="faq-q">Quand mon annonce sera-t-elle publiée ?</div>
+            <div class="faq-a">Votre annonce est mise en ligne dans les 24h suivant la confirmation de paiement. Vous recevez un email de validation.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Cabane à Câlin</div>
+        <div class="footer-tagline">Service de garde d'animaux familial, chaleureux et sécurisant. Parce que vos compagnons méritent ce qu'il y a de mieux.</div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Services</div>
+        <a href="index.html#services">Hébergement complet</a>
+        <a href="index.html#services">Garde de jour — Day Sitting</a>
+        <a href="index.html#services">Garde à domicile — Home Sitting</a>
+        <a href="index.html#tarifs">Nos tarifs</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Contact</div>
+        <a href="contact.html">Nous contacter</a>
+        <a href="contact.html#faq">FAQ</a>
+        <a href="terms-and-conditions.html">Mentions légales</a>
+        <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Professionnels</div>
+        <a href="annuaire-depot.html">Déposer une annonce</a>
+        <a href="concept.html">Le concept</a>
+        <a href="forces.html">Forces du projet</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© <span id="footer-year"></span> Cabane à Câlin. Tous droits réservés.</span>
+      <span class="footer-heart">Fait avec ♥ pour vos animaux</span>
+    </div>
+  </footer>
+
+  <script src="shared.min.js" defer></script>
+  <script>
+  /* ── Toggle mensuel / annuel ── */
+  let isAnnuel = false;
+  function togglePlan() {
+    isAnnuel = !isAnnuel;
+    const sw     = document.getElementById('toggleSwitch');
+    const lMens  = document.getElementById('labelMensuel');
+    const lAnn   = document.getElementById('labelAnnuel');
+    const cMens  = document.getElementById('cardMensuel');
+    const cAnn   = document.getElementById('cardAnnuel');
+
+    sw.classList.toggle('annual', isAnnuel);
+    lMens.classList.toggle('active', !isAnnuel);
+    lAnn.classList.toggle('active', isAnnuel);
+
+    if (isAnnuel) {
+      cAnn.style.order  = '-1';
+      cMens.style.order = '1';
+    } else {
+      cMens.style.order = '';
+      cAnn.style.order  = '';
+    }
+  }
+
+  /* ── Scroll reveal ── */
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  /* ── Footer year ── */
+  document.getElementById('footer-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

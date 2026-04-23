@@ -860,13 +860,8 @@
       const data = await res.json();
 
       if (data.success) {
-        /* ── 5a. SUCCÈS : affichage page confirmation ── */
-        document.getElementById('formContent').style.display = 'none';
-        const sp = document.getElementById('successPage');
-        sp.classList.add('show');
-        document.getElementById('successPlanName').textContent  = plan === 'premium' ? 'Premium' : 'Standard';
-        document.getElementById('successPlanPrice').textContent = plan === 'premium' ? '9,90 €/mois' : 'Gratuit';
-        sp.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        /* ── 5a. SUCCÈS : redirection vers la page de paiement ── */
+        window.location.href = 'payment.html';
       } else {
         throw new Error(data.message || 'Échec de l\'envoi');
       }
