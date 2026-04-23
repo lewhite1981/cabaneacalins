@@ -408,11 +408,6 @@
         <div class="step-bubble">3</div>
         <div class="step-label">Annonce</div>
       </div>
-      <div class="step-line"></div>
-      <div class="step-item" id="step4">
-        <div class="step-bubble">4</div>
-        <div class="step-label">Paiement</div>
-      </div>
     </div>
   </div>
 
@@ -599,143 +594,10 @@
               </div>
             </div>
 
-            <!-- ═══ SECTION 4 — PAIEMENT ═══ -->
-            <div class="form-section reveal" id="sec-paiement" data-step="4">
-              <div class="section-header">
-                <div class="section-icon brun">💳</div>
-                <div>
-                  <div class="section-num">Partie 04</div>
-                  <h2 class="section-title-sm">Choisissez votre formule</h2>
-                </div>
-              </div>
-
-              <div class="plan-grid">
-
-                <!-- Standard -->
-                <label class="plan-card selected" id="card-standard" for="plan-standard">
-                  <input type="radio" id="plan-standard" name="plan" value="standard" checked />
-                  <div class="plan-check">✓</div>
-                  <div class="plan-badge standard">⭐ Standard</div>
-                  <div class="plan-price"><sup>€</sup>0<span class="period"> / mois</span></div>
-                  <p class="plan-desc">Démarrez gratuitement et testez la visibilité de votre annonce dans l'annuaire.</p>
-                  <ul class="plan-features">
-                    <li>1 annonce active</li>
-                    <li>Fiche pro complète</li>
-                    <li>Contact via formulaire</li>
-                    <li class="off">Mise en avant dans les résultats</li>
-                    <li class="off">Badge "Certifié Cabane à Câlin"</li>
-                    <li class="off">Statistiques de visibilité</li>
-                  </ul>
-                </label>
-
-                <!-- Premium -->
-                <label class="plan-card" id="card-premium" for="plan-premium">
-                  <input type="radio" id="plan-premium" name="plan" value="premium" />
-                  <div class="plan-check">✓</div>
-                  <div class="plan-badge premium">🏆 Premium</div>
-                  <div class="plan-price"><sup>€</sup>9<span style="font-size:24px">,90</span><span class="period"> / mois</span></div>
-                  <p class="plan-desc">Maximisez votre visibilité avec un accès prioritaire et des outils exclusifs.</p>
-                  <ul class="plan-features">
-                    <li>Annonces illimitées</li>
-                    <li>Fiche pro enrichie + photos</li>
-                    <li>Contact direct (téléphone + email)</li>
-                    <li>Mise en avant dans les résultats</li>
-                    <li>Badge "Certifié Cabane à Câlin"</li>
-                    <li>Statistiques de visibilité</li>
-                  </ul>
-                </label>
-
-              </div>
-
-              <div class="sub-block">
-                <div class="sub-block-title">Automatiser le depot de l'annonce</div>
-                <div class="form-grid">
-                  <div class="form-group">
-                    <label for="f-publication">Mode de publication <span class="req">*</span></label>
-                    <select id="f-publication" name="publication_mode" class="form-input" required>
-                      <option value="" selected disabled>Choisir un mode</option>
-                      <option value="immediate">Publication immediate</option>
-                      <option value="validation">Publication apres validation</option>
-                      <option value="scheduled">Publication planifiee</option>
-                    </select>
-                    <span class="field-error" id="err-publication">⚠ Choisissez un mode de publication</span>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="f-start">Date de demarrage <span class="req">*</span></label>
-                    <input type="date" id="f-start" name="start_date" class="form-input" required />
-                    <span class="field-error" id="err-start">⚠ Choisissez une date valide</span>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="f-frequency">Frequence de redepot automatique</label>
-                    <select id="f-frequency" name="auto_frequency" class="form-input">
-                      <option value="none" selected>Pas de redepot</option>
-                      <option value="weekly">Chaque semaine</option>
-                      <option value="biweekly">Toutes les 2 semaines</option>
-                      <option value="monthly">Chaque mois</option>
-                    </select>
-                  </div>
-
-                  <div class="form-group">
-                    <label class="inline-check" for="f-renew">
-                      <input type="checkbox" id="f-renew" name="auto_renew" checked />
-                      Renouvellement automatique de l'abonnement
-                    </label>
-                    <p class="field-hint">Recommande pour garder l'annonce active sans interruption.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="sub-block payment-fields disabled" id="paymentFields">
-                <div class="sub-block-title">Paiement securise (obligatoire pour Premium)</div>
-                <div class="form-grid">
-                  <div class="form-group full">
-                    <label for="f-card-name">Titulaire de la carte <span class="req">*</span></label>
-                    <input type="text" id="f-card-name" name="card_name" class="form-input" placeholder="Nom Prenom" autocomplete="cc-name" />
-                    <span class="field-error" id="err-card-name">⚠ Nom du titulaire requis</span>
-                  </div>
-
-                  <div class="form-group full">
-                    <label for="f-card-number">Numero de carte <span class="req">*</span></label>
-                    <input type="text" id="f-card-number" name="card_number" class="form-input" placeholder="4242 4242 4242 4242" inputmode="numeric" autocomplete="cc-number" maxlength="19" />
-                    <span class="field-error" id="err-card-number">⚠ Numero de carte invalide</span>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="f-card-expiry">Expiration <span class="req">*</span></label>
-                    <input type="text" id="f-card-expiry" name="card_expiry" class="form-input" placeholder="MM/AA" inputmode="numeric" autocomplete="cc-exp" maxlength="5" />
-                    <span class="field-error" id="err-card-expiry">⚠ Date invalide</span>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="f-card-cvc">CVC <span class="req">*</span></label>
-                    <input type="text" id="f-card-cvc" name="card_cvc" class="form-input" placeholder="123" inputmode="numeric" autocomplete="cc-csc" maxlength="4" />
-                    <span class="field-error" id="err-card-cvc">⚠ CVC invalide</span>
-                  </div>
-                </div>
-                <p class="field-hint">Simulation front-end: branchez ensuite votre PSP (Stripe/PayPal) cote serveur.</p>
-              </div>
-
-              <!-- Recap -->
-              <div class="plan-recap" id="planRecap">
-                <div>
-                  <div class="recap-label">Formule sélectionnée</div>
-                  <div class="recap-plan" id="recapPlan">Standard</div>
-                  <div class="recap-cycle" id="recapCycle">Sans renouvellement automatique</div>
-                </div>
-                <div class="recap-price" id="recapPrice">
-                  0 €
-                  <small>par mois</small>
-                </div>
-              </div>
-
-            </div>
-
             <!-- ═══ SUBMIT ═══ -->
             <div class="submit-wrap">
               <button type="submit" class="btn-submit" id="btnSubmit">
-                <span class="btn-text">Déposer mon annonce →</span>
+                <span class="btn-text">Continuer vers le paiement →</span>
                 <span class="spinner"></span>
               </button>
               <p class="submit-note">En soumettant ce formulaire, vous acceptez nos <a href="terms-and-conditions.html" style="color:var(--terra);text-decoration:underline">mentions légales</a> et notre <a href="politique-de-confidentialite.html" style="color:var(--terra);text-decoration:underline">politique de confidentialité</a>.</p>
