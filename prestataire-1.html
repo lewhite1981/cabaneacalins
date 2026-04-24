@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Sophie Martin — Les Pattes Douces | Paris 15e | Cabane à Câlins</title>
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <meta name="theme-color" content="#C97B5A" />
+  <link rel="canonical" href="https://cabaneacalins.com/prestataire-1.html" />
+  <meta name="description" content="Sophie Martin — Les Pattes Douces, Paris 15e. Pension et garde de chiens et chats à domicile. Note 4.9/5 · À partir de 35€/nuit." />
+
+  <meta property="og:type"        content="profile" />
+  <meta property="og:url"         content="https://cabaneacalins.com/prestataire-1.html" />
+  <meta property="og:title"       content="Sophie Martin — Les Pattes Douces | Paris 15e" />
+  <meta property="og:description" content="Pension et garde de chiens et chats à domicile à Paris 15e. Note 4.9/5 · À partir de 35€/nuit." />
+  <meta property="og:image"       content="https://cabaneacalins.com/og-image.png" />
+  <meta property="og:locale"      content="fr_FR" />
+  <meta property="og:site_name"   content="Cabane à Câlins" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <meta name="twitter:image"      content="https://cabaneacalins.com/og-image.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Pacifico&display=swap" />
+  <link rel="stylesheet" href="shared.min.css" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --terra:#C97B5A; --terra-d:#b8694a; --terra-light:rgba(201,123,90,0.12);
+      --sauge:#7A9E7E; --sauge-light:rgba(122,158,126,0.12);
+      --creme:#F5EFE0; --caramel:#8B5E3C; --brun:#2E2A25;
+      --white:#FFFFFF; --text:#5c524a; --light:#a09790;
+      --border:rgba(46,42,37,0.1); --radius:16px;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--creme); color: var(--brun); font-family: 'Lato', sans-serif; font-size: 16px; line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(245,239,224,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,123,90,0.12); padding: 0 48px; height: 72px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { font-family: 'Pacifico', cursive; font-size: 22px; color: var(--terra); }
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+    .nav-links a { font-size: 14px; font-weight: 700; color: var(--brun); opacity: 0.75; transition: opacity .2s, color .2s; }
+    .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--terra); }
+    .nav-cta { background: var(--terra); color: var(--white) !important; opacity: 1 !important; border-radius: 50px; padding: 10px 22px !important; font-size: 13px !important; }
+    .nav-cta:hover { background: var(--terra-d) !important; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--brun); border-radius: 2px; }
+
+    /* BREADCRUMB */
+    .breadcrumb { padding: 90px 48px 0; max-width: 1100px; margin: 0 auto; }
+    .breadcrumb-inner { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--light); padding-top: 16px; }
+    .breadcrumb-inner a { color: var(--terra); font-weight: 600; }
+    .breadcrumb-inner a:hover { text-decoration: underline; }
+
+    /* HERO COVER */
+    .profile-cover { position: relative; height: 360px; overflow: hidden; margin-top: 12px; }
+    .profile-cover img { width: 100%; height: 100%; object-fit: cover; }
+    .cover-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 40%, rgba(46,42,37,0.75) 100%); }
+
+    /* PROFILE HEADER */
+    .profile-header { max-width: 1100px; margin: -60px auto 0; padding: 0 48px; position: relative; z-index: 10; }
+    .profile-header-inner { display: flex; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
+    .profile-avatar { width: 110px; height: 110px; border-radius: 50%; border: 4px solid var(--white); object-fit: cover; box-shadow: 0 8px 28px rgba(46,42,37,0.2); flex-shrink: 0; }
+    .profile-info { flex: 1; padding-bottom: 8px; }
+    .profile-name { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: var(--white); text-shadow: 0 2px 12px rgba(0,0,0,0.4); margin-bottom: 4px; }
+    .profile-biz { font-size: 16px; color: var(--terra); font-weight: 700; text-shadow: 0 1px 6px rgba(0,0,0,0.3); }
+
+    /* MAIN LAYOUT */
+    .profile-main { max-width: 1100px; margin: 32px auto 80px; padding: 0 48px; display: grid; grid-template-columns: 1fr 360px; gap: 36px; }
+    .profile-left { display: flex; flex-direction: column; gap: 28px; }
+    .profile-right { display: flex; flex-direction: column; gap: 20px; }
+
+    /* SECTION CARD */
+    .pcard { background: var(--white); border-radius: 22px; padding: 36px; border: 1px solid var(--border); box-shadow: 0 2px 16px rgba(46,42,37,0.04); }
+    .pcard-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--brun); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+    .pcard-icon { font-size: 22px; }
+
+    /* BADGES ROW */
+    .badges-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+    .badge { display: inline-flex; align-items: center; gap: 6px; border-radius: 50px; padding: 6px 14px; font-size: 12px; font-weight: 700; }
+    .badge-verified { background: var(--sauge-light); color: var(--sauge); }
+    .badge-stars { background: rgba(245,158,11,0.12); color: #b45309; }
+    .badge-city { background: var(--terra-light); color: var(--caramel); }
+
+    /* ABOUT TEXT */
+    .about-text { font-size: 15px; color: var(--text); line-height: 1.8; }
+    .about-text p + p { margin-top: 14px; }
+
+    /* SERVICE CARDS */
+    .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .service-item { background: var(--creme); border-radius: 14px; padding: 18px; border: 1px solid var(--border); }
+    .service-icon { font-size: 26px; margin-bottom: 8px; }
+    .service-name { font-size: 14px; font-weight: 700; color: var(--brun); margin-bottom: 4px; }
+    .service-desc { font-size: 12.5px; color: var(--text); line-height: 1.5; margin-bottom: 8px; }
+    .service-price { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--terra); font-weight: 700; }
+    .service-price span { font-family: 'Lato', sans-serif; font-size: 12px; color: var(--light); font-weight: 400; }
+
+    /* ANIMALS */
+    .animals-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .animal-chip { display: flex; align-items: center; gap: 8px; background: var(--creme); border: 1px solid var(--border); border-radius: 50px; padding: 8px 18px; font-size: 13px; font-weight: 700; color: var(--brun); }
+
+    /* GALLERY */
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .gallery-grid img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 12px; transition: transform .3s; cursor: pointer; }
+    .gallery-grid img:hover { transform: scale(1.03); }
+
+    /* REVIEWS */
+    .review-list { display: flex; flex-direction: column; gap: 18px; }
+    .review-item { background: var(--creme); border-radius: 14px; padding: 20px; border: 1px solid var(--border); }
+    .review-top { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .review-avatar { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 2px solid var(--white); }
+    .review-author { font-size: 13px; font-weight: 700; color: var(--brun); }
+    .review-date { font-size: 12px; color: var(--light); margin-left: auto; }
+    .review-stars { color: #f59e0b; font-size: 13px; }
+    .review-text { font-size: 13.5px; color: var(--text); line-height: 1.6; }
+
+    /* CONTACT CARD (sticky) */
+    .contact-card { background: var(--brun); border-radius: 22px; padding: 32px; position: sticky; top: 90px; }
+    .contact-name { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--white); font-weight: 700; margin-bottom: 6px; }
+    .contact-biz { font-size: 14px; color: var(--terra); font-weight: 600; margin-bottom: 20px; }
+    .contact-divider { border: none; border-top: 1px solid rgba(245,239,224,0.08); margin: 20px 0; }
+    .contact-row { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .contact-icon { font-size: 18px; width: 36px; height: 36px; background: rgba(201,123,90,0.15); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .contact-label { font-size: 11px; color: rgba(245,239,224,0.4); text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
+    .contact-value { font-size: 14px; color: var(--creme); font-weight: 600; }
+    .contact-value a { color: var(--terra); transition: opacity .2s; }
+    .contact-value a:hover { opacity: 0.8; }
+    .avail-badge { display: flex; align-items: center; gap: 8px; background: rgba(122,158,126,0.15); border: 1px solid rgba(122,158,126,0.3); border-radius: 50px; padding: 8px 16px; font-size: 13px; color: var(--sauge); font-weight: 700; margin: 16px 0; }
+    .avail-dot { width: 8px; height: 8px; background: var(--sauge); border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1}50%{opacity:.4} }
+    .btn-contact {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; background: var(--terra); color: var(--white); border: none; border-radius: 50px;
+      padding: 15px; font-size: 15px; font-weight: 700; font-family: 'Lato', sans-serif;
+      cursor: pointer; transition: all .25s; box-shadow: 0 4px 18px rgba(201,123,90,0.4);
+      text-decoration: none; margin-bottom: 10px;
+    }
+    .btn-contact:hover { background: var(--terra-d); transform: translateY(-2px); color: var(--white); }
+    .btn-contact-sec {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; background: transparent; color: var(--creme); border: 1.5px solid rgba(245,239,224,0.2);
+      border-radius: 50px; padding: 13px; font-size: 14px; font-weight: 700; font-family: 'Lato', sans-serif;
+      cursor: pointer; transition: all .25s; text-decoration: none;
+    }
+    .btn-contact-sec:hover { border-color: rgba(245,239,224,0.5); color: var(--white); }
+
+    /* FOOTER */
+    footer { background: var(--brun); padding: 64px 48px 32px; }
+    .footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; max-width: 1100px; margin: 0 auto 48px; }
+    .footer-brand { font-family: 'Pacifico', cursive; font-size: 24px; color: var(--terra); margin-bottom: 12px; }
+    .footer-tagline { font-size: 14px; color: rgba(245,239,224,0.5); line-height: 1.7; max-width: 280px; }
+    .footer-col { display: flex; flex-direction: column; gap: 10px; }
+    .footer-col-title { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--terra); margin-bottom: 6px; }
+    .footer-col a { font-size: 14px; color: rgba(245,239,224,0.5); transition: color .2s; }
+    .footer-col a:hover { color: var(--creme); }
+    .footer-bottom { border-top: 1px solid rgba(245,239,224,0.08); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; max-width: 1100px; margin: 0 auto; }
+    .footer-copy { font-size: 13px; color: rgba(245,239,224,0.3); }
+    .footer-heart { font-size: 13px; color: rgba(201,123,90,0.6); }
+
+    @media (max-width: 900px) {
+      .profile-main { grid-template-columns: 1fr; }
+      .profile-right { order: -1; }
+      .contact-card { position: static; }
+      nav { padding: 0 20px; }
+      .profile-header { padding: 0 20px; }
+      .breadcrumb { padding: 90px 20px 0; }
+      .profile-main { padding: 0 20px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+    }
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-brand">Cabane à Câlins</a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Accueil</a>
+      <a href="prestataires.html" class="active">Prestataires</a>
+      <a href="blog.html">Blog</a>
+      <a href="concept.html">Le concept</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://bizinaclick.com/listing?id=2" target="_blank" rel="noopener" class="nav-cta">Réserver</a>
+    </div>
+    <button class="nav-hamburger" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <div class="breadcrumb-inner">
+      <a href="index.html">Accueil</a> › <a href="prestataires.html">Prestataires</a> › Sophie Martin
+    </div>
+  </div>
+
+  <!-- COVER PHOTO -->
+  <div class="profile-cover">
+    <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=1200&h=450&fit=crop" alt="Les Pattes Douces — Sophie Martin" />
+    <div class="cover-overlay"></div>
+  </div>
+
+  <!-- PROFILE HEADER -->
+  <div class="profile-header">
+    <div class="profile-header-inner">
+      <img class="profile-avatar" src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=220&h=220&fit=crop&crop=face" alt="Sophie Martin" />
+      <div class="profile-info">
+        <div class="profile-name">Sophie Martin</div>
+        <div class="profile-biz">Les Pattes Douces · Paris 15e</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="profile-main">
+
+    <!-- LEFT COLUMN -->
+    <div class="profile-left">
+
+      <!-- BADGES -->
+      <div class="badges-row">
+        <span class="badge badge-verified">✓ Pro vérifié</span>
+        <span class="badge badge-stars">★ 4.9 / 5 (47 avis)</span>
+        <span class="badge badge-city">📍 Paris 15e, 75015</span>
+      </div>
+
+      <!-- À PROPOS -->
+      <div class="pcard">
+        <div class="pcard-title"><span class="pcard-icon">💛</span> À propos de Sophie</div>
+        <div class="about-text">
+          <p>Bonjour, je m'appelle Sophie et les animaux ont toujours occupé une place centrale dans ma vie ! Depuis plus de 8 ans, je m'occupe de chiens et de chats pour des propriétaires qui me font confiance pendant leurs absences.</p>
+          <p>Mon appartement spacieux dans le 15e arrondissement est entièrement aménagé pour le bien-être animal : coins couchage douillés, jouets, grand espace de jeu sécurisé et des sorties quotidiennes dans le parc André Citroën tout proche.</p>
+          <p>Je pratique une approche douce et bienveillante, basée sur la confiance et le respect du rythme de chaque animal. Un premier rendez-vous de présentation est toujours proposé gratuitement pour que votre compagnon se sente à l'aise avant son séjour.</p>
+        </div>
+      </div>
+
+      <!-- SERVICES & TARIFS -->
+      <div class="pcard">
+        <div class="pcard-title"><span class="pcard-icon">🐾</span> Services & tarifs</div>
+        <div class="services-grid">
+          <div class="service-item">
+            <div class="service-icon">🏠</div>
+            <div class="service-name">Pension à domicile</div>
+            <div class="service-desc">Votre animal séjourne chez moi, nuit incluse, avec sorties matin et soir.</div>
+            <div class="service-price">35€<span> / nuit</span></div>
+          </div>
+          <div class="service-item">
+            <div class="service-icon">☀️</div>
+            <div class="service-name">Garde de jour</div>
+            <div class="service-desc">Accueil de 8h à 19h, repas, jeux et câlins garantis toute la journée.</div>
+            <div class="service-price">22€<span> / jour</span></div>
+          </div>
+          <div class="service-item">
+            <div class="service-icon">🚶</div>
+            <div class="service-name">Visite à domicile</div>
+            <div class="service-desc">Je passe chez vous pour nourrir, jouer et câliner votre animal (30 min).</div>
+            <div class="service-price">15€<span> / visite</span></div>
+          </div>
+          <div class="service-item">
+            <div class="service-icon">📅</div>
+            <div class="service-name">Séjour longue durée</div>
+            <div class="service-desc">Tarif dégressif à partir de 7 nuits consécutives. Devis sur demande.</div>
+            <div class="service-price">200€<span> / semaine</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ANIMAUX ACCEPTÉS -->
+      <div class="pcard">
+        <div class="pcard-title"><span class="pcard-icon">🐕</span> Animaux acceptés</div>
+        <div class="animals-row">
+          <div class="animal-chip">🐕 Chien (toutes tailles)</div>
+          <div class="animal-chip">🐈 Chat</div>
+          <div class="animal-chip">🐰 Lapin</div>
+        </div>
+        <p style="font-size:13px;color:var(--light);margin-top:14px;">Les chiens non stérilisés sont acceptés sur devis. Les races catégorisées nécessitent une attestation d'assurance.</p>
+      </div>
+
+      <!-- GALERIE PHOTOS -->
+      <div class="pcard">
+        <div class="pcard-title"><span class="pcard-icon">📸</span> Galerie photos</div>
+        <div class="gallery-grid">
+          <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=300&h=300&fit=crop" alt="Chien gardé par Sophie" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1583511655826-05700d52f4d9?w=300&h=300&fit=crop" alt="Pension chien Paris" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=300&h=300&fit=crop" alt="Chat gardé" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1534361960057-19f4434a1b96?w=300&h=300&fit=crop" alt="Promenade parc" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=300&fit=crop" alt="Animal heureux" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1548449112-96a38a643324?w=300&h=300&fit=crop" alt="Espace accueil" loading="lazy" />
+        </div>
+      </div>
+
+      <!-- AVIS CLIENTS -->
+      <div class="pcard">
+        <div class="pcard-title"><span class="pcard-icon">⭐</span> Avis clients</div>
+        <div class="review-list">
+          <div class="review-item">
+            <div class="review-top">
+              <img class="review-avatar" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face" alt="Marie D." loading="lazy" />
+              <div>
+                <div class="review-author">Marie D.</div>
+                <div class="review-stars">★★★★★</div>
+              </div>
+              <div class="review-date">Mars 2025</div>
+            </div>
+            <p class="review-text">Sophie est exceptionnelle ! Mon golden retriever Nougat est revenu épanoui après une semaine. Elle envoie des photos et des nouvelles chaque jour, ce qui rassure énormément. Je recommande sans hésiter à tous les propriétaires parisiens !</p>
+          </div>
+          <div class="review-item">
+            <div class="review-top">
+              <img class="review-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face" alt="Pierre L." loading="lazy" />
+              <div>
+                <div class="review-author">Pierre L.</div>
+                <div class="review-stars">★★★★★</div>
+              </div>
+              <div class="review-date">Janvier 2025</div>
+            </div>
+            <p class="review-text">Parfait pour nos deux chats timides. Sophie a pris le temps de les apprivoiser dès la première rencontre. L'appartement est propre, bien aménagé et les animaux sont visiblement choyés. On reviendra à chaque voyage !</p>
+          </div>
+          <div class="review-item">
+            <div class="review-top">
+              <img class="review-avatar" src="https://images.unsplash.com/photo-1554151228-14d9def656e4?w=80&h=80&fit=crop&crop=face" alt="Camille R." loading="lazy" />
+              <div>
+                <div class="review-author">Camille R.</div>
+                <div class="review-stars">★★★★☆</div>
+              </div>
+              <div class="review-date">Novembre 2024</div>
+            </div>
+            <p class="review-text">Très bonne expérience. Sophie est professionnelle, à l'écoute et passionnée. Mon chiot de 6 mois a été très bien encadré. Seul bémol : le tarif un peu élevé pour les longues durées, mais la qualité est là.</p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /left -->
+
+    <!-- RIGHT COLUMN — CONTACT -->
+    <div class="profile-right">
+      <div class="contact-card">
+        <div class="contact-name">Sophie Martin</div>
+        <div class="contact-biz">Les Pattes Douces</div>
+
+        <div class="avail-badge">
+          <span class="avail-dot"></span> Disponible dès maintenant
+        </div>
+
+        <hr class="contact-divider" />
+
+        <div class="contact-row">
+          <div class="contact-icon">📞</div>
+          <div>
+            <div class="contact-label">Téléphone</div>
+            <div class="contact-value"><a href="tel:+33612345678">06 12 34 56 78</a></div>
+          </div>
+        </div>
+
+        <div class="contact-row">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-value"><a href="mailto:sophie@lespattesdouces.fr">sophie@lespattesdouces.fr</a></div>
+          </div>
+        </div>
+
+        <div class="contact-row">
+          <div class="contact-icon">🌐</div>
+          <div>
+            <div class="contact-label">Site web</div>
+            <div class="contact-value"><a href="https://www.lespattesdouces.fr" target="_blank" rel="noopener">www.lespattesdouces.fr</a></div>
+          </div>
+        </div>
+
+        <div class="contact-row">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-label">Adresse</div>
+            <div class="contact-value" style="color:rgba(245,239,224,0.7)">Paris 15e arrondissement<br>75015 Paris</div>
+          </div>
+        </div>
+
+        <div class="contact-row">
+          <div class="contact-icon">🕐</div>
+          <div>
+            <div class="contact-label">Réponse</div>
+            <div class="contact-value" style="color:rgba(245,239,224,0.7)">Sous 2h en moyenne</div>
+          </div>
+        </div>
+
+        <hr class="contact-divider" />
+
+        <a href="mailto:sophie@lespattesdouces.fr" class="btn-contact">✉️ Contacter Sophie</a>
+        <a href="tel:+33612345678" class="btn-contact-sec">📞 Appeler directement</a>
+      </div>
+
+      <!-- INFOS RAPIDES -->
+      <div class="pcard" style="gap:12px;display:flex;flex-direction:column;">
+        <div class="pcard-title" style="margin-bottom:12px;"><span class="pcard-icon">ℹ️</span> Infos pratiques</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;justify-content:space-between;font-size:13px;padding:10px 0;border-bottom:1px solid var(--border);">
+            <span style="color:var(--light);font-weight:600;">Expérience</span>
+            <span style="font-weight:700;">8 ans</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:13px;padding:10px 0;border-bottom:1px solid var(--border);">
+            <span style="color:var(--light);font-weight:600;">Animaux max.</span>
+            <span style="font-weight:700;">2 simultanément</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:13px;padding:10px 0;border-bottom:1px solid var(--border);">
+            <span style="color:var(--light);font-weight:600;">Rayon d'action</span>
+            <span style="font-weight:700;">15e, 16e, 14e</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:13px;padding:10px 0;">
+            <span style="color:var(--light);font-weight:600;">Assurance RC Pro</span>
+            <span style="font-weight:700;color:var(--sauge);">✓ Oui</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /profile-main -->
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Cabane à Câlins</div>
+        <div class="footer-tagline">Service de garde d'animaux familial, chaleureux et sécurisant. Parce que vos compagnons méritent ce qu'il y a de mieux.</div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Services</div>
+        <a href="index.html#services">Hébergement complet</a>
+        <a href="index.html#services">Garde de jour — Day Sitting</a>
+        <a href="index.html#services">Garde à domicile — Home Sitting</a>
+        <a href="index.html#tarifs">Nos tarifs</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Contact</div>
+        <a href="contact.html">Nous contacter</a>
+        <a href="contact.html#faq">FAQ</a>
+        <a href="terms-and-conditions.html">Mentions légales</a>
+        <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Professionnels</div>
+        <a style="opacity:0.65;font-size:0.88em;" href="annuaire-depot.html">Déposer une annonce</a>
+        <a href="prestataires.html">Nos prestataires</a>
+        <a href="concept.html">Le concept</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© <span id="footer-year"></span> Cabane à Câlins. Tous droits réservés.</span>
+      <span class="footer-heart">Fait avec ♥ pour vos animaux</span>
+    </div>
+  </footer>
+
+  <script src="shared.min.js" defer></script>
+  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

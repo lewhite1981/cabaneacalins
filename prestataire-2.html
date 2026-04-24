@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Thomas Berger — Woof & Walk Lyon | Lyon 6e | Cabane à Câlins</title>
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <meta name="theme-color" content="#C97B5A" />
+  <link rel="canonical" href="https://cabaneacalins.com/prestataire-2.html" />
+  <meta name="description" content="Thomas Berger — Woof & Walk Lyon. Éducateur canin certifié, garde à domicile et promenades à Lyon. Note 4.8/5 · À partir de 20€/promenade." />
+
+  <meta property="og:type"        content="profile" />
+  <meta property="og:url"         content="https://cabaneacalins.com/prestataire-2.html" />
+  <meta property="og:title"       content="Thomas Berger — Woof & Walk | Lyon 6e" />
+  <meta property="og:description" content="Éducateur canin certifié et promeneur professionnel à Lyon. Note 4.8/5 · À partir de 20€/promenade." />
+  <meta property="og:image"       content="https://cabaneacalins.com/og-image.png" />
+  <meta property="og:locale"      content="fr_FR" />
+  <meta property="og:site_name"   content="Cabane à Câlins" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <meta name="twitter:image"      content="https://cabaneacalins.com/og-image.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Pacifico&display=swap" />
+  <link rel="stylesheet" href="shared.min.css" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --terra:#C97B5A; --terra-d:#b8694a; --terra-light:rgba(201,123,90,0.12);
+      --sauge:#7A9E7E; --sauge-light:rgba(122,158,126,0.12);
+      --creme:#F5EFE0; --caramel:#8B5E3C; --brun:#2E2A25;
+      --white:#FFFFFF; --text:#5c524a; --light:#a09790;
+      --border:rgba(46,42,37,0.1); --radius:16px;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--creme); color: var(--brun); font-family: 'Lato', sans-serif; font-size: 16px; line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(245,239,224,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,123,90,0.12); padding: 0 48px; height: 72px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { font-family: 'Pacifico', cursive; font-size: 22px; color: var(--terra); }
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+    .nav-links a { font-size: 14px; font-weight: 700; color: var(--brun); opacity: 0.75; transition: opacity .2s, color .2s; }
+    .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--terra); }
+    .nav-cta { background: var(--terra); color: var(--white) !important; opacity: 1 !important; border-radius: 50px; padding: 10px 22px !important; font-size: 13px !important; }
+    .nav-cta:hover { background: var(--terra-d) !important; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--brun); border-radius: 2px; }
+    .breadcrumb { padding: 90px 48px 0; max-width: 1100px; margin: 0 auto; }
+    .breadcrumb-inner { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--light); padding-top: 16px; }
+    .breadcrumb-inner a { color: var(--terra); font-weight: 600; }
+    .breadcrumb-inner a:hover { text-decoration: underline; }
+    .profile-cover { position: relative; height: 360px; overflow: hidden; margin-top: 12px; }
+    .profile-cover img { width: 100%; height: 100%; object-fit: cover; }
+    .cover-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 40%, rgba(46,42,37,0.75) 100%); }
+    .profile-header { max-width: 1100px; margin: -60px auto 0; padding: 0 48px; position: relative; z-index: 10; }
+    .profile-header-inner { display: flex; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
+    .profile-avatar { width: 110px; height: 110px; border-radius: 50%; border: 4px solid var(--white); object-fit: cover; box-shadow: 0 8px 28px rgba(46,42,37,0.2); flex-shrink: 0; }
+    .profile-info { flex: 1; padding-bottom: 8px; }
+    .profile-name { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: var(--white); text-shadow: 0 2px 12px rgba(0,0,0,0.4); margin-bottom: 4px; }
+    .profile-biz { font-size: 16px; color: var(--terra); font-weight: 700; text-shadow: 0 1px 6px rgba(0,0,0,0.3); }
+    .profile-main { max-width: 1100px; margin: 32px auto 80px; padding: 0 48px; display: grid; grid-template-columns: 1fr 360px; gap: 36px; }
+    .profile-left { display: flex; flex-direction: column; gap: 28px; }
+    .profile-right { display: flex; flex-direction: column; gap: 20px; }
+    .pcard { background: var(--white); border-radius: 22px; padding: 36px; border: 1px solid var(--border); box-shadow: 0 2px 16px rgba(46,42,37,0.04); }
+    .pcard-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--brun); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+    .pcard-icon { font-size: 22px; }
+    .badges-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+    .badge { display: inline-flex; align-items: center; gap: 6px; border-radius: 50px; padding: 6px 14px; font-size: 12px; font-weight: 700; }
+    .badge-verified { background: var(--sauge-light); color: var(--sauge); }
+    .badge-stars { background: rgba(245,158,11,0.12); color: #b45309; }
+    .badge-city { background: var(--terra-light); color: var(--caramel); }
+    .badge-cert { background: rgba(99,102,241,0.1); color: #4338ca; }
+    .about-text { font-size: 15px; color: var(--text); line-height: 1.8; }
+    .about-text p + p { margin-top: 14px; }
+    .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .service-item { background: var(--creme); border-radius: 14px; padding: 18px; border: 1px solid var(--border); }
+    .service-icon { font-size: 26px; margin-bottom: 8px; }
+    .service-name { font-size: 14px; font-weight: 700; color: var(--brun); margin-bottom: 4px; }
+    .service-desc { font-size: 12.5px; color: var(--text); line-height: 1.5; margin-bottom: 8px; }
+    .service-price { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--terra); font-weight: 700; }
+    .service-price span { font-family: 'Lato', sans-serif; font-size: 12px; color: var(--light); font-weight: 400; }
+    .animals-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .animal-chip { display: flex; align-items: center; gap: 8px; background: var(--creme); border: 1px solid var(--border); border-radius: 50px; padding: 8px 18px; font-size: 13px; font-weight: 700; color: var(--brun); }
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .gallery-grid img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 12px; transition: transform .3s; }
+    .gallery-grid img:hover { transform: scale(1.03); }
+    .certif-list { display: flex; flex-direction: column; gap: 12px; }
+    .certif-item { display: flex; align-items: flex-start; gap: 14px; padding: 14px; background: var(--creme); border-radius: 12px; border: 1px solid var(--border); }
+    .certif-icon { font-size: 24px; flex-shrink: 0; }
+    .certif-name { font-size: 14px; font-weight: 700; color: var(--brun); margin-bottom: 2px; }
+    .certif-org { font-size: 12px; color: var(--light); }
+    .review-list { display: flex; flex-direction: column; gap: 18px; }
+    .review-item { background: var(--creme); border-radius: 14px; padding: 20px; border: 1px solid var(--border); }
+    .review-top { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .review-avatar { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 2px solid var(--white); }
+    .review-author { font-size: 13px; font-weight: 700; color: var(--brun); }
+    .review-date { font-size: 12px; color: var(--light); margin-left: auto; }
+    .review-stars { color: #f59e0b; font-size: 13px; }
+    .review-text { font-size: 13.5px; color: var(--text); line-height: 1.6; }
+    .contact-card { background: var(--brun); border-radius: 22px; padding: 32px; position: sticky; top: 90px; }
+    .contact-name { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--white); font-weight: 700; margin-bottom: 6px; }
+    .contact-biz { font-size: 14px; color: var(--terra); font-weight: 600; margin-bottom: 20px; }
+    .contact-divider { border: none; border-top: 1px solid rgba(245,239,224,0.08); margin: 20px 0; }
+    .contact-row { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .contact-icon { font-size: 18px; width: 36px; height: 36px; background: rgba(201,123,90,0.15); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .contact-label { font-size: 11px; color: rgba(245,239,224,0.4); text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
+    .contact-value { font-size: 14px; color: var(--creme); font-weight: 600; }
+    .contact-value a { color: var(--terra); }
+    .avail-badge { display: flex; align-items: center; gap: 8px; background: rgba(122,158,126,0.15); border: 1px solid rgba(122,158,126,0.3); border-radius: 50px; padding: 8px 16px; font-size: 13px; color: var(--sauge); font-weight: 700; margin: 16px 0; }
+    .avail-dot { width: 8px; height: 8px; background: var(--sauge); border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1}50%{opacity:.4} }
+    .btn-contact { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; background: var(--terra); color: var(--white); border: none; border-radius: 50px; padding: 15px; font-size: 15px; font-weight: 700; font-family: 'Lato', sans-serif; cursor: pointer; transition: all .25s; box-shadow: 0 4px 18px rgba(201,123,90,0.4); text-decoration: none; margin-bottom: 10px; }
+    .btn-contact:hover { background: var(--terra-d); transform: translateY(-2px); color: var(--white); }
+    .btn-contact-sec { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; background: transparent; color: var(--creme); border: 1.5px solid rgba(245,239,224,0.2); border-radius: 50px; padding: 13px; font-size: 14px; font-weight: 700; font-family: 'Lato', sans-serif; cursor: pointer; transition: all .25s; text-decoration: none; }
+    .btn-contact-sec:hover { border-color: rgba(245,239,224,0.5); color: var(--white); }
+    footer { background: var(--brun); padding: 64px 48px 32px; }
+    .footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; max-width: 1100px; margin: 0 auto 48px; }
+    .footer-brand { font-family: 'Pacifico', cursive; font-size: 24px; color: var(--terra); margin-bottom: 12px; }
+    .footer-tagline { font-size: 14px; color: rgba(245,239,224,0.5); line-height: 1.7; max-width: 280px; }
+    .footer-col { display: flex; flex-direction: column; gap: 10px; }
+    .footer-col-title { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--terra); margin-bottom: 6px; }
+    .footer-col a { font-size: 14px; color: rgba(245,239,224,0.5); transition: color .2s; }
+    .footer-col a:hover { color: var(--creme); }
+    .footer-bottom { border-top: 1px solid rgba(245,239,224,0.08); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; max-width: 1100px; margin: 0 auto; }
+    .footer-copy { font-size: 13px; color: rgba(245,239,224,0.3); }
+    .footer-heart { font-size: 13px; color: rgba(201,123,90,0.6); }
+    @media (max-width: 900px) {
+      .profile-main { grid-template-columns: 1fr; }
+      .profile-right { order: -1; }
+      .contact-card { position: static; }
+      nav { padding: 0 20px; }
+      .profile-header, .breadcrumb, .profile-main { padding: 0 20px; }
+      .breadcrumb { padding-top: 90px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+    }
+    @media (max-width: 600px) { .nav-links { display: none; } .gallery-grid { grid-template-columns: 1fr 1fr; } }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-brand">Cabane à Câlins</a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Accueil</a>
+      <a href="prestataires.html" class="active">Prestataires</a>
+      <a href="blog.html">Blog</a>
+      <a href="concept.html">Le concept</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://bizinaclick.com/listing?id=2" target="_blank" rel="noopener" class="nav-cta">Réserver</a>
+    </div>
+    <button class="nav-hamburger" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div class="breadcrumb">
+    <div class="breadcrumb-inner">
+      <a href="index.html">Accueil</a> › <a href="prestataires.html">Prestataires</a> › Thomas Berger
+    </div>
+  </div>
+
+  <div class="profile-cover">
+    <img src="https://images.unsplash.com/photo-1601758174114-e711c0cbaa69?w=1200&h=450&fit=crop" alt="Woof & Walk Lyon — Thomas Berger" />
+    <div class="cover-overlay"></div>
+  </div>
+
+  <div class="profile-header">
+    <div class="profile-header-inner">
+      <img class="profile-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=220&h=220&fit=crop&crop=face" alt="Thomas Berger" />
+      <div class="profile-info">
+        <div class="profile-name">Thomas Berger</div>
+        <div class="profile-biz">Woof & Walk Lyon · Lyon 6e</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="profile-main">
+    <div class="profile-left">
+
+      <div class="badges-row">
+        <span class="badge badge-verified">✓ Pro vérifié</span>
+        <span class="badge badge-stars">★ 4.8 / 5 (62 avis)</span>
+        <span class="badge badge-city">📍 Lyon 6e, 69006</span>
+        <span class="badge badge-cert">🎓 Éducateur certifié CCPDT</span>
+      </div>
+
+      <div class="pcard">
+        <div class="pcard-title"><span class="pcard-icon">💛</span> À propos de Thomas</div>
+        <div class="about-text">
+          <p>Passionné par les chiens depuis l'enfance, j'ai décidé d'en faire mon métier après avoir obtenu ma certification d'éducateur canin en 2018. Aujourd'hui, je propose des services de garde, de promenade et d'éducation à Lyon et dans ses environs.</p>
+          <p>Mon approche est basée sur le renforcement positif exclusivement. Pas de punitions, pas de contraintes : je travaille avec la motivation naturelle de chaque chien pour créer une relation de confiance durable. Chaque animal est unique et mérite un accompagnement personnalisé.</p>
+          <p>Je peux me déplacer à votre domicile pour que votre chien reste dans son environnement familier, ou accueillir des petits groupes de promenade dans les parcs lyonnais comme le Parc de la Tête d'Or. Contactez-moi pour un premier rendez-vous gratuit !</p>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pcard-title"><span class="pcard-icon">🐾</span> Services & tarifs</div>
+        <div class="services-grid">
+          <div class="service-item">
+            <div class="service-icon">🏡</div>
+            <div class="service-name">Garde à domicile</div>
+            <div class="service-desc">Je viens chez vous plusieurs fois par jour pour nourrir, jouer et promener votre chien.</div>
+            <div class="service-price">40€<span> / jour</span></div>
+          </div>
+          <div class="service-item">
+            <div class="service-icon">🦮</div>
+            <div class="service-name">Promenade individuelle</div>
+            <div class="service-desc">Sortie individuelle d'1h dans les parcs lyonnais. Rapport photos envoyé après.</div>
+            <div class="service-price">20€<span> / promenade</span></div>
+          </div>
+          <div class="service-item">
+            <div class="service-icon">🎓</div>
+            <div class="service-name">Séance d'éducation</div>
+            <div class="service-desc">Cours particulier à domicile : rappel, marche en laisse, ordres de base, socialisation.</div>
+            <div class="service-price">55€<span> / séance</span></div>
+          </div>
+          <div class="service-item">
+            <div class="service-icon">📦</div>
+            <div class="service-name">Pack mensuel</div>
+            <div class="service-desc">10 promenades + 2 séances éducation. Idéal pour les propriétaires actifs.</div>
+            <div class="service-price">250€<span> / mois</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pcard-title"><span class="pcard-icon">🏆</span> Certifications & formations</div>
+        <div class="certif-list">
+          <div class="certif-item">
+            <div class="certif-icon">🎓</div>
+            <div>
+              <div class="certif-name">Certificat de capacité — Dressage et éducation canine</div>
+              <div class="certif-org">DGAL — Ministère de l'Agriculture · 2018</div>
+            </div>
+          </div>
+          <div class="certif-item">
+            <div class="certif-icon">🏅</div>
+            <div>
+              <div class="certif-name">Formation renforcement positif avancé</div>
+              <div class="certif-org">Karen Pryor Academy · 2020</div>
+            </div>
+          </div>
+          <div class="certif-item">
+            <div class="certif-icon">🩺</div>
+            <div>
+              <div class="certif-name">Premiers secours animaux</div>
+              <div class="certif-org">Vétérinaire référent Dr. Lemoine · Lyon · 2021</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pcard-title"><span class="pcard-icon">🐕</span> Animaux acceptés</div>
+        <div class="animals-row">
+          <div class="animal-chip">🐕 Chien (toutes tailles)</div>
+          <div class="animal-chip">🦮 Races athlétiques</div>
+          <div class="animal-chip">🐕‍🦺 Chiots dès 3 mois</div>
+        </div>
+        <p style="font-size:13px;color:var(--light);margin-top:14px;">Chats et autres animaux non acceptés. Spécialisé exclusivement en canidés.</p>
+      </div>
+
+      <div class="pcard">
+        <div class="pcard-title"><span class="pcard-icon">📸</span> Galerie photos</div>
+        <div class="gallery-grid">
+          <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=300&h=300&fit=crop" alt="Promenade chien Lyon" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1534361960057-19f4434a1b96?w=300&h=300&fit=crop" alt="Parc Tête d'Or" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1568572933382-74d440642117?w=300&h=300&fit=crop" alt="Éducation canine" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1560743641-3914f2c45636?w=300&h=300&fit=crop" alt="Golden retriever promenade" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=300&fit=crop" alt="Chiens heureux" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1601758174114-e711c0cbaa69?w=300&h=300&fit=crop" alt="Dog walker Lyon" loading="lazy" />
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pcard-title"><span class="pcard-icon">⭐</span> Avis clients</div>
+        <div class="review-list">
+          <div class="review-item">
+            <div class="review-top">
+              <img class="review-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face" alt="Émilie T." loading="lazy" />
+              <div>
+                <div class="review-author">Émilie T.</div>
+                <div class="review-stars">★★★★★</div>
+              </div>
+              <div class="review-date">Avril 2025</div>
+            </div>
+            <p class="review-text">Thomas a réussi en 3 séances ce que je n'avais pas pu obtenir en 2 ans ! Mon border collie hyper-actif rappelle maintenant parfaitement. Sa méthode positive est bluffante. Je continue les promenades hebdomadaires avec lui depuis 6 mois.</p>
+          </div>
+          <div class="review-item">
+            <div class="review-top">
+              <img class="review-avatar" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face" alt="Julien M." loading="lazy" />
+              <div>
+                <div class="review-author">Julien M.</div>
+                <div class="review-stars">★★★★★</div>
+              </div>
+              <div class="review-date">Février 2025</div>
+            </div>
+            <p class="review-text">Sérieux, ponctuel et vraiment passionné. Thomas envoie un compte-rendu photo après chaque promenade. Mon labrador l'adore ! Je recommande à tous les Lyonnais qui cherchent un professionnel de confiance.</p>
+          </div>
+          <div class="review-item">
+            <div class="review-top">
+              <img class="review-avatar" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&h=80&fit=crop&crop=face" alt="Sarah K." loading="lazy" />
+              <div>
+                <div class="review-author">Sarah K.</div>
+                <div class="review-stars">★★★★☆</div>
+              </div>
+              <div class="review-date">Décembre 2024</div>
+            </div>
+            <p class="review-text">Très bon éducateur, mon chiot a fait d'énormes progrès. Seul point d'amélioration : la disponibilité parfois limitée le week-end. Mais la qualité des prestations est vraiment au rendez-vous, je recommande.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="profile-right">
+      <div class="contact-card">
+        <div class="contact-name">Thomas Berger</div>
+        <div class="contact-biz">Woof & Walk Lyon</div>
+        <div class="avail-badge">
+          <span class="avail-dot"></span> Disponible cette semaine
+        </div>
+        <hr class="contact-divider" />
+        <div class="contact-row">
+          <div class="contact-icon">📞</div>
+          <div>
+            <div class="contact-label">Téléphone</div>
+            <div class="contact-value"><a href="tel:+33698765432">06 98 76 54 32</a></div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-value"><a href="mailto:thomas@woofwalk-lyon.fr">thomas@woofwalk-lyon.fr</a></div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">🌐</div>
+          <div>
+            <div class="contact-label">Site web</div>
+            <div class="contact-value"><a href="https://www.woofwalk-lyon.fr" target="_blank" rel="noopener">www.woofwalk-lyon.fr</a></div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-label">Zone d'intervention</div>
+            <div class="contact-value" style="color:rgba(245,239,224,0.7)">Lyon 6e, 1er, 3e, 4e<br>et banlieue proche</div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">📱</div>
+          <div>
+            <div class="contact-label">Instagram</div>
+            <div class="contact-value"><a href="https://instagram.com/woofwalk_lyon" target="_blank" rel="noopener">@woofwalk_lyon</a></div>
+          </div>
+        </div>
+        <hr class="contact-divider" />
+        <a href="mailto:thomas@woofwalk-lyon.fr" class="btn-contact">✉️ Contacter Thomas</a>
+        <a href="tel:+33698765432" class="btn-contact-sec">📞 Appeler directement</a>
+      </div>
+
+      <div class="pcard" style="gap:12px;display:flex;flex-direction:column;">
+        <div class="pcard-title" style="margin-bottom:12px;"><span class="pcard-icon">ℹ️</span> Infos pratiques</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;justify-content:space-between;font-size:13px;padding:10px 0;border-bottom:1px solid var(--border);">
+            <span style="color:var(--light);font-weight:600;">Expérience</span>
+            <span style="font-weight:700;">7 ans</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:13px;padding:10px 0;border-bottom:1px solid var(--border);">
+            <span style="color:var(--light);font-weight:600;">Chiens max. / sortie</span>
+            <span style="font-weight:700;">3 simultanément</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:13px;padding:10px 0;border-bottom:1px solid var(--border);">
+            <span style="color:var(--light);font-weight:600;">Déplacement</span>
+            <span style="font-weight:700;">20 km autour de Lyon</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:13px;padding:10px 0;border-bottom:1px solid var(--border);">
+            <span style="color:var(--light);font-weight:600;">Assurance RC Pro</span>
+            <span style="font-weight:700;color:var(--sauge);">✓ Oui</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:13px;padding:10px 0;">
+            <span style="color:var(--light);font-weight:600;">GPS activé en sortie</span>
+            <span style="font-weight:700;color:var(--sauge);">✓ Oui</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Cabane à Câlins</div>
+        <div class="footer-tagline">Service de garde d'animaux familial, chaleureux et sécurisant. Parce que vos compagnons méritent ce qu'il y a de mieux.</div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Services</div>
+        <a href="index.html#services">Hébergement complet</a>
+        <a href="index.html#services">Garde de jour — Day Sitting</a>
+        <a href="index.html#tarifs">Nos tarifs</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Contact</div>
+        <a href="contact.html">Nous contacter</a>
+        <a href="terms-and-conditions.html">Mentions légales</a>
+        <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Professionnels</div>
+        <a style="opacity:0.65;font-size:0.88em;" href="annuaire-depot.html">Déposer une annonce</a>
+        <a href="prestataires.html">Nos prestataires</a>
+        <a href="concept.html">Le concept</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© <span id="footer-year"></span> Cabane à Câlins. Tous droits réservés.</span>
+      <span class="footer-heart">Fait avec ♥ pour vos animaux</span>
+    </div>
+  </footer>
+
+  <script src="shared.min.js" defer></script>
+  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

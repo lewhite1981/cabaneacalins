@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Prestataires — Annuaire garde d'animaux | Cabane à Câlins</title>
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <meta name="theme-color" content="#C97B5A" />
+  <link rel="canonical" href="https://cabaneacalins.com/prestataires.html" />
+  <meta name="description" content="Découvrez nos prestataires de garde d'animaux vérifiés partout en France. Pension, garde à domicile, promenades — trouvez le professionnel idéal." />
+
+  <meta property="og:type"         content="website" />
+  <meta property="og:url"          content="https://cabaneacalins.com/prestataires.html" />
+  <meta property="og:title"        content="Prestataires — Annuaire garde d'animaux | Cabane à Câlins" />
+  <meta property="og:description"  content="Découvrez nos prestataires de garde d'animaux vérifiés partout en France." />
+  <meta property="og:image"        content="https://cabaneacalins.com/og-image.png" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type"   content="image/png" />
+  <meta property="og:locale"       content="fr_FR" />
+  <meta property="og:site_name"    content="Cabane à Câlins" />
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:image"       content="https://cabaneacalins.com/og-image.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Pacifico&display=swap" />
+  <link rel="stylesheet" href="shared.min.css" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --terra:#C97B5A; --terra-d:#b8694a; --terra-light:rgba(201,123,90,0.12);
+      --sauge:#7A9E7E; --sauge-light:rgba(122,158,126,0.12);
+      --creme:#F5EFE0; --caramel:#8B5E3C; --brun:#2E2A25;
+      --white:#FFFFFF; --text:#5c524a; --light:#a09790;
+      --border:rgba(46,42,37,0.1); --radius:16px;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--creme); color: var(--brun); font-family: 'Lato', sans-serif; font-size: 16px; line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── NAV ── */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(245,239,224,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,123,90,0.12); padding: 0 48px; height: 72px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { font-family: 'Pacifico', cursive; font-size: 22px; color: var(--terra); }
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+    .nav-links a { font-size: 14px; font-weight: 700; color: var(--brun); letter-spacing: 0.3px; opacity: 0.75; transition: opacity .2s, color .2s; }
+    .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--terra); }
+    .nav-cta { background: var(--terra); color: var(--white) !important; opacity: 1 !important; border-radius: 50px; padding: 10px 22px !important; font-size: 13px !important; transition: background .2s !important; }
+    .nav-cta:hover { background: var(--terra-d) !important; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--brun); border-radius: 2px; }
+
+    /* ── HERO ── */
+    .page-hero {
+      background: linear-gradient(-45deg, #2E2A25, #3d3328, #2a2018, #3d3328);
+      background-size: 400% 400%;
+      animation: gradientDrift 16s ease infinite;
+      padding: 160px 48px 80px; text-align: center;
+    }
+    @keyframes gradientDrift { 0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%} }
+    .hero-tag { font-family: 'Pacifico', cursive; font-size: 13px; color: var(--terra); margin-bottom: 14px; }
+    .page-hero h1 { font-family: 'Playfair Display', serif; font-size: 54px; color: var(--white); font-weight: 700; line-height: 1.15; margin-bottom: 18px; }
+    .page-hero h1 em { color: var(--terra); font-style: italic; }
+    .page-hero p { font-size: 17px; color: rgba(245,239,224,0.65); font-weight: 300; max-width: 520px; margin: 0 auto 32px; line-height: 1.7; }
+    .hero-stats { display: flex; gap: 36px; justify-content: center; flex-wrap: wrap; }
+    .hero-stat { text-align: center; }
+    .hero-stat-num { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--terra); font-weight: 700; }
+    .hero-stat-label { font-size: 12px; color: rgba(245,239,224,0.5); text-transform: uppercase; letter-spacing: 1px; }
+
+    /* ── FILTER BAR ── */
+    .filter-bar { background: var(--white); border-bottom: 1px solid var(--border); padding: 20px 48px; position: sticky; top: 72px; z-index: 80; box-shadow: 0 2px 12px rgba(46,42,37,0.05); }
+    .filter-inner { max-width: 900px; margin: 0 auto; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .filter-input {
+      flex: 1; min-width: 160px; background: var(--creme); border: 1.5px solid var(--border);
+      border-radius: 50px; padding: 11px 20px; font-size: 14px; font-family: 'Lato', sans-serif;
+      color: var(--brun); outline: none; transition: border-color .2s;
+    }
+    .filter-input:focus { border-color: var(--terra); }
+    .filter-select {
+      background: var(--creme); border: 1.5px solid var(--border); border-radius: 50px;
+      padding: 11px 20px; font-size: 14px; font-family: 'Lato', sans-serif;
+      color: var(--brun); outline: none; cursor: pointer; appearance: none; min-width: 160px;
+      transition: border-color .2s;
+    }
+    .filter-select:focus { border-color: var(--terra); }
+    .filter-count { font-size: 13px; color: var(--light); font-weight: 600; white-space: nowrap; margin-left: auto; }
+
+    /* ── GRID ── */
+    .main-wrap { max-width: 1100px; margin: 0 auto; padding: 60px 24px 100px; }
+    .providers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+
+    /* ── PROVIDER CARD ── */
+    .prov-card {
+      background: var(--white); border-radius: 24px; overflow: hidden;
+      border: 1px solid var(--border); transition: all .3s;
+      box-shadow: 0 2px 16px rgba(46,42,37,0.05);
+      display: flex; flex-direction: column;
+    }
+    .prov-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(46,42,37,0.12); border-color: rgba(201,123,90,0.2); }
+    .prov-cover { position: relative; height: 200px; overflow: hidden; }
+    .prov-cover img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+    .prov-card:hover .prov-cover img { transform: scale(1.06); }
+    .prov-verified { position: absolute; top: 14px; right: 14px; background: var(--sauge); color: var(--white); font-size: 11px; font-weight: 700; padding: 5px 12px; border-radius: 50px; letter-spacing: 0.5px; }
+    .prov-avatar-wrap { position: absolute; bottom: -26px; left: 20px; }
+    .prov-avatar { width: 56px; height: 56px; border-radius: 50%; border: 3px solid var(--white); object-fit: cover; box-shadow: 0 4px 14px rgba(46,42,37,0.15); }
+
+    .prov-body { padding: 38px 22px 22px; flex: 1; display: flex; flex-direction: column; gap: 12px; }
+    .prov-name { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 700; color: var(--brun); }
+    .prov-biz { font-size: 13px; color: var(--terra); font-weight: 700; margin-top: -8px; }
+    .prov-stars { display: flex; align-items: center; gap: 6px; }
+    .stars { color: #f59e0b; font-size: 14px; letter-spacing: 1px; }
+    .prov-rating { font-size: 13px; font-weight: 700; color: var(--brun); }
+    .prov-reviews { font-size: 12px; color: var(--light); }
+    .prov-services { display: flex; gap: 6px; flex-wrap: wrap; }
+    .svc-badge { background: var(--terra-light); color: var(--caramel); font-size: 11px; font-weight: 700; padding: 4px 11px; border-radius: 50px; letter-spacing: 0.2px; }
+    .prov-meta { display: flex; align-items: center; gap: 16px; font-size: 13px; color: var(--text); }
+    .prov-location { display: flex; align-items: center; gap: 5px; }
+    .prov-price { margin-left: auto; font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--brun); }
+    .prov-price span { font-family: 'Lato', sans-serif; font-size: 12px; font-weight: 400; color: var(--light); }
+    .prov-desc { font-size: 13.5px; color: var(--text); line-height: 1.6; flex: 1; }
+    .prov-footer { border-top: 1px solid var(--border); padding-top: 16px; margin-top: auto; }
+    .btn-profile {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      background: var(--terra); color: var(--white); border-radius: 50px;
+      padding: 12px 24px; font-size: 14px; font-weight: 700;
+      transition: all .25s; box-shadow: 0 4px 16px rgba(201,123,90,0.3);
+    }
+    .btn-profile:hover { background: var(--terra-d); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(201,123,90,0.4); color: var(--white); }
+
+    /* ── CTA BAND ── */
+    .cta-band { background: var(--brun); border-radius: 28px; padding: 56px 48px; margin: 20px 0 0; text-align: center; position: relative; overflow: hidden; }
+    .cta-band::before { content: '🐾'; position: absolute; font-size: 160px; opacity: 0.04; top: -20px; right: -20px; }
+    .cta-band h2 { font-family: 'Playfair Display', serif; font-size: 34px; color: var(--white); font-weight: 700; margin-bottom: 14px; }
+    .cta-band h2 em { color: var(--terra); font-style: italic; }
+    .cta-band p { font-size: 16px; color: rgba(245,239,224,0.6); max-width: 480px; margin: 0 auto 32px; line-height: 1.7; }
+    .btn-cta-band { display: inline-flex; align-items: center; gap: 10px; background: var(--terra); color: var(--white); border-radius: 50px; padding: 16px 36px; font-size: 15px; font-weight: 700; transition: all .25s; box-shadow: 0 6px 24px rgba(201,123,90,0.4); }
+    .btn-cta-band:hover { background: var(--terra-d); transform: translateY(-2px); color: var(--white); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--brun); padding: 64px 48px 32px; margin-top: 80px; }
+    .footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; max-width: 1100px; margin: 0 auto 48px; }
+    .footer-brand { font-family: 'Pacifico', cursive; font-size: 24px; color: var(--terra); margin-bottom: 12px; }
+    .footer-tagline { font-size: 14px; color: rgba(245,239,224,0.5); line-height: 1.7; max-width: 280px; }
+    .footer-col { display: flex; flex-direction: column; gap: 10px; }
+    .footer-col-title { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--terra); margin-bottom: 6px; }
+    .footer-col a { font-size: 14px; color: rgba(245,239,224,0.5); transition: color .2s; }
+    .footer-col a:hover { color: var(--creme); }
+    .footer-bottom { border-top: 1px solid rgba(245,239,224,0.08); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; max-width: 1100px; margin: 0 auto; }
+    .footer-copy { font-size: 13px; color: rgba(245,239,224,0.3); }
+    .footer-heart { font-size: 13px; color: rgba(201,123,90,0.6); }
+
+    @media (max-width: 900px) {
+      .providers-grid { grid-template-columns: 1fr 1fr; }
+      nav { padding: 0 20px; }
+      .filter-bar { padding: 14px 20px; }
+      .page-hero { padding: 130px 24px 60px; }
+      .page-hero h1 { font-size: 36px; }
+    }
+    @media (max-width: 600px) {
+      .providers-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+      .cta-band { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-brand">Cabane à Câlins</a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Accueil</a>
+      <a href="prestataires.html" class="active">Prestataires</a>
+      <a href="blog.html">Blog</a>
+      <a href="concept.html">Le concept</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://bizinaclick.com/listing?id=2" target="_blank" rel="noopener" class="nav-cta">Réserver</a>
+    </div>
+    <button class="nav-hamburger" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <header class="page-hero">
+    <p class="hero-tag">Annuaire professionnel</p>
+    <h1>Nos <em>prestataires</em> de confiance</h1>
+    <p>Des professionnels vérifiés, passionnés par les animaux, répartis dans toute la France pour garder vos compagnons comme les leurs.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">3</div>
+        <div class="hero-stat-label">Prestataires</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">3</div>
+        <div class="hero-stat-label">Régions</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">100%</div>
+        <div class="hero-stat-label">Vérifiés</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">4.9★</div>
+        <div class="hero-stat-label">Note moyenne</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <div class="filter-inner">
+      <input class="filter-input" type="text" placeholder="🔍  Ville, code postal…" id="filterCity" oninput="filterCards()" />
+      <select class="filter-select" id="filterService" onchange="filterCards()">
+        <option value="">🐾 Tous les services</option>
+        <option value="pension">Pension</option>
+        <option value="garde">Garde à domicile</option>
+        <option value="promenade">Promenade</option>
+        <option value="education">Éducation</option>
+      </select>
+      <select class="filter-select" id="filterAnimal" onchange="filterCards()">
+        <option value="">🐕 Tous les animaux</option>
+        <option value="chien">Chien</option>
+        <option value="chat">Chat</option>
+        <option value="nac">NAC</option>
+      </select>
+      <span class="filter-count" id="filterCount">3 prestataires</span>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <main class="main-wrap">
+
+    <div class="providers-grid" id="providersGrid">
+
+      <!-- ─── CARTE 1 : Sophie Martin ─── -->
+      <div class="prov-card" data-services="pension garde" data-animals="chien chat" data-city="paris">
+        <div class="prov-cover">
+          <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&h=300&fit=crop" alt="Sophie Martin — Les Pattes Douces" loading="lazy" />
+          <div class="prov-verified">✓ Pro vérifié</div>
+          <div class="prov-avatar-wrap">
+            <img class="prov-avatar" src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=120&h=120&fit=crop&crop=face" alt="Sophie Martin" loading="lazy" />
+          </div>
+        </div>
+        <div class="prov-body">
+          <div>
+            <div class="prov-name">Sophie Martin</div>
+            <div class="prov-biz">Les Pattes Douces</div>
+          </div>
+          <div class="prov-stars">
+            <span class="stars">★★★★★</span>
+            <span class="prov-rating">4.9</span>
+            <span class="prov-reviews">(47 avis)</span>
+          </div>
+          <div class="prov-services">
+            <span class="svc-badge">🏠 Pension</span>
+            <span class="svc-badge">☀️ Garde de jour</span>
+            <span class="svc-badge">🚶 Visites</span>
+          </div>
+          <div class="prov-meta">
+            <div class="prov-location">📍 Paris 15e (75015)</div>
+            <div class="prov-price">35€<span>/nuit</span></div>
+          </div>
+          <p class="prov-desc">Passionnée par les animaux depuis toujours, je vous accueille chiens et chats dans mon appartement familial. Vos compagnons sont traités comme les miens.</p>
+          <div class="prov-footer">
+            <a href="prestataire-1.html" class="btn-profile">Voir la fiche complète →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── CARTE 2 : Thomas Berger ─── -->
+      <div class="prov-card" data-services="garde promenade education" data-animals="chien" data-city="lyon">
+        <div class="prov-cover">
+          <img src="https://images.unsplash.com/photo-1601758174114-e711c0cbaa69?w=600&h=300&fit=crop" alt="Thomas Berger — Woof & Walk" loading="lazy" />
+          <div class="prov-verified">✓ Pro vérifié</div>
+          <div class="prov-avatar-wrap">
+            <img class="prov-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&h=120&fit=crop&crop=face" alt="Thomas Berger" loading="lazy" />
+          </div>
+        </div>
+        <div class="prov-body">
+          <div>
+            <div class="prov-name">Thomas Berger</div>
+            <div class="prov-biz">Woof & Walk Lyon</div>
+          </div>
+          <div class="prov-stars">
+            <span class="stars">★★★★★</span>
+            <span class="prov-rating">4.8</span>
+            <span class="prov-reviews">(62 avis)</span>
+          </div>
+          <div class="prov-services">
+            <span class="svc-badge">🏡 Garde à dom.</span>
+            <span class="svc-badge">🦮 Promenade</span>
+            <span class="svc-badge">🎓 Éducation</span>
+          </div>
+          <div class="prov-meta">
+            <div class="prov-location">📍 Lyon 6e (69006)</div>
+            <div class="prov-price">40€<span>/jour</span></div>
+          </div>
+          <p class="prov-desc">Éducateur canin certifié et promeneur professionnel, j'interviens à votre domicile pour que votre chien garde ses habitudes dans son environnement familier.</p>
+          <div class="prov-footer">
+            <a href="prestataire-2.html" class="btn-profile">Voir la fiche complète →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── CARTE 3 : Aurélie Fontaine ─── -->
+      <div class="prov-card" data-services="pension" data-animals="chien chat nac" data-city="bordeaux">
+        <div class="prov-cover">
+          <img src="https://images.unsplash.com/photo-1415369629372-26f2fe60c467?w=600&h=300&fit=crop" alt="Aurélie Fontaine — La Ferme aux Câlins" loading="lazy" />
+          <div class="prov-verified">✓ Pro vérifié</div>
+          <div class="prov-avatar-wrap">
+            <img class="prov-avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=120&h=120&fit=crop&crop=face" alt="Aurélie Fontaine" loading="lazy" />
+          </div>
+        </div>
+        <div class="prov-body">
+          <div>
+            <div class="prov-name">Aurélie Fontaine</div>
+            <div class="prov-biz">La Ferme aux Câlins</div>
+          </div>
+          <div class="prov-stars">
+            <span class="stars">★★★★★</span>
+            <span class="prov-rating">5.0</span>
+            <span class="prov-reviews">(31 avis)</span>
+          </div>
+          <div class="prov-services">
+            <span class="svc-badge">🌿 Pension rurale</span>
+            <span class="svc-badge">🐰 NAC</span>
+            <span class="svc-badge">📅 Longue durée</span>
+          </div>
+          <div class="prov-meta">
+            <div class="prov-location">📍 Bordeaux (33000)</div>
+            <div class="prov-price">28€<span>/nuit</span></div>
+          </div>
+          <p class="prov-desc">Ma propriété à 15 min de Bordeaux accueille chiens, chats, lapins et NAC dans un cadre verdoyant et calme. Idéal pour les séjours longue durée.</p>
+          <div class="prov-footer">
+            <a href="prestataire-3.html" class="btn-profile">Voir la fiche complète →</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /grid -->
+
+    <!-- CTA BAND -->
+    <div class="cta-band">
+      <h2>Vous êtes prestataire ?<br><em>Rejoignez l'annuaire</em></h2>
+      <p>Déposez votre annonce et gagnez en visibilité auprès de milliers de propriétaires d'animaux partout en France.</p>
+      <a href="annuaire-depot.html" class="btn-cta-band">🐾 Déposer mon annonce</a>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Cabane à Câlins</div>
+        <div class="footer-tagline">Service de garde d'animaux familial, chaleureux et sécurisant. Parce que vos compagnons méritent ce qu'il y a de mieux.</div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Services</div>
+        <a href="index.html#services">Hébergement complet</a>
+        <a href="index.html#services">Garde de jour — Day Sitting</a>
+        <a href="index.html#services">Garde à domicile — Home Sitting</a>
+        <a href="index.html#tarifs">Nos tarifs</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Contact</div>
+        <a href="contact.html">Nous contacter</a>
+        <a href="contact.html#faq">FAQ</a>
+        <a href="terms-and-conditions.html">Mentions légales</a>
+        <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Professionnels</div>
+        <a style="opacity:0.65;font-size:0.88em;" href="annuaire-depot.html">Déposer une annonce</a>
+        <a href="prestataires.html">Nos prestataires</a>
+        <a href="concept.html">Le concept</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© <span id="footer-year"></span> Cabane à Câlins. Tous droits réservés.</span>
+      <span class="footer-heart">Fait avec ♥ pour vos animaux</span>
+    </div>
+  </footer>
+
+  <script src="shared.min.js" defer></script>
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    function filterCards() {
+      var city    = document.getElementById('filterCity').value.toLowerCase().trim();
+      var service = document.getElementById('filterService').value.toLowerCase();
+      var animal  = document.getElementById('filterAnimal').value.toLowerCase();
+      var cards   = document.querySelectorAll('.prov-card');
+      var shown   = 0;
+      cards.forEach(function(card) {
+        var c = card.dataset.city || '';
+        var s = card.dataset.services || '';
+        var a = card.dataset.animals || '';
+        var ok = (!city || c.includes(city))
+              && (!service || s.includes(service))
+              && (!animal || a.includes(animal));
+        card.style.display = ok ? '' : 'none';
+        if (ok) shown++;
+      });
+      document.getElementById('filterCount').textContent = shown + ' prestataire' + (shown > 1 ? 's' : '');
+    }
+  </script>
+</body>
+</html>
