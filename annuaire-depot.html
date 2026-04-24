@@ -309,6 +309,22 @@
     .footer-copy { font-size: 13px; color: rgba(245,239,224,0.3); }
     .footer-heart { font-size: 13px; color: rgba(201,123,90,0.6); }
 
+    /* ── STRIPE RETURN BANNER ── */
+    .stripe-return-banner {
+      display: none;
+      position: fixed; top: 116px; left: 0; right: 0; z-index: 150;
+      background: linear-gradient(90deg, #16a34a, #15803d);
+      color: #fff; padding: 14px 32px;
+      align-items: center; justify-content: center; gap: 12px;
+      font-size: 14px; font-weight: 700;
+      box-shadow: 0 4px 20px rgba(22,163,74,0.4);
+      animation: slideDown .4s ease;
+    }
+    @keyframes slideDown { from { transform: translateY(-100%); opacity:0; } to { transform: none; opacity:1; } }
+    .stripe-return-banner .banner-check { font-size: 20px; }
+    .stripe-return-banner .banner-close { margin-left: auto; background: none; border: none; color: rgba(255,255,255,0.7); font-size: 18px; cursor: pointer; padding: 0 4px; transition: color .2s; }
+    .stripe-return-banner .banner-close:hover { color: #fff; }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 720px) {
       nav { padding: 0 20px; }
@@ -351,6 +367,13 @@
       <span></span><span></span><span></span>
     </button>
   </nav>
+
+  <!-- ═══ BANNIÈRE RETOUR STRIPE (affichée après redirection paiement) ═══ -->
+  <div class="stripe-return-banner" id="stripeBanner" role="alert">
+    <span class="banner-check">✅</span>
+    <span>Paiement confirmé par Stripe — Remplissez votre annonce ci-dessous !</span>
+    <button class="banner-close" onclick="this.parentElement.style.display='none'" aria-label="Fermer">✕</button>
+  </div>
 
   <!-- ═══ PAGE HERO ═══ -->
   <header class="page-hero" role="banner">
@@ -739,6 +762,9 @@
   <script>
   /* ══════════════════════════════════════════
      LIENS STRIPE
+     Success URL à configurer dans Stripe Dashboard :
+     - Mensuel : https://cabaneacalins.com/annuaire-depot.html?paid=success&plan=monthly
+     - Annuel  : https://cabaneacalins.com/annuaire-depot.html?paid=success&plan=annual
   ══════════════════════════════════════════ */
   var STRIPE_URLS = {
     monthly : 'https://buy.stripe.com/dRm4gzfBe2C81FrdgZ0480w',
@@ -747,35 +773,46 @@
 
   var chosenPlan = null;
 
-  /* ── Ouvrir Stripe + afficher la confirmation ── */
+  /* ── Rediriger vers Stripe (même onglet) ──
+     Stripe redirigera ensuite vers ?paid=success&plan=...
+     après confirmation du paiement.               */
   function openStripe(plan) {
     chosenPlan = plan;
-    window.open(STRIPE_URLS[plan], '_blank');
-    document.getElementById('paymentPending').classList.add('show');
-    document.getElementById('paymentPending').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    /* Redirection dans le même onglet : Stripe peut alors
+       renvoyer l'utilisateur ici avec ?paid=success       */
+    window.location.href = STRIPE_URLS[plan];
   }
 
-  /* ── Confirmer le paiement → révéler le formulaire ── */
-  function confirmPayment() {
-    /* Mettre à jour le stepper */
+  /* ── Révéler le formulaire (appelée par URL ou bouton fallback) ── */
+  function revealFormAfterPayment(plan) {
+    chosenPlan = plan || chosenPlan || 'monthly';
+    var isAnnual = chosenPlan === 'annual';
+
+    /* Stepper : étape 1 = done, étape 2 = active */
     document.getElementById('step1').classList.remove('active');
     document.getElementById('step1').classList.add('done');
     document.getElementById('step2').classList.add('active');
 
-    /* Badge du plan actif */
-    var isAnnual = chosenPlan === 'annual';
-    document.getElementById('apbName').textContent = isAnnual ? 'Formule Annuelle' : 'Formule Mensuelle';
+    /* Badge plan actif */
+    document.getElementById('apbName').textContent  = isAnnual ? 'Formule Annuelle' : 'Formule Mensuelle';
     document.getElementById('apbPrice').textContent = isAnnual ? '199 € / an' : '19,90 € / mois';
 
-    /* Révéler le formulaire */
-    var formSections = document.getElementById('formSections');
-    formSections.classList.add('revealed');
-    formSections.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    /* Masquer paiement, révéler formulaire */
+    document.getElementById('sec-paiement').style.display = 'none';
+    document.getElementById('formSections').classList.add('revealed');
 
-    /* Masquer la section paiement après animation */
-    setTimeout(function() {
-      document.getElementById('sec-paiement').style.display = 'none';
-    }, 600);
+    /* Nettoyer l'URL (retirer ?paid=success&plan=...) */
+    if (window.history && window.history.replaceState) {
+      history.replaceState({}, document.title, window.location.pathname);
+    }
+
+    /* Scroll en haut pour voir le badge de confirmation */
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  /* ── Bouton fallback "J'ai payé" (si Stripe n'est pas encore configuré) ── */
+  function confirmPayment() {
+    revealFormAfterPayment(chosenPlan);
   }
 
   /* ══════════════════════════════════════════
@@ -886,6 +923,25 @@
       errBox.textContent = '⚠ Erreur lors de l\'envoi. Vérifiez votre connexion et réessayez.';
     }
   }
+
+  /* ══════════════════════════════════════════
+     DÉTECTION DE RETOUR STRIPE (?paid=success)
+     Stripe redirige ici après paiement confirmé.
+  ══════════════════════════════════════════ */
+  document.addEventListener('DOMContentLoaded', function() {
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('paid') === 'success') {
+      var plan = params.get('plan') || 'monthly';
+      /* Paiement confirmé par Stripe → formulaire direct */
+      revealFormAfterPayment(plan);
+      /* Afficher la bannière de confirmation */
+      var banner = document.getElementById('stripeBanner');
+      if (banner) {
+        banner.style.display = 'flex';
+        setTimeout(function() { banner.style.display = 'none'; }, 6000);
+      }
+    }
+  });
 
   /* ── Compteur de caractères ── */
   document.addEventListener('DOMContentLoaded', function() {
