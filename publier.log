@@ -8,3 +8,9 @@
 [2026-04-22 13:30] Aucun nouvel article à publier aujourd'hui.
 [2026-04-22 13:31] === publier.py démarré — 2026-04-22 ===
 [2026-04-22 13:31] Aucun nouvel article à publier aujourd'hui.
+[2026-04-29 08:03] === publier.py démarré — 2026-04-29 ===
+[2026-04-29 08:03] → Publication : « Dans les coulisses d'une journée à Cabane à Câlin » (2026-04-29)
+[2026-04-29 08:03]   ✓ blog.html mis à jour : article 2 (blog-article-2.html) → Publié
+[2026-04-29 08:05]   ⚠ calendrier-blog.xlsx : écriture refusée (PermissionError) — fichier probablement ouvert dans Excel.
+[2026-04-29 08:05]   → blog.html a bien été mis à jour. Statut xlsx non synchronisé. Copie à jour : /outputs/calendrier-blog-updated.xlsx
+[2026-04-29 08:05] === Fin (1 article publié côté HTML, statut xlsx non écrit) ===
