@@ -14,3 +14,11 @@
 [2026-04-29 08:05]   ⚠ calendrier-blog.xlsx : écriture refusée (PermissionError) — fichier probablement ouvert dans Excel.
 [2026-04-29 08:05]   → blog.html a bien été mis à jour. Statut xlsx non synchronisé. Copie à jour : /outputs/calendrier-blog-updated.xlsx
 [2026-04-29 08:05] === Fin (1 article publié côté HTML, statut xlsx non écrit) ===
+[2026-05-06 08:02] === publier.py démarré — 2026-05-06 ===
+[2026-05-06 08:02] → Publication : « Dans les coulisses d'une journée à Cabane à Câlin » (2026-04-29)
+[2026-05-06 08:02]   ✓ blog.html mis à jour : article 2 (blog-article-2.html) → Publié
+[2026-05-06 08:02]   ✓ calendrier-blog.xlsx ligne 3 → Publié
+[2026-05-06 08:02] → Publication : « Garde d'animaux éthique : le futur du pet-sitting ? » (2026-05-06)
+[2026-05-06 08:02]   ✓ blog.html mis à jour : article 3 (blog-article-3.html) → Publié
+[2026-05-06 08:02]   ✓ calendrier-blog.xlsx ligne 4 → Publié
+[2026-05-06 08:02] === 2 article(s) publié(s) avec succès ===
