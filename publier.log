@@ -22,3 +22,8 @@
 [2026-05-06 08:02]   ✓ blog.html mis à jour : article 3 (blog-article-3.html) → Publié
 [2026-05-06 08:02]   ✓ calendrier-blog.xlsx ligne 4 → Publié
 [2026-05-06 08:02] === 2 article(s) publié(s) avec succès ===
+[2026-05-13 11:28] === publier.py démarré — 2026-05-13 ===
+[2026-05-13 11:28] → Publication : « Que mettre dans le sac de votre chien pour une garde ? » (2026-05-13)
+[2026-05-13 11:28]   ✓ blog.html mis à jour : article 4 (blog-article-4.html) → Publié
+[2026-05-13 11:28]   ✓ calendrier-blog.xlsx ligne 5 → Publié
+[2026-05-13 11:28] === 1 article(s) publié(s) avec succès ===
